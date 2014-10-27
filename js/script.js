@@ -59,6 +59,7 @@ function meusdados(){
 
 }
 
+
 function editar_meus_dados(){
 	$.post(URLBASE+'meus_dados.php', $('#formulario_meus_dados').serialize(), function(data) {
 					$.each( data, function( ) {
@@ -123,3 +124,36 @@ $(function(){
 			
 
 })
+
+function meusanimais(){
+	var lista = '';
+	$.post(URLBASE+'meu_animais.php', {acao:'retornarTodos', id_morador:idmorador()}, function(data) {
+				var x = 0;
+					$.each( data, function( ) {
+						
+						lista += ' <li style="padding-left:0; min-height:0" data-role="collapsible" data-theme="d" data-iconpos="right" data-inset="false">';
+						lista +=	'<h2>'+data[x].nome_animal;
+						lista +=	'<img src="img/icones/icone-bino.png" align="right" style="margin: 0px 0px;">';
+						lista +=	'</h2>';
+						lista +=	'<form >';
+						lista +=	  '<fieldset data-role="controlgroup" data-type="horizontal">';
+						lista +=		'<a href="#form_meus_animais" onClick="editarAnimal('+data[x].ID+');" id="btn-list-detalhe" class="ui-btn ui-corner-all">Detalhes/Editar</a>';
+						lista +=		'<a href="#" onClick="excluirAnimal('+data[x].ID+');" id="btn-list" class="ui-btn ui-corner-all">Excluir</a>	';
+						lista +=	 ' </fieldset>';
+						lista +=	'</form>';
+						lista +=  '</li>';
+						x++;
+					});
+					$('#listadeanimais').html(lista);
+					$('#listadeanimais').listview("refresh");
+		}, 'json');
+
+}
+// funções de inicialização
+	
+		//verificar meus dados
+			
+			if(ancora == "#meus_animais"){
+				meusanimais();
+			}
+	//fim
