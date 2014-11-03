@@ -4,8 +4,9 @@ const URLARQUIVOS = "http://serve.iflexdigital.com.br/lomatech/";
 function idmorador(){
 
 	alert(1);
-	return($.cookie('IDAppLomactech'));
-	alert($.cookie('IDAppLomactech'));
+	//return($.cookie('IDAppLomactech'));
+	return window.localStorage.getItem("IDAppLomactech");
+	alert(window.localStorage.getItem("IDAppLomactech"));
 
 }
 function bloquear(a){
@@ -149,7 +150,8 @@ $(function(){
 		$.post(URLBASE+'logar.php', $( this ).serialize(), function(data) {
 					$.each( data, function( ) {
 						if(data.retorno){
-							$.cookie('IDAppLomactech', data.id, { expires: 360 });
+							 window.localStorage.setItem("IDAppLomactech", data.id);
+							//$.cookie('IDAppLomactech', data.id, { expires: 360 });
 							window.location = "#painel";						
 						}else{
 						
