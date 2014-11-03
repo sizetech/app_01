@@ -3,10 +3,8 @@ const URLARQUIVOS = "http://serve.iflexdigital.com.br/lomatech/";
 
 function idmorador(){
 
-	alert(1);
 	//return($.cookie('IDAppLomactech'));
 	return window.localStorage.getItem("IDAppLomactech");
-	alert(window.localStorage.getItem("IDAppLomactech"));
 
 }
 function bloquear(a){
