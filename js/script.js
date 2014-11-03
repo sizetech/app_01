@@ -39,7 +39,7 @@ function carregar(a){
 
 function meusdados(){
 
-	bloquear('ativar');
+	carregar('ativar');
 	$.post(URLBASE+'meus_dados.php', {acao:'retornar', id:idmorador()}, function(data) {
 					$.each( data, function( ) {
 						$('#id_morador_form_meus_dados').val(idmorador());
@@ -85,7 +85,7 @@ function meusdados(){
 						
 						$('#apartamento_meus_dados').val(data.apartamentosala);
 						$('#apartamento_form_dados').val(data.apartamentosala);
-						bloquear('desativar');
+						carregar('desativar');
 					})
 		}, 'json');
 
