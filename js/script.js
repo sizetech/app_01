@@ -2,7 +2,10 @@ const URLBASE = "http://serve.iflexdigital.com.br/lomatech/app/";
 const URLARQUIVOS = "http://serve.iflexdigital.com.br/lomatech/";
 
 function idmorador(){
+
+	alert(1);
 	return($.cookie('IDAppLomactech'));
+	alert($.cookie('IDAppLomactech'));
 
 }
 function bloquear(a){
