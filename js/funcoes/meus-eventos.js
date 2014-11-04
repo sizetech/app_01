@@ -4,11 +4,11 @@
 function meus_eventos(){
 	var lista = '';
 	$.post(URLBASE+'eventos.php', {acao:'retornarTodos', id:idmorador()}, function(data) {
-				var x = 0;
+				var x = 0;									
 					$.each( data, function( ) {
 						
-						lista += '	 <li  onclick="abrirCoollapsible(this);" style="padding-left:20px; min-height:0" data-role="collapsible" data-theme="d" data-iconpos="right" data-inset="false">';
-						lista += '		<h2 style="color: #FFF;text-shadow: none;">'+data[x].nome+'<img src="img/btn/eventos.png" align="right" style="margin: 0px 0px;"></h2> ';
+						lista += '	 <li onclick="abrirCoollapsible(this);" style="padding-left:20px;margin:10px; min-height:0" data-role="collapsible" data-theme="d" data-iconpos="right" data-inset="false">';
+						lista += '		<a href="#"><h2 style="color: #FFF;text-shadow: none;">'+data[x].nome+'<img src="img/btn/eventos.png" align="right" style="margin: 0px 0px;"></h2></a>';
 						lista +=	'<form style="display:none" >';
 						lista += ' 		<h1 style="color:#FFF; text-shadow: none;text-align:center;font-size:20px;">'+data[x].nome+'</h1>';
 						lista += '	 	<h3 style="text-shadow: none; color: #FFF;background-color: #85b200;width: 100%;">PUBLICADO EM :'+data[x].data_cadastro+'</h3><br>';
@@ -22,6 +22,7 @@ function meus_eventos(){
 						lista += ' </form>';
 						lista += '	</li>';
 						x++;
+						
 					});
 					$('#listaeventos').html(lista);
 					$('#listaeventos').listview("refresh");
