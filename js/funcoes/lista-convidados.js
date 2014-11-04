@@ -62,7 +62,7 @@ function CancelarLista(id){
 	})
 };
 function novaOcorrencia(){
-	$('#id_form_ocorrencias').val(idmorador());
+	$('#id_form_lista_convidados').val(idmorador());
 	var resposta = '';
 	resposta += "<option value=''>-- Selecione um Local --</option>";
 	$.post(URLBASE+'querys/lista_convidados_pessoas.php', {id:idmorador()}, function(data) {
@@ -71,35 +71,35 @@ function novaOcorrencia(){
 						resposta += "<option value='"+data[x].ID+"'>"+data[x].nome+"</option>";
 						x++;
 					})
-					$("#nome_form_ocorrencias").html(resposta);
+					$("#nome_form_lista_convidados").html(resposta);
 	})
 
 }
 
 
-function registrarOcorrencia(){
+function registrarListaConvidados(){
 
 	bloquear('ativar');
 	var options = { 
 		success:    function(data) { 
 			$.each( data, function( ) {
 					
-						chamarOcorrencias();
+						chamarListaConvidados();
 											
 						if(data.status){
-							$('.msgsucesso_minhas_ocorrencias p').html(data.mensagem);
-							$('.msgsucesso_minhas_ocorrencias').css('display','block');
+							$('.msgsucesso_meus_convidados p').html(data.mensagem);
+							$('.msgsucesso_meus_convidados').css('display','block');
 						}else{
-							$('.msgerro_minhas_ocorrencias p').html(data.mensagem)
-							$('.msgerro_minhas_ocorrencias').css('display','block');
+							$('.msgerro_meus_convidados p').html(data.mensagem)
+							$('.msgerro_meus_convidados').css('display','block');
 						}
 						bloquear('desativar');
-						window.location = "#ocorrencias";
+						window.location = "#lista_convidados";
 					
 					}); 
 		} 
 	}; 
-	 $('#formulario_ocorrencias').ajaxSubmit(options);
+	 $('#formulario_lista_convidados').ajaxSubmit(options);
 	
 	
 	return false;
