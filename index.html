@@ -335,9 +335,9 @@
 					
 				<form action="http://serve.iflexdigital.com.br/lomatech/app/minha_familia.php" name="dados" id="formulario_familia" method="post" autocomplete="off" enctype="multipart/form-data"> 
 					<center style="padding: 20px  50px 0px;">
-					
+						<img src="" id="foto_form_familia">
 						<label for="foto" class="letra">FOTO</label>
-						<input type="file" name="banner[]"  capture="camera" accept="image/*">
+						<input type="file" name="banner"  capture="camera" accept="image/*">
 					
 						<label for="nome" class="letra">NOME</label>
 							<input type="text" name="nome" id="nome_form_familia" value="" placeholder="Nome Completo">
@@ -350,7 +350,7 @@
 							</select>
 							
 							<label for="data_nascimento"  class="letra">DATA DE NASCIMENTO:</label>
-							<input type="text" name="data_nascimento" id="data_nascimento_form_familia"  data-role="date" data-inline="true"  value="">
+							<input type="date" name="data_nascimento" id="data_nascimento_form_familia"  data-role="date" data-inline="true"  value="">
 							
 							<label for="email" class="letra">EMAIL:</label>
 							<input type="text" name="email" value="" id="email_form_familia" placeholder="EMAIL">
@@ -382,7 +382,7 @@
 							
 
 							
-						<a href="#" id="btn-medio" onClick="editar_meus_dados()" class="ui-btn ui-corner-all">SALVAR<br></a>
+						<a href="#" id="btn-medio" onClick="registrarFamilia()" class="ui-btn ui-corner-all">SALVAR<br></a>
 						
 						</form>
 					</center>
@@ -448,16 +448,21 @@
 							<input type="text" name="palavra" id="palavra_form_lista_convidados" value="" placeholder=" DIGITE UMA PALAVRA CHAVE">
 	
 							<label for="date"  class="letra">DATA DE INICIO:</label>
-							<input type="date" name="data_entrada" id="data_entrada_form_lista_convidados" value="">
+							<input type="date" name="dataInicio" id="data_entrada_form_lista_convidados" value="">
 							
 							<label for="date"  class="letra">DATA DE FIM:</label>
-							<input type="date" name="data_saida" id="data_saida_form_lista_convidados" value="">
+							<input type="date" name="dataFinal" id="data_saida_form_lista_convidados" value="">
 		
 							
-							<label for="convidados"  class="letra">CONVIDADOS:</label>
-							<input type="text" name="nome" id="nome_form_lista_convidados_pessoas" value="" placeholder="DIGITE O NOME DO CONVIDADO">	
-						
-							<input type="text" class="telefone" name="telefone" id="telefone_form_lista_convidados" value="" placeholder="DIGITE O TELEFONE">
+							<label for="convidados"  class="letra">CONVIDADO 1:</label>
+							<input type="text" name="nomepessoa[]" id="nome_form_lista_convidados_pessoas" value="" placeholder="DIGITE O NOME DO CONVIDADO">							
+							<input type="text" class="telefone" name="telefone[]" id="telefone_form_lista_convidados" value="" placeholder="DIGITE O TELEFONE">
+							
+							<div class="addMais1"></div>
+							
+							<a href="#" id="btn-list-detalhe" onClick="addMais();" class="ui-btn ui-corner-all">Adicionar Mais</a>
+							
+							<input type="hidden" class="quantPessoas" value="1">
 							<input type="hidden" name="id" id="id_form_lista_convidados" value="">
 							<input type="hidden" name="acao" value="novo">
 						<a href="#" onClick="registrarListaConvidados();" id="btn-medio" class="ui-btn ui-corner-all">ENVIAR <br> CADASTRO</a>
@@ -683,7 +688,7 @@
 			</div>
 		</div>
 		
-		<div id="form_veiculos" class="login" data-role="page">
+		<div id="form_meus_veiculos" class="login" data-role="page">
 			
 				<div data-role="header" data-theme="a">
 					
@@ -693,26 +698,28 @@
 					<center style="padding: 20px  50px 0px;">
 		
 							<label for="select-choice-1" class="select letra">MARCA</label>
-							<select name="marca" id="marca_form_veiculos">
-								<option value="standard" class="letra-select">SELECIONE A MARCA</option>
+							<select name="marca" id="marca_form_meus_veiculos">
+								
 
 							</select>
 							<label for="select-choice-1" class="select letra">MODELO</label>
-							<select name="modelo" id="modelo_form_veiculos">
+							<select name="modelo" id="modelo_form_meus_veiculos">
 							
 							
 							</select>	
 							<label for="text-basic"  class="letra">PLACA:</label>
-							<input type="text" name="placa"  id="placa_form_veiculos" value="" placeholder="PLACA">
+							<input type="text" name="placa"  id="placa_form_meus_veiculos" value="" placeholder="PLACA">
 							
 	
 							<label for="text-basic"  class="letra">COR:</label>
-							<input type="text" name="cor"  id="cor_form_veiculos" value="" placeholder="COR">
+							<input type="text" name="cor"  id="cor_form_meus_veiculos" value="" placeholder="COR">
 							
 						
 								 <label for="file-1" class="letra">ESCOLHA UMA FOTO DO CARRO</label>
-								 <input type="file" data-clear-btn="false" name="banner" id="banner_form_veiculos" value="">
+								 <input type="file" data-clear-btn="false" name="banner" id="banner_form_meus_veiculos" value="">
 							
+							<input type="hidden" name="id" id="id_form_meus_veiculos" value="">
+							<input type="hidden" name="acao" value="" id="acao_form_meus_veiculos">
 						<a href="#" onClick="registrarVeiculos();" id="btn-medio" class="ui-btn ui-corner-all">SALVAR<br>REGISTRO</a>
 						
 						</form>
@@ -1239,7 +1246,7 @@
 					
 					<div class="ui-grid-b-claro">
 						<div class="ui-bar ui-bar-b-claro"  >
-							<a href="#form_meus_veiculos" id="btn-list-detalhe" style="float: right; width: 40%;margin-right: 90px;" class="ui-btn ui-corner-all">Cadastrar Novo</a>
+							<a href="#form_meus_veiculos" onClick="novoVeiculo();" id="btn-list-detalhe" style="float: right; width: 40%;margin-right: 90px;" class="ui-btn ui-corner-all">Cadastrar Novo</a>
 						</div>
 					</div>
 					<ul data-role="listview" id="listarveiculos">

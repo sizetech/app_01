@@ -13,10 +13,10 @@ function chamarFamilia() {
 						lista +=	'</h2></a>';
 						lista +=	'<form style="display:none">';	
 						lista +=	' <fieldset data-role="controlgroup" data-type="horizontal" class="ui-controlgroup ui-controlgroup-horizontal ui-corner-all"><div class="ui-controlgroup-controls ">';
-						lista +=	'<a href="#form_familia" onClick="novaFamilia();" id="btn-list-detalhe" class="ui-btn ui-corner-all">Detalhes/Editar</a>';
-						lista +=	'<a href="#" onClick="CancelarReserva('+data[x].ID+');" id="btn-list" class="ui-btn ui-corner-all ui-last-child" >Excluir</a>	';
+						lista +=	'<a href="#form_familia" onClick="editarFamilia('+data[x].ID+');" id="btn-list-detalhe" class="ui-btn ui-corner-all">Detalhes/Editar</a>';
+						lista +=	'<a href="#" onClick="excluirFamilia('+data[x].ID+');" id="btn-list" class="ui-btn ui-corner-all ui-last-child" >Excluir</a>	';
 						lista +=	'</div></fieldset>';
-						lista +=	'</div>';
+						lista +=	'</form>';
 						lista +=  '</li>';
 					
 						x++;
@@ -31,8 +31,29 @@ function chamarFamilia() {
 
 }
 
+function excluirFamilia(ID){
+	carregar('ativar');
+	$.post(URLBASE+'minha_familia.php', {id:ID, acao:'excluir'}, function(data) {
+				var x = 0;
+					$.each( data, function( ) {
+						
+						chamarFamilia();
+											
+						if(data.status){
+							$('.msgsucesso_familia p').html(data.mensagem);
+							$('.msgsucesso_familia').css('display','block');
+						}else{
+							$('.msgerro_familia p').html(data.mensagem)
+							$('.msgerro_familia').css('display','block');
+						}
+						carregar('desativar');
+					})
+	})
+
+}
+
 function novaFamilia(){
-	$("#minha_familia").val('');
+	$("#nome_form_familia").val('');
 	$("#sexo_form_familia").val('');
 	$("#data_nascimento_form_familia").val('');
 	$("#email_form_familia").val('');
@@ -44,7 +65,34 @@ function novaFamilia(){
 	$("#senha_form_familia").val('');
 	$("#acao_form_familia").val('novo');
 	$("#id_familia").val(idmorador());
-	        
+	$("#foto_form_familia").attr("src",'');
+}
+
+function editarFamilia(id){
+	novaFamilia();
+	$("#acao_form_familia").val('editar');
+	$("#id_familia").val(id);
+	carregar('ativar');
+	
+	$.post(URLBASE+'minha_familia.php', {acao:'retornar', id:id}, function(data) {
+					var x = 0;
+					$.each( data, function( ) {
+					if(x == 0){
+						$("#nome_form_familia").val(data.nome);
+						$("#sexo_form_familia").val(data.sexo);
+						$("#data_nascimento_form_familia").val(data.data_nascimento);
+						$("#email_form_familia").val(data.email);
+						$("#rg_form_familia").val(data.rg);
+						$("#cpf_form_familia").val(data.cpf);
+						$("#telefone_form_familia").val(data.telefone);
+						$("#celular_form_familia").val(data.celular);
+						$("#classificacao_form_familia").val(data.tipo);
+						$("#foto_form_familia").attr("src",data.banner);
+					}	carregar('desativar');
+					
+					})
+	})
+
 }
 
 function registrarFamilia(){
@@ -68,7 +116,7 @@ carregar('ativar');
 					}); 
 		} 
 	}; 
-	 $('#formulario_meus_animais').ajaxSubmit(options);
+	 $('#formulario_familia').ajaxSubmit(options);
 	
 	
 	return false;

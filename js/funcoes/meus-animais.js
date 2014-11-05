@@ -107,7 +107,7 @@ function chamarAnimal(ID){
 function editar_animal(){
 	carregar('ativar');
 	var options = { 
-		success:    function(data) { 
+		success:function(data) { 
 			$.each( data, function( ) {
 					
 						meusanimais();

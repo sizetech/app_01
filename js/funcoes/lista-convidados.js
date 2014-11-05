@@ -1,3 +1,22 @@
+
+function addMais(){
+			var quant = $('.quantPessoas').val();
+			var num = parseInt(quant)+1;
+			var msg= '<br><input type="text" name="nomepessoa[]" id="nome_form_lista_convidados_pessoas" value="" placeholder="DIGITE O NOME DO CONVIDADO"><input type="text" class="telefone" name="telefone[]" id="telefone_form_lista_convidados" value="" placeholder="DIGITE O TELEFONE"><div class="addMais'+num+'"></div>';
+			var add = ".addMais"+quant;
+			$(add).html(msg);
+			$('.quantPessoas').val(num);	
+		
+					
+		
+		
+		return false;
+		}
+
+
+
+
+
 function chamarListaConvidados(){
 	var lista = '';
 	$.post(URLBASE+'lista_convidados.php', {acao:'retornarTodos', id:idmorador()}, function(data) {
