@@ -1,4 +1,59 @@
+function capturarImagemFamilia(){
+	$('#validar_form_Familia').val(1);
+      navigator.camera.getPicture(uploadPhotoFamilia, function(message) {
+			$('#validar_form_Familia').val(0);
+		},{
+			quality: 50, 
+			destinationType: navigator.camera.DestinationType.FILE_URI,
+			sourceType: navigator.camera.PictureSourceType.CAMERA,
+			correctOrientation:true,
+			AllowEdit: true
+		}
+            );
+            }
+ function PegarImagemFamilia(){
+	$('#validar_form_Familia').val(1);
+      navigator.camera.getPicture(uploadPhotoFamilia, function(message) {
+			$('#validar_form_Familia').val(0);
+		},{
+			quality: 50, 
+			destinationType: navigator.camera.DestinationType.FILE_URI,
+			sourceType: navigator.camera.PictureSourceType.PHOTOLIBRARY,
+			correctOrientation:true,
+			AllowEdit: true
+		}
+            );
+            }
+ function uploadPhotoFamilia(imageURI) {
+			$('#foto_Familia_editar').attr('src',imageURI);
+			$('#validar_form_Familia').val(1);
+            var options = new FileUploadOptions();
+            options.fileKey="file";
+            options.fileName=imageURI.substr(imageURI.lastIndexOf('/')+1);
+            options.mimeType="image/jpeg";
+            var params = new Object();
+            params.value1 = "test";
+            params.value2 = "param";
+            options.params = params;
+            options.chunkedMode = false;
+ 
+            var ft = new FileTransfer();
+            ft.upload(imageURI, "http://serve.iflexdigital.com.br/lomatech/app/upload.php", winFamilia, failFamilia, options);
+        }
+ 
+        function winFamilia(r) {
+			$("#arquivoFamilia").val(r.response);
+            $('#validar_form_Familia').val(0);
+        }
+ 
+        function failFamilia(error) {
+			$('#foto_Familia_editar').attr('src','');
+           $('#validar_form_Familia').val(0);
+        }
+
+
 function chamarFamilia() {
+carregar('ativar');
 	var lista = '';
 	var resposta = '';
 	$.post(URLBASE+'minha_familia.php', {acao:'retornarTodos', id_morador:idmorador()}, function(data) {
@@ -25,6 +80,7 @@ function chamarFamilia() {
 					
 					$('#listafamilia').html(lista);
 					$('#listafamilia').listview("refresh");
+					carregar('desativar');
 					
 		}, 'json');
 
@@ -32,6 +88,8 @@ function chamarFamilia() {
 }
 
 function excluirFamilia(ID){
+var ex = confirm("Deseja Excluir?");
+if(ex == true){
 	carregar('ativar');
 	$.post(URLBASE+'minha_familia.php', {id:ID, acao:'excluir'}, function(data) {
 				var x = 0;
@@ -49,7 +107,7 @@ function excluirFamilia(ID){
 						carregar('desativar');
 					})
 	})
-
+}
 }
 
 function novaFamilia(){
@@ -96,7 +154,7 @@ function editarFamilia(id){
 }
 
 function registrarFamilia(){
-carregar('ativar');
+
 	var options = { 
 		success:    function(data) { 
 			$.each( data, function( ) {
@@ -116,7 +174,11 @@ carregar('ativar');
 					}); 
 		} 
 	}; 
+	if(validarFormularios('formulario_familia') == true && $('#validar_form_Familia').val() == 0){
+	carregar('ativar');
 	 $('#formulario_familia').ajaxSubmit(options);
+	 
+	 }
 	
 	
 	return false;

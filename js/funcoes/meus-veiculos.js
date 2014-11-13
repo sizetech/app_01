@@ -11,6 +11,59 @@ $(function(){
 
 });
 
+ function capturarImagemVeiculo(){
+	$('#validar_form_veiculo').val(1);
+      navigator.camera.getPicture(uploadPhotoVeiculo, function(message) {
+			$('#validar_form_veiculo').val(0);
+		},{
+			quality: 50, 
+			destinationType: navigator.camera.DestinationType.FILE_URI,
+			sourceType: navigator.camera.PictureSourceType.CAMERA,
+			correctOrientation:true,
+			AllowEdit: true
+		}
+            );
+            }
+ function PegarImagemVeiculo(){
+	$('#validar_form_veiculo').val(1);
+      navigator.camera.getPicture(uploadPhotoVeiculo, function(message) {
+			$('#validar_form_veiculo').val(0);
+		},{
+			quality: 50, 
+			destinationType: navigator.camera.DestinationType.FILE_URI,
+			sourceType: navigator.camera.PictureSourceType.PHOTOLIBRARY,
+			correctOrientation:true,
+			AllowEdit: true	
+		}
+            );
+            }
+ function uploadPhotoVeiculo(imageURI) {
+			$('#banner_veiculo_editar').attr('src',imageURI);
+			$('#validar_form_veiculo').val(1);
+            var options = new FileUploadOptions();
+            options.fileKey="file";
+            options.fileName=imageURI.substr(imageURI.lastIndexOf('/')+1);
+            options.mimeType="image/jpeg";
+            var params = new Object();
+            params.value1 = "test";
+            params.value2 = "param";
+            options.params = params;
+            options.chunkedMode = false;
+ 
+            var ft = new FileTransfer();
+            ft.upload(imageURI, "http://serve.iflexdigital.com.br/lomatech/app/uploadVeiculo.php", winAnimal, failAnimal, options);
+        }
+ 
+        function winAnimal(r) {
+			$("#arquivoMeusVeiculos").val(r.response);
+            $('#validar_form_veiculo').val(0);
+        }
+ 
+        function failAnimal(error) {
+			$('#foto_animal_editar').attr('src','');
+           $('#validar_form_veiculo').val(0);
+        }
+
 function carregar(a){
 	
 	if(a == 'ativar'){
@@ -25,15 +78,16 @@ function carregar(a){
 	
 }
 function meusveiculos(){
+carregar('ativar');
 	var lista = '';
 	$.post(URLBASE+'meus_veiculos.php', {acao:'retornarTodos', id:idmorador()}, function(data) {
 				var x = 0;
 					$.each( data, function( ) {
 						
 			
-						lista += ' <li onclick="abrirCoollapsible(this);" style="padding-left:0; min-height:0; margin:0px 10px;" data-role="collapsible" data-theme="d" data-iconpos="right" data-inset="false">';
-						lista +=	'<a href="" class="link"><h2>'+data[x].marca;
-						lista +=	'<img src="img/btn/ocorrencias_pequeno.png" align="right" style="margin: 0px 0px;">';
+						lista += ' <li onclick="abrirCoollapsible(this);" style="padding-left:5px; min-height:0; margin:5px 0px;" data-role="collapsible" data-theme="d" data-iconpos="right" data-inset="false">';
+						lista +=	'<a href="#"><h2>'+data[x].marca;
+						lista +=	'<img src="img/btn/veiculo-pequeno.png" align="right" style="margin: 0px 0px;">';
 						lista +=	'</h2></a>';
 						lista +=	'<form style="display:none">';	
 						lista +=	'<div class="ui-collapsible-content ui-body-inherit" aria-hidden="false">	';
@@ -43,14 +97,14 @@ function meusveiculos(){
 						lista +=    ' <h3 style="text-shadow: none; color: #FFF;">PLACA: '+data[x].placa+'</h3> '; 
 						lista +=	' <h3 style="text-shadow: none; color: #FFF;">COR:'+data[x].cor+'</h3>';					
 						lista += 	' <h3 style="text-shadow: none; color: #FFF;">DATA CADASTRO:'+data[x].data_cadastro+'</h3>';
-						lista +=	' <fieldset data-role="controlgroup" data-type="horizontal" class="ui-controlgroup ui-controlgroup-horizontal ui-corner-all"><div class="ui-controlgroup-controls ">';		
+						lista +=	' <fieldset data-role="controlgroup" data-type="horizontal" class="ui-controlgroup ui-controlgroup-horizontal ui-corner-all">';		
 						lista += 	'   <a href="#form_meus_veiculos" onClick="editar_meus_veiculos('+data[x].ID+');" id="btn-list-detalhe" style=" margin: 0px 18px 0px -20px;" class="ui-btn ui-corner-all">EDITAR CADASTRO</a>';
 						lista += 	' 	<a href="#"onClick="excluirVeiculo('+data[x].ID+');" id="btn-list" style="background-color:#820d12;border-color:#820d12; " class="ui-btn ui-corner-all">EXCLUIR</a>';
-						lista +=	'</div></fieldset>';
+						lista +=	'</fieldset>';
 						lista +=	'</div>';
 						lista +=	'</form>';
 						lista +=  '</li>';
-
+						carregar('desativar');
 						x++;
 					});
 					$('#listarveiculos').html(lista);
@@ -59,16 +113,9 @@ function meusveiculos(){
 						
 
 }
-// funções de inicialização
-	
-		//verificar meus dados
-			
-			if(ancora == "#meus_veiculos"){
-				meusveiculos();
-			}
-	//fim
 
-function chamarVeiculo(ID){
+
+function editar_meus_veiculos(ID){
 	
 					carregar('ativar');
 						$("#marca_form_meus_veiculos").val('');
@@ -78,6 +125,8 @@ function chamarVeiculo(ID){
 						$("#id_form_meus_veiculos").val('');
 						$("#acao_form_meus_veiculos").val('');
 						$("#banner_veiculo_editar").attr("src",'');
+						$('#id_form_meus_veiculos').val(ID);
+	$('#acao_form_meus_veiculos').val('editar');
 	
 	
 		var resposta = '';
@@ -96,59 +145,34 @@ function chamarVeiculo(ID){
 					$.each( data, function( ) {
 					if(x == 0){
 						$("#marca_form_meus_veiculos").val(data.marca);
-						$("#modelo_form_meus_veiculos").val(data.modelo);
 						$("#placa_form_meus_veiculos").val(data.placa);
 						$("#cor_form_meus_veiculos").val(data.cor);
 						$("#id_form_meus_veiculos").val(data.ID);
 						$("#acao_form_meus_veiculos").val('editar');
-						$('select#,modelo_form_meus_veiculos option').val(data.tipo).attr("selected","selected");
+						var tipo =  $("#marca_form_meus_veiculos option:selected").text();
+						$("#marca_form_meus_veiculos-button span").html(tipo);
 						$("#banner_veiculo_editar").attr("src",data.banner);
 						var marca = data.marca;
 						var modelo  = data.modelo;
 						
 
-								var sala = $.post( URLBASE+'querys/modelo-veiculos.php',{id:modelo,id:modelo}, function() {		
+								var sala = $.post( URLBASE+'querys/modelo-veiculos.php',{marca:marca,id:modelo}, function() {		
 								})			 
 								.always(function(data) {	
-									$('#modelo_form_meus_veiculos').html(data);			
+									$('#modelo_form_meus_veiculos').html(data);		
+									var raca2 =  $("#modelo_form_meus_veiculos option:selected").text();
+									$("#modelo_form_meus_veiculos-button span").html(raca2);									
 								});
 								
-								
+							carregar('desativar');	
 						}
 						x++;
-						carregar('desativar');
+						
 					})
-					$("#marca_form_meus_veiculos").html(resposta);
 	})
 	
 	}
-		function editar_meus_veiculos(){
 		
-	carregar('ativar');
-	var options = { 
-		success:function(data) { 
-					$.each( data, function( ) {
-					meusveiculos();					
-						if(data.status){
-							$('.msgsucesso_meus_veiculos p').html(data.mensagem);
-							$('.msgsucesso_meus_veiculos').css('display','block');
-						}else{
-							$('.msgerro_meus_veiculos p').html(data.mensagem)
-							$('.msgerro_meus_veiculos').css('display','block');
-						}
-						carregar('desativar');
-						window.location = "#meus_veiculos";
-					
-					});
-		}
-	};
-	 $('#formulario_meus_veiculos').ajaxSubmit(options);
-	
-	
-	return false;
-	
-
-}
 function novoVeiculo(){
 	$('#id_form_meus_veiculos').val(idmorador());
 	$('#acao_form_meus_veiculos').val('novo');
@@ -168,6 +192,8 @@ function novoVeiculo(){
 
 }
 	function excluirVeiculo(ID){
+	var ex = confirm("Deseja Excluir?");
+if(ex == true){
 	carregar('ativar');
 	$.post(URLBASE+'meus_veiculos.php', {id:ID, acao:'excluir'}, function(data) {
 				var x = 0;
@@ -186,7 +212,7 @@ function novoVeiculo(){
 						window.location = "#meus_veiculos";
 					})
 	})
-
+}
 }
 			
 	
@@ -196,7 +222,6 @@ function novoVeiculo(){
 
 function registrarVeiculos(){
 
-	bloquear('ativar');
 	var options = { 
 		success:    function(data) { 
 			$.each( data, function( ) {
@@ -210,13 +235,19 @@ function registrarVeiculos(){
 							$('.msgerro_meus_veiculos  p').html(data.mensagem)
 							$('.msgerro_meus_veiculos ').css('display','block');
 						}
-						bloquear('desativar');
+						carregar('desativar');
 						window.location = "#meus_veiculos";
 					
 					}); 
 		} 
 	}; 
-	 $('#formulario_meus_veiculos').ajaxSubmit(options);
+	
+	if($('#validar_form_veiculo').val() == 0 && validarFormularios('formulario_meus_veiculos') == true){
+		carregar('ativar');
+		$('#formulario_meus_veiculos').ajaxSubmit(options);
+	}else{
+		alert('Fazendo Upload da Imagem');
+	}
 	
 	
 	return false;

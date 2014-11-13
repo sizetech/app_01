@@ -1,23 +1,121 @@
 const URLBASE = "http://serve.iflexdigital.com.br/lomatech/app/";
 const URLARQUIVOS = "http://serve.iflexdigital.com.br/lomatech/";
 
+
+
+function validarFormularios(id){
+		var r = 0;
+		$('#'+id+' [obg]').each(function (){
+			if(r != 2){
+				if(($(this).attr('class') == 'cnpj' || $(this).attr('id') == 'cnpj' ) && $(this).val() == '__.___.___/____-__'){
+					$(this).focus();
+					alert('Preencha o campo "'+$(this).attr('obg')+'"!');
+					r = 2;
+				}
+				if(($(this).attr('class') == 'cpf' || $(this).attr('id') == 'cpf' ) && $(this).val() == '___.___.___-__'){
+					$(this).focus();
+					alert('Preencha o campo "'+$(this).attr('obg')+'"!');
+					r = 2;
+				}
+				
+				
+				if($(this).val() == '' || $(this).attr("obgcomp") == $(this).val()){
+					$(this).focus();
+					alert('Preencha o campo "'+$(this).attr('obg')+'"!');
+					r = 2;
+				}
+			}
+		});
+		
+	if(r == 2){
+		return(false);
+	}else{
+		return(true);
+	}
+
+
+
+
+}
+
+function facebookLogin(){
+	alert(1);
+	facebookConnectPlugin.login( {scope: "email"}, sucessoFace, naosucessoFace)
+		function sucessoFace(a){
+			alert("Sucesso do Face");
+		
+		}
+		
+		function naosucessoFace(a){
+			alert("N]ap Sucesso do Face");
+		
+		}
+
+
+}
+
+
+ function capturarImagem(){
+	$('#validar_form_dados').val(1);
+      navigator.camera.getPicture(uploadPhoto, function(message) {
+			$('#validar_form_dados').val(0);
+		},{
+			quality: 50, 
+			destinationType: navigator.camera.DestinationType.FILE_URI,
+			sourceType: navigator.camera.PictureSourceType.CAMERA,
+			correctOrientation:true,
+			AllowEdit: true
+		}
+            );
+            }
+ function PegarImagem(){
+	$('#validar_form_dados').val(1);
+      navigator.camera.getPicture(uploadPhoto, function(message) {
+			$('#validar_form_dados').val(0);
+		},{
+			quality: 50, 
+			destinationType: navigator.camera.DestinationType.FILE_URI,
+			sourceType: navigator.camera.PictureSourceType.PHOTOLIBRARY,
+			correctOrientation:true,
+			AllowEdit: true
+		}
+            );
+            }
+ function uploadPhoto(imageURI) {
+			$('#htmlImagem').attr('src',imageURI);
+			$('#validar_form_dados').val(1);
+            var options = new FileUploadOptions();
+            options.fileKey="file";
+            options.fileName=imageURI.substr(imageURI.lastIndexOf('/')+1);
+            options.mimeType="image/jpeg";
+            var params = new Object();
+            params.value1 = "test";
+            params.value2 = "param";
+            options.params = params;
+            options.chunkedMode = false;
+ 
+            var ft = new FileTransfer();
+            ft.upload(imageURI, "http://serve.iflexdigital.com.br/lomatech/app/upload.php", win, fail, options);
+        }
+ 
+        function win(r) {
+			$("#arquivoMeusDados").val(r.response);
+            $('#validar_form_dados').val(0);
+        }
+ 
+        function fail(error) {
+			$('#htmlImagem').attr('src','');
+           $('#validar_form_dados').val(0);
+        }
+	
 function idmorador(){
 
 	//return($.cookie('IDAppLomactech'));
 	return window.localStorage.getItem("IDAppLomactech");
 
 }
-function bloquear(a){
-	/*
-	if(a == 'ativar'){
-		$(".preca").css("display","block");
-		$("html").css("overflow","hidden");
-	}else{
-		$(".preca").css("display","none");
-		$("html").css("overflow","visible");
-	}
-	
-	*/
+function isNumber(n) {
+    return !isNaN(parseFloat(n)) && isFinite(n);
 }
 
 function carregar(a){
@@ -70,21 +168,27 @@ function meusdados(){
 						
 						$('#classificacao_meus_dados').val(data.tipo);
 						$('#classificacao_form_dados').val(data.tipo);
+						 var tipo = $("#classificacao_form_dados").val();
+						if(tipo == ''){
+								var atual =$("#classificacao_form_dados").html();
+								 var opt = "<option selected value='"+data.tipo+"'>"+data.tipo+"</option>";
+								 atual += opt;
+								 $("#classificacao_form_dados").html(atual);
+							
+						}
+						
+						
 						
 						$('#banner_meus_dados').attr('src',data.banner);
 						$('#banner_form_dados').attr('src',data.banner);
 						
 						$('#andar_meus_dados').val(data.andar);						
-						$('#andar_form_dados').val(data.andar);
 						
 						$('#condominio_meus_dados').val(data.condominio);
-						$('#condominio_form_dados').val(data.condominio);
 						
 						$('#torrebloco_meus_dados').val(data.blocotorres);
-						$('#torrebloco_form_dados').val(data.blocotorres);
 						
 						$('#apartamento_meus_dados').val(data.apartamentosala);
-						$('#apartamento_form_dados').val(data.apartamentosala);
 						carregar('desativar');
 					})
 		}, 'json');
@@ -93,9 +197,9 @@ function meusdados(){
 
 
 function editar_meus_dados(){
-	carregar('ativar');
 	var options = { 
 		success:    function(data) { 
+		
 			$.each( data, function( ) {
 					
 						meusdados();
@@ -111,24 +215,142 @@ function editar_meus_dados(){
 						window.location = "#meus_dados";
 					
 					}); 
+				
 		} 
 	}; 
-	 $('#formulario_meus_dados').ajaxSubmit(options);
-	
+	if($('#validar_form_dados').val() == 0 && validarFormularios('formulario_meus_dados') == true ){
+		carregar('ativar');
+		$('#formulario_meus_dados').ajaxSubmit(options);
+	}else{
+		alert('Fazendo Upload da Imagem');
+	}
 	
 	return false;
 	
 }
 
+
+
+function sair(){
+ window.localStorage.setItem("IDAppLomactech", false);
+window.localStorage.setItem("NomeAppLomactech", false);
+window.location = "#login";
+
+}
 $(function(){
+$("input:password").blur(function(){
+		
+		var cla = $(this).attr('id');
+		if(cla != 'senha_login' && $(this).val() != ''){
+		cla = cla+'Erro';
+		cla2 = "."+cla;
+		$(cla2).html('');
+		var tamanho = $(this).val().length;
+		if(tamanho < 6){
+			$(this).after( "<p class='"+cla+"' style='color:red'>A senha deve ter mais de 6 caracteres</p>" );
+			$(this).val('');
+			exit;
+		}
+		
+		var tb = VerificarNumeros($(this).val());
+		
+		
+		if(isNaN(VerificarNumeros($(this).val())) || (tb >= 0 && tb == $(this).val()) ){
+			$(this).after( "<p class='"+cla+"' style='color:red'>É necessario ter letras e numeros</p>" );
+			$(this).val('');
+			exit;
+		}
+		
+		$(cla2).html('');
+		}
+	
+	
+	});
+	$('#cpf_form_dados').blur(function(){
+	
+				$('#msgCPFMeus').css("color","#2ECC40");
+			  $('#msgCPFMeus').html("Verificando CPF");   
+			  var sala = $.post( URLBASE+"querys/query_verificar_cpf_morador.php",{cpf:$(this).val(), id:idmorador()}, 
+			  function() {        })  
+			  .always(function(data) {  
+
+				if(data == 1){
+				  $('#msgCPFMeus').css("color","#FF4136");
+				  $('#msgCPFMeus').html("CPF (<b>"+$("#cpf_form_dados").val()+"</b>) Já Cadastrado no sistema");
+				  $("#cpf_form_dados").val('');          
+				}else{
+				  $('#msgCPFMeus').html("");
+				}
+			  });   
+	
+	});
+	$("#classificacao_form_dados").change(function(){     
+      if($(this).val() == "Outro"){
+         var novo = prompt("Digite um outro tipo de Moradador");
+         var atual = $(this).html();
+         var opt = "<option selected value='"+novo+"'>"+novo+"</option>";
+         atual += opt;
+         $(this).html(atual);
+      
+      }
+    });
+	
+	$("#email_form_dados").blur(function(){  
+    
+      $('#msgEmailMeus').css("color","#2ECC40");
+      $('#msgEmailMeus').html("Verificando Email");   
+      var sala = $.post( URLBASE+"querys/query_verificar_email_morador.php",{email:$(this).val(),id:idmorador()}, 
+      function() {        })  
+      .always(function(data) {  
+
+        if(data == 1){
+          $('#msgEmailMeus').css("color","#FF4136");
+          $('#msgEmailMeus').html("E-mail (<b>"+$("#email_form_dados").val()+"</b>) Já Cadastrado no sistema");
+          $("#email_form_dados").val('');          
+        }else{
+          $('#msgEmailMeus').html("");
+        }
+      });   
+    }); 
+	
+	$("#celular_form_dados").blur(function(){  
+    
+      $('#msgCelularMeus').css("color","#2ECC40");
+      $('#msgCelularMeus').html("Verificando CPF");   
+      var sala = $.post( URLBASE+"querys/query_verificar_celular_morador.php",{celular:$(this).val(), id:idmorador()}, 
+      function() {        })  
+      .always(function(data) {  
+
+        if(data == 1){
+          $('#msgCelularMeus').css("color","#FF4136");
+          $('#msgCelularMeus').html("Celular (<b>"+$("#celular_form_dados").val()+"</b>) Já Cadastrado no sistema");
+          $("#celular_form_dados").val('');          
+        }else{
+          $('#msgCelularMeus').html("");
+        }
+      });   
+    });
+
+	$('input').click(function(){
+		$('html,body').animate({scrollTop: $(this).offset().top },'slow');	
+	});
+	
+	$('input').focus(function(){
+		$('html,body').animate({scrollTop: $(this).offset().top },'slow');	
+	});
+
+
 	var validar = idmorador();
-	var ancora = window.location.hash;
+	$('#nomeMorador').html(window.localStorage.getItem("NomeAppLomactech"));
 	if(!validar){
 		window.location = "#login";
 	}else{
-		if(ancora == '' || ancora == '#home'){
-			window.location = "#painel";
-		}
+			
+			if(isNumber(validar))
+				window.location = "#painel";
+			else
+				window.location = "#login";
+		
 		
 	
 	}
@@ -136,24 +358,24 @@ $(function(){
 	
 		//verificar meus dados
 			
-			if(ancora == "#meus_dados"){
-				meusdados();
-			}
-	//fim
+		
 
 	
 
 	$('#formulario_login').submit(function(){
-		
+	$('.errologin').css("display",'block');
+							$('.errologin p').html('Aguarde...');
 		$.post(URLBASE+'logar.php', $( this ).serialize(), function(data) {
 					$.each( data, function( ) {
 						if(data.retorno){
 							 window.localStorage.setItem("IDAppLomactech", data.id);
+							  window.localStorage.setItem("NomeAppLomactech", data.nome);
+							  $('#nomeMorador').html(data.nome);
 							//$.cookie('IDAppLomactech', data.id, { expires: 360 });
 							window.location = "#painel";						
 						}else{
-						
-							$('.errologin').html(data.mensagem);
+							$('.errologin').css("display",'block');
+							$('.errologin p').html(data.mensagem);
 						}
 					
 					})
@@ -161,6 +383,31 @@ $(function(){
 	
 	return false;
 	});
+	
+	
+	$('#formulario_esqueci').submit(function(){
+		
+		$.post(URLBASE+'esqueci_senha.php', $( this ).serialize(), function(data) {
+					$.each( data, function( ) {
+						if(data.retorno){
+							$('.msg_esqueci_senha').css("display",'block');
+							$('.msg_error_esquec_senha').css("display",'none');
+							$('.msg_esqueci_senha p').html(data.mensagem);
+						}else{
+							$('.msg_error_esquec_senha').css("display",'block');
+							$('.msg_esqueci_senha').css("display",'none');
+							$('.msg_error_esquec_senha p').html(data.mensagem);
+						}
+					
+					})
+		}, 'json');
+	
+	return false;
+	});
+	
+	
+	
+	
 	
 	
 			
@@ -176,59 +423,12 @@ function abrirCoollapsible(a){
 
 }
 
-function Animal(ID){
-$.post(URLBASE+'meu_animais.php', {acao:'retornar', id:ID()}, function(data) {
-					$.each( data, function( ) {
-						
-						
-					})
-		}, 'json');
 
-}
-function meusanimais(){
-	var lista = '';
-	var resposta = '';
-	$.post(URLBASE+'meu_animais.php', {acao:'retornarTodos', id_morador:idmorador()}, function(data) {
-				var x = 0;
-					$.each( data, function( ) {
-						
-						
-					
-						
-						lista += ' <li onclick="abrirCoollapsible(this);" style="padding-left:0; min-height:0" data-role="collapsible" data-theme="d" data-iconpos="right" data-inset="false">';
-						lista +=	'<a href="" class="link"><h2>'+data[x].nome_animal;
-						lista +=	'<img src="img/icones/icone-bino.png" align="right" style="margin: 0px 0px;">';
-						lista +=	'</h2></a>';
-						lista +=	'<form class="l" style="display:none" >';
-						lista +=	  '<fieldset data-role="controlgroup" data-type="horizontal">';
-						lista +=		'<a href="#form_meus_animais" onClick="chamarAnimal('+data[x].ID+');" id="btn-list-detalhe" class="ui-btn ui-corner-all">Detalhes/Editar</a>';
-						lista +=		'<a href="#" onClick="excluirAnimal('+data[x].ID+');" id="btn-list" class="ui-btn ui-corner-all">Excluir</a>	';
-						lista +=	 ' </fieldset>';
-						lista +=	'</form>';
-						lista +=  '</li>';
-					
-						x++;
-					});
-					
-					
-					$('.produtos').html(lista);
-					$('.produtos').listview("refresh");
-					$( ".miranda" ).collapsibleset( "refresh" );
-		}, 'json');
-
-}
-// funções de inicialização
-	
-		//verificar meus dados
-			
-			if(ancora == "#meus_animais"){
-				meusanimais();
-			}
-	//fim
 	
 /*--------------------------------------------------DOCUMENTOS------------------------------------------------*/
 function documentos(){
 	var lista = '';
+	carregar('ativar');
 	$.post(URLBASE+'documentos_informes.php', {acao:'retornarTodos', id:idmorador()}, function(data) {
 				var x = 0;
 				var y = 1;
@@ -241,15 +441,15 @@ function documentos(){
 						}
 						
 						
-						lista += ' <li  onclick="abrirCoollapsible(this);" data-theme="'+classe+'" style="padding-left:0; min-height:0" data-role="collapsible" data-theme="'+classe+'" data-iconpos="right" data-inset="false">';
-						lista +=	'<a href="#" data-theme="'+classe+'" class="link"><h2>'+data[x].titulo;
+						lista += ' <li   onclick="abrirCoollapsible(this);" data-theme="'+classe+'" style="padding-left:5px; margin:5px 20px; min-height:0" data-role="collapsible" data-theme="'+classe+'" data-iconpos="right" data-inset="false">';
+						lista +=	'<a href="#"><h2>'+data[x].titulo;
 						lista +=	'<img src="img/btn/doc_pequeno.png" align="right" style="margin: 0px 0px;">';
 						lista +=	'</h2></a>';
 						lista +=	'<form style="display:none" >';
 						lista += ' 	<h1 style="color:#FFF; text-shadow: none;text-align:center;font-size:20px;">'+data[x].titulo+'</h1>';
 						lista += '	<h3 style="text-shadow: none; color: #FFF;background-color: #85b200;width: 100%;">PUBLICADO EM :'+data[x].data_cadastro+'</h3><br>';
 						lista += ' 	<h3 style="text-shadow: none; color: #FFF;background-color: #85b200;width: 100%;">DOCUMENTO</h3>';
-						lista += '  <a href="'+URLARQUIVOS+data[x].doc+'" id="btn-list-detalhe" style="margin: 5px;" class="ui-btn ui-corner-all">DOWNLOAD</a>';	
+						lista += '  <a href="'+URLARQUIVOS+data[x].doc+'" id="btn-list-detalhe" style="margin: 5px;" class="ui-btn ui-corner-all">Baixar e Exibir</a>';	
 						lista += ' </form>';
 						lista += ' </li>';
 						
@@ -260,6 +460,7 @@ function documentos(){
 					});
 					$('#listadocumentos').html(lista);
 					$('#listadocumentos').listview("refresh");
+					carregar('desativar');
 		}, 'json');
 						
 
@@ -268,8 +469,5 @@ function documentos(){
 	
 		//verificar meus dados
 			
-			if(ancora == "#documentos_informes"){
-				documentos();
-			}
-	//fim
+			
 	

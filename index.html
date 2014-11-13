@@ -12,7 +12,7 @@
 		<script src="js/jquery.mobile-1.4.3.min.js"></script>
 		<script src="js/jquery.cookie.js"></script>
 		<script src="js/jquery.form.js"></script> 
-		<script src="phonegap.js"></script>
+		
 		
 	</head>
 	<body >
@@ -27,6 +27,7 @@
 </div>
 <div id="mascara"></div>
 </div>
+
 		<div id="home" class="login" data-role="page">
 			
 			<div data-role="content" >
@@ -41,13 +42,75 @@
 		
 		
 		
+		
+	<div id="classificados" class="login" data-role="page">
+		<a href="#painel" style="text-decoration:none;">
+			<div data-role="header" data-theme="a">
+				<p class="txthead" align="left"><img src="img/btn/classificados.png" style="margin: 0px 20px -4px -5px;">CLASSIFICADOS<img src="img/icone1.png" align="right"></p>
+			</div>
+		</a>		
+			<div data-role="content">
+			<div class="msgsucesso_meus_eventos" style="display:none">
+				<div data-role="header">
+					<p style="text-align:center;"> </p>
+				</div>
+			</div>		
+				<div class="buscar">			
+				 
+				</div>
+				<div class="buscar">
+					<ul data-role="listview" id="listaeventos" data-filter="true" data-filter-placeholder=" Buscar..." >	
+					
+					</ul>
+					</div>
+			</div>					
+				
+			<div data-role="panel" id="Painelmenu" data-position="left" data-display="overlay" data-theme="a">
+
+				<h2 class="tltmenu">NAVEGA&Ccedil;&Atilde;O R&Aacute;PIDA</h2>
+				<a href="#meus_dados" class="ui-btn btn-menu" onClick="meusdados();"><img src="img/btn/meus-dados-m.png"><br>MEUS DADOS</a>
+				<a href="#meus_animais" class="ui-btn btn-menu" onClick="meusanimais();"><img src="img/btn/animais.png"><br>MEUS ANIMAIS</a>
+				<a href="#documentos_informes" onClick="documentos();" class="ui-btn btn-menu"><img src="img/btn/doc_pequeno.png"><br>DOCUMENTOS/INFORMES</a>
+				<a href="#reservas" onClick="reservas();" class=" ui-btn btn-menu"><img src="img/btn/reservas.png"><br>RESERVAS</a>
+				<a href="#eventos" onClick="eventos();" class=" ui-btn btn-menu"><img src="img/btn/eventos.png"><br>MEUS EVENTOS</a>
+				<a href="#minha_familia" onClick="chamarFamilia();" class=" ui-btn btn-menu"><img src="img/btn/minha-familia.png"><br>MINHA FAMÍLIA</a>
+				<a href="#ocorrencias" onClick="chamarOcorrencias();" class=" ui-btn btn-menu"><img src="img/btn/ocorrencias.png"><br>OCORRÊNCIAS</a>
+				<a href="#meus_veiculos" onClick="meusveiculos();" class=" ui-btn btn-menu"><img src="img/btn/veiculo-pequeno.png"><br>MEUS VEICULOS</a>
+				<a href="#lista_convidados" onClick="chamarListaConvidados();" class="ui-btn btn-menu"><img src="img/btn/lista_convidados_pequena.png"><br>LISTA CONVIDADOS</a>
+				<a href="#correspondencias" onClick="chamarCorrespondencia;" class="ui-btn btn-menu"><img src="img/btn/correspondencia.png"><br>CORRESPONDÊNCIAS</a>
+				<a href="#classificados" onClick="classificados;" class=" ui-btn btn-menu"><img src="img/btn/classificados.png"><br>CLASSIFICADOS</a>
+				<a href="#" class="ui-btn btn-menu"><br>ABRIR PORTA</a>
+				<a href="#" class=" ui-btn btn-menu"><img src="img/btn/alertas.png"><br>NOTIFICAÇÕES</a>
+				<a href="#log_usuario" onClick="logusuario();" class=" ui-btn btn-menu"><img src="img/btn/minha-casa.png"><br>LOG DO USUARIO</a>
+				<a href="#" class=" ui-btn btn-menu"><img src="img/btn/forum.png"><br>FORUMS</a>	
+				<a href="#" onClick="sair()" class=" ui-btn btn-menu ui-btn-c"><br>SAIR</a>					
+				<a href="#" class=" ui-btn btn-menu ui-btn-c"><img src="img/btn/panico.png"><br>ACIONAR PÂNICO</a>
+        <a href="#demo-links" data-rel="close" class="ui-btn ui-shadow ui-corner-all ui-btn-a ui-icon-delete ui-btn-icon-left ui-btn-inline">Fechar Menu</a>
+
+		</div><!-- /leftpanel3 -->
+
+<div class="menu-rodape">
+					<div data-role="footer" data-position="fixed" data-id="vs_footer" data-theme="a">
+				<div data-role="navbar" >
+					<ul >
+
+						<li><a href="#Painelmenu" class=""><img src="img/btn/menu.png"> MENU</a></li>
+						<li><a class="ui-btn-c"><img src="img/btn/icone-ajuda.png"> ACIONAR PÂNICO</a></li>
+						<li><a href="#" onClick="sair()" class=""><img src="img/btn/icone-sair.png"> SAIR</a></li>
+					</ul>
+				</div>
+				</div>
+			</div>
+	</div>
 			
 		<div id="correspondencias" class="login" data-role="page">
-
+			<a href="#painel" style="text-decoration:none;">
 				<div data-role="header" data-theme="a">
-					<p class="txthead" align="left"><img src="img/btn/correspondencia.png" style="margin: 0px 20px -4px -5px;">EVENTOS<img src="img/icone1.png" align="right"></p>
+			
+					<p class="txthead" align="left"><img src="img/btn/correspondencia.png" style="margin: 0px 20px -4px -5px;">CORRESPONDENCIAS<img src="img/icone1.png" align="right"></p>
 						</div>
-					
+					</a>
+				<div data-role="content">
 					
 					<div class="ui-grid-b-claro">
 						<div class="ui-bar ui-bar-b-claro" >
@@ -56,15 +119,18 @@
 						</div>
 					</div>
 					
-					<ul data-role="listview" id="listareventos" >
+					<div class="buscar">
+					<ul data-role="listview" id="listacorrespondencias"  data-filter="true" data-filter-placeholder=" Buscar...">
+					
 						<li style="padding-left:0; min-height:0" data-role="collapsible" data-theme="d" data-iconpos="right" data-inset="false">	
-							<h2 style="color: #FFF;text-shadow: none;"> Apresentação de tipografia do aplicativo  <img src="img/btn/correspondencia.png" align="right" style="margin: 0px 0px;"> <a href="#" id="btn-list-detalhe" style="margin-left: 0px;" class="ui-btn ui-corner-all">A RETIRAR</a></h2> 
-							<h1 style="color:#FFF; text-shadow: none;text-align:center;font-size:20px;">Apresentação de tipografia do aplicativo</h1>					
+							<h2 style="color: #FFF;text-shadow: none;">MINHAS CORRESPONDENCIAS<img src="img/btn/correspondencia.png" align="right" style="margin: 0px 0px;"> <a href="#" id="btn-list-detalhe" style="margin-left: 0px;" class="ui-btn ui-corner-all">A RETIRAR</a></h2> 
+							<h1 style="color:#FFF; text-shadow: none;text-align:center;font-size:20px;">DETALHES DA CORRESPONDENCIA</h1>					
 							<h3 style="text-shadow: none; color: #FFF;background-color: #85b200;width: 100%;">FOTO DA CORRESPONDENCIA</h3><br>
 							<center><img src=""></center>
 						</li>
-					</ul>					
-
+					</ul>
+</div>					
+				</div>
 					<div class="ui-bar ui-bar-c" style="height:45px;" >
 					
 					<center><div class=" ui-btn-panico ui-btn-c" a href="#"><img src="img/btn/panico.png" style="height:20px; margin-top:6px;"><br>ACIONAR PÂNICO</div></a></center>
@@ -83,13 +149,13 @@
 				<a href="#ocorrencias" onClick="chamarOcorrencias();" class=" ui-btn btn-menu"><img src="img/btn/ocorrencias.png"><br>OCORRÊNCIAS</a>
 				<a href="#meus_veiculos" onClick="meusveiculos();" class=" ui-btn btn-menu"><img src="img/btn/veiculo-pequeno.png"><br>MEUS VEICULOS</a>
 				<a href="#lista_convidados" onClick="chamarListaConvidados();" class="ui-btn btn-menu"><img src="img/btn/lista_convidados_pequena.png"><br>LISTA CONVIDADOS</a>
-				<a href="#correspondencias" onClick="correspondencias;" class="ui-btn btn-menu"><img src="img/btn/correspondencia.png"><br>CORRESPONDÊNCIAS</a>
+				<a href="#correspondencias" onClick="chamarCorrespondencia;" class="ui-btn btn-menu"><img src="img/btn/correspondencia.png"><br>CORRESPONDÊNCIAS</a>
 				<a href="#classificados" onClick="classificados;" class=" ui-btn btn-menu"><img src="img/btn/classificados.png"><br>CLASSIFICADOS</a>
 				<a href="#" class="ui-btn btn-menu"><br>ABRIR PORTA</a>
-				<a href="#" class=" ui-btn btn-menu"><img src="img/btn/minha-casa.png"><br>MINHA CASA</a>
-				<a href="#" class=" ui-btn btn-menu"><img src="img/btn/alertas.png"><br>MEUS ALERTAS</a>
-				<a href="#" class=" ui-btn btn-menu"><img src="img/btn/visitas.png"><br>VISITAS</a>
-				<a href="#" class=" ui-btn btn-menu"><img src="img/btn/forum.png"><br>FORUMS</a>			
+				<a href="#" class=" ui-btn btn-menu"><img src="img/btn/alertas.png"><br>NOTIFICAÇÕES</a>
+				<a href="#log_usuario" onClick="logusuario();" class=" ui-btn btn-menu"><img src="img/btn/minha-casa.png"><br>LOG DO USUARIO</a>
+				<a href="#" class=" ui-btn btn-menu"><img src="img/btn/forum.png"><br>FORUMS</a>	
+				<a href="#" onClick="sair()" class=" ui-btn btn-menu ui-btn-c"><br>SAIR</a>					
 				<a href="#" class=" ui-btn btn-menu ui-btn-c"><img src="img/btn/panico.png"><br>ACIONAR PÂNICO</a>
         <a href="#demo-links" data-rel="close" class="ui-btn ui-shadow ui-corner-all ui-btn-a ui-icon-delete ui-btn-icon-left ui-btn-inline">Fechar Menu</a>
 
@@ -101,8 +167,8 @@
 					<ul >
 
 						<li><a href="#Painelmenu" class=""><img src="img/btn/menu.png"> MENU</a></li>
-						<li><a href="#popupDialog" data-rel="popup" data-position-to="window" data-transition="pop"  class=""><img src="img/btn/menu.png"> MENU</a></li>
-						<li><a href="#home" class=""><img src="img/btn/menu.png"> MENU</a></li>
+						<li><a class="ui-btn-c"><img src="img/btn/icone-ajuda.png"> ACIONAR PÂNICO</a></li>
+						<li><a href="#" onClick="sair()" class=""><img src="img/btn/icone-sair.png"> SAIR</a></li>
 					</ul>
 				</div>
 				</div>
@@ -111,23 +177,73 @@
 						
 					
 		
+		
+	<div id="detalhe_topico" class="login" data-role="page">
+		<a href="#painel" style="text-decoration:none;">
+			<div data-role="header" data-theme="a">
+				<p class="txthead" align="left"><img src="img/btn/forum.png" style="margin: 0px 20px -4px -5px;">FORUM<img src="img/icone1.png" align="right"></p>
+			</div>
+		</a>		
+			<div data-role="content">
+			
+				<div id="DetalheDoForum" style="background:#fff; padding:10px"></div>
+			
+			</div>					
+				
+			<div data-role="panel" id="Painelmenu" data-position="left" data-display="overlay" data-theme="a">
+
+				<h2 class="tltmenu">NAVEGA&Ccedil;&Atilde;O R&Aacute;PIDA</h2>
+				<a href="#meus_dados" class="ui-btn btn-menu" onClick="meusdados();"><img src="img/btn/meus-dados-m.png"><br>MEUS DADOS</a>
+				<a href="#meus_animais" class="ui-btn btn-menu" onClick="meusanimais();"><img src="img/btn/animais.png"><br>MEUS ANIMAIS</a>
+				<a href="#documentos_informes" onClick="documentos();" class="ui-btn btn-menu"><img src="img/btn/doc_pequeno.png"><br>DOCUMENTOS/INFORMES</a>
+				<a href="#reservas" onClick="reservas();" class=" ui-btn btn-menu"><img src="img/btn/reservas.png"><br>RESERVAS</a>
+				<a href="#eventos" onClick="eventos();" class=" ui-btn btn-menu"><img src="img/btn/eventos.png"><br>MEUS EVENTOS</a>
+				<a href="#minha_familia" onClick="chamarFamilia();" class=" ui-btn btn-menu"><img src="img/btn/minha-familia.png"><br>MINHA FAMÍLIA</a>
+				<a href="#ocorrencias" onClick="chamarOcorrencias();" class=" ui-btn btn-menu"><img src="img/btn/ocorrencias.png"><br>OCORRÊNCIAS</a>
+				<a href="#meus_veiculos" onClick="meusveiculos();" class=" ui-btn btn-menu"><img src="img/btn/veiculo-pequeno.png"><br>MEUS VEICULOS</a>
+				<a href="#lista_convidados" onClick="chamarListaConvidados();" class="ui-btn btn-menu"><img src="img/btn/lista_convidados_pequena.png"><br>LISTA CONVIDADOS</a>
+				<a href="#correspondencias" onClick="chamarCorrespondencia;" class="ui-btn btn-menu"><img src="img/btn/correspondencia.png"><br>CORRESPONDÊNCIAS</a>
+				<a href="#classificados" onClick="classificados;" class=" ui-btn btn-menu"><img src="img/btn/classificados.png"><br>CLASSIFICADOS</a>
+				<a href="#" class="ui-btn btn-menu"><br>ABRIR PORTA</a>
+				<a href="#" class=" ui-btn btn-menu"><img src="img/btn/alertas.png"><br>NOTIFICAÇÕES</a>
+				<a href="#log_usuario" onClick="logusuario();" class=" ui-btn btn-menu"><img src="img/btn/minha-casa.png"><br>LOG DO USUARIO</a>
+				<a href="#" class=" ui-btn btn-menu"><img src="img/btn/forum.png"><br>FORUMS</a>	
+				<a href="#" onClick="sair()" class=" ui-btn btn-menu ui-btn-c"><br>SAIR</a>					
+				<a href="#" class=" ui-btn btn-menu ui-btn-c"><img src="img/btn/panico.png"><br>ACIONAR PÂNICO</a>
+        <a href="#demo-links" data-rel="close" class="ui-btn ui-shadow ui-corner-all ui-btn-a ui-icon-delete ui-btn-icon-left ui-btn-inline">Fechar Menu</a>
+
+		</div><!-- /leftpanel3 -->
+
+<div class="menu-rodape">
+					<div data-role="footer" data-position="fixed" data-id="vs_footer" data-theme="a">
+				<div data-role="navbar" >
+					<ul >
+
+						<li><a href="#Painelmenu" class=""><img src="img/btn/menu.png"> MENU</a></li>
+						<li><a class="ui-btn-c"><img src="img/btn/icone-ajuda.png"> ACIONAR PÂNICO</a></li>
+						<li><a href="#" onClick="sair()" class=""><img src="img/btn/icone-sair.png"> SAIR</a></li>
+					</ul>
+				</div>
+				</div>
+			</div>
+	</div>
 			
 		<div id="documentos_informes" class="login" data-role="page">
-
-				<div data-role="header" data-theme="a">
-					
-				<p class="txthead" align="left"><img src="img/icones/icone-visto.png" style="margin: 0px 20px -4px -5px;">DOCUMENTOS INFORMES<img src="img/icone1.png" align="right"></p>
+				<a href="#painel" style="text-decoration:none;">
+					<div data-role="header" data-theme="a"> 	
+					<p class="txthead" style="font-size: 15px;" align="left"><img src="img/icones/icone-visto.png" style="margin: 0px 20px -4px -5px;">DOCUMENTOS INFORMES<img src="img/icone1.png" align="right"></p>
+				
 				</div>
+				</a>
+				
+				<div data-role="content">
 					<div class="ui-grid-b-claro">
 						<div class="ui-bar ui-bar-b-claro" style="height:10px;" >	
 						</div>
 					</div>
+					<div class="buscar">
+						<ul data-role="listview" id="listadocumentos"  data-filter="true" data-filter-placeholder=" Buscar...">
 						
-						<form class="ui-filterable">
-							<input id="filterBasic-input" data-type="search">
-						</form>
-						
-						<ul data-role="listview" id="listadocumentos" data-filter="true" data-input="#filterBasic-input" >
 								<li style="padding-left:0; min-height:0" data-role="collapsible" data-theme="e" data-iconpos="right" data-inset="false">	
 								<h2 style="color: #FFF;text-shadow: none;"> Apresentação de tipografia do aplicativo <img src="img/btn/doc_pequeno.png" align="right" style="margin: 0px 0px;"></h2> 
 								<h1 style="color:#FFF; text-shadow: none;text-align:center;font-size:20px;">Apresentação de tipografia do aplicativo</h1>
@@ -136,7 +252,8 @@
 								<h4 style="text-shadow: none; color: #FFF;">DOC</h4>	
 								</li>	
 						</ul>
-						
+						</div>
+					</div>
 					<div class="ui-bar ui-bar-c" style="height:45px;" >
 					
 					<center><div class=" ui-btn-panico ui-btn-c" a href="#"><img src="img/btn/panico.png" style="height:20px; margin-top:6px;"><br>ACIONAR PÂNICO</div></a></center>
@@ -154,13 +271,13 @@
 				<a href="#ocorrencias" onClick="chamarOcorrencias();" class=" ui-btn btn-menu"><img src="img/btn/ocorrencias.png"><br>OCORRÊNCIAS</a>
 				<a href="#meus_veiculos" onClick="meusveiculos();" class=" ui-btn btn-menu"><img src="img/btn/veiculo-pequeno.png"><br>MEUS VEICULOS</a>
 				<a href="#lista_convidados" onClick="chamarListaConvidados();" class="ui-btn btn-menu"><img src="img/btn/lista_convidados_pequena.png"><br>LISTA CONVIDADOS</a>
-				<a href="#correspondencias" onClick="correspondencias;" class="ui-btn btn-menu"><img src="img/btn/correspondencia.png"><br>CORRESPONDÊNCIAS</a>
+				<a href="#correspondencias" onClick="chamarCorrespondencia;" class="ui-btn btn-menu"><img src="img/btn/correspondencia.png"><br>CORRESPONDÊNCIAS</a>
 				<a href="#classificados" onClick="classificados;" class=" ui-btn btn-menu"><img src="img/btn/classificados.png"><br>CLASSIFICADOS</a>
 				<a href="#" class="ui-btn btn-menu"><br>ABRIR PORTA</a>
-				<a href="#" class=" ui-btn btn-menu"><img src="img/btn/minha-casa.png"><br>MINHA CASA</a>
-				<a href="#" class=" ui-btn btn-menu"><img src="img/btn/alertas.png"><br>MEUS ALERTAS</a>
-				<a href="#" class=" ui-btn btn-menu"><img src="img/btn/visitas.png"><br>VISITAS</a>
-				<a href="#" class=" ui-btn btn-menu"><img src="img/btn/forum.png"><br>FORUMS</a>			
+				<a href="#" class=" ui-btn btn-menu"><img src="img/btn/alertas.png"><br>NOTIFICAÇÕES</a>
+				<a href="#log_usuario" onClick="logusuario();" class=" ui-btn btn-menu"><img src="img/btn/minha-casa.png"><br>LOG DO USUARIO</a>
+				<a href="#" class=" ui-btn btn-menu"><img src="img/btn/forum.png"><br>FORUMS</a>	
+				<a href="#" onClick="sair()" class=" ui-btn btn-menu ui-btn-c"><br>SAIR</a>					
 				<a href="#" class=" ui-btn btn-menu ui-btn-c"><img src="img/btn/panico.png"><br>ACIONAR PÂNICO</a>
         <a href="#demo-links" data-rel="close" class="ui-btn ui-shadow ui-corner-all ui-btn-a ui-icon-delete ui-btn-icon-left ui-btn-inline">Fechar Menu</a>
 
@@ -172,8 +289,8 @@
 					<ul >
 
 						<li><a href="#Painelmenu" class=""><img src="img/btn/menu.png"> MENU</a></li>
-						<li><a href="#popupDialog" data-rel="popup" data-position-to="window" data-transition="pop"  class=""><img src="img/btn/menu.png"> MENU</a></li>
-						<li><a href="#home" class=""><img src="img/btn/menu.png"> MENU</a></li>
+						<li><a class="ui-btn-c"><img src="img/btn/icone-ajuda.png"> ACIONAR PÂNICO</a></li>
+						<li><a href="#" onClick="sair()" class=""><img src="img/btn/icone-sair.png"> SAIR</a></li>
 					</ul>
 				</div>
 				</div>
@@ -182,31 +299,66 @@
 						
 					
 		
-			
-	<body >
-		<div id="eventos" class="login" data-role="page">
-				<div data-role="header" data-theme="a">
-					<p class="txthead" align="left"><img src="img/btn/eventos.png" style="margin: 0px 20px -4px -5px;">EVENTOS<img src="img/icone1.png" align="right"></p>
-						</div>
-					
-					
-					<div class="msgsucesso_meus_eventos" style="display:none">
+		
+		<div id="esqueci_senha" class="login" data-role="page">
+			<a href="#login" style="text-decoration:none;">
+			<div data-role="header" data-theme="a">
+				
+				<p class="txthead" align="left"><img src="img/carinha_login.png" > Esqueci Senha! <img src="img/icone1.png" align="right"></p>
+			</div>
+			</a>
+			<div data-role="content" >
+				<div style="margin-top:70px"></div>
+				<center><img src="img/lomatech.png"></center><br>
+				<form id="formulario_esqueci" class="login">
+					 <div class="msg_esqueci_senha" style="display:none">
 						<div data-role="header">
 							<p style="text-align:center;"> </p>
 						</div>
 					  </div>
 					
-					 
-					<ul data-role="listview" id="listaeventos" data-filter="true" data-input="#filterBasic-input" >
-						
-					</ul>					
-
-					<div class="ui-bar ui-bar-c" style="height:45px;" >
+					  <div class="msg_error_esquec_senha" style="display:none">
+						<div data-role="header" data-theme="c" >							
+							<p style="text-align:center;"> </p>
+						</div>
+					  </div>
+					<h3 style="color:#fff">Esqueci minha senha</h3>
+					<center><input type="text" class="campo_form" name="email" placeholder="Seu e-mail">
+					<center><button type="submit" class="btn-enviar ui-shadow ui-btn  ui-btn-inline ">Recuperar</button> </center>
 					
+				</form>
+				</div>
+				
+					
+			
+			</div>
+		</div>
+		
+	<div id="eventos" class="login" data-role="page">
+		<a href="#painel" style="text-decoration:none;">
+			<div data-role="header" data-theme="a">
+				<p class="txthead" align="left"><img src="img/btn/eventos.png" style="margin: 0px 20px -4px -5px;">EVENTOS<img src="img/icone1.png" align="right"></p>
+			</div>
+		</a>		
+			<div data-role="content">
+			<div class="msgsucesso_meus_eventos" style="display:none">
+				<div data-role="header">
+					<p style="text-align:center;"> </p>
+				</div>
+			</div>		
+				<div class="buscar">			
+				 
+				</div>
+				<div class="buscar">
+					<ul data-role="listview" id="eventoslistagem" data-filter="true" data-filter-placeholder=" Buscar..." >	
+						
+					</ul>
+					</div>
+			</div>					
+				<div class="ui-bar ui-bar-c" style="height:45px;" >
 					<center><div class=" ui-btn-panico ui-btn-c" a href="#"><img src="img/btn/panico.png" style="height:20px; margin-top:6px;"><br>ACIONAR PÂNICO</div></a></center>
 				</div>
-		
-					<div data-role="panel" id="Painelmenu" data-position="left" data-display="overlay" data-theme="a">
+			<div data-role="panel" id="Painelmenu" data-position="left" data-display="overlay" data-theme="a">
 
 				<h2 class="tltmenu">NAVEGA&Ccedil;&Atilde;O R&Aacute;PIDA</h2>
 				<a href="#meus_dados" class="ui-btn btn-menu" onClick="meusdados();"><img src="img/btn/meus-dados-m.png"><br>MEUS DADOS</a>
@@ -218,13 +370,13 @@
 				<a href="#ocorrencias" onClick="chamarOcorrencias();" class=" ui-btn btn-menu"><img src="img/btn/ocorrencias.png"><br>OCORRÊNCIAS</a>
 				<a href="#meus_veiculos" onClick="meusveiculos();" class=" ui-btn btn-menu"><img src="img/btn/veiculo-pequeno.png"><br>MEUS VEICULOS</a>
 				<a href="#lista_convidados" onClick="chamarListaConvidados();" class="ui-btn btn-menu"><img src="img/btn/lista_convidados_pequena.png"><br>LISTA CONVIDADOS</a>
-				<a href="#correspondencias" onClick="correspondencias;" class="ui-btn btn-menu"><img src="img/btn/correspondencia.png"><br>CORRESPONDÊNCIAS</a>
+				<a href="#correspondencias" onClick="chamarCorrespondencia;" class="ui-btn btn-menu"><img src="img/btn/correspondencia.png"><br>CORRESPONDÊNCIAS</a>
 				<a href="#classificados" onClick="classificados;" class=" ui-btn btn-menu"><img src="img/btn/classificados.png"><br>CLASSIFICADOS</a>
 				<a href="#" class="ui-btn btn-menu"><br>ABRIR PORTA</a>
-				<a href="#" class=" ui-btn btn-menu"><img src="img/btn/minha-casa.png"><br>MINHA CASA</a>
-				<a href="#" class=" ui-btn btn-menu"><img src="img/btn/alertas.png"><br>MEUS ALERTAS</a>
-				<a href="#" class=" ui-btn btn-menu"><img src="img/btn/visitas.png"><br>VISITAS</a>
-				<a href="#" class=" ui-btn btn-menu"><img src="img/btn/forum.png"><br>FORUMS</a>			
+				<a href="#" class=" ui-btn btn-menu"><img src="img/btn/alertas.png"><br>NOTIFICAÇÕES</a>
+				<a href="#log_usuario" onClick="logusuario();" class=" ui-btn btn-menu"><img src="img/btn/minha-casa.png"><br>LOG DO USUARIO</a>
+				<a href="#" class=" ui-btn btn-menu"><img src="img/btn/forum.png"><br>FORUMS</a>	
+				<a href="#" onClick="sair()" class=" ui-btn btn-menu ui-btn-c"><br>SAIR</a>					
 				<a href="#" class=" ui-btn btn-menu ui-btn-c"><img src="img/btn/panico.png"><br>ACIONAR PÂNICO</a>
         <a href="#demo-links" data-rel="close" class="ui-btn ui-shadow ui-corner-all ui-btn-a ui-icon-delete ui-btn-icon-left ui-btn-inline">Fechar Menu</a>
 
@@ -236,24 +388,25 @@
 					<ul >
 
 						<li><a href="#Painelmenu" class=""><img src="img/btn/menu.png"> MENU</a></li>
-						<li><a href="#popupDialog" data-rel="popup" data-position-to="window" data-transition="pop"  class=""><img src="img/btn/menu.png"> MENU</a></li>
-						<li><a href="#home" class=""><img src="img/btn/menu.png"> MENU</a></li>
+						<li><a class="ui-btn-c"><img src="img/btn/icone-ajuda.png"> ACIONAR PÂNICO</a></li>
+						<li><a href="#" onClick="sair()" class=""><img src="img/btn/icone-sair.png"> SAIR</a></li>
 					</ul>
 				</div>
 				</div>
 			</div>
-		</div>
+	</div>
 		
 		<div id="form_anuncios" class="login" data-role="page">
 		
 		
 	
-	
+			<a href="#painel" style="text-decoration:none;">
 				<div data-role="header" data-theme="a">
 					
 				<p class="txtanuncio" align="left"><img src="img/icones/icone-visto.png" style="margin: 0px 20px -4px -5px;"> CADASTRO DE ANUNCIOS - CLASSIFICADOS<img src="img/icone1.png" align="right"></p>
-				</div>
-					
+		
+			</div>
+					</a>
 					<p class="texto-apresentacao"> Texto padrão para apresentação em tela do Aplicativo <br>
 						seguindo a SDK Mobile, Apresentaço</p> 
 					<center style="padding: 20px  50px 0px;">
@@ -300,13 +453,13 @@
 				<a href="#ocorrencias" onClick="chamarOcorrencias();" class=" ui-btn btn-menu"><img src="img/btn/ocorrencias.png"><br>OCORRÊNCIAS</a>
 				<a href="#meus_veiculos" onClick="meusveiculos();" class=" ui-btn btn-menu"><img src="img/btn/veiculo-pequeno.png"><br>MEUS VEICULOS</a>
 				<a href="#lista_convidados" onClick="chamarListaConvidados();" class="ui-btn btn-menu"><img src="img/btn/lista_convidados_pequena.png"><br>LISTA CONVIDADOS</a>
-				<a href="#correspondencias" onClick="correspondencias;" class="ui-btn btn-menu"><img src="img/btn/correspondencia.png"><br>CORRESPONDÊNCIAS</a>
+				<a href="#correspondencias" onClick="chamarCorrespondencia;" class="ui-btn btn-menu"><img src="img/btn/correspondencia.png"><br>CORRESPONDÊNCIAS</a>
 				<a href="#classificados" onClick="classificados;" class=" ui-btn btn-menu"><img src="img/btn/classificados.png"><br>CLASSIFICADOS</a>
 				<a href="#" class="ui-btn btn-menu"><br>ABRIR PORTA</a>
-				<a href="#" class=" ui-btn btn-menu"><img src="img/btn/minha-casa.png"><br>MINHA CASA</a>
-				<a href="#" class=" ui-btn btn-menu"><img src="img/btn/alertas.png"><br>MEUS ALERTAS</a>
-				<a href="#" class=" ui-btn btn-menu"><img src="img/btn/visitas.png"><br>VISITAS</a>
-				<a href="#" class=" ui-btn btn-menu"><img src="img/btn/forum.png"><br>FORUMS</a>			
+				<a href="#" class=" ui-btn btn-menu"><img src="img/btn/alertas.png"><br>NOTIFICAÇÕES</a>
+				<a href="#log_usuario" onClick="logusuario();" class=" ui-btn btn-menu"><img src="img/btn/minha-casa.png"><br>LOG DO USUARIO</a>
+				<a href="#" class=" ui-btn btn-menu"><img src="img/btn/forum.png"><br>FORUMS</a>	
+				<a href="#" onClick="sair()" class=" ui-btn btn-menu ui-btn-c"><br>SAIR</a>					
 				<a href="#" class=" ui-btn btn-menu ui-btn-c"><img src="img/btn/panico.png"><br>ACIONAR PÂNICO</a>
         <a href="#demo-links" data-rel="close" class="ui-btn ui-shadow ui-corner-all ui-btn-a ui-icon-delete ui-btn-icon-left ui-btn-inline">Fechar Menu</a>
 
@@ -318,8 +471,8 @@
 					<ul >
 
 						<li><a href="#Painelmenu" class=""><img src="img/btn/menu.png"> MENU</a></li>
-						<li><a href="#popupDialog" data-rel="popup" data-position-to="window" data-transition="pop"  class=""><img src="img/btn/menu.png"> MENU</a></li>
-						<li><a href="#home" class=""><img src="img/btn/menu.png"> MENU</a></li>
+						<li><a class="ui-btn-c"><img src="img/btn/icone-ajuda.png"> ACIONAR PÂNICO</a></li>
+						<li><a href="#" onClick="sair()" class=""><img src="img/btn/icone-sair.png"> SAIR</a></li>
 					</ul>
 				</div>
 				</div>
@@ -327,30 +480,35 @@
 		</div>
 		
 		<div id="form_familia" class="login" data-role="page">
-			
+			<a href="#painel" style="text-decoration:none;">
 				<div data-role="header" data-theme="a">
 					
 				<p class="txt2" align="left"><img src="img/icones/icone-visto.png" style="margin: 0px 20px -4px -5px;">MINHA FAMILIA<img src="img/icone1.png" align="right"></p>
-				</div>
-					
+		
+			</div>
+						</a>
 				<form action="http://serve.iflexdigital.com.br/lomatech/app/minha_familia.php" name="dados" id="formulario_familia" method="post" autocomplete="off" enctype="multipart/form-data"> 
 					<center style="padding: 20px  50px 0px;">
 						<img src="" id="foto_form_familia">
 						<label for="foto" class="letra">FOTO</label>
-						<input type="file" name="banner"  capture="camera" accept="image/*">
+						 <input type="button" value="Capturar Imagem" onClick="capturarImagemFamilia()"> <br/>
+							 <input type="button" value="Pegar da Galeria" onClick="PegarImagemFamilia()"> <br/>
+							 <input type="hidden" name="arquivo" value="" id="arquivoFamilia"> 
+							 <input type="hidden"  value="0" id="validar_form_Familia"> 
+							<center><img src="" id="foto_Familia_editar"></center>
 					
 						<label for="nome" class="letra">NOME</label>
-							<input type="text" name="nome" id="nome_form_familia" value="" placeholder="Nome Completo">
+							<input type="text" obg="Nome" name="nome" id="nome_form_familia" value="" placeholder="Nome Completo">
 						
 						<label for="select-choice-1" class="select letra">SEXO</label>
-							<select name="sexo" id="sexo_form_familia">
+							<select name="sexo" obg="Sexo" id="sexo_form_familia">
 								<option value="" class="letra-select">SELECIONE O SEXO</option>
 								<option value="Feminino" class="letra-select">FEMININO</option>
 								<option value="Masculino" class="letra-select">MASCULINO</option>
 							</select>
 							
-							<label for="data_nascimento"  class="letra">DATA DE NASCIMENTO:</label>
-							<input type="date" name="data_nascimento" id="data_nascimento_form_familia"  data-role="date" data-inline="true"  value="">
+							<label for="data_nascimento"   class="letra">DATA DE NASCIMENTO:</label>
+							<input type="date" obg="Data de Nascimento" name="data_nascimento" id="data_nascimento_form_familia"  data-role="date" data-inline="true"  value="">
 							
 							<label for="email" class="letra">EMAIL:</label>
 							<input type="text" name="email" value="" id="email_form_familia" placeholder="EMAIL">
@@ -367,7 +525,7 @@
 							<label for="celular"  class="letra">CELULAR PRINCIPAL:</label>
 							<input type="text" name="celular"  class="celular" value="" id="celular_form_familia" placeholder="CELULAR PRINCIPAL">
 							
-							<label for="classificacao"  class="letra">CLASSIFICAÇÃO:</label>
+							<label for="classificacao" obg="Classificação"  class="letra">CLASSIFICAÇÃO:</label>
 							<input type="text" name="tipo" id="classificacao_form_familia" value="" placeholder="CLASSIFICAÇÃO">
 							
 							
@@ -402,13 +560,13 @@
 				<a href="#ocorrencias" onClick="chamarOcorrencias();" class=" ui-btn btn-menu"><img src="img/btn/ocorrencias.png"><br>OCORRÊNCIAS</a>
 				<a href="#meus_veiculos" onClick="meusveiculos();" class=" ui-btn btn-menu"><img src="img/btn/veiculo-pequeno.png"><br>MEUS VEICULOS</a>
 				<a href="#lista_convidados" onClick="chamarListaConvidados();" class="ui-btn btn-menu"><img src="img/btn/lista_convidados_pequena.png"><br>LISTA CONVIDADOS</a>
-				<a href="#correspondencias" onClick="correspondencias;" class="ui-btn btn-menu"><img src="img/btn/correspondencia.png"><br>CORRESPONDÊNCIAS</a>
+				<a href="#correspondencias" onClick="chamarCorrespondencia;" class="ui-btn btn-menu"><img src="img/btn/correspondencia.png"><br>CORRESPONDÊNCIAS</a>
 				<a href="#classificados" onClick="classificados;" class=" ui-btn btn-menu"><img src="img/btn/classificados.png"><br>CLASSIFICADOS</a>
 				<a href="#" class="ui-btn btn-menu"><br>ABRIR PORTA</a>
-				<a href="#" class=" ui-btn btn-menu"><img src="img/btn/minha-casa.png"><br>MINHA CASA</a>
-				<a href="#" class=" ui-btn btn-menu"><img src="img/btn/alertas.png"><br>MEUS ALERTAS</a>
-				<a href="#" class=" ui-btn btn-menu"><img src="img/btn/visitas.png"><br>VISITAS</a>
-				<a href="#" class=" ui-btn btn-menu"><img src="img/btn/forum.png"><br>FORUMS</a>			
+				<a href="#" class=" ui-btn btn-menu"><img src="img/btn/alertas.png"><br>NOTIFICAÇÕES</a>
+				<a href="#log_usuario" onClick="logusuario();" class=" ui-btn btn-menu"><img src="img/btn/minha-casa.png"><br>LOG DO USUARIO</a>
+				<a href="#" class=" ui-btn btn-menu"><img src="img/btn/forum.png"><br>FORUMS</a>	
+				<a href="#" onClick="sair()" class=" ui-btn btn-menu ui-btn-c"><br>SAIR</a>					
 				<a href="#" class=" ui-btn btn-menu ui-btn-c"><img src="img/btn/panico.png"><br>ACIONAR PÂNICO</a>
         <a href="#demo-links" data-rel="close" class="ui-btn ui-shadow ui-corner-all ui-btn-a ui-icon-delete ui-btn-icon-left ui-btn-inline">Fechar Menu</a>
 
@@ -420,8 +578,8 @@
 					<ul >
 
 						<li><a href="#Painelmenu" class=""><img src="img/btn/menu.png"> MENU</a></li>
-						<li><a href="#popupDialog" data-rel="popup" data-position-to="window" data-transition="pop"  class=""><img src="img/btn/menu.png"> MENU</a></li>
-						<li><a href="#home" class=""><img src="img/btn/menu.png"> MENU</a></li>
+						<li><a class="ui-btn-c"><img src="img/btn/icone-ajuda.png"> ACIONAR PÂNICO</a></li>
+						<li><a href="#" onClick="sair()" class=""><img src="img/btn/icone-sair.png"> SAIR</a></li>
 					</ul>
 				</div>
 				</div>
@@ -431,40 +589,37 @@
 		<div id="form_lista_convidados" class="login" data-role="page">
 		
 		
-	
-	
-				<div data-role="header" data-theme="a">
+			<a href="#painel" style="text-decoration:none;">
+					<div data-role="header" data-theme="a">
 					
-				<p class="txtconvidado" align="left"><img src="img/btn/lista_convidados_pequena.png" style="margin: 0px 20px -4px -5px;"> CADASTRO LISTA DE CONVIDADOS <img src="img/icone1.png" align="right"></p>
-				</div>
+						<p class="txtconvidado" align="left"><img src="img/btn/lista_convidados_pequena.png" style="margin: 0px 20px -4px -5px;"> CADASTRO LISTA DE CONVIDADOS <img src="img/icone1.png" align="right"></p>
+					</div>
+					</a>
 					<form action="http://serve.iflexdigital.com.br/lomatech/app/lista_convidados.php" name="lista_convidados" id="formulario_lista_convidados" method="post" autocomplete="off" enctype="multipart/form-data"> 
 					<p class="texto-apresentacao"> Texto padrão para apresentação em tela do Aplicativo <br>
 						seguindo a SDK Mobile, Apresentaço</p> 
 					<center style="padding: 20px  50px 0px;">
 						<label for="text-basic" class="letra">NOME DA LISTA </label>
-							<input type="text" name="nome" id="nome_form_lista_convidados" value="" placeholder=" DIGITE UM NOME PARA LISTA">
+							<input type="text" obg="Nome da Lista" name="nome" id="nome_form_lista_convidados" value="" placeholder=" DIGITE UM NOME PARA LISTA">
 							
 							<label for="text-basic" class="letra">PALAVRA CHAVE </label>
-							<input type="text" name="palavra" id="palavra_form_lista_convidados" value="" placeholder=" DIGITE UMA PALAVRA CHAVE">
+							<input type="text" obg="Palavra Chave" name="palavra" id="palavra_form_lista_convidados" value="" placeholder=" DIGITE UMA PALAVRA CHAVE">
 	
 							<label for="date"  class="letra">DATA DE INICIO:</label>
-							<input type="date" name="dataInicio" id="data_entrada_form_lista_convidados" value="">
+							<input type="datetime-local" obg="Data de Inicio"  name="dataInicio" id="data_entrada_form_lista_convidados" value="">
 							
-							<label for="date"  class="letra">DATA DE FIM:</label>
-							<input type="date" name="dataFinal" id="data_saida_form_lista_convidados" value="">
-		
+							<label for="date"   class="letra">DATA DE FIM:</label>
+							<input type="datetime-local" obg="Data de Termino" name="dataFinal" id="data_saida_form_lista_convidados" value="">
 							
-							<label for="convidados"  class="letra">CONVIDADO 1:</label>
-							<input type="text" name="nomepessoa[]" id="nome_form_lista_convidados_pessoas" value="" placeholder="DIGITE O NOME DO CONVIDADO">							
-							<input type="text" class="telefone" name="telefone[]" id="telefone_form_lista_convidados" value="" placeholder="DIGITE O TELEFONE">
+							<div class="tudosOsConvidados">
 							
-							<div class="addMais1"></div>
+							</div>
 							
 							<a href="#" id="btn-list-detalhe" onClick="addMais();" class="ui-btn ui-corner-all">Adicionar Mais</a>
 							
 							<input type="hidden" class="quantPessoas" value="1">
 							<input type="hidden" name="id" id="id_form_lista_convidados" value="">
-							<input type="hidden" name="acao" value="novo">
+							<input type="hidden" name="acao" id="acao_form_lista_convidados" value="">
 						<a href="#" onClick="registrarListaConvidados();" id="btn-medio" class="ui-btn ui-corner-all">ENVIAR <br> CADASTRO</a>
 						</form>
 						
@@ -485,13 +640,13 @@
 				<a href="#ocorrencias" onClick="chamarOcorrencias();" class=" ui-btn btn-menu"><img src="img/btn/ocorrencias.png"><br>OCORRÊNCIAS</a>
 				<a href="#meus_veiculos" onClick="meusveiculos();" class=" ui-btn btn-menu"><img src="img/btn/veiculo-pequeno.png"><br>MEUS VEICULOS</a>
 				<a href="#lista_convidados" onClick="chamarListaConvidados();" class="ui-btn btn-menu"><img src="img/btn/lista_convidados_pequena.png"><br>LISTA CONVIDADOS</a>
-				<a href="#correspondencias" onClick="correspondencias;" class="ui-btn btn-menu"><img src="img/btn/correspondencia.png"><br>CORRESPONDÊNCIAS</a>
+				<a href="#correspondencias" onClick="chamarCorrespondencia;" class="ui-btn btn-menu"><img src="img/btn/correspondencia.png"><br>CORRESPONDÊNCIAS</a>
 				<a href="#classificados" onClick="classificados;" class=" ui-btn btn-menu"><img src="img/btn/classificados.png"><br>CLASSIFICADOS</a>
 				<a href="#" class="ui-btn btn-menu"><br>ABRIR PORTA</a>
-				<a href="#" class=" ui-btn btn-menu"><img src="img/btn/minha-casa.png"><br>MINHA CASA</a>
-				<a href="#" class=" ui-btn btn-menu"><img src="img/btn/alertas.png"><br>MEUS ALERTAS</a>
-				<a href="#" class=" ui-btn btn-menu"><img src="img/btn/visitas.png"><br>VISITAS</a>
-				<a href="#" class=" ui-btn btn-menu"><img src="img/btn/forum.png"><br>FORUMS</a>			
+				<a href="#" class=" ui-btn btn-menu"><img src="img/btn/alertas.png"><br>NOTIFICAÇÕES</a>
+				<a href="#log_usuario" onClick="logusuario();" class=" ui-btn btn-menu"><img src="img/btn/minha-casa.png"><br>LOG DO USUARIO</a>
+				<a href="#" class=" ui-btn btn-menu"><img src="img/btn/forum.png"><br>FORUMS</a>	
+				<a href="#" onClick="sair()" class=" ui-btn btn-menu ui-btn-c"><br>SAIR</a>					
 				<a href="#" class=" ui-btn btn-menu ui-btn-c"><img src="img/btn/panico.png"><br>ACIONAR PÂNICO</a>
         <a href="#demo-links" data-rel="close" class="ui-btn ui-shadow ui-corner-all ui-btn-a ui-icon-delete ui-btn-icon-left ui-btn-inline">Fechar Menu</a>
 
@@ -503,42 +658,55 @@
 					<ul >
 
 						<li><a href="#Painelmenu" class=""><img src="img/btn/menu.png"> MENU</a></li>
-						<li><a href="#popupDialog" data-rel="popup" data-position-to="window" data-transition="pop"  class=""><img src="img/btn/menu.png"> MENU</a></li>
-						<li><a href="#home" class=""><img src="img/btn/menu.png"> MENU</a></li>
+						<li><a class="ui-btn-c"><img src="img/btn/icone-ajuda.png"> ACIONAR PÂNICO</a></li>
+						<li><a href="#" onClick="sair()" class=""><img src="img/btn/icone-sair.png"> SAIR</a></li>
 					</ul>
 				</div>
 				</div>
 			</div>
+					<div class="convidadeEditar" style="display:none";>
+							<label for="convidados"  class="letra">CONVIDADO 1:</label>
+							<input type="text" name="nomepessoa[]" id="nome_form_lista_convidados_pessoas" value="" placeholder="DIGITE O NOME DO CONVIDADO">							
+							<input type="text" class="telefone" name="telefone[]" id="telefone_form_lista_convidados" value="" placeholder="DIGITE O TELEFONE">
+							<div class="addMais1"></div>
+					</div>
 		</div>
 		
 		<div id="form_meus_animais" class="login" data-role="page">
-			
+			<a href="#painel" style="text-decoration:none;">
 				<div data-role="header" data-theme="a">
 					
 				<p class="txt2" align="left"><img src="img/icones/icone-visto.png" style="margin: 0px 20px -4px -5px;"> CADASTRO DE ANIMAL DE ESTIMAÇÃO  <img src="img/icone1.png" align="right"></p>
-				</div>
+						
+			</div>
+			</a>
 				<form action="http://serve.iflexdigital.com.br/lomatech/app/meu_animais.php" name="meus_animais" id="formulario_meus_animais" method="post" autocomplete="off" enctype="multipart/form-data"> 
 					<center style="padding: 20px  50px 0px;">
 						<label for="nome_animal" class="letra">NOME DO ANIMAL</label>
-							<input type="text" name="nome_animal" id="nome_animal_form_animal" value="" placeholder="Nome Completo">
+							<input type="text" obg="Nome" name="nome_animal" id="nome_animal_form_animal" value="" placeholder="Nome Completo">
 							
+							
+
 							<label for="select-choice-1" class="select letra">TIPO</label>
 					
-							<select name="tipo" id="tipo_form_animal">
+							<select name="tipo" obg="Tipo" id="tipo_form_animal" style="no-style">
 								
 							</select>
 							<label for="select-choice-1" class="select letra">RAÇA</label>
-							<select name="raca" id="raca_form_animal">
+							<select name="raca" obg="Raça" id="raca_form_animal">
 								
 							</select>
 	
 							<label for="text-basic"  class="letra">COR:</label>
-							<input type="text" name="cor"  id="cor_form_animal" value="" placeholder="COR">
+							<input type="text" obg="Cor" name="cor"  id="cor_form_animal" value="" placeholder="COR">
 							<input type="hidden" name="id" id="id_animal_form_animal" value="">
 							<input type="hidden" name="acao" id="acao_animal_form_animal" value="">
 						
 								 <label for="file-1" class="letra">ESCOLHA UMA FOTO PARA O ANIMAL</label>
-								 <input type="file" data-clear-btn="false" name="foto" id="foto_form_animal" value="">
+								 <input type="button" value="Capturar Imagem" onClick="capturarImagemAnimal()"> <br/>
+								  <input type="button" value="Pegar da Galeria" onClick="PegarImagemAnimal()"> <br/>
+								 <input type="hidden" name="arquivo" value="" id="arquivoMeusAnimais"> 
+								  <input type="hidden"  value="0" id="validar_form_animal"> 
 								<center><img src="" id="foto_animal_editar"></center>
 						<a href="#" id="btn-medio" onClick="editar_animal()" class="ui-btn ui-corner-all">SALVAR<br>REGISTRO</a>
 						
@@ -559,13 +727,13 @@
 				<a href="#ocorrencias" onClick="chamarOcorrencias();" class=" ui-btn btn-menu"><img src="img/btn/ocorrencias.png"><br>OCORRÊNCIAS</a>
 				<a href="#meus_veiculos" onClick="meusveiculos();" class=" ui-btn btn-menu"><img src="img/btn/veiculo-pequeno.png"><br>MEUS VEICULOS</a>
 				<a href="#lista_convidados" onClick="chamarListaConvidados();" class="ui-btn btn-menu"><img src="img/btn/lista_convidados_pequena.png"><br>LISTA CONVIDADOS</a>
-				<a href="#correspondencias" onClick="correspondencias;" class="ui-btn btn-menu"><img src="img/btn/correspondencia.png"><br>CORRESPONDÊNCIAS</a>
+				<a href="#correspondencias" onClick="chamarCorrespondencia;" class="ui-btn btn-menu"><img src="img/btn/correspondencia.png"><br>CORRESPONDÊNCIAS</a>
 				<a href="#classificados" onClick="classificados;" class=" ui-btn btn-menu"><img src="img/btn/classificados.png"><br>CLASSIFICADOS</a>
 				<a href="#" class="ui-btn btn-menu"><br>ABRIR PORTA</a>
-				<a href="#" class=" ui-btn btn-menu"><img src="img/btn/minha-casa.png"><br>MINHA CASA</a>
-				<a href="#" class=" ui-btn btn-menu"><img src="img/btn/alertas.png"><br>MEUS ALERTAS</a>
-				<a href="#" class=" ui-btn btn-menu"><img src="img/btn/visitas.png"><br>VISITAS</a>
-				<a href="#" class=" ui-btn btn-menu"><img src="img/btn/forum.png"><br>FORUMS</a>			
+				<a href="#" class=" ui-btn btn-menu"><img src="img/btn/alertas.png"><br>NOTIFICAÇÕES</a>
+				<a href="#log_usuario" onClick="logusuario();" class="ui-btn btn-menu"><img src="img/btn/minha-casa.png"><br>LOG DO USUARIO</a>				
+				<a href="#" class=" ui-btn btn-menu"><img src="img/btn/forum.png"><br>FORUMS</a>		
+				<a href="#" onClick="sair()" class=" ui-btn btn-menu ui-btn-c"><br>SAIR</a>				
 				<a href="#" class=" ui-btn btn-menu ui-btn-c"><img src="img/btn/panico.png"><br>ACIONAR PÂNICO</a>
         <a href="#demo-links" data-rel="close" class="ui-btn ui-shadow ui-corner-all ui-btn-a ui-icon-delete ui-btn-icon-left ui-btn-inline">Fechar Menu</a>
 
@@ -577,8 +745,8 @@
 					<ul >
 
 						<li><a href="#Painelmenu" class=""><img src="img/btn/menu.png"> MENU</a></li>
-						<li><a href="#popupDialog" data-rel="popup" data-position-to="window" data-transition="pop"  class=""><img src="img/btn/menu.png"> MENU</a></li>
-						<li><a href="#home" class=""><img src="img/btn/menu.png"> MENU</a></li>
+						<li><a class="ui-btn-c"><img src="img/btn/icone-ajuda.png"> ACIONAR PÂNICO</a></li>
+						<li><a href="#" onClick="sair()" class=""><img src="img/btn/icone-sair.png"> SAIR</a></li>
 					</ul>
 				</div>
 				</div>
@@ -586,48 +754,69 @@
 		</div>
 		
 		<div id="form_meus_dados" class="login" data-role="page">
-			
+			<a href="#painel" style="text-decoration:none;">
 				<div data-role="header" data-theme="a">
 					
 				<p class="txt2" align="left"><img src="img/icones/icone-visto.png" style="margin: 0px 20px -4px -5px;">MEUS DADOS<img src="img/icone1.png" align="right"></p>
-				</div>
-					
+			
+			</div>
+					</a>
 				<form action="http://serve.iflexdigital.com.br/lomatech/app/meus_dados.php" name="dados" id="formulario_meus_dados" method="post" autocomplete="off" enctype="multipart/form-data"> 
 					<center style="padding: 20px  50px 0px;">
 					
 						<label for="foto" class="letra">FOTO</label>
-						<input type="file" name="banner[]"  capture="camera" accept="image/*">
+						 <input type="button" value="Capturar Imagem" onClick="capturarImagem()"> <br/>
+						  <input type="button" value="Pegar da Galeria" onClick="PegarImagem()"> <br/>
+						 <input type="hidden" name="arquivo" value="" id="arquivoMeusDados"> 
+						  <input type="hidden"  value="0" id="validar_form_dados"> 
+
+						<img id="htmlImagem"></img>
 					
 						<label for="nome" class="letra">NOME</label>
-							<input type="text" name="nome" id="nome_form_dados" value="" placeholder="Nome Completo">
+							<input type="text" obg="Nome" name="nome" id="nome_form_dados" value="" placeholder="Nome Completo">
 						
 						<label for="select-choice-1" class="select letra">SEXO</label>
-							<select name="sexo" id="sexo_form_dados">
+							<select name="sexo" obg="Sexo" id="sexo_form_dados">
 								<option value="" class="letra-select">SELECIONE O SEXO</option>
 								<option value="Feminino" class="letra-select">FEMININO</option>
 								<option value="Masculino" class="letra-select">MASCULINO</option>
 							</select>
 							
 							<label for="data_nascimento"  class="letra">DATA DE NASCIMENTO:</label>
-							<input type="text" name="data_nascimento" id="data_nascimento_form_dados"  data-role="date" data-inline="true"  value="">
+							<input type="date" obg="Data de Nascimento" name="data_nascimento" id="data_nascimento_form_dados"  data-role="date" data-inline="true"  value="">
 							
 							<label for="email" class="letra">EMAIL:</label>
-							<input type="text" name="email" value="" id="email_form_dados" placeholder="EMAIL">
+							<input type="text" obg="Email" name="email" value="" id="email_form_dados" placeholder="EMAIL">
+							<div id="msgEmailMeus"></div>
 							
 							<label for="text-basic"  class="letra">RG:</label>
-							<input type="text" name="rg" class="rg" id="rg_form_dados"  value="" placeholder="RG">
+							<input type="text" obg="RG" name="rg" class="rg" id="rg_form_dados"  value="" placeholder="RG">
 							
 							<label for="cpf"  class="letra">CPF:</label>
-							<input type="text" name="cpf" class="cpf" id="cpf_form_dados" value="" placeholder="CPF">
+							<input type="text" obg="CPF" name="cpf" class="cpf" id="cpf_form_dados" value="" placeholder="CPF">
+							<div id="msgCPFMeus"></div>
 							
 							<label for="telefone"  class="letra">TELEFONE:</label>
 							<input type="text" class="telefone" name="telefone" id="telefone_form_dados"  value="" placeholder="TELEFONE">
 						
 							<label for="celular"  class="letra">CELULAR PRINCIPAL:</label>
-							<input type="text" name="celular"  class="celular" value="" id="celular_form_dados" placeholder="CELULAR PRINCIPAL">
+							<input type="text" obg="Celular"  name="celular"  class="celular" value="" id="celular_form_dados" placeholder="CELULAR PRINCIPAL">
+							<div id="msgCelularMeus"></div>
 							
 							<label for="classificacao"  class="letra">CLASSIFICAÇÃO:</label>
-							<input type="text" name="tipo" id="classificacao_form_dados" value="" placeholder="CLASSIFICAÇÃO">
+							
+							<select name="tipo" obg="CLASSIFICAÇÃO"  id="classificacao_form_dados" obg="Tipo">
+								<option value="">Selecione...</option>
+									<option value="Pai" selected="selected">Pai</option>
+									<option value="Mãe">Mãe</option>
+									<option value="Filho(a)">Filho(a)</option>
+									<option value="Primo(a)">Primo(a)</option>
+									<option value="Marido">Marido</option>
+									<option value="Esposa">Esposa</option>
+									<option value="Outro">Outro</option>
+							</select>
+							
+							
 							
 							
 							
@@ -662,13 +851,13 @@
 				<a href="#ocorrencias" onClick="chamarOcorrencias();" class=" ui-btn btn-menu"><img src="img/btn/ocorrencias.png"><br>OCORRÊNCIAS</a>
 				<a href="#meus_veiculos" onClick="meusveiculos();" class=" ui-btn btn-menu"><img src="img/btn/veiculo-pequeno.png"><br>MEUS VEICULOS</a>
 				<a href="#lista_convidados" onClick="chamarListaConvidados();" class="ui-btn btn-menu"><img src="img/btn/lista_convidados_pequena.png"><br>LISTA CONVIDADOS</a>
-				<a href="#correspondencias" onClick="correspondencias;" class="ui-btn btn-menu"><img src="img/btn/correspondencia.png"><br>CORRESPONDÊNCIAS</a>
+				<a href="#correspondencias" onClick="chamarCorrespondencia;" class="ui-btn btn-menu"><img src="img/btn/correspondencia.png"><br>CORRESPONDÊNCIAS</a>
 				<a href="#classificados" onClick="classificados;" class=" ui-btn btn-menu"><img src="img/btn/classificados.png"><br>CLASSIFICADOS</a>
 				<a href="#" class="ui-btn btn-menu"><br>ABRIR PORTA</a>
-				<a href="#" class=" ui-btn btn-menu"><img src="img/btn/minha-casa.png"><br>MINHA CASA</a>
-				<a href="#" class=" ui-btn btn-menu"><img src="img/btn/alertas.png"><br>MEUS ALERTAS</a>
-				<a href="#" class=" ui-btn btn-menu"><img src="img/btn/visitas.png"><br>VISITAS</a>
-				<a href="#" class=" ui-btn btn-menu"><img src="img/btn/forum.png"><br>FORUMS</a>			
+				<a href="#" class=" ui-btn btn-menu"><img src="img/btn/alertas.png"><br>NOTIFICAÇÕES</a>
+				<a href="#log_usuario" onClick="logusuario();" class=" ui-btn btn-menu"><img src="img/btn/minha-casa.png"><br>LOG DO USUARIO</a>
+				<a href="#" class=" ui-btn btn-menu"><img src="img/btn/forum.png"><br>FORUMS</a>	
+				<a href="#" onClick="sair()" class=" ui-btn btn-menu ui-btn-c"><br>SAIR</a>					
 				<a href="#" class=" ui-btn btn-menu ui-btn-c"><img src="img/btn/panico.png"><br>ACIONAR PÂNICO</a>
         <a href="#demo-links" data-rel="close" class="ui-btn ui-shadow ui-corner-all ui-btn-a ui-icon-delete ui-btn-icon-left ui-btn-inline">Fechar Menu</a>
 
@@ -680,8 +869,8 @@
 					<ul >
 
 						<li><a href="#Painelmenu" class=""><img src="img/btn/menu.png"> MENU</a></li>
-						<li><a href="#popupDialog" data-rel="popup" data-position-to="window" data-transition="pop"  class=""><img src="img/btn/menu.png"> MENU</a></li>
-						<li><a href="#home" class=""><img src="img/btn/menu.png"> MENU</a></li>
+						<li><a class="ui-btn-c"><img src="img/btn/icone-ajuda.png"> ACIONAR PÂNICO</a></li>
+						<li><a href="#" onClick="sair()" class=""><img src="img/btn/icone-sair.png"> SAIR</a></li>
 					</ul>
 				</div>
 				</div>
@@ -689,38 +878,44 @@
 		</div>
 		
 		<div id="form_meus_veiculos" class="login" data-role="page">
-			
+			<a href="#painel" style="text-decoration:none;">
 				<div data-role="header" data-theme="a">
 					
 				<p class="txt2" align="left"><img src="img/btn/veiculo-pequeno.png" style="margin: 0px 20px -4px -5px;"> CADASTRO DE VEICULOS  <img src="img/icone1.png" align="right"></p>
+				
 				</div>
+				</a>
 				<form action="http://serve.iflexdigital.com.br/lomatech/app/meus_veiculos.php" name="meus_veiculos" id="formulario_meus_veiculos" method="post" autocomplete="off" enctype="multipart/form-data"> 
 					<center style="padding: 20px  50px 0px;">
 		
 							<label for="select-choice-1" class="select letra">MARCA</label>
-							<select name="marca" id="marca_form_meus_veiculos">
+							<select name="marca" obg="Marca" id="marca_form_meus_veiculos">
 								
 
 							</select>
 							<label for="select-choice-1" class="select letra">MODELO</label>
-							<select name="modelo" id="modelo_form_meus_veiculos">
+							<select name="modelo" obg="Modelo" id="modelo_form_meus_veiculos">
 							
 							
 							</select>	
 							<label for="text-basic"  class="letra">PLACA:</label>
-							<input type="text" name="placa"  id="placa_form_meus_veiculos" value="" placeholder="PLACA">
+							<input type="text" name="placa" obg="Placa"  id="placa_form_meus_veiculos" value="" placeholder="PLACA">
 							
 	
 							<label for="text-basic"  class="letra">COR:</label>
-							<input type="text" name="cor"  id="cor_form_meus_veiculos" value="" placeholder="COR">
+							<input type="text" name="cor" obg="Cor"  id="cor_form_meus_veiculos" value="" placeholder="COR">
 							
 						
 								 <label for="file-1" class="letra">ESCOLHA UMA FOTO DO CARRO</label>
-								 <input type="file" data-clear-btn="false" name="banner" id="banner_form_meus_veiculos" value="">
-							
+								 <input type="button" value="Capturar Imagem" onClick="capturarImagemVeiculo()"> <br/>
+								  <input type="button" value="Pegar da Galeria" onClick="PegarImagemVeiculo()"> <br/>
+								 <input type="hidden" name="arquivo" value="" id="arquivoMeusVeiculos"> 
+								  <input type="hidden"  value="0" id="validar_form_veiculo"> 
+								<center><img src="" id="banner_veiculo_editar"></center>
+								
 							<input type="hidden" name="id" id="id_form_meus_veiculos" value="">
 							<input type="hidden" name="acao" value="" id="acao_form_meus_veiculos">
-						<a href="#" onClick="registrarVeiculos();" id="btn-medio" class="ui-btn ui-corner-all">SALVAR<br>REGISTRO</a>
+						<a href="#" onClick="registrarVeiculos();" id="btn-medio" class="ui-btn ui-corner-all">SALVAR REGISTRO</a>
 						
 						</form>
 						
@@ -741,13 +936,13 @@
 				<a href="#ocorrencias" onClick="chamarOcorrencias();" class=" ui-btn btn-menu"><img src="img/btn/ocorrencias.png"><br>OCORRÊNCIAS</a>
 				<a href="#meus_veiculos" onClick="meusveiculos();" class=" ui-btn btn-menu"><img src="img/btn/veiculo-pequeno.png"><br>MEUS VEICULOS</a>
 				<a href="#lista_convidados" onClick="chamarListaConvidados();" class="ui-btn btn-menu"><img src="img/btn/lista_convidados_pequena.png"><br>LISTA CONVIDADOS</a>
-				<a href="#correspondencias" onClick="correspondencias;" class="ui-btn btn-menu"><img src="img/btn/correspondencia.png"><br>CORRESPONDÊNCIAS</a>
+				<a href="#correspondencias" onClick="chamarCorrespondencia;" class="ui-btn btn-menu"><img src="img/btn/correspondencia.png"><br>CORRESPONDÊNCIAS</a>
 				<a href="#classificados" onClick="classificados;" class=" ui-btn btn-menu"><img src="img/btn/classificados.png"><br>CLASSIFICADOS</a>
 				<a href="#" class="ui-btn btn-menu"><br>ABRIR PORTA</a>
-				<a href="#" class=" ui-btn btn-menu"><img src="img/btn/minha-casa.png"><br>MINHA CASA</a>
-				<a href="#" class=" ui-btn btn-menu"><img src="img/btn/alertas.png"><br>MEUS ALERTAS</a>
-				<a href="#" class=" ui-btn btn-menu"><img src="img/btn/visitas.png"><br>VISITAS</a>
-				<a href="#" class=" ui-btn btn-menu"><img src="img/btn/forum.png"><br>FORUMS</a>			
+				<a href="#" class=" ui-btn btn-menu"><img src="img/btn/alertas.png"><br>NOTIFICAÇÕES</a>
+				<a href="#log_usuario" onClick="logusuario();" class=" ui-btn btn-menu"><img src="img/btn/minha-casa.png"><br>LOG DO USUARIO</a>
+				<a href="#" class=" ui-btn btn-menu"><img src="img/btn/forum.png"><br>FORUMS</a>	
+				<a href="#" onClick="sair()" class=" ui-btn btn-menu ui-btn-c"><br>SAIR</a>					
 				<a href="#" class=" ui-btn btn-menu ui-btn-c"><img src="img/btn/panico.png"><br>ACIONAR PÂNICO</a>
         <a href="#demo-links" data-rel="close" class="ui-btn ui-shadow ui-corner-all ui-btn-a ui-icon-delete ui-btn-icon-left ui-btn-inline">Fechar Menu</a>
 
@@ -759,42 +954,48 @@
 					<ul >
 
 						<li><a href="#Painelmenu" class=""><img src="img/btn/menu.png"> MENU</a></li>
-						<li><a href="#popupDialog" data-rel="popup" data-position-to="window" data-transition="pop"  class=""><img src="img/btn/menu.png"> MENU</a></li>
-						<li><a href="#home" class=""><img src="img/btn/menu.png"> MENU</a></li>
+						<li><a class="ui-btn-c"><img src="img/btn/icone-ajuda.png"> ACIONAR PÂNICO</a></li>
+						<li><a href="#" onClick="sair()" class=""><img src="img/btn/icone-sair.png"> SAIR</a></li>
 					</ul>
 				</div>
 				</div>
 			</div>
 		</div>
 		
-			'<div id="form_ocorrencias" class="login" data-role="page">
-			
+			<div id="form_ocorrencias" class="login" data-role="page">
+			<a href="#painel" style="text-decoration:none;">
 				<div data-role="header" data-theme="a">
 					
 				<p class="txt2" align="left"><img src="img/icones/icone-visto.png" style="margin: 0px 20px -4px -5px;"> CADASTRO DE OCORRENCIA <img src="img/icone1.png" align="right"></p>
+			
 				</div>
-				<form action="http://serve.iflexdigital.com.br/lomatech/app/ocorrencias.php" name="ocorrencias" id="formulario_ocorrencias" method="post" autocomplete="off" enctype="multipart/form-data"> 
+				</a>
+				<form action="http://serve.iflexdigital.com.br/lomatech/app/ocorrencias.php" name="ocorrencias" id="ocoorenciaDeFormulario" method="post" autocomplete="off" enctype="multipart/form-data"> 
 					<center style="padding: 20px  50px 0px;">
 					<label for="file-1" class="letra">ESCOLHA UMA FOTO PARA a OCORRENCIA</label>
-								 <input type="file" data-clear-btn="false" name="foto_form_ocorrencias" id="foto" value="">
+								  <input type="button" value="Capturar Imagem" onClick="capturarImagemOcorrencia()"> <br/>
+								  <input type="button" value="Pegar da Galeria" onClick="PegarImagemOcorrencia()"> <br/>
+								 <input type="hidden" name="arquivo" value="" id="arquivoMeusOcorrencias"> 
+								  <input type="hidden"  value="0" id="validar_form_Ocorrencia"> 
+								<center><img src="" id="banner_Ocorrencia_editar"></center>
 								 
 								 <label for="text-basic"  class="letra">TITULO DA OCORRENCIA:</label>
-							<input type="text" name="titulo_ocorrencia"  id="titulo_ocorrencia_form_ocorrencias" value="" placeholder="TITULO DA OCORRENCIA">
+							<input type="text" name="titulo_ocorrencia"  obg="Titulo"  id="titulo_ocorrencia_form_ocorrencias" value="" placeholder="TITULO DA OCORRENCIA">
 							
-							<label for="select-choice-1" class="select letra">LOCAL DA OCORRENCIA</label>
-							<select name="local" id="local_form_ocorrencias">
+							<label for="select-choice-1"  class="select letra">LOCAL DA OCORRENCIA</label>
+							<select name="local" obg="Local" id="local_form_ocorrencias">
 								
 								
 							</select>
-							<label for="datetime-3" class="letra">DATA e HORA:</label>
-							<input type="datetime-local" data-clear-btn="false" name="data_ocorrencia" id="data_ocorrencia_form_ocorrencias" value="">
+							<label for="datetime-3"  class="letra">DATA e HORA:</label>
+							<input type="datetime-local" obg="Data e Hora" data-clear-btn="false" name="data_ocorrencia" id="data_ocorrencia_form_ocorrencias" value="">
 							
 							<label for="text-basic"  class="letra">DESCRIÇÃO:</label>
-							<input type="text" name="descricao"  id="descricao_form_ocorrencias" value="" placeholder="DESCRIÇÃO">
-							
+							<input type="text" name="descricao" bg="Descrição"  id="descricao_form_ocorrencias" value="" placeholder="DESCRIÇÃO">
+							<textarea></textarea>
 							<input type="hidden" name="id" id="id_form_ocorrencias" value="">
 							<input type="hidden" name="acao" value="novo">
-						<a href="#"  onClick="registrarOcorrencia();" id="btn-medio" class="ui-btn ui-corner-all">CADASTRAR<br>OCORRENCIA</a>
+						<a href="#"  onClick="registrarOcorrencia();" id="btn-medio" class="ui-btn ui-corner-all">CADASTRAR OCORRENCIA</a>
 						
 						</form>
 						
@@ -815,13 +1016,13 @@
 				<a href="#ocorrencias" onClick="chamarOcorrencias();" class=" ui-btn btn-menu"><img src="img/btn/ocorrencias.png"><br>OCORRÊNCIAS</a>
 				<a href="#meus_veiculos" onClick="meusveiculos();" class=" ui-btn btn-menu"><img src="img/btn/veiculo-pequeno.png"><br>MEUS VEICULOS</a>
 				<a href="#lista_convidados" onClick="chamarListaConvidados();" class="ui-btn btn-menu"><img src="img/btn/lista_convidados_pequena.png"><br>LISTA CONVIDADOS</a>
-				<a href="#correspondencias" onClick="correspondencias;" class="ui-btn btn-menu"><img src="img/btn/correspondencia.png"><br>CORRESPONDÊNCIAS</a>
+				<a href="#correspondencias" onClick="chamarCorrespondencia;" class="ui-btn btn-menu"><img src="img/btn/correspondencia.png"><br>CORRESPONDÊNCIAS</a>
 				<a href="#classificados" onClick="classificados;" class=" ui-btn btn-menu"><img src="img/btn/classificados.png"><br>CLASSIFICADOS</a>
 				<a href="#" class="ui-btn btn-menu"><br>ABRIR PORTA</a>
-				<a href="#" class=" ui-btn btn-menu"><img src="img/btn/minha-casa.png"><br>MINHA CASA</a>
-				<a href="#" class=" ui-btn btn-menu"><img src="img/btn/alertas.png"><br>MEUS ALERTAS</a>
-				<a href="#" class=" ui-btn btn-menu"><img src="img/btn/visitas.png"><br>VISITAS</a>
-				<a href="#" class=" ui-btn btn-menu"><img src="img/btn/forum.png"><br>FORUMS</a>			
+				<a href="#" class=" ui-btn btn-menu"><img src="img/btn/alertas.png"><br>NOTIFICAÇÕES</a>
+				<a href="#log_usuario" onClick="logusuario();" class=" ui-btn btn-menu"><img src="img/btn/minha-casa.png"><br>LOG DO USUARIO</a>
+				<a href="#" class=" ui-btn btn-menu"><img src="img/btn/forum.png"><br>FORUMS</a>	
+				<a href="#" onClick="sair()" class=" ui-btn btn-menu ui-btn-c"><br>SAIR</a>					
 				<a href="#" class=" ui-btn btn-menu ui-btn-c"><img src="img/btn/panico.png"><br>ACIONAR PÂNICO</a>
         <a href="#demo-links" data-rel="close" class="ui-btn ui-shadow ui-corner-all ui-btn-a ui-icon-delete ui-btn-icon-left ui-btn-inline">Fechar Menu</a>
 
@@ -833,8 +1034,8 @@
 					<ul >
 
 						<li><a href="#Painelmenu" class=""><img src="img/btn/menu.png"> MENU</a></li>
-						<li><a href="#popupDialog" data-rel="popup" data-position-to="window" data-transition="pop"  class=""><img src="img/btn/menu.png"> MENU</a></li>
-						<li><a href="#home" class=""><img src="img/btn/menu.png"> MENU</a></li>
+						<li><a class="ui-btn-c"><img src="img/btn/icone-ajuda.png"> ACIONAR PÂNICO</a></li>
+						<li><a href="#" onClick="sair()" class=""><img src="img/btn/icone-sair.png"> SAIR</a></li>
 					</ul>
 				</div>
 				</div>
@@ -843,32 +1044,34 @@
 	
 		<div id="form_reservas" class="login" data-role="page">
 			
+				<a href="#painel" style="text-decoration:none;">
 				<div data-role="header" data-theme="a">
 					
 				<p class="txt2" align="left"><img src="img/btn/reservas.png" style="margin: 0px 20px -4px -5px;"> CADASTRO RESERVA <img src="img/icone1.png" align="right"></p>
 				</div>
+				</a>
 				<form action="http://serve.iflexdigital.com.br/lomatech/app/reservas.php" name="reservas" id="formulario_reservas" method="post" autocomplete="off" enctype="multipart/form-data"> 
 					<center style="padding: 20px  50px 0px;">
 						
 							
 							<label for="select-choice-1" class="select letra" class="letra">DEPENDÊNCIAS</label>
-								<select name="dependencia" id="dependencia_form_reservas">
+								<select name="dependencia" obg="Dependência" id="dependencia_form_reservas">
 									
 								</select>
 							
 							<label for="date" class="letra">DATA:</label>
-								<input type="date" name="data" id="data_form_reservas" value="">
+								<input type="date" name="data" obg="Data" id="data_form_reservas" value="">
 							<form>
 								<label for="time-1" class="letra">HORA DE INICIO</label>
-								<input type="time" data-clear-btn="false" name="hora_inicial" id="hora_inicio_form_reservas" value="">
+								<input type="time" data-clear-btn="false" obg="Hora Inicio" name="hora_inicial" id="hora_inicio_form_reservas" value="">
 							</form>
 								<label for="time-1" class="letra">HORA DE TERMINIO</label>
-								<select name="hora_termino" id="hora_fim_form_reservas">
+								<select name="hora_termino" obg="Hora Fim" id="hora_fim_form_reservas">
 									<option value=''>-- Selecione um Horario de inicio -- </option>
 								</select>
 							<input type="hidden" name="acao" value="novo">
 							<input type="hidden" name="id" id="id_form_reserva" value="">
-						<a href="#" onClick="registrarReserva();" id="btn-medio" class="ui-btn ui-corner-all">CADASTRAR<br>RESERVA</a>
+						<a href="#" onClick="registrarReserva();" id="btn-medio" class="ui-btn ui-corner-all">RESERVAR</a>
 						
 						</form>
 						
@@ -886,13 +1089,13 @@
 				<a href="#ocorrencias" onClick="chamarOcorrencias();" class=" ui-btn btn-menu"><img src="img/btn/ocorrencias.png"><br>OCORRÊNCIAS</a>
 				<a href="#meus_veiculos" onClick="meusveiculos();" class=" ui-btn btn-menu"><img src="img/btn/veiculo-pequeno.png"><br>MEUS VEICULOS</a>
 				<a href="#lista_convidados" onClick="chamarListaConvidados();" class="ui-btn btn-menu"><img src="img/btn/lista_convidados_pequena.png"><br>LISTA CONVIDADOS</a>
-				<a href="#correspondencias" onClick="correspondencias;" class="ui-btn btn-menu"><img src="img/btn/correspondencia.png"><br>CORRESPONDÊNCIAS</a>
+				<a href="#correspondencias" onClick="chamarCorrespondencia;" class="ui-btn btn-menu"><img src="img/btn/correspondencia.png"><br>CORRESPONDÊNCIAS</a>
 				<a href="#classificados" onClick="classificados;" class=" ui-btn btn-menu"><img src="img/btn/classificados.png"><br>CLASSIFICADOS</a>
 				<a href="#" class="ui-btn btn-menu"><br>ABRIR PORTA</a>
-				<a href="#" class=" ui-btn btn-menu"><img src="img/btn/minha-casa.png"><br>MINHA CASA</a>
-				<a href="#" class=" ui-btn btn-menu"><img src="img/btn/alertas.png"><br>MEUS ALERTAS</a>
-				<a href="#" class=" ui-btn btn-menu"><img src="img/btn/visitas.png"><br>VISITAS</a>
-				<a href="#" class=" ui-btn btn-menu"><img src="img/btn/forum.png"><br>FORUMS</a>			
+				<a href="#" class=" ui-btn btn-menu"><img src="img/btn/alertas.png"><br>NOTIFICAÇÕES</a>
+				<a href="#log_usuario" onClick="logusuario();" class=" ui-btn btn-menu"><img src="img/btn/minha-casa.png"><br>LOG DO USUARIO</a>
+				<a href="#" class=" ui-btn btn-menu"><img src="img/btn/forum.png"><br>FORUMS</a>	
+				<a href="#" onClick="sair()" class=" ui-btn btn-menu ui-btn-c"><br>SAIR</a>					
 				<a href="#" class=" ui-btn btn-menu ui-btn-c"><img src="img/btn/panico.png"><br>ACIONAR PÂNICO</a>
         <a href="#demo-links" data-rel="close" class="ui-btn ui-shadow ui-corner-all ui-btn-a ui-icon-delete ui-btn-icon-left ui-btn-inline">Fechar Menu</a>
 
@@ -904,19 +1107,80 @@
 					<ul >
 
 						<li><a href="#Painelmenu" class=""><img src="img/btn/menu.png"> MENU</a></li>
-						<li><a href="#popupDialog" data-rel="popup" data-position-to="window" data-transition="pop"  class=""><img src="img/btn/menu.png"> MENU</a></li>
-						<li><a href="#home" class=""><img src="img/btn/menu.png"> MENU</a></li>
+						<li><a class="ui-btn-c"><img src="img/btn/icone-ajuda.png"> ACIONAR PÂNICO</a></li>
+						<li><a href="#" onClick="sair()" class=""><img src="img/btn/icone-sair.png"> SAIR</a></li>
 					</ul>
 				</div>
 				</div>
 			</div>
 		</div>
+		
+	<div id="forum" class="login" data-role="page">
+		<a href="#painel" style="text-decoration:none;">
+			<div data-role="header" data-theme="a">
+				<p class="txthead" align="left"><img src="img/btn/forum.png" style="margin: 0px 20px -4px -5px;">FORUM<img src="img/icone1.png" align="right"></p>
+			</div>
+		</a>		
+			<div data-role="content">
+			<div class="msgsucesso_meus_eventos" style="display:none">
+				<div data-role="header">
+					<p style="text-align:center;"> </p>
+				</div>
+			</div>		
+				<div class="buscar">			
+				 
+				</div>
+				<div class="buscar">
+					<ul data-role="listview" id="listaforum" data-filter="true" data-filter-placeholder=" Buscar..." >	
+					
+					</ul>
+					</div>
+			</div>					
+				
+			<div data-role="panel" id="Painelmenu" data-position="left" data-display="overlay" data-theme="a">
+
+				<h2 class="tltmenu">NAVEGA&Ccedil;&Atilde;O R&Aacute;PIDA</h2>
+				<a href="#meus_dados" class="ui-btn btn-menu" onClick="meusdados();"><img src="img/btn/meus-dados-m.png"><br>MEUS DADOS</a>
+				<a href="#meus_animais" class="ui-btn btn-menu" onClick="meusanimais();"><img src="img/btn/animais.png"><br>MEUS ANIMAIS</a>
+				<a href="#documentos_informes" onClick="documentos();" class="ui-btn btn-menu"><img src="img/btn/doc_pequeno.png"><br>DOCUMENTOS/INFORMES</a>
+				<a href="#reservas" onClick="reservas();" class=" ui-btn btn-menu"><img src="img/btn/reservas.png"><br>RESERVAS</a>
+				<a href="#eventos" onClick="eventos();" class=" ui-btn btn-menu"><img src="img/btn/eventos.png"><br>MEUS EVENTOS</a>
+				<a href="#minha_familia" onClick="chamarFamilia();" class=" ui-btn btn-menu"><img src="img/btn/minha-familia.png"><br>MINHA FAMÍLIA</a>
+				<a href="#ocorrencias" onClick="chamarOcorrencias();" class=" ui-btn btn-menu"><img src="img/btn/ocorrencias.png"><br>OCORRÊNCIAS</a>
+				<a href="#meus_veiculos" onClick="meusveiculos();" class=" ui-btn btn-menu"><img src="img/btn/veiculo-pequeno.png"><br>MEUS VEICULOS</a>
+				<a href="#lista_convidados" onClick="chamarListaConvidados();" class="ui-btn btn-menu"><img src="img/btn/lista_convidados_pequena.png"><br>LISTA CONVIDADOS</a>
+				<a href="#correspondencias" onClick="chamarCorrespondencia;" class="ui-btn btn-menu"><img src="img/btn/correspondencia.png"><br>CORRESPONDÊNCIAS</a>
+				<a href="#classificados" onClick="classificados;" class=" ui-btn btn-menu"><img src="img/btn/classificados.png"><br>CLASSIFICADOS</a>
+				<a href="#" class="ui-btn btn-menu"><br>ABRIR PORTA</a>
+				<a href="#" class=" ui-btn btn-menu"><img src="img/btn/alertas.png"><br>NOTIFICAÇÕES</a>
+				<a href="#log_usuario" onClick="logusuario();" class=" ui-btn btn-menu"><img src="img/btn/minha-casa.png"><br>LOG DO USUARIO</a>
+				<a href="#" class=" ui-btn btn-menu"><img src="img/btn/forum.png"><br>FORUMS</a>	
+				<a href="#" onClick="sair()" class=" ui-btn btn-menu ui-btn-c"><br>SAIR</a>					
+				<a href="#" class=" ui-btn btn-menu ui-btn-c"><img src="img/btn/panico.png"><br>ACIONAR PÂNICO</a>
+        <a href="#demo-links" data-rel="close" class="ui-btn ui-shadow ui-corner-all ui-btn-a ui-icon-delete ui-btn-icon-left ui-btn-inline">Fechar Menu</a>
+
+		</div><!-- /leftpanel3 -->
+
+<div class="menu-rodape">
+					<div data-role="footer" data-position="fixed" data-id="vs_footer" data-theme="a">
+				<div data-role="navbar" >
+					<ul >
+
+						<li><a href="#Painelmenu" class=""><img src="img/btn/menu.png"> MENU</a></li>
+						<li><a class="ui-btn-c"><img src="img/btn/icone-ajuda.png"> ACIONAR PÂNICO</a></li>
+						<li><a href="#" onClick="sair()" class=""><img src="img/btn/icone-sair.png"> SAIR</a></li>
+					</ul>
+				</div>
+				</div>
+			</div>
+	</div>
 			
-	<body >
 		<div id="lista_convidados" class="login" data-role="page">
+				<a href="#painel" style="text-decoration:none;">
 				<div data-role="header" data-theme="a">
 					<p class="txthead" align="left"><img src="img/btn/lista_convidados_pequena.png" style="margin: 0px 20px -4px -5px;">LISTA DE CONVIDADOS<img src="img/icone1.png" align="right"></p>
-						</div>
+					</div>
+					</a>
 					<div data-role="content">
 					<div class="msgsucesso_meus_convidados" style="display:none">
 						<div data-role="header">
@@ -931,12 +1195,13 @@
 					  </div>
 					<div class="ui-grid-b-claro">
 						<div class="ui-bar ui-bar-b-claro" >
-						<a href="#form_lista_convidados" id="btn-list-detalhe" style="float: right; width: 40%;margin-right: 90px;" class="ui-btn ui-corner-all">Cadastrar Nova Lista</a>
+						<a href="#form_lista_convidados" onClick="novaLista();" id="btn-list-detalhe" style="float: right; width: 90%;margin-right: 90px;" class="ui-btn ui-corner-all">Cadastrar Nova Lista</a>
 						
 						</div>
 					</div>
+					<div class="buscar">
+					<ul data-role="listview" id="listarconvidados"  data-filter="true" data-filter-placeholder=" Buscar...">
 					
-					<ul data-role="listview" id="listarconvidados" >
 						<li style="padding-left:0; min-height:0" data-role="collapsible" data-theme="d" data-iconpos="right" data-inset="false">	
 							<h2 style="color: #FFF;text-shadow: none;"> Apresentação de tipografia do aplicativo <img src="img/btn/lista_convidados_pequena.png" align="right" style="margin: 0px 0px;">
 							<form>
@@ -967,13 +1232,14 @@
 								  </fieldset>
 								</form>		
 						</li>
-					</ul>					
-
+					</ul>	
+</div>					
+					</div>
 					<div class="ui-bar ui-bar-c" style="height:45px;" >
 					
 					<center><div class=" ui-btn-panico ui-btn-c" a href="#"><img src="img/btn/panico.png" style="height:20px; margin-top:6px;"><br>ACIONAR PÂNICO</div></a></center>
 				</div>
-		</div>
+		
 					
 					<div data-role="panel" id="Painelmenu" data-position="left" data-display="overlay" data-theme="a">
 
@@ -987,13 +1253,13 @@
 				<a href="#ocorrencias" onClick="chamarOcorrencias();" class=" ui-btn btn-menu"><img src="img/btn/ocorrencias.png"><br>OCORRÊNCIAS</a>
 				<a href="#meus_veiculos" onClick="meusveiculos();" class=" ui-btn btn-menu"><img src="img/btn/veiculo-pequeno.png"><br>MEUS VEICULOS</a>
 				<a href="#lista_convidados" onClick="chamarListaConvidados();" class="ui-btn btn-menu"><img src="img/btn/lista_convidados_pequena.png"><br>LISTA CONVIDADOS</a>
-				<a href="#correspondencias" onClick="correspondencias;" class="ui-btn btn-menu"><img src="img/btn/correspondencia.png"><br>CORRESPONDÊNCIAS</a>
+				<a href="#correspondencias" onClick="chamarCorrespondencia;" class="ui-btn btn-menu"><img src="img/btn/correspondencia.png"><br>CORRESPONDÊNCIAS</a>
 				<a href="#classificados" onClick="classificados;" class=" ui-btn btn-menu"><img src="img/btn/classificados.png"><br>CLASSIFICADOS</a>
 				<a href="#" class="ui-btn btn-menu"><br>ABRIR PORTA</a>
-				<a href="#" class=" ui-btn btn-menu"><img src="img/btn/minha-casa.png"><br>MINHA CASA</a>
-				<a href="#" class=" ui-btn btn-menu"><img src="img/btn/alertas.png"><br>MEUS ALERTAS</a>
-				<a href="#" class=" ui-btn btn-menu"><img src="img/btn/visitas.png"><br>VISITAS</a>
-				<a href="#" class=" ui-btn btn-menu"><img src="img/btn/forum.png"><br>FORUMS</a>			
+				<a href="#" class=" ui-btn btn-menu"><img src="img/btn/alertas.png"><br>NOTIFICAÇÕES</a>
+				<a href="#log_usuario" onClick="logusuario();" class=" ui-btn btn-menu"><img src="img/btn/minha-casa.png"><br>LOG DO USUARIO</a>
+				<a href="#" class=" ui-btn btn-menu"><img src="img/btn/forum.png"><br>FORUMS</a>	
+				<a href="#" onClick="sair()" class=" ui-btn btn-menu ui-btn-c"><br>SAIR</a>					
 				<a href="#" class=" ui-btn btn-menu ui-btn-c"><img src="img/btn/panico.png"><br>ACIONAR PÂNICO</a>
         <a href="#demo-links" data-rel="close" class="ui-btn ui-shadow ui-corner-all ui-btn-a ui-icon-delete ui-btn-icon-left ui-btn-inline">Fechar Menu</a>
 
@@ -1005,8 +1271,8 @@
 					<ul >
 
 						<li><a href="#Painelmenu" class=""><img src="img/btn/menu.png"> MENU</a></li>
-						<li><a href="#popupDialog" data-rel="popup" data-position-to="window" data-transition="pop"  class=""><img src="img/btn/menu.png"> MENU</a></li>
-						<li><a href="#home" class=""><img src="img/btn/menu.png"> MENU</a></li>
+						<li><a class="ui-btn-c"><img src="img/btn/icone-ajuda.png"> ACIONAR PÂNICO</a></li>
+						<li><a href="#" onClick="sair()" class=""><img src="img/btn/icone-sair.png"> SAIR</a></li>
 					</ul>
 				</div>
 				</div>
@@ -1023,9 +1289,16 @@
 				<center><img src="img/lomatech.png"></center>
 				<form id="formulario_login" class="login">
 					<center><input type="text" class="campo_form" name="login" placeholder="Seu e-mail">
-					<input type="password" name="senha" placeholder="Digite sua senha"></center>
-					<center><button type="submit" class="btn-enviar ui-shadow ui-btn  ui-btn-inline ">Entrar</button></center>
-					<div class="errologin"></div>
+					<input type="password" name="senha" id="senha_login" placeholder="Digite sua senha"></center>
+					<center><button type="submit" class="btn-enviar ui-shadow ui-btn  ui-btn-inline ">Entrar</button> <a href="#esqueci_senha" class="btn-enviar ui-shadow ui-btn  ui-btn-inline ">Esqueci Senha</a></center>
+				<a href="#" onClick="facebookLogin();" class="btn-enviar ui-shadow ui-btn  ui-btn-inline ">facebookLogin</a>
+					
+					  <div class="errologin" style="display:none">
+						<div data-role="header" data-theme="c" >							
+							<p style="text-align:center;"> </p>
+						</div>
+					  </div>
+					
 				</form>
 				</div>
 				
@@ -1034,37 +1307,35 @@
 			</div>
 		</div>
 		
-		<div id="meus_animais" class="login" data-role="page">
-			
-		
-	
-
+		<div id="log_usuario" class="login" data-role="page">
+		<a href="#painel" style="text-decoration:none;">
 				<div data-role="header" data-theme="a">
+					<p class="txthead" align="left"><img src="img/btn/visitas.png" style="margin: 0px 20px -4px -5px;">LOG DO USUARIO<img src="img/icone1.png" align="right"></p>
 				
-				
-				
-				<p class="txthead" align="left"><img src="img/icones/icone-visto.png" style="margin: 0px 20px -4px -5px;">ENTRADA DE DADOS <img src="img/icone1.png" align="right"></p>
-				</div>
-					
-					<div data-role="content" >
-					 <div class="msgsucesso_meus_animais" style="display:none">
-						<div data-role="header">
-							<p style="text-align:center;"> </p>
 						</div>
-					  </div>
-					
-					  <div class="msgerro_meus_animais" style="display:none">
-						<div data-role="header" data-theme="c" >							
-							<p style="text-align:center;"> </p>
-						</div>
-					  </div>
-					<a href="#form_meus_animais" onClick="novoAnimal();" id="btn-list-detalhe" style="margin: 5px;" class="ui-btn ui-corner-all">ADICIONAR NOVO</a>
-					<ul data-role="listview" class="ui-icon-alt produtos" data-filter="true" data-filter-placeholder="Buscar...">
-					
-					</ul>		
-				</div>
-
+					</a>
+					<div data-role="content">
 				
+					  
+					<div class="ui-grid-b-claro">
+						<div class="ui-bar ui-bar-b-claro" >
+		
+						
+						</div>
+					</div>
+				<div class="buscar">
+					<ul data-role="listview" id="listalogusuario" style="padding-left:0; min-height:0" data-filter="true"  data-filter-placeholder=" Buscar...">
+					
+						<li style="padding-left:0; min-height:0" data-role="collapsible" data-theme="d" data-iconpos="right" data-inset="false">	
+							06/11/2014 10:19hrs<h2 style="color: #FFF;text-shadow: none;">LOG USUARIO : Tabela<img src="img/btn/visitas.png" align="right" style="margin: 0px 0px;">
+							
+						</li>
+					</ul>	
+					</div>
+	</div>					
+					<div class="ui-bar ui-bar-c" style="height:45px;" >
+						<center><div class=" ui-btn-panico ui-btn-c" a href="#"><img src="img/btn/panico.png" style="height:20px; margin-top:6px;"><br>ACIONAR PÂNICO</div></a></center>				</div>
+					
 					<div data-role="panel" id="Painelmenu" data-position="left" data-display="overlay" data-theme="a">
 
 				<h2 class="tltmenu">NAVEGA&Ccedil;&Atilde;O R&Aacute;PIDA</h2>
@@ -1077,13 +1348,13 @@
 				<a href="#ocorrencias" onClick="chamarOcorrencias();" class=" ui-btn btn-menu"><img src="img/btn/ocorrencias.png"><br>OCORRÊNCIAS</a>
 				<a href="#meus_veiculos" onClick="meusveiculos();" class=" ui-btn btn-menu"><img src="img/btn/veiculo-pequeno.png"><br>MEUS VEICULOS</a>
 				<a href="#lista_convidados" onClick="chamarListaConvidados();" class="ui-btn btn-menu"><img src="img/btn/lista_convidados_pequena.png"><br>LISTA CONVIDADOS</a>
-				<a href="#correspondencias" onClick="correspondencias;" class="ui-btn btn-menu"><img src="img/btn/correspondencia.png"><br>CORRESPONDÊNCIAS</a>
+				<a href="#correspondencias" onClick="chamarCorrespondencia;" class="ui-btn btn-menu"><img src="img/btn/correspondencia.png"><br>CORRESPONDÊNCIAS</a>
 				<a href="#classificados" onClick="classificados;" class=" ui-btn btn-menu"><img src="img/btn/classificados.png"><br>CLASSIFICADOS</a>
 				<a href="#" class="ui-btn btn-menu"><br>ABRIR PORTA</a>
-				<a href="#" class=" ui-btn btn-menu"><img src="img/btn/minha-casa.png"><br>MINHA CASA</a>
-				<a href="#" class=" ui-btn btn-menu"><img src="img/btn/alertas.png"><br>MEUS ALERTAS</a>
-				<a href="#" class=" ui-btn btn-menu"><img src="img/btn/visitas.png"><br>VISITAS</a>
-				<a href="#" class=" ui-btn btn-menu"><img src="img/btn/forum.png"><br>FORUMS</a>			
+				<a href="#" class=" ui-btn btn-menu"><img src="img/btn/alertas.png"><br>NOTIFICAÇÕES</a>
+				<a href="#log_usuario" onClick="logusuario();" class=" ui-btn btn-menu"><img src="img/btn/minha-casa.png"><br>LOG DO USUARIO</a>
+				<a href="#" class=" ui-btn btn-menu"><img src="img/btn/forum.png"><br>FORUMS</a>	
+				<a href="#" onClick="sair()" class=" ui-btn btn-menu ui-btn-c"><br>SAIR</a>					
 				<a href="#" class=" ui-btn btn-menu ui-btn-c"><img src="img/btn/panico.png"><br>ACIONAR PÂNICO</a>
         <a href="#demo-links" data-rel="close" class="ui-btn ui-shadow ui-corner-all ui-btn-a ui-icon-delete ui-btn-icon-left ui-btn-inline">Fechar Menu</a>
 
@@ -1095,8 +1366,88 @@
 					<ul >
 
 						<li><a href="#Painelmenu" class=""><img src="img/btn/menu.png"> MENU</a></li>
-						<li><a href="#popupDialog" data-rel="popup" data-position-to="window" data-transition="pop"  class=""><img src="img/btn/menu.png"> MENU</a></li>
-						<li><a href="#home" class=""><img src="img/btn/menu.png"> MENU</a></li>
+						<li><a class="ui-btn-c"><img src="img/btn/icone-ajuda.png"> ACIONAR PÂNICO</a></li>
+						<li><a href="#" onClick="sair()" class=""><img src="img/btn/icone-sair.png"> SAIR</a></li>
+					</ul>
+				</div>
+				</div>
+			</div>
+	
+		</div>
+		<div id="meus_animais" class="login" data-role="page">
+			
+		
+	
+			<a href="#painel" style="text-decoration:none;">
+				<div data-role="header" data-theme="a">
+				
+				
+				
+				<p class="txthead" align="left"><img src="img/icones/icone-visto.png" style="margin: 0px 20px -4px -5px;">ENTRADA DE DADOS <img src="img/icone1.png" align="right"></p>
+			</div>
+				</a>
+					<div data-role="content" >
+					 <div class="msgsucesso_meus_animais" style="display:none">
+						<div data-role="header">
+							<p style="text-align:center;"> </p>
+						</div>
+					  </div>
+					
+					  <div class="msgerro_meus_animais" style="display:none">
+						<div data-role="header" data-theme="c" >							
+							<p style="text-align:center;"> </p>
+						</div>
+					  </div>
+				
+					
+					<a href="#form_meus_animais" onClick="novoAnimal();" id="btn-list-detalhe" style="margin: 5px;" class="ui-btn ui-corner-all">ADICIONAR NOVO</a>
+					<div class="buscar">
+					<ul data-role="listview" class="ui-icon-alt produtos" data-filter="true" data-filter-placeholder=" Buscar...">
+					
+					<li onclick="abrirCoollapsible(this);" style="padding-left: 5px; min-height:0;margin: 5px 20px;" data-role="collapsible"
+					data-theme="d" data-iconpos="right" data-inset="false" class="ui-first-child">
+					
+					</li>
+					</ul>	
+</div>					
+				</div>
+
+				<div class="ui-bar ui-bar-c" style="height:45px;" >
+					
+					<center><div class=" ui-btn-panico ui-btn-c" a href="#"><img src="img/btn/panico.png" style="height:20px; margin-top:6px;"><br>ACIONAR PÂNICO</div></a></center>
+				</div>
+					<div data-role="panel" id="Painelmenu" data-position="left" data-display="overlay" data-theme="a">
+
+				<h2 class="tltmenu">NAVEGA&Ccedil;&Atilde;O R&Aacute;PIDA</h2>
+				<a href="#meus_dados" class="ui-btn btn-menu" onClick="meusdados();"><img src="img/btn/meus-dados-m.png"><br>MEUS DADOS</a>
+				<a href="#meus_animais" class="ui-btn btn-menu" onClick="meusanimais();"><img src="img/btn/animais.png"><br>MEUS ANIMAIS</a>
+				<a href="#documentos_informes" onClick="documentos();" class="ui-btn btn-menu"><img src="img/btn/doc_pequeno.png"><br>DOCUMENTOS/INFORMES</a>
+				<a href="#reservas" onClick="reservas();" class=" ui-btn btn-menu"><img src="img/btn/reservas.png"><br>RESERVAS</a>
+				<a href="#eventos" onClick="eventos();" class=" ui-btn btn-menu"><img src="img/btn/eventos.png"><br>MEUS EVENTOS</a>
+				<a href="#minha_familia" onClick="chamarFamilia();" class=" ui-btn btn-menu"><img src="img/btn/minha-familia.png"><br>MINHA FAMÍLIA</a>
+				<a href="#ocorrencias" onClick="chamarOcorrencias();" class=" ui-btn btn-menu"><img src="img/btn/ocorrencias.png"><br>OCORRÊNCIAS</a>
+				<a href="#meus_veiculos" onClick="meusveiculos();" class=" ui-btn btn-menu"><img src="img/btn/veiculo-pequeno.png"><br>MEUS VEICULOS</a>
+				<a href="#lista_convidados" onClick="chamarListaConvidados();" class="ui-btn btn-menu"><img src="img/btn/lista_convidados_pequena.png"><br>LISTA CONVIDADOS</a>
+				<a href="#correspondencias" onClick="chamarCorrespondencia;" class="ui-btn btn-menu"><img src="img/btn/correspondencia.png"><br>CORRESPONDÊNCIAS</a>
+				<a href="#classificados" onClick="classificados;" class=" ui-btn btn-menu"><img src="img/btn/classificados.png"><br>CLASSIFICADOS</a>
+				<a href="#" class="ui-btn btn-menu"><br>ABRIR PORTA</a>
+				<a href="#" class=" ui-btn btn-menu"><img src="img/btn/alertas.png"><br>NOTIFICAÇÕES</a>
+				<a href="#log_usuario" onClick="logusuario();" class=" ui-btn btn-menu"><img src="img/btn/minha-casa.png"><br>LOG DO USUARIO</a>
+				<a href="#" class=" ui-btn btn-menu"><img src="img/btn/forum.png"><br>FORUMS</a>	
+				<a href="#" onClick="sair()" class=" ui-btn btn-menu ui-btn-c"><br>SAIR</a>					
+				<a href="#" class=" ui-btn btn-menu ui-btn-c"><img src="img/btn/panico.png"><br>ACIONAR PÂNICO</a>
+        <a href="#demo-links" data-rel="close" class="ui-btn ui-shadow ui-corner-all ui-btn-a ui-icon-delete ui-btn-icon-left ui-btn-inline">Fechar Menu</a>
+
+		</div><!-- /leftpanel3 -->
+
+<div class="menu-rodape">
+					<div data-role="footer" data-position="fixed" data-id="vs_footer" data-theme="a">
+				<div data-role="navbar" >
+					<ul >
+
+						<li><a href="#Painelmenu" class=""><img src="img/btn/menu.png"> MENU</a></li>
+						<li><a class="ui-btn-c"><img src="img/btn/icone-ajuda.png"> ACIONAR PÂNICO</a></li>
+						<li><a href="#" onClick="sair()" class=""><img src="img/btn/icone-sair.png"> SAIR</a></li>
 					</ul>
 				</div>
 				</div>
@@ -1106,10 +1457,13 @@
 		
 		<div id="meus_dados" class="login" data-role="page">
 			<div class="ui-loader ui-corner-all ui-body-a ui-loader-default"><span class="ui-icon-loading"></span><h1>loading</h1></div>
-				<div data-role="header" data-theme="a">
+		<a href="#painel" style="text-decoration:none;">			
+			<div data-role="header" data-theme="a">
 					
 				<p class="txt2" align="left"><img src="img/icones/icone-visto.png" style="margin: 0px 20px -4px -5px;"> MEUS DADOS <img src="img/icone1.png" align="right"></p>
+				
 				</div>
+				</a>
 					  <div class="msgsucesso_meus_animais" style="display:none">
 						<div data-role="header">
 							<p style="text-align:center;"> </p>
@@ -1127,16 +1481,13 @@
 						<label for="nome" class="letra">NOME</label>
 							<input type="text" disabled name="nome_meus_dados" id="nome_meus_dados" value="">
 						
-						<div class="ui-grid-a">
-							<div class="ui-block-a">
+				
 								<label for="select-choice-1" class="select letra">SEXO</label>
 								<input type="text" disabled name="sexo_meus_dados" id="sexo_meus_dados"  value="">
-							</div>
-							<div class="ui-block-b">
+							
 								<label for="select-choice-1" class="select letra">DATA DE NASCIMENTO</label>
 								<input type="text" disabled name="sexo_meus_dados" id="data_nascimento_meus_dados" data-role="date" value="">
-							</div>
-						</div>
+				
 
 							<label for="email" class="letra">EMAIL:</label>
 							<input type="text" disabled name="email_meus_dados" value="" id="email_meus_dados" >
@@ -1196,13 +1547,13 @@
 				<a href="#ocorrencias" onClick="chamarOcorrencias();" class=" ui-btn btn-menu"><img src="img/btn/ocorrencias.png"><br>OCORRÊNCIAS</a>
 				<a href="#meus_veiculos" onClick="meusveiculos();" class=" ui-btn btn-menu"><img src="img/btn/veiculo-pequeno.png"><br>MEUS VEICULOS</a>
 				<a href="#lista_convidados" onClick="chamarListaConvidados();" class="ui-btn btn-menu"><img src="img/btn/lista_convidados_pequena.png"><br>LISTA CONVIDADOS</a>
-				<a href="#correspondencias" onClick="correspondencias;" class="ui-btn btn-menu"><img src="img/btn/correspondencia.png"><br>CORRESPONDÊNCIAS</a>
+				<a href="#correspondencias" onClick="chamarCorrespondencia;" class="ui-btn btn-menu"><img src="img/btn/correspondencia.png"><br>CORRESPONDÊNCIAS</a>
 				<a href="#classificados" onClick="classificados;" class=" ui-btn btn-menu"><img src="img/btn/classificados.png"><br>CLASSIFICADOS</a>
 				<a href="#" class="ui-btn btn-menu"><br>ABRIR PORTA</a>
-				<a href="#" class=" ui-btn btn-menu"><img src="img/btn/minha-casa.png"><br>MINHA CASA</a>
-				<a href="#" class=" ui-btn btn-menu"><img src="img/btn/alertas.png"><br>MEUS ALERTAS</a>
-				<a href="#" class=" ui-btn btn-menu"><img src="img/btn/visitas.png"><br>VISITAS</a>
-				<a href="#" class=" ui-btn btn-menu"><img src="img/btn/forum.png"><br>FORUMS</a>			
+				<a href="#" class=" ui-btn btn-menu"><img src="img/btn/alertas.png"><br>NOTIFICAÇÕES</a>
+				<a href="#log_usuario" onClick="logusuario();" class=" ui-btn btn-menu"><img src="img/btn/minha-casa.png"><br>LOG DO USUARIO</a>
+				<a href="#" class=" ui-btn btn-menu"><img src="img/btn/forum.png"><br>FORUMS</a>	
+				<a href="#" onClick="sair()" class=" ui-btn btn-menu ui-btn-c"><br>SAIR</a>					
 				<a href="#" class=" ui-btn btn-menu ui-btn-c"><img src="img/btn/panico.png"><br>ACIONAR PÂNICO</a>
         <a href="#demo-links" data-rel="close" class="ui-btn ui-shadow ui-corner-all ui-btn-a ui-icon-delete ui-btn-icon-left ui-btn-inline">Fechar Menu</a>
 
@@ -1214,8 +1565,8 @@
 					<ul >
 
 						<li><a href="#Painelmenu" class=""><img src="img/btn/menu.png"> MENU</a></li>
-						<li><a href="#popupDialog" data-rel="popup" data-position-to="window" data-transition="pop"  class=""><img src="img/btn/menu.png"> MENU</a></li>
-						<li><a href="#home" class=""><img src="img/btn/menu.png"> MENU</a></li>
+						<li><a class="ui-btn-c"><img src="img/btn/icone-ajuda.png"> ACIONAR PÂNICO</a></li>
+						<li><a href="#" onClick="sair()" class=""><img src="img/btn/icone-sair.png"> SAIR</a></li>
 					</ul>
 				</div>
 				</div>
@@ -1223,15 +1574,14 @@
 		</div>
 		
 		<div id="meus_veiculos" class="login" data-role="page">
-			
+			<a href="#painel" style="text-decoration:none;">
 				<div data-role="header" data-theme="a">
-				<div data-role="content">
-				
-				
-				
+		
 				<p class="txthead" align="left"><img src="img/btn/veiculo-pequeno.png" style="margin: 0px 20px -4px -5px;">MEUS VEICULOS<img src="img/icone1.png" align="right"></p>
+			
 				</div>
-				
+				</a>
+				<div data-role="content">
 					<div class="msgsucesso_meus_veiculos" style="display:none">
 						<div data-role="header">
 							<p style="text-align:center;"> </p>
@@ -1249,31 +1599,33 @@
 							<a href="#form_meus_veiculos" onClick="novoVeiculo();" id="btn-list-detalhe" style="float: right; width: 40%;margin-right: 90px;" class="ui-btn ui-corner-all">Cadastrar Novo</a>
 						</div>
 					</div>
-					<ul data-role="listview" id="listarveiculos">
-					<li onclick="abrirCoollapsible(this);" style="padding-left:0; min-height:0; margin:5px 0px;" data-role="collapsible" data-theme="d" data-iconpos="right" data-inset="false">';
-					<a href="" class="link"><h2>'+data[x].marca;
-						<img src="img/btn/ocorrencias_pequeno.png" align="right" style="margin: 0px 0px;">
-						</h2></a>
-					<form style="display:none">	
-						<div class="ui-collapsible-content ui-body-inherit" aria-hidden="false">	
-						<img src="'+data[x].banner+'">
-					 <p style="text-shadow: none; color: #FFF;"><b>MARCA</b>:Fiat</p><br>
-						 <p style="text-shadow: none; color: #FFF;"><b>MODELO</b>:Palio</p>
-					<p style="text-shadow: none; color: #FFF;"><b>PLACA</b>:JPP1111 </p> 
-				 <p style="text-shadow: none; color: #FFF;"><b>Local</b>:Preto</p>				
-						 <p style="text-shadow: none; color: #FFF;">DATA CADASTRO:10/10/2014 às 10:10hrs</p>
-					 <fieldset data-role="controlgroup" data-type="horizontal" class="ui-controlgroup ui-controlgroup-horizontal ui-corner-all"><div class="ui-controlgroup-controls ">';		
-						  <a href="#" onClick="editar_meus_veiculos('+data[x].ID+');" id="btn-list-detalhe" style=" margin: 0px 18px 0px -20px;" class="ui-btn ui-corner-all">EDITAR CADASTRO</a>';
+					<div class="buscar">
+						<ul data-role="listview" id="listarveiculos" style="padding-left:0; min-height:0; margin:5px 0px;" data-filter="true" data-filter-placeholder=" Buscar...">
+						
+							<li onclick="abrirCoollapsible(this);" style="padding-left:0; min-height:0; margin:5px 0px;" data-role="collapsible" data-theme="d" data-iconpos="right" data-inset="false">';
+								<a href="" class="link"><h2>'+data[x].marca;
+									<img src="img/btn/ocorrencias_pequeno.png" align="right" style="margin: 0px 0px;">
+								</h2></a>
+						<form style="display:none">	
+							<div class="ui-collapsible-content ui-body-inherit" aria-hidden="false">	
+								<img src="'+data[x].banner+'">
+									<p style="text-shadow: none; color: #FFF;"><b>MARCA</b>:Fiat</p><br>
+									<p style="text-shadow: none; color: #FFF;"><b>MODELO</b>:Palio</p>
+									<p style="text-shadow: none; color: #FFF;"><b>PLACA</b>:JPP1111 </p> 
+									<p style="text-shadow: none; color: #FFF;"><b>Local</b>:Preto</p>				
+									<p style="text-shadow: none; color: #FFF;">DATA CADASTRO:10/10/2014 às 10:10hrs</p>
+						<fieldset data-role="controlgroup" data-type="horizontal" class="ui-controlgroup ui-controlgroup-horizontal ui-corner-all">
+						<div class="ui-controlgroup-controls ">		
+							<a href="#" onClick="editar_meus_veiculos('+data[x].ID+');" id="btn-list-detalhe" style=" margin: 0px 18px 0px -20px;" class="ui-btn ui-corner-all">EDITAR CADASTRO</a>';
 						 	<a href="#" onClick="CancelarVeiculo('+data[x].ID+');" id="btn-list" style="background-color:#820d12;border-color:#820d12; " class="ui-btn ui-corner-all">EXCLUIR</a>';
-						</div></fieldset>
+						</fieldset>
 						</div>
+							</div>
 						</form>
-						</li>
-				  
-				</ul>					
-
-				
-					<div data-role="panel" id="Painelmenu" data-position="left" data-display="overlay" data-theme="a">
+							</li>
+						</ul>					
+				</div>
+				<div data-role="panel" id="Painelmenu" data-position="left" data-display="overlay" data-theme="a">
 
 				<h2 class="tltmenu">NAVEGA&Ccedil;&Atilde;O R&Aacute;PIDA</h2>
 				<a href="#meus_dados" class="ui-btn btn-menu" onClick="meusdados();"><img src="img/btn/meus-dados-m.png"><br>MEUS DADOS</a>
@@ -1285,13 +1637,13 @@
 				<a href="#ocorrencias" onClick="chamarOcorrencias();" class=" ui-btn btn-menu"><img src="img/btn/ocorrencias.png"><br>OCORRÊNCIAS</a>
 				<a href="#meus_veiculos" onClick="meusveiculos();" class=" ui-btn btn-menu"><img src="img/btn/veiculo-pequeno.png"><br>MEUS VEICULOS</a>
 				<a href="#lista_convidados" onClick="chamarListaConvidados();" class="ui-btn btn-menu"><img src="img/btn/lista_convidados_pequena.png"><br>LISTA CONVIDADOS</a>
-				<a href="#correspondencias" onClick="correspondencias;" class="ui-btn btn-menu"><img src="img/btn/correspondencia.png"><br>CORRESPONDÊNCIAS</a>
+				<a href="#correspondencias" onClick="chamarCorrespondencia;" class="ui-btn btn-menu"><img src="img/btn/correspondencia.png"><br>CORRESPONDÊNCIAS</a>
 				<a href="#classificados" onClick="classificados;" class=" ui-btn btn-menu"><img src="img/btn/classificados.png"><br>CLASSIFICADOS</a>
 				<a href="#" class="ui-btn btn-menu"><br>ABRIR PORTA</a>
-				<a href="#" class=" ui-btn btn-menu"><img src="img/btn/minha-casa.png"><br>MINHA CASA</a>
-				<a href="#" class=" ui-btn btn-menu"><img src="img/btn/alertas.png"><br>MEUS ALERTAS</a>
-				<a href="#" class=" ui-btn btn-menu"><img src="img/btn/visitas.png"><br>VISITAS</a>
-				<a href="#" class=" ui-btn btn-menu"><img src="img/btn/forum.png"><br>FORUMS</a>			
+				<a href="#" class=" ui-btn btn-menu"><img src="img/btn/alertas.png"><br>NOTIFICAÇÕES</a>
+				<a href="#log_usuario" onClick="logusuario();" class=" ui-btn btn-menu"><img src="img/btn/minha-casa.png"><br>LOG DO USUARIO</a>
+				<a href="#" class=" ui-btn btn-menu"><img src="img/btn/forum.png"><br>FORUMS</a>	
+				<a href="#" onClick="sair()" class=" ui-btn btn-menu ui-btn-c"><br>SAIR</a>					
 				<a href="#" class=" ui-btn btn-menu ui-btn-c"><img src="img/btn/panico.png"><br>ACIONAR PÂNICO</a>
         <a href="#demo-links" data-rel="close" class="ui-btn ui-shadow ui-corner-all ui-btn-a ui-icon-delete ui-btn-icon-left ui-btn-inline">Fechar Menu</a>
 
@@ -1303,21 +1655,29 @@
 					<ul >
 
 						<li><a href="#Painelmenu" class=""><img src="img/btn/menu.png"> MENU</a></li>
-						<li><a href="#popupDialog" data-rel="popup" data-position-to="window" data-transition="pop"  class=""><img src="img/btn/menu.png"> MENU</a></li>
-						<li><a href="#home" class=""><img src="img/btn/menu.png"> MENU</a></li>
+						<li><a class="ui-btn-c"><img src="img/btn/icone-ajuda.png"> ACIONAR PÂNICO</a></li>
+						<li><a href="#" onClick="sair()" class=""><img src="img/btn/icone-sair.png"> SAIR</a></li>
 					</ul>
 				</div>
 				</div>
 			</div>
-					</div>
+				<div class="ui-bar ui-bar-c" style="height:45px;" >
+					
+					<center><div class=" ui-btn-panico ui-btn-c" a href="#"><img src="img/btn/panico.png" style="height:20px; margin-top:6px;"><br>ACIONAR PÂNICO</div></a></center>
+				</div>
+				</div>	
+					
+					
 		</div>
 		
 		<div id="minha_familia" class="login" data-role="page">
 			<div class="ui-loader ui-corner-all ui-body-a ui-loader-default"><span class="ui-icon-loading"></span><h1>loading</h1></div>
+				<a href="#painel" style="text-decoration:none;">
 				<div data-role="header" data-theme="a">
 					
 				<p class="txt2" align="left"><img src="img/icones/icone-visto.png" style="margin: 0px 20px -4px -5px;"> MINHA FAMILIA <img src="img/icone1.png" align="right"></p>
 				</div>
+				</a>
 					  <div class="msgsucesso_minha_familia" style="display:none">
 						<div data-role="header">
 							<p style="text-align:center;"> </p>
@@ -1355,13 +1715,13 @@
 				<a href="#ocorrencias" onClick="chamarOcorrencias();" class=" ui-btn btn-menu"><img src="img/btn/ocorrencias.png"><br>OCORRÊNCIAS</a>
 				<a href="#meus_veiculos" onClick="meusveiculos();" class=" ui-btn btn-menu"><img src="img/btn/veiculo-pequeno.png"><br>MEUS VEICULOS</a>
 				<a href="#lista_convidados" onClick="chamarListaConvidados();" class="ui-btn btn-menu"><img src="img/btn/lista_convidados_pequena.png"><br>LISTA CONVIDADOS</a>
-				<a href="#correspondencias" onClick="correspondencias;" class="ui-btn btn-menu"><img src="img/btn/correspondencia.png"><br>CORRESPONDÊNCIAS</a>
+				<a href="#correspondencias" onClick="chamarCorrespondencia;" class="ui-btn btn-menu"><img src="img/btn/correspondencia.png"><br>CORRESPONDÊNCIAS</a>
 				<a href="#classificados" onClick="classificados;" class=" ui-btn btn-menu"><img src="img/btn/classificados.png"><br>CLASSIFICADOS</a>
 				<a href="#" class="ui-btn btn-menu"><br>ABRIR PORTA</a>
-				<a href="#" class=" ui-btn btn-menu"><img src="img/btn/minha-casa.png"><br>MINHA CASA</a>
-				<a href="#" class=" ui-btn btn-menu"><img src="img/btn/alertas.png"><br>MEUS ALERTAS</a>
-				<a href="#" class=" ui-btn btn-menu"><img src="img/btn/visitas.png"><br>VISITAS</a>
-				<a href="#" class=" ui-btn btn-menu"><img src="img/btn/forum.png"><br>FORUMS</a>			
+				<a href="#" class=" ui-btn btn-menu"><img src="img/btn/alertas.png"><br>NOTIFICAÇÕES</a>
+				<a href="#log_usuario" onClick="logusuario();" class=" ui-btn btn-menu"><img src="img/btn/minha-casa.png"><br>LOG DO USUARIO</a>
+				<a href="#" class=" ui-btn btn-menu"><img src="img/btn/forum.png"><br>FORUMS</a>	
+				<a href="#" onClick="sair()" class=" ui-btn btn-menu ui-btn-c"><br>SAIR</a>					
 				<a href="#" class=" ui-btn btn-menu ui-btn-c"><img src="img/btn/panico.png"><br>ACIONAR PÂNICO</a>
         <a href="#demo-links" data-rel="close" class="ui-btn ui-shadow ui-corner-all ui-btn-a ui-icon-delete ui-btn-icon-left ui-btn-inline">Fechar Menu</a>
 
@@ -1373,8 +1733,8 @@
 					<ul >
 
 						<li><a href="#Painelmenu" class=""><img src="img/btn/menu.png"> MENU</a></li>
-						<li><a href="#popupDialog" data-rel="popup" data-position-to="window" data-transition="pop"  class=""><img src="img/btn/menu.png"> MENU</a></li>
-						<li><a href="#home" class=""><img src="img/btn/menu.png"> MENU</a></li>
+						<li><a class="ui-btn-c"><img src="img/btn/icone-ajuda.png"> ACIONAR PÂNICO</a></li>
+						<li><a href="#" onClick="sair()" class=""><img src="img/btn/icone-sair.png"> SAIR</a></li>
 					</ul>
 				</div>
 				</div>
@@ -1383,10 +1743,11 @@
 			
 
 		<div id="ocorrencias" class="login" data-role="page">
+				<a href="#painel" style="text-decoration:none;">
 				<div data-role="header" data-theme="a">
 					<p class="txthead" align="left"><img src="img/btn/ocorrencias_pequeno.png" style="margin: 0px 20px -4px -5px;">OCORRENCIAS<img src="img/icone1.png" align="right"></p>
 						</div>
-					
+					</a>
 					<div data-role="content">
 					
 					 <div class="msgsucesso_minhas_ocorrencias" style="display:none">
@@ -1403,13 +1764,14 @@
 					  
 					<div class="ui-grid-b-claro">
 						<div class="ui-bar ui-bar-b-claro" >
-						<a href="#form_ocorrencias" onClick="novaOcorrencia();" id="btn-list-detalhe" style="float: right; width: 40%;margin-right: 90px;" class="ui-btn ui-corner-all">Cadastrar Ocorrencia</a>
+						<a href="#form_ocorrencias" onClick="novaOcorrencia();" id="btn-list-detalhe" style="float: right; width: 90%;margin-right: 90px;" class="ui-btn ui-corner-all">Cadastrar Ocorrencia</a>
 						
 						</div>
 					</div>
+					<div class="buscar">
+					<ul data-role="listview" id="listaocorrencias" style="margin:0px;" data-filter="true" data-filter-placeholder=" Buscar...">
 					
-					<ul data-role="listview" id="listaocorrencias" style="margin:0px;">
-						<li style="padding-left:0; min-height:0" data-role="collapsible" data-theme="d" data-iconpos="right" data-inset="false">	
+						<li style="padding-left:0; min-height:0" data-role="collapsible" data-theme="d" data-iconpos="right" data-inset="false"  >	
 							<h2 style="color: #FFF;text-shadow: none;"> Apresentação de tipografia do aplicativo <img src="img/btn/ocorrencias_pequeno.png" align="right" style="margin: 0px 0px;">
 							<form>
 								  <fieldset data-role="controlgroup" data-type="horizontal">
@@ -1431,99 +1793,9 @@
 							<h3 style="text-shadow: none; color: #FFF;background-color: #85b200;width: 100%;">DESCRIÇÃO DA OCORRENCIA</h3>
 							<h4 style="text-shadow: none; color: #FFF;">Descrição aqui</h4>	
 						</li>
-					</ul>					
-					<div class="ui-bar ui-bar-c" style="height:45px;" >
-<center><div class=" ui-btn-panico ui-btn-c" a href="#"><img src="img/btn/panico.png" style="height:20px; margin-top:6px;"><br>ACIONAR PÂNICO</div></a></center>				</div>
-					
-					<div data-role="panel" id="Painelmenu" data-position="left" data-display="overlay" data-theme="a">
-
-				<h2 class="tltmenu">NAVEGA&Ccedil;&Atilde;O R&Aacute;PIDA</h2>
-				<a href="#meus_dados" class="ui-btn btn-menu" onClick="meusdados();"><img src="img/btn/meus-dados-m.png"><br>MEUS DADOS</a>
-				<a href="#meus_animais" class="ui-btn btn-menu" onClick="meusanimais();"><img src="img/btn/animais.png"><br>MEUS ANIMAIS</a>
-				<a href="#documentos_informes" onClick="documentos();" class="ui-btn btn-menu"><img src="img/btn/doc_pequeno.png"><br>DOCUMENTOS/INFORMES</a>
-				<a href="#reservas" onClick="reservas();" class=" ui-btn btn-menu"><img src="img/btn/reservas.png"><br>RESERVAS</a>
-				<a href="#eventos" onClick="eventos();" class=" ui-btn btn-menu"><img src="img/btn/eventos.png"><br>MEUS EVENTOS</a>
-				<a href="#minha_familia" onClick="chamarFamilia();" class=" ui-btn btn-menu"><img src="img/btn/minha-familia.png"><br>MINHA FAMÍLIA</a>
-				<a href="#ocorrencias" onClick="chamarOcorrencias();" class=" ui-btn btn-menu"><img src="img/btn/ocorrencias.png"><br>OCORRÊNCIAS</a>
-				<a href="#meus_veiculos" onClick="meusveiculos();" class=" ui-btn btn-menu"><img src="img/btn/veiculo-pequeno.png"><br>MEUS VEICULOS</a>
-				<a href="#lista_convidados" onClick="chamarListaConvidados();" class="ui-btn btn-menu"><img src="img/btn/lista_convidados_pequena.png"><br>LISTA CONVIDADOS</a>
-				<a href="#correspondencias" onClick="correspondencias;" class="ui-btn btn-menu"><img src="img/btn/correspondencia.png"><br>CORRESPONDÊNCIAS</a>
-				<a href="#classificados" onClick="classificados;" class=" ui-btn btn-menu"><img src="img/btn/classificados.png"><br>CLASSIFICADOS</a>
-				<a href="#" class="ui-btn btn-menu"><br>ABRIR PORTA</a>
-				<a href="#" class=" ui-btn btn-menu"><img src="img/btn/minha-casa.png"><br>MINHA CASA</a>
-				<a href="#" class=" ui-btn btn-menu"><img src="img/btn/alertas.png"><br>MEUS ALERTAS</a>
-				<a href="#" class=" ui-btn btn-menu"><img src="img/btn/visitas.png"><br>VISITAS</a>
-				<a href="#" class=" ui-btn btn-menu"><img src="img/btn/forum.png"><br>FORUMS</a>			
-				<a href="#" class=" ui-btn btn-menu ui-btn-c"><img src="img/btn/panico.png"><br>ACIONAR PÂNICO</a>
-        <a href="#demo-links" data-rel="close" class="ui-btn ui-shadow ui-corner-all ui-btn-a ui-icon-delete ui-btn-icon-left ui-btn-inline">Fechar Menu</a>
-
-		</div><!-- /leftpanel3 -->
-
-<div class="menu-rodape">
-					<div data-role="footer" data-position="fixed" data-id="vs_footer" data-theme="a">
-				<div data-role="navbar" >
-					<ul >
-
-						<li><a href="#Painelmenu" class=""><img src="img/btn/menu.png"> MENU</a></li>
-						<li><a href="#popupDialog" data-rel="popup" data-position-to="window" data-transition="pop"  class=""><img src="img/btn/menu.png"> MENU</a></li>
-						<li><a href="#home" class=""><img src="img/btn/menu.png"> MENU</a></li>
-					</ul>
-				</div>
-				</div>
-			</div>
-		</div>
-		</div>
-		<div id="painel" class="login" data-role="page">
-			
-		
-	
-		
-		
-			<div data-role="header" data-theme="a">
-				
-				<p class="txthead" align="left"><img src="img/carinha_login.png" > Ol&aacute;, Sr(a) Lucas Miranda <img src="img/icone1.png" align="right"></p>
-			</div>
-				<div style="margin-top:10px"></div>
-				<div class="ui-grid-a">
-					<div class="ui-block-a"><a href="#meus_dados" onClick="meusdados();" class="ui-shadow ui-btn ui-btn-b btn-home"><img src="img/btn/meus-dados-m.png"><br>MEUS DADOS</a></div>
-					<div class="ui-block-b"><a href="#" class="ui-shadow ui-btn ui-btn-b btn-home"><img src="img/btn/porta.png"><br>ABRIR PORTA</a></div>
-				</div>
-				<div class="ui-grid-a">
-					<div class="ui-block-a"><a href="#meus_animais" onClick="meusanimais();" class="ui-shadow ui-btn ui-btn-b btn-home"><img src="img/btn/animais-retina.png"><br>MEUS ANIMAIS</a></div>
-					<div class="ui-block-b"><a href="#documentos_informes" onClick="documentos();" class="ui-shadow ui-btn ui-btn-b btn-home"><img src="img/btn/doc.png"><br>DOCUMENTOS/INFORMES</a></div>
-				</div>
-				<div class="ui-grid-a">
-
-					<div class="ui-block-a"><a href="#reservas" onClick="minhasreservas();" class="ui-shadow ui-btn ui-btn-b btn-home"><img src="img/btn/reservas.png"><br>RESERVAS</a></div>
-					<div class="ui-block-b"><a href="#eventos" onClick="meus_eventos();" class="ui-shadow ui-btn ui-btn-b btn-home"><img src="img/btn/eventos.png"><br>EVENTOS</a></div>	
-				</div>
-				<div class="ui-grid-a">
-					<div class="ui-block-a"><a href="#minha_familia" onClick="chamarFamilia();" class="ui-shadow ui-btn ui-btn-b btn-home"><img src="img/btn/minha-familia.png"><br>MINHA FAMÍLIA</a></div>
-					<div class="ui-block-b"><a href="#ocorrencias" onClick="chamarOcorrencias();" class="ui-shadow ui-btn ui-btn-b btn-home"><img src="img/btn/ocorrencias.png"><br>OCORRÊNCIAS</a></div>
-				</div>
-				
-				<div class="ui-grid-a">
-					<div class="ui-block-a"><a href="#meus_veiculos"  onClick="meusveiculos();" class="ui-shadow ui-btn ui-btn-b btn-home"><img src="img/btn/veiculo.png"><br>MEUS VEICULOS</a></div>
-					<div class="ui-block-b"><a href="#lista_convidados" onClick="chamarListaConvidados();"  class="ui-shadow ui-btn ui-btn-b btn-home"><img src="img/btn/lista_convidados.png"><br>LISTA CONVIDADOS</a></div>
-				</div>
-				
-				<div class="ui-grid-a">
-					<div class="ui-block-a"><a href="#correspondencia" onClick="correspondencia();"  class="ui-shadow ui-btn ui-btn-b btn-home"><img src="img/btn/correspondencia_grande.png"><br>CORRESPONDENCIAS</a></div>
-					<div class="ui-block-b"><a href="#classificados" onClick="classificados();" class="ui-shadow ui-btn ui-btn-b btn-home"><img src="img/btn/classificados.png"><br>CLASSIFICADOS</a></div>				
-				</div>
-				<div class="ui-grid-a">
-					<div class="ui-block-a"><a href="#" class="ui-shadow ui-btn ui-btn-b btn-home"><img src="img/btn/minha-casa.png"><br>MINHA CASA</a></div>
-					<div class="ui-block-b"><a href="#" class="ui-shadow ui-btn ui-btn-b btn-home"><img src="img/btn/alertas.png"><br>MEUS ALERTAS</a></div>
-				</div>
-				<div class="ui-grid-a">
-					<div class="ui-block-a"><a href="#" class="ui-shadow ui-btn ui-btn-b btn-home"><img src="img/btn/visitas.png"><br>LOG DO USUARIO</a></div>
-					<div class="ui-block-b"><a href="#" class="ui-shadow ui-btn ui-btn-b btn-home"><img src="img/btn/visitas.png"><br>VISITAS</a></div>
-				</div>
-				<div class="ui-grid-a">
-					<div class="ui-block-a"><a href="#" class="ui-shadow ui-btn ui-btn-c btn-home"><img src="img/btn/panico.png"><br>ACIONAR PÂNICO</a></div>
-					<div class="ui-block-b"><a href="#vamos_testar" class="ui-shadow ui-btn ui-btn-b btn-home"><img src="img/btn/forum.png"><br>FORUMS</a></div>
-				</div>
-				
+					</ul>	
+					</div>
+					</div>
 				<div data-role="panel" id="Painelmenu" data-position="left" data-display="overlay" data-theme="a">
 
 				<h2 class="tltmenu">NAVEGA&Ccedil;&Atilde;O R&Aacute;PIDA</h2>
@@ -1536,13 +1808,13 @@
 				<a href="#ocorrencias" onClick="chamarOcorrencias();" class=" ui-btn btn-menu"><img src="img/btn/ocorrencias.png"><br>OCORRÊNCIAS</a>
 				<a href="#meus_veiculos" onClick="meusveiculos();" class=" ui-btn btn-menu"><img src="img/btn/veiculo-pequeno.png"><br>MEUS VEICULOS</a>
 				<a href="#lista_convidados" onClick="chamarListaConvidados();" class="ui-btn btn-menu"><img src="img/btn/lista_convidados_pequena.png"><br>LISTA CONVIDADOS</a>
-				<a href="#correspondencias" onClick="correspondencias;" class="ui-btn btn-menu"><img src="img/btn/correspondencia.png"><br>CORRESPONDÊNCIAS</a>
+				<a href="#correspondencias" onClick="chamarCorrespondencia;" class="ui-btn btn-menu"><img src="img/btn/correspondencia.png"><br>CORRESPONDÊNCIAS</a>
 				<a href="#classificados" onClick="classificados;" class=" ui-btn btn-menu"><img src="img/btn/classificados.png"><br>CLASSIFICADOS</a>
 				<a href="#" class="ui-btn btn-menu"><br>ABRIR PORTA</a>
-				<a href="#" class=" ui-btn btn-menu"><img src="img/btn/minha-casa.png"><br>MINHA CASA</a>
-				<a href="#" class=" ui-btn btn-menu"><img src="img/btn/alertas.png"><br>MEUS ALERTAS</a>
-				<a href="#" class=" ui-btn btn-menu"><img src="img/btn/visitas.png"><br>VISITAS</a>
-				<a href="#" class=" ui-btn btn-menu"><img src="img/btn/forum.png"><br>FORUMS</a>			
+				<a href="#" class=" ui-btn btn-menu"><img src="img/btn/alertas.png"><br>NOTIFICAÇÕES</a>
+				<a href="#log_usuario" onClick="logusuario();" class=" ui-btn btn-menu"><img src="img/btn/minha-casa.png"><br>LOG DO USUARIO</a>
+				<a href="#" class=" ui-btn btn-menu"><img src="img/btn/forum.png"><br>FORUMS</a>	
+				<a href="#" onClick="sair()" class=" ui-btn btn-menu ui-btn-c"><br>SAIR</a>					
 				<a href="#" class=" ui-btn btn-menu ui-btn-c"><img src="img/btn/panico.png"><br>ACIONAR PÂNICO</a>
         <a href="#demo-links" data-rel="close" class="ui-btn ui-shadow ui-corner-all ui-btn-a ui-icon-delete ui-btn-icon-left ui-btn-inline">Fechar Menu</a>
 
@@ -1554,13 +1826,60 @@
 					<ul >
 
 						<li><a href="#Painelmenu" class=""><img src="img/btn/menu.png"> MENU</a></li>
-						<li><a href="#popupDialog" data-rel="popup" data-position-to="window" data-transition="pop"  class=""><img src="img/btn/menu.png"> MENU</a></li>
-						<li><a href="#home" class=""><img src="img/btn/menu.png"> MENU</a></li>
+						<li><a class="ui-btn-c"><img src="img/btn/icone-ajuda.png"> ACIONAR PÂNICO</a></li>
+						<li><a href="#" onClick="sair()" class=""><img src="img/btn/icone-sair.png"> SAIR</a></li>
 					</ul>
 				</div>
 				</div>
-			</div>
+			</div>				
+					<div class="ui-bar ui-bar-c" style="height:45px;" >
+						
+						<div class=" ui-btn-panico ui-btn-c" a href="#">
+									<center><img src="img/btn/panico.png" style="height:20px; margin-top:6px;"><br>ACIONAR PÂNICO</div></a></center>
+					</div>
+					
+	
+		</div>
+		<div id="painel" class="login" data-role="page">
 			
+		<div data-role="header" data-theme="a">
+				
+				<p class="txthead" align="left"><img src="img/carinha_login.png" > Ol&aacute;, <span id="nomeMorador"></span> <img src="img/icone1.png" align="right"></p>
+			</div>
+				<div style="margin-top:10px"></div>
+				<div class="ui-grid-a">
+					<div class="ui-block-a"><a href="#meus_dados" onClick="meusdados();" class="ui-shadow ui-btn ui-btn-b btn-home"><img style="max-height: 34px;" src="img/btn/meus-dados-m.png"><br>MEUS DADOS</a></div>
+					<div class="ui-block-b"><a href="#" class="ui-shadow ui-btn ui-btn-b btn-home"><img style="max-height: 34px;" src="img/btn/porta.png"><br>ABRIR PORTA</a></div>
+				</div>
+				<div class="ui-grid-a">
+					<div class="ui-block-a"><a href="#meus_animais" onClick="meusanimais();" class="ui-shadow ui-btn ui-btn-b btn-home"><img style="max-height: 34px;" src="img/btn/animais-retina.png"><br>MEUS ANIMAIS</a></div>
+					<div class="ui-block-b"><a href="#documentos_informes" onClick="documentos();" class="ui-shadow ui-btn ui-btn-b btn-home"><img style="max-height: 34px;" src="img/btn/doc.png"><br>DOCUMENTOS/INFORMES</a></div>
+				</div>
+				<div class="ui-grid-a">
+
+					<div class="ui-block-a"><a href="#reservas" onClick="minhasreservas();" class="ui-shadow ui-btn ui-btn-b btn-home"><img style="max-height: 34px;" src="img/btn/reservas.png"><br>RESERVAS</a></div>
+					<div class="ui-block-b"><a href="#eventos" onClick="meus_eventos();" class="ui-shadow ui-btn ui-btn-b btn-home"><img style="max-height: 34px;" src="img/btn/eventos.png"><br>EVENTOS</a></div>	
+				</div>
+				<div class="ui-grid-a">
+					<div class="ui-block-a"><a href="#minha_familia" onClick="chamarFamilia();" class="ui-shadow ui-btn ui-btn-b btn-home"><img style="max-height: 34px;" src="img/btn/minha-familia.png"><br>MINHA FAMÍLIA</a></div>
+					<div class="ui-block-b"><a href="#ocorrencias" onClick="chamarOcorrencias();" class="ui-shadow ui-btn ui-btn-b btn-home"><img style="max-height: 34px;" src="img/btn/ocorrencias.png"><br>OCORRÊNCIAS</a></div>
+				</div>
+				
+				<div class="ui-grid-a">
+					<div class="ui-block-a"><a href="#meus_veiculos"  onClick="meusveiculos();" class="ui-shadow ui-btn ui-btn-b btn-home"><img style="max-height: 34px;" src="img/btn/veiculo.png"><br>MEUS VEICULOS</a></div>
+					<div class="ui-block-b"><a href="#lista_convidados" onClick="chamarListaConvidados();"  class="ui-shadow ui-btn ui-btn-b btn-home"><img style="max-height: 34px;" src="img/btn/lista_convidados.png"><br>LISTA CONVIDADOS</a></div>
+				</div>
+				
+				<div class="ui-grid-a">
+					<div class="ui-block-a"><a href="#correspondencias" onClick="chamarCorrespondencia();"  class="ui-shadow ui-btn ui-btn-b btn-home"><img style="max-height: 34px;" src="img/btn/correspondencia_grande.png"><br>CORRESPONDENCIAS</a></div>
+					<div class="ui-block-b"><a href="#classificados" onClick="classificados();" class="ui-shadow ui-btn ui-btn-b btn-home"><img style="max-height: 34px;" src="img/btn/classificados.png"><br>CLASSIFICADOS</a></div>				
+				</div>			
+				<div class="ui-grid-a">
+					<div class="ui-block-a"><a href="#log_usuario" onClick="logusuario();"  class="ui-shadow ui-btn ui-btn-b btn-home"><img style="max-height: 34px;" src="img/btn/visitas.png"><br>LOG DO USUARIO</a></div>
+					<div class="ui-block-b"><a href="#forum"  onClick="foruns();" class="ui-shadow ui-btn ui-btn-b btn-home"><img style="max-height: 34px;" src="img/btn/forum.png"><br>FORUMS</a></div>				
+				</div>
+					<a href="#" class="ui-shadow ui-btn ui-btn-c btn-home"><img src="img/btn/panico.png"><br>ACIONAR PÂNICO</a>
+	
 		</div>
 		
 		
@@ -1568,10 +1887,13 @@
 			
 	<body >
 		<div id="reservas" class="login" data-role="page">
+				<a href="#painel" style="text-decoration:none;">
 				<div data-role="header" data-theme="a">
 					<p class="txthead" align="left"><img src="img/btn/reservas.png" style="margin: 0px 20px -4px -5px;">RESERVAS<img src="img/icone1.png" align="right"></p>
-						</div>
 					
+						</div>
+						</a>
+						<div data-role="content">
 					 <div class="msgsucesso_meus_reservas" style="display:none">
 						<div data-role="header">
 							<p style="text-align:center;"> </p>
@@ -1583,24 +1905,21 @@
 							<p style="text-align:center;"> </p>
 						</div>
 					  </div>
-						<div class="buscar">		
-							<form class="ui-filterable">
-								<input id="filterBasic-input" data-type="search">
-							</form>
-						</div>
+						
 					<div class="ui-grid-b-claro">
 						<div class="ui-bar ui-bar-b-claro" >
 						
-						<a href="#form_reservas" onClick="novaReserva();" id="btn-list-detalhe" style="float: right; width: 40%;margin-right: 90px;" class="ui-btn ui-corner-all">Efetuar Reserva</a>
+						<center><a href="#form_reservas" onClick="novaReserva();" id="btn-list-detalhe" style="margin: 5px;" class="ui-btn ui-corner-all">Efetuar Reserva</a></center>
 					
 						</div>
 					</div>
+					<div class="buscar">
+					<ul data-role="listview" id="listareservas" data-filter="true" data-filter-placeholder=" Buscar..." >
 					
-					<ul data-role="listview" id="listareservas" >
-						
 				 
-				</ul>					
-
+				</ul>	
+				</div>				
+				</div>
 					<div class="ui-bar ui-bar-c" style="height:45px;" >
 					
 					<center><div class=" ui-btn-panico ui-btn-c" a href="#"><img src="img/btn/panico.png" style="height:20px; margin-top:6px;"><br>ACIONAR PÂNICO</div></a></center>
@@ -1619,13 +1938,13 @@
 				<a href="#ocorrencias" onClick="chamarOcorrencias();" class=" ui-btn btn-menu"><img src="img/btn/ocorrencias.png"><br>OCORRÊNCIAS</a>
 				<a href="#meus_veiculos" onClick="meusveiculos();" class=" ui-btn btn-menu"><img src="img/btn/veiculo-pequeno.png"><br>MEUS VEICULOS</a>
 				<a href="#lista_convidados" onClick="chamarListaConvidados();" class="ui-btn btn-menu"><img src="img/btn/lista_convidados_pequena.png"><br>LISTA CONVIDADOS</a>
-				<a href="#correspondencias" onClick="correspondencias;" class="ui-btn btn-menu"><img src="img/btn/correspondencia.png"><br>CORRESPONDÊNCIAS</a>
+				<a href="#correspondencias" onClick="chamarCorrespondencia;" class="ui-btn btn-menu"><img src="img/btn/correspondencia.png"><br>CORRESPONDÊNCIAS</a>
 				<a href="#classificados" onClick="classificados;" class=" ui-btn btn-menu"><img src="img/btn/classificados.png"><br>CLASSIFICADOS</a>
 				<a href="#" class="ui-btn btn-menu"><br>ABRIR PORTA</a>
-				<a href="#" class=" ui-btn btn-menu"><img src="img/btn/minha-casa.png"><br>MINHA CASA</a>
-				<a href="#" class=" ui-btn btn-menu"><img src="img/btn/alertas.png"><br>MEUS ALERTAS</a>
-				<a href="#" class=" ui-btn btn-menu"><img src="img/btn/visitas.png"><br>VISITAS</a>
-				<a href="#" class=" ui-btn btn-menu"><img src="img/btn/forum.png"><br>FORUMS</a>			
+				<a href="#" class=" ui-btn btn-menu"><img src="img/btn/alertas.png"><br>NOTIFICAÇÕES</a>
+				<a href="#log_usuario" onClick="logusuario();" class=" ui-btn btn-menu"><img src="img/btn/minha-casa.png"><br>LOG DO USUARIO</a>
+				<a href="#" class=" ui-btn btn-menu"><img src="img/btn/forum.png"><br>FORUMS</a>	
+				<a href="#" onClick="sair()" class=" ui-btn btn-menu ui-btn-c"><br>SAIR</a>					
 				<a href="#" class=" ui-btn btn-menu ui-btn-c"><img src="img/btn/panico.png"><br>ACIONAR PÂNICO</a>
         <a href="#demo-links" data-rel="close" class="ui-btn ui-shadow ui-corner-all ui-btn-a ui-icon-delete ui-btn-icon-left ui-btn-inline">Fechar Menu</a>
 
@@ -1637,122 +1956,20 @@
 					<ul >
 
 						<li><a href="#Painelmenu" class=""><img src="img/btn/menu.png"> MENU</a></li>
-						<li><a href="#popupDialog" data-rel="popup" data-position-to="window" data-transition="pop"  class=""><img src="img/btn/menu.png"> MENU</a></li>
-						<li><a href="#home" class=""><img src="img/btn/menu.png"> MENU</a></li>
+						<li><a class="ui-btn-c"><img src="img/btn/icone-ajuda.png"> ACIONAR PÂNICO</a></li>
+						<li><a href="#" onClick="sair()" class=""><img src="img/btn/icone-sair.png"> SAIR</a></li>
 					</ul>
 				</div>
 				</div>
 			</div>
 		</div>
-		<div id="vamos_testar" class="login" data-role="page">
- <script type="text/javascript" charset="utf-8">
- 
-    var pictureSource;   // picture source
-    var destinationType; // sets the format of returned value 
- 
-    // Wait for PhoneGap to connect with the device
-    //
-    document.addEventListener("deviceready",onDeviceReady,false);
- 
-    // PhoneGap is ready to be used!
-    //
-    function onDeviceReady() {
-        pictureSource=navigator.camera.PictureSourceType;
-        destinationType=navigator.camera.DestinationType;
-    }
- 
-    // Called when a photo is successfully retrieved
-    //
-    function onPhotoDataSuccess(imageData) {
-      // Get image handle
-      //
-      var smallImage = document.getElementById('smallImage');
- 
-      // Unhide image elements
-      //
-      smallImage.style.display = 'block';
- 
-      // Show the captured photo
-      // The inline CSS rules are used to resize the image
-      //
-      smallImage.src = "data:image/jpeg;base64," + imageData;
-    }
-    
-	// Called when a photo is successfully retrieved
-    //
-    function onPhotoFileSuccess(imageData) {
-      // Get image handle
-      console.log(JSON.stringify(imageData));
-      
-   	  // Get image handle
-      //
-      var smallImage = document.getElementById('smallImage');
- 
-      // Unhide image elements
-      //
-      smallImage.style.display = 'block';
- 
-      // Show the captured photo
-      // The inline CSS rules are used to resize the image
-      //
-      smallImage.src = imageData;
-    }
- 
-    // Called when a photo is successfully retrieved
-    //
-    function onPhotoURISuccess(imageURI) {
-      // Uncomment to view the image file URI 
-      // console.log(imageURI);
- 
-      // Get image handle
-      //
-      var largeImage = document.getElementById('largeImage');
- 
-      // Unhide image elements
-      //
-      largeImage.style.display = 'block';
- 
-      // Show the captured photo
-      // The inline CSS rules are used to resize the image
-      //
-      largeImage.src = imageURI;
-    }
- 
-    // A button will call this function
-    //
-    function capturePhotoWithData() {
-      // Take picture using device camera and retrieve image as base64-encoded string
-      navigator.camera.getPicture(onPhotoDataSuccess, onFail, { quality: 50 });
-    }
- 
-    function capturePhotoWithFile() {
-        navigator.camera.getPicture(onPhotoFileSuccess, onFail, { quality: 50, destinationType: Camera.DestinationType.FILE_URI });
-    }
-    
-    // A button will call this function
-    //
-    function getPhoto(source) {
-      // Retrieve image file location from specified source
-      navigator.camera.getPicture(onPhotoURISuccess, onFail, { quality: 50, 
-        destinationType: destinationType.FILE_URI,
-        sourceType: source });
-    }
- 
-    // Called if something bad happens.
-    // 
-    function onFail(message) {
-      alert('Failed because: ' + message);
-    }
- 
-    </script>
-	 <button onclick="capturePhotoWithData();">Capture Photo With Image Data</button> <br>
-    <button onclick="capturePhotoWithFile();">Capture Photo With Image File URI</button> <br>
-    <button onclick="getPhoto(pictureSource.PHOTOLIBRARY);">From Photo Library</button><br>
-    <button onclick="getPhoto(pictureSource.SAVEDPHOTOALBUM);">From Photo Album</button><br>
-    <img style="display:none;width:60px;height:60px;" id="smallImage" src="" />
-    <img style="display:none;" id="largeImage" src="" />
-	
-	</div><script src="js/script.js"></script>
+		<script src="phonegap.js"></script>
+ <script type="text/javascript">
+
+           
+
+        </script>
+<script src="js/script.js"></script>
 <script src="js/funcoes/meus-animais.js"></script>
 <script src="js/funcoes/meus-eventos.js"></script>
 <script src="js/funcoes/reservas.js"></script>
@@ -1760,5 +1977,9 @@
 <script src="js/funcoes/minha-familia.js"></script>
 <script src="js/funcoes/lista-convidados.js"></script>
 <script src="js/funcoes/meus-veiculos.js"></script>
+<script src="js/funcoes/log-usuario.js"></script>
+<script src="js/funcoes/correspondencias.js"></script>
+<script src="js/funcoes/classificados.js"></script>
+<script src="js/funcoes/forum.js"></script>
 	</body>
 </html>

@@ -1,3 +1,72 @@
+
+ function capturarImagemAnimal(){
+	$('#validar_form_animal').val(1);
+      navigator.camera.getPicture(uploadPhotoAnimal, function(message) {
+			$('#validar_form_animal').val(0);
+		},{
+			quality: 50, 
+			destinationType: navigator.camera.DestinationType.FILE_URI,
+			sourceType: navigator.camera.PictureSourceType.CAMERA,
+			correctOrientation:true,
+			AllowEdit: true
+		}
+            );
+            }
+ function PegarImagemAnimal(){
+	$('#validar_form_animal').val(1);
+      navigator.camera.getPicture(uploadPhotoAnimal, function(message) {
+			$('#validar_form_animal').val(0);
+		},{
+			quality: 50, 
+			destinationType: navigator.camera.DestinationType.FILE_URI,
+			sourceType: navigator.camera.PictureSourceType.PHOTOLIBRARY,
+			correctOrientation:true,
+			AllowEdit: true
+		}
+            );
+            }
+ function uploadPhotoAnimal(imageURI) {
+			$('#foto_animal_editar').attr('src',imageURI);
+			$('#validar_form_animal').val(1);
+            var options = new FileUploadOptions();
+            options.fileKey="file";
+            options.fileName=imageURI.substr(imageURI.lastIndexOf('/')+1);
+            options.mimeType="image/jpeg";
+            var params = new Object();
+            params.value1 = "test";
+            params.value2 = "param";
+            options.params = params;
+            options.chunkedMode = false;
+ 
+            var ft = new FileTransfer();
+            ft.upload(imageURI, "http://serve.iflexdigital.com.br/lomatech/app/uploadAnimal.php", winAnimal, failAnimal, options);
+        }
+ 
+        function winAnimal(r) {
+			$("#arquivoMeusAnimais").val(r.response);
+            $('#validar_form_animal').val(0);
+        }
+ 
+        function failAnimal(error) {
+			$('#foto_animal_editar').attr('src','');
+           $('#validar_form_animal').val(0);
+        }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 function carregar(a){
 	
 	if(a == 'ativar'){
@@ -11,7 +80,60 @@ function carregar(a){
 	
 	
 }
+
+function Animal(ID){
+$.post(URLBASE+'meu_animais.php', {acao:'retornar', id:ID()}, function(data) {
+					$.each( data, function( ) {
+						
+						
+					})
+		}, 'json');
+
+}
+function meusanimais(){
+carregar('ativar');
+	var lista = '';
+	var resposta = '';
+	$.post(URLBASE+'meu_animais.php', {acao:'retornarTodos', id_morador:idmorador()}, function(data) {
+				var x = 0;
+					$.each( data, function( ) {
+						
+						
+					
+						
+						lista += ' <li onclick="abrirCoollapsible(this);" style="padding-left:5px; min-height:0; margin:5px 20px;" data-role="collapsible" data-theme="d" data-iconpos="right" data-inset="false">';
+						lista +=	'<a href="" class="link"><h2>'+data[x].nome_animal;
+						lista +=	'<img src="img/icones/icone-bino.png" align="right" style="margin: 0px 0px;">';
+						lista +=	'</h2></a>';
+						lista +=	'<form class="l" style="display:none" >';
+						lista +=	  '<fieldset data-role="controlgroup" data-type="horizontal">';
+						lista +=		'<a href="#form_meus_animais" onClick="chamarAnimal('+data[x].ID+');" style="margin:5px;" id="btn-list-detalhe" class="ui-btn ui-corner-all">Detalhes/Editar</a>';
+						lista +=		'<a href="#" onClick="excluirAnimal('+data[x].ID+');" id="btn-list" style="margin:5px; margin-top:15px;background-color:#820d12; border-color:#820d12;" class="ui-btn ui-corner-all">Excluir</a>	';
+						lista +=	 ' </fieldset>';
+						lista +=	'</form>';
+						lista +=  '</li>';
+					
+						x++;
+					});
+					
+					
+					$('.produtos').html(lista);
+					$('.produtos').listview("refresh");
+					$( ".miranda" ).collapsibleset( "refresh" );
+					carregar('desativar');
+		}, 'json');
+
+}
+// funções de inicialização
+	
+		//verificar meus dados
+			
+			
+	//fim
 function excluirAnimal(ID){
+
+var ex = confirm("Deseja Excluir?");
+if(ex == true){
 	carregar('ativar');
 	$.post(URLBASE+'meu_animais.php', {id:ID, acao:'excluir'}, function(data) {
 				var x = 0;
@@ -20,8 +142,8 @@ function excluirAnimal(ID){
 						meusanimais();
 											
 						if(data.status){
-							$('.msgsucesso_meus_animais p').html(data.mensagem);
-							$('.msgsucesso_meus_animais').css('display','block');
+							$('.msgerro_meus_animais p').html(data.mensagem);
+							$('.msgerro_meus_animais').css('display','block');
 						}else{
 							$('.msgerro_meus_animais p').html(data.mensagem)
 							$('.msgerro_meus_animais').css('display','block');
@@ -30,7 +152,7 @@ function excluirAnimal(ID){
 						window.location = "#meus_animais";
 					})
 	})
-
+}
 }
 $(function(){
 
@@ -54,6 +176,8 @@ function chamarAnimal(ID){
 						$("#id_animal_form_animal").val('');
 						$("#acao_animal_form_animal").val('');
 						$("#foto_animal_editar").attr("src",'');
+						$("#tipo_form_animal-button span").html('');
+						$("#raca_form_animal-button span").html('');
 	
 	
 		var resposta = '';
@@ -72,10 +196,11 @@ function chamarAnimal(ID){
 					if(x == 0){
 						$("#nome_animal_form_animal").val(data.nome_animal);
 						$("#cor_form_animal").val(data.cor);
-						$("#tipo_form_animal").val(data.tipo);
 						$("#id_animal_form_animal").val(data.ID);
 						$("#acao_animal_form_animal").val('editar');
-						$('select#tipo_form_animal option').val(data.tipo).attr("selected","selected");
+						$('#tipo_form_animal').val(data.tipo);
+						var tipo =  $("#tipo_form_animal option:selected").text();
+						$("#tipo_form_animal-button span").html(tipo);
 						$("#foto_animal_editar").attr("src",data.foto);
 						var animal = data.tipo;
 						var raca  = data.raca;
@@ -84,7 +209,9 @@ function chamarAnimal(ID){
 								var sala = $.post( URLBASE+'querys/animais_raca.php',{id_animal:animal,id:raca}, function() {		
 								})			 
 								.always(function(data) {	
-									$('#raca_form_animal').html(data);			
+									$('#raca_form_animal').html(data);	
+									var raca2 =  $("#raca_form_animal option:selected").text();
+									$("#raca_form_animal-button span").html(raca2);
 								});
 								
 								
@@ -92,7 +219,6 @@ function chamarAnimal(ID){
 						x++;
 						carregar('desativar');
 					})
-					$("#tipo_form_animal").html(resposta);
 	})
 	
 	
@@ -105,7 +231,7 @@ function chamarAnimal(ID){
 
 
 function editar_animal(){
-	carregar('ativar');
+	
 	var options = { 
 		success:function(data) { 
 			$.each( data, function( ) {
@@ -125,7 +251,14 @@ function editar_animal(){
 					}); 
 		} 
 	}; 
-	 $('#formulario_meus_animais').ajaxSubmit(options);
+	
+	
+	if($('#validar_form_animal').val() == 0 && validarFormularios('formulario_meus_animais') == true){
+		carregar('ativar');
+		$('#formulario_meus_animais').ajaxSubmit(options);
+	}else{
+		alert('Fazendo Upload da Imagem');
+	}
 	
 	
 	return false;
@@ -139,6 +272,8 @@ carregar('ativar');
 						$("#id_animal_form_animal").val('');
 						$("#acao_animal_form_animal").val('');
 						$("#foto_animal_editar").attr("src",'');
+						$("#tipo_form_animal-button span").html('');
+						$("#raca_form_animal-button span").html('');
 	var resposta = '';
 	$.post(URLBASE+'querys/animais.php', {}, function(data) {
 				var x = 0;

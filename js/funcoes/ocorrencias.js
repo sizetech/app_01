@@ -1,8 +1,61 @@
 
+ function capturarImagemOcorrencia(){
+	$('#validar_form_Ocorrencia').val(1);
+      navigator.camera.getPicture(uploadPhotoOcorrencia, function(message) {
+			$('#validar_form_Ocorrencia').val(0);
+		},{
+			quality: 50, 
+			destinationType: navigator.camera.DestinationType.FILE_URI,
+			sourceType: navigator.camera.PictureSourceType.CAMERA,
+			correctOrientation:true,
+			AllowEdit: true
+		}
+            );
+            }
+ function PegarImagemOcorrencia(){
+	$('#validar_form_Ocorrencia').val(1);
+      navigator.camera.getPicture(uploadPhotoOcorrencia, function(message) {
+			$('#validar_form_Ocorrencia').val(0);
+		},{
+			quality: 50, 
+			destinationType: navigator.camera.DestinationType.FILE_URI,
+			sourceType: navigator.camera.PictureSourceType.PHOTOLIBRARY,
+			correctOrientation:true,
+			AllowEdit: true
+		}
+            );
+            }
+ function uploadPhotoOcorrencia(imageURI) {
+			$('#banner_Ocorrencia_editar').attr('src',imageURI);
+			$('#validar_form_Ocorrencia').val(1);
+            var options = new FileUploadOptions();
+            options.fileKey="file";
+            options.fileName=imageURI.substr(imageURI.lastIndexOf('/')+1);
+            options.mimeType="image/jpeg";
+            var params = new Object();
+            params.value1 = "test";
+            params.value2 = "param";
+            options.params = params;
+            options.chunkedMode = false;
+ 
+            var ft = new FileTransfer();
+            ft.upload(imageURI, "http://serve.iflexdigital.com.br/lomatech/app/uploadOcorrencia.php", winAnimal, failAnimal, options);
+        }
+ 
+        function winAnimal(r) {
+			$("#arquivoMeusOcorrencias").val(r.response);
+            $('#validar_form_Ocorrencia').val(0);
+        }
+ 
+        function failAnimal(error) {
+			$('#foto_animal_editar').attr('src','');
+           $('#validar_form_Ocorrencia').val(0);
+        }
 
 
 function chamarOcorrencias(){
 	var lista = '';
+	carregar('ativar');
 	$.post(URLBASE+'ocorrencias.php', {acao:'retornarTodos', id:idmorador()}, function(data) {
 				var situacao ='';
 				var x = 0;
@@ -20,12 +73,14 @@ function chamarOcorrencias(){
 						lista +=	'</h2></a>';
 						lista +=	'<form style="display:none">';	
 						lista +=	'<div class="ui-collapsible-content ui-body-inherit" aria-hidden="false">	';
-						lista +=    ' <p style="text-shadow: none; color: #FFF;background-color: #85b200;width: 100%;"><b>PUBLICADO EM </b>:'+data[x].data_cadastro+'</p><br>';
-						lista +=	' <p style="text-shadow: none; color: #FFF;background-color: #85b200;width: 100%;"><b>DATA DA OCORRENCIA E LOCAL </b></p>';
-						lista +=    ' <p style="text-shadow: none; color: #FFF;">Data: '+data[x].data_ocorrencia+' ás 00:00:00</p> '; 
-						lista +=	' <p style="text-shadow: none; color: #FFF;">Local:'+data[x].local+'</p>';
-						lista +=    ' <p style="text-shadow: none; color: #FFF;background-color: #85b200;width: 100%;">DESCRIÇÃO DA OCORRENCIA</p>';
-						lista += 	' <p style="text-shadow: none; color: #FFF;">'+data[x].descricao+'</p>';
+						if(data[x].foto != 'null')
+							lista +=	'<center><img src="'+data[x].foto+'"></center>	';
+						lista +=    ' <h3 style="text-shadow: none; color: #FFF;background-color: #85b200;width: 100%;"><b>PUBLICADO EM </b>:'+data[x].data_cadastro+'</h3><br>';
+						lista +=	' <h3 style="text-shadow: none; color: #FFF;background-color: #85b200;width: 100%;"><b>DATA DA OCORRENCIA E LOCAL </b></h3>';
+						lista +=    ' <h3 style="text-shadow: none; color: #FFF;">Data: '+data[x].data_ocorrencia+' ás 00:00:00</h3> '; 
+						lista +=	' <h3 style="text-shadow: none; color: #FFF;">Local:'+data[x].local+'</h3>';
+						lista +=    ' <h3 style="text-shadow: none; color: #FFF;background-color: #85b200;width: 100%;">DESCRIÇÃO DA OCORRENCIA</h3>';
+						lista += 	' <h3 style="text-shadow: none; color: #FFF;">'+data[x].descricao+'</h3>';
 						lista +=	' <fieldset data-role="controlgroup" data-type="horizontal" class="ui-controlgroup ui-controlgroup-horizontal ui-corner-all"><div class="ui-controlgroup-controls ">';		
 						lista += 	'   <a href="#" id="btn-list-detalhe" style=" margin: 0px 18px 0px -20px;" class="ui-btn ui-corner-all">'+situacao+'</a>';
 						lista += 	' 	<a href="#" onClick="CancelarOcorrencia('+data[x].ID+');" id="btn-list" style="background-color:#820d12;border-color:#820d12; " class="ui-btn ui-corner-all">Cancelar</a>';
@@ -39,21 +94,16 @@ function chamarOcorrencias(){
 					});
 					$('#listaocorrencias').html(lista);
 					$('#listaocorrencias').listview("refresh");
+					carregar('desativar');
 		}, 'json');
 						
 
 };
-// funções de inicialização
-	
-		//verificar meus dados
-			
-			if(ancora == "#ocorrencias"){
-				chamarOcorrencias();
-			}
-	//fim 
+
 
 function CancelarOcorrencia(id){
-
+var ex = confirm("Deseja Cancelar?");
+if(ex == true){
 	$.post(URLBASE+'ocorrencias.php', {id:id, acao:'excluir'}, function(data) {
 				var x = 0;
 					$.each( data, function( ) {
@@ -70,6 +120,7 @@ function CancelarOcorrencia(id){
 						window.location = "#ocorrencias";
 					})
 	})
+	}
 };
 function novaOcorrencia(){
 	$('#id_form_ocorrencias').val(idmorador());
@@ -89,7 +140,6 @@ function novaOcorrencia(){
 
 function registrarOcorrencia(){
 
-	bloquear('ativar');
 	var options = { 
 		success:    function(data) { 
 			$.each( data, function( ) {
@@ -103,13 +153,18 @@ function registrarOcorrencia(){
 							$('.msgerro_minhas_ocorrencias p').html(data.mensagem)
 							$('.msgerro_minhas_ocorrencias').css('display','block');
 						}
-						bloquear('desativar');
+						carregar('desativar');
 						window.location = "#ocorrencias";
 					
 					}); 
 		} 
 	}; 
-	 $('#formulario_ocorrencias').ajaxSubmit(options);
+	if($('#validar_form_Ocorrencia').val() == 0 && validarFormularios('ocoorenciaDeFormulario') == true){
+			carregar('ativar');
+		$('#ocoorenciaDeFormulario').ajaxSubmit(options);
+	}else{
+		alert('Fazendo Upload da Imagem');
+	}
 	
 	
 	return false;

@@ -2,12 +2,13 @@
 
 
 function meus_eventos(){
+carregar('ativar');
 	var lista = '';
 	$.post(URLBASE+'eventos.php', {acao:'retornarTodos', id:idmorador()}, function(data) {
 				var x = 0;									
 					$.each( data, function( ) {
 						
-						lista += '	 <li onclick="abrirCoollapsible(this);" style="padding-left:20px;margin:10px; min-height:0" data-role="collapsible" data-theme="d" data-iconpos="right" data-inset="false">';
+						lista += '	 <li onclick="abrirCoollapsible(this);" style="padding-left:5px;margin:5px 20px; min-height:0" data-role="collapsible" data-theme="d" data-iconpos="right" data-inset="false">';
 						lista += '		<a href="#"><h2 style="color: #FFF;text-shadow: none;">'+data[x].nome+'<img src="img/btn/eventos.png" align="right" style="margin: 0px 0px;"></h2></a>';
 						lista +=	'<form style="display:none" >';
 						lista += ' 		<h1 style="color:#FFF; text-shadow: none;text-align:center;font-size:20px;">'+data[x].nome+'</h1>';
@@ -24,17 +25,10 @@ function meus_eventos(){
 						x++;
 						
 					});
-					$('#listaeventos').html(lista);
-					$('#listaeventos').listview("refresh");
+					$('#eventoslistagem').html(lista);
+					$('#eventoslistagem').listview("refresh");
+					carregar('desativar');
 		}, 'json');
 						
 
 }
-// funções de inicialização
-	
-		//verificar meus dados
-			
-			if(ancora == "#eventos"){
-				meus_eventos();
-			}
-	//fim
