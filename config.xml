@@ -73,6 +73,10 @@
 		<param name="APP_ID" value="770138926373631" />
 		<param name="APP_NAME" value="Lomatech" />
 	</gap:plugin>
+	<gap:plugin name="org.apache.cordova.camera" />
+	<gap:plugin name="org.apache.cordova.device"  />
+	<gap:plugin name="org.apache.cordova.file"  />
+	<gap:plugin name="org.apache.cordova.file-transfer"  />
 
         <access />           
         <access origin="*" /> 
