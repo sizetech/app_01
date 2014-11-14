@@ -91,7 +91,6 @@ function chamarListaConvidados(){
 						lista += '	<h3 style="text-shadow: none; color: #FFF;background-color: #85b200;width: 100%;">LISTA DE CONVIDADOS</h3>	';
 						lista +=	' <fieldset data-role="controlgroup" data-type="horizontal" class="ui-controlgroup ui-controlgroup-horizontal ui-corner-all"><div class="ui-controlgroup-controls ">';
 						lista += 	'   <a href="#form_lista_convidados" onClick="editarLista('+data[x].ID+')" id="btn-list-detalhe" style=" margin: 0px 18px 0px -20px;" class="ui-btn ui-corner-all">DETALHES</a>';
-						lista += 	'   <a href="#" id="btn-list-detalhe" style=" margin: 0px 18px 0px -20px;" class="ui-btn ui-corner-all">EM ANDAMENTO</a>';
 						lista += 	' 	<a href="#" onClick="CancelarLista('+data[x].ID+');" id="btn-list" style="background-color:#820d12;border-color:#820d12; " class="ui-btn ui-corner-all">CANCELAR</a>';
 						lista += ' </div></fieldset> ';		
 						lista += ' </form>';
@@ -180,7 +179,7 @@ function editarLista(id){
 
 function registrarListaConvidados(){
 
-	bloquear('ativar');
+	
 	var options = { 
 		success:    function(data) { 
 			$.each( data, function( ) {
@@ -194,16 +193,18 @@ function registrarListaConvidados(){
 							$('.msgerro_meus_convidados p').html(data.mensagem)
 							$('.msgerro_meus_convidados').css('display','block');
 						}
-						bloquear('desativar');
+						carregar('desativar');
 						window.location = "#lista_convidados";
 					
 					}); 
 		} 
 	}; 
 	
-	if(validarFormularios('formulario_lista_convidados') == true)
+	if(validarFormularios('formulario_lista_convidados') == true){
+		carregar('ativar');
 		$('#formulario_lista_convidados').ajaxSubmit(options);
 	
+	}
 	
 	return false;
 }
