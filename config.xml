@@ -56,27 +56,16 @@
     <icon src="icon.png" />
    
 
-    <!-- Define app splash screen for each platform. -->
-    <gap:splash src="res/screen/android/screen-ldpi-portrait.png"  gap:platform="android" gap:density="ldpi" />
-    <gap:splash src="res/screen/android/screen-mdpi-portrait.png"  gap:platform="android" gap:density="mdpi" />
-    <gap:splash src="res/screen/android/screen-hdpi-portrait.png"  gap:platform="android" gap:density="hdpi" />
-    <gap:splash src="res/screen/android/screen-xhdpi-portrait.png" gap:platform="android" gap:density="xhdpi" />
-    <gap:splash src="res/screen/blackberry/screen-225.png"         gap:platform="blackberry" />
-    <gap:splash src="res/screen/ios/screen-iphone-portrait.png"    gap:platform="ios"     width="320" height="480" />
-    <gap:splash src="res/screen/ios/screen-iphone-portrait-2x.png" gap:platform="ios"     width="640" height="960" />
-    <gap:splash src="res/screen/ios/screen-ipad-portrait.png"      gap:platform="ios"     width="768" height="1024" />
-    <gap:splash src="res/screen/ios/screen-ipad-landscape.png"     gap:platform="ios"     width="1024" height="768" />
-    <gap:splash src="res/screen/windows-phone/screen-portrait.jpg" gap:platform="winphone" />
+   
 
    <!-- Cordova Plugin -->
-	<gap:plugin name="com.phonegap.plugins.facebookconnect">
-		<param name="APP_ID" value="770138926373631" />
-		<param name="APP_NAME" value="Lomatech" />
-	</gap:plugin>
+
 	<gap:plugin name="org.apache.cordova.camera" />
 	<gap:plugin name="org.apache.cordova.device"  />
 	<gap:plugin name="org.apache.cordova.file"  />
 	<gap:plugin name="org.apache.cordova.file-transfer"  />
+	<gap:plugin name="org.apache.cordova.inappbrowser"  />
+	<gap:plugin name="com.phonegap.plugins.facebookconnect"  />
 
         <access />           
         <access origin="*" /> 

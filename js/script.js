@@ -38,21 +38,6 @@ function validarFormularios(id){
 
 }
 
-function facebookLogin(){
-	alert(1);
-	facebookConnectPlugin.login( {scope: "email"}, sucessoFace, naosucessoFace)
-		function sucessoFace(a){
-			alert("Sucesso do Face");
-		
-		}
-		
-		function naosucessoFace(a){
-			alert("N]ap Sucesso do Face");
-		
-		}
-
-
-}
 
 
  function capturarImagem(){
@@ -82,6 +67,7 @@ function facebookLogin(){
             );
             }
  function uploadPhoto(imageURI) {
+		alert(imageURI);
 			$('#htmlImagem').attr('src',imageURI);
 			$('#validar_form_dados').val(1);
             var options = new FileUploadOptions();
@@ -99,6 +85,7 @@ function facebookLogin(){
         }
  
         function win(r) {
+			alert(r.response);
 			$("#arquivoMeusDados").val(r.response);
             $('#validar_form_dados').val(0);
         }
@@ -148,7 +135,7 @@ function meusdados(){
 						$('#sexo_meus_dados').val(data.sexo);
 						$('#sexo_form_dados').val(data.sexo);
 						
-						$('#data_nascimento_meus_dados').val(data.data_nascimento);
+						$('#data_nascimento_meus_dados').val(data.data_nascimentover);
 						$('#data_nascimento_form_dados').val(data.data_nascimento);
 						
 						$('#email_meus_dados').val(data.email);
@@ -159,12 +146,26 @@ function meusdados(){
 						
 						$('#cpf_meus_dados').val(data.cpf);
 						$('#cpf_form_dados').val(data.cpf);
+						$('#cpf_form_dados').mask("999.999.999-99");
+						
 						
 						$('#telefone_meus_dados').val(data.telefone);
 						$('#telefone_form_dados').val(data.telefone);
+						var SPMaskBehavior = function (val) {
+						  return val.replace(/\D/g, '').length === 11 ? '(00) 000 000 000' : '(00) 000 000 009';
+						},
+						spOptions = {
+						  onKeyPress: function(val, e, field, options) {
+							  field.mask(SPMaskBehavior.apply({}, arguments), options);
+							}
+						};
+
+						$('#telefone_form_dados').mask(SPMaskBehavior, spOptions);
+
 						
 						$('#celular_meus_dados').val(data.celular);
 						$('#celular_form_dados').val(data.celular);
+						$('#celular_form_dados').mask(SPMaskBehavior, spOptions);
 						
 						$('#classificacao_meus_dados').val(data.tipo);
 						$('#classificacao_form_dados').val(data.tipo);
@@ -346,11 +347,12 @@ $("input:password").blur(function(){
 		window.location = "#login";
 	}else{
 			
-			if(isNumber(validar))
+			if(isNumber(validar)){
+			
 				window.location = "#painel";
-			else
+			}else{
 				window.location = "#login";
-		
+			}
 		
 	
 	}
@@ -372,6 +374,7 @@ $("input:password").blur(function(){
 							  window.localStorage.setItem("NomeAppLomactech", data.nome);
 							  $('#nomeMorador').html(data.nome);
 							//$.cookie('IDAppLomactech', data.id, { expires: 360 });
+							$('.errologin').css("display",'none');
 							window.location = "#painel";						
 						}else{
 							$('.errologin').css("display",'block');
@@ -469,5 +472,92 @@ function documentos(){
 	
 		//verificar meus dados
 			
+ function onLoad() {
+        document.addEventListener("deviceready", onDeviceReady, false);
+    }
+
+    // device APIs are available
+    //
+    function onDeviceReady() {
+        // Register the event listener
+        document.addEventListener("backbutton", onBackKeyDown, false);
+		document.addEventListener("menubutton", onMenuKeyDown, false);
+    }
+
+    // Handle the back button
+    //
+    function onBackKeyDown() {
+		carregar('desativar');
+		var validar = idmorador();
+		if(!validar){
+			window.location = "#login";
+		}else{
+				
+				if(isNumber(validar))
+					history.back();  
+				else
+					window.location = "#login";
 			
+			
+		
+		}
+		
+    }
+	
+	 function onMenuKeyDown() {
+		$( "#Painelmenu" ).panel( "open" );
+    }
+	
+	 openFB.init({appId: '770138926373631'});
+    //  Uncomment the line below to store the Facebook token in localStorage instead of sessionStorage
+    //  openFB.init({appId: 'YOUR_FB_APP_ID', tokenStore: window.localStorage});
+    function loginFace() {
+        openFB.login(
+                function(response) {
+                    if(response.status === 'connected') {
+						validarEmailFacebook();
+						
+						
+                    } else {
+                        alert('Facebook login failed: ' + response.error);
+                    }
+                }, {scope: 'email,read_stream,publish_stream'});
+    }
+
+    
+	
+	function validarEmailFacebook() {
+        openFB.api({
+            path: '/me',
+            success: function(data) {
+                console.log(JSON.stringify(data));
+                
+				var em = data.email;
+					$('.errologin').css("display",'block');
+					$('.errologin p').html('Aguarde...');
+					$.post(URLBASE+'logarFacebook.php', {email:em}, function(data) {
+								$.each( data, function( ) {
+									if(data.retorno){
+										 window.localStorage.setItem("IDAppLomactech", data.id);
+										  window.localStorage.setItem("NomeAppLomactech", data.nome);
+										  $('#nomeMorador').html(data.nome);
+										  $('.errologin').css("display",'none');
+										window.location = "#painel";						
+									}else{
+										$('.errologin').css("display",'block');
+										$('.errologin p').html(data.mensagem);
+									}
+								
+								})
+					}, 'json');
+	
+			
+            },
+            error:function(data){
+				alert('Erro');
+			}
+			
+			});
+			
+    }
 	
