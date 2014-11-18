@@ -58,6 +58,7 @@ $(function(){
 
 
 function minhasreservas(){
+apagarMSGs();
 carregar('ativar');
 	var lista = '';
 	var resposta = '';
@@ -97,6 +98,7 @@ carregar('ativar');
 }
 
 function CancelarReserva(id){
+apagarMSGs();
 var ex = confirm("Deseja Cancelar?");
 if(ex == true){
 	$.post(URLBASE+'reservas.php', {id:id, acao:'excluir'}, function(data) {
@@ -120,6 +122,7 @@ if(ex == true){
 }
 
 function novaReserva(){
+apagarMSGs();
 	$('#id_form_reserva').val(idmorador());
 	var resposta = '';
 	resposta += "<option value=''>-- Selecione uma Depêndencia --</option>";
@@ -135,7 +138,7 @@ function novaReserva(){
 }
 
 function registrarReserva(){
-
+apagarMSGs();
 
 	var options = { 
 		success:    function(data) { 

@@ -53,6 +53,7 @@ function capturarImagemFamilia(){
 
 
 function chamarFamilia() {
+apagarMSGs();
 carregar('ativar');
 	var lista = '';
 	var resposta = '';
@@ -88,6 +89,7 @@ carregar('ativar');
 }
 
 function excluirFamilia(ID){
+apagarMSGs();
 var ex = confirm("Deseja Excluir?");
 if(ex == true){
 	carregar('ativar');
@@ -111,6 +113,7 @@ if(ex == true){
 }
 
 function novaFamilia(){
+apagarMSGs();
 	$("#nome_form_familia").val('');
 	$("#sexo_form_familia").val('');
 	$("#data_nascimento_form_familia").val('');
@@ -124,9 +127,29 @@ function novaFamilia(){
 	$("#acao_form_familia").val('novo');
 	$("#id_familia").val(idmorador());
 	$("#foto_form_familia").attr("src",'');
+	$('#cpf_form_familia').mask("999.999.999-99");
+	$('#telefone_form_familia').val(data.telefone);
+		var SPMaskBehavior = function (val) {
+		 return val.replace(/\D/g, '').length === 11 ? '(00) 000 000 000' : '(00) 000 000 009';
+		},
+		spOptions = {
+			 onKeyPress: function(val, e, field, options) {
+			 field.mask(SPMaskBehavior.apply({}, arguments), options);
+		}
+		};
+	$('#celular_form_familia').val(data.telefone);
+		var SPMaskBehavior = function (val) {
+		 return val.replace(/\D/g, '').length === 11 ? '(00) 000 000 000' : '(00) 000 000 009';
+		},
+		spOptions = {
+			 onKeyPress: function(val, e, field, options) {
+			 field.mask(SPMaskBehavior.apply({}, arguments), options);
+		}
+		};
 }
 
 function editarFamilia(id){
+apagarMSGs();
 	novaFamilia();
 	$("#acao_form_familia").val('editar');
 	$("#id_familia").val(id);
@@ -146,6 +169,25 @@ function editarFamilia(id){
 						$("#celular_form_familia").val(data.celular);
 						$("#classificacao_form_familia").val(data.tipo);
 						$("#foto_form_familia").attr("src",data.banner);
+						$('#cpf_form_familia').mask("999.999.999-99");
+	$('#telefone_form_familia').val(data.telefone);
+		var SPMaskBehavior = function (val) {
+		 return val.replace(/\D/g, '').length === 11 ? '(00) 000 000 000' : '(00) 000 000 009';
+		},
+		spOptions = {
+			 onKeyPress: function(val, e, field, options) {
+			 field.mask(SPMaskBehavior.apply({}, arguments), options);
+		}
+		};
+	$('#celular_form_familia').val(data.telefone);
+		var SPMaskBehavior = function (val) {
+		 return val.replace(/\D/g, '').length === 11 ? '(00) 000 000 000' : '(00) 000 000 009';
+		},
+		spOptions = {
+			 onKeyPress: function(val, e, field, options) {
+			 field.mask(SPMaskBehavior.apply({}, arguments), options);
+		}
+		};
 					}	carregar('desativar');
 					
 					})
@@ -154,7 +196,7 @@ function editarFamilia(id){
 }
 
 function registrarFamilia(){
-
+apagarMSGs();
 	var options = { 
 		success:    function(data) { 
 			$.each( data, function( ) {
@@ -174,6 +216,9 @@ function registrarFamilia(){
 					}); 
 		} 
 	}; 
+	$('#cpf_form_familia').blur();
+	$("#email_form_familia").blur();
+	$("#celular_form_familia").blur();
 	if(validarFormularios('formulario_familia') == true && $('#validar_form_Familia').val() == 0){
 	carregar('ativar');
 	 $('#formulario_familia').ajaxSubmit(options);

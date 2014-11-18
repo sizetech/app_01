@@ -1,9 +1,32 @@
-const URLBASE = "http://serve.iflexdigital.com.br/lomatech/app/";
-const URLARQUIVOS = "http://serve.iflexdigital.com.br/lomatech/";
+const URLBASE = "http://lomatech.com.br/app/";
+const URLARQUIVOS = "http://lomatech.com.br/";
+function tirarFocu(){
 
+		$(".preca12").css("display","none");
 
+}
+function apagarMSGs(){
+	$('div').filter('#MSGs').css('display','none');
+}
+function validarCPF(cpf) {
+    cpf = cpf.replace(/[^\d]+/g, '');
+    if (cpf == '') return false;
+    if (cpf.length != 11 || cpf == "00000000000" || cpf == "11111111111" || cpf == "22222222222" || cpf == "33333333333" || cpf == "44444444444" || cpf == "55555555555" || cpf == "66666666666" || cpf == "77777777777" || cpf == "88888888888" || cpf == "99999999999") return false;
+    add = 0;
+    for (i = 0; i < 9; i++) add += parseInt(cpf.charAt(i)) * (10 - i);
+    rev = 11 - (add % 11);
+    if (rev == 10 || rev == 11) rev = 0;
+    if (rev != parseInt(cpf.charAt(9))) return false;
+    add = 0;
+    for (i = 0; i < 10; i++) add += parseInt(cpf.charAt(i)) * (11 - i);
+    rev = 11 - (add % 11);
+    if (rev == 10 || rev == 11) rev = 0;
+    if (rev != parseInt(cpf.charAt(10))) return false;
+    return true;
+}
 
 function validarFormularios(id){
+apagarMSGs();
 		var r = 0;
 		$('#'+id+' [obg]').each(function (){
 			if(r != 2){
@@ -67,7 +90,6 @@ function validarFormularios(id){
             );
             }
  function uploadPhoto(imageURI) {
-		alert(imageURI);
 			$('#htmlImagem').attr('src',imageURI);
 			$('#validar_form_dados').val(1);
             var options = new FileUploadOptions();
@@ -85,7 +107,6 @@ function validarFormularios(id){
         }
  
         function win(r) {
-			alert(r.response);
 			$("#arquivoMeusDados").val(r.response);
             $('#validar_form_dados').val(0);
         }
@@ -123,7 +144,7 @@ function carregar(a){
 
 
 function meusdados(){
-
+	apagarMSGs();
 	carregar('ativar');
 	$.post(URLBASE+'meus_dados.php', {acao:'retornar', id:idmorador()}, function(data) {
 					$.each( data, function( ) {
@@ -198,6 +219,7 @@ function meusdados(){
 
 
 function editar_meus_dados(){
+apagarMSGs();
 	var options = { 
 		success:    function(data) { 
 		
@@ -219,6 +241,9 @@ function editar_meus_dados(){
 				
 		} 
 	}; 
+	$('#cpf_form_dados').blur();
+	$("#email_form_dados").blur();
+	$("#celular_form_dados").blur();
 	if($('#validar_form_dados').val() == 0 && validarFormularios('formulario_meus_dados') == true ){
 		carregar('ativar');
 		$('#formulario_meus_dados').ajaxSubmit(options);
@@ -233,9 +258,13 @@ function editar_meus_dados(){
 
 
 function sair(){
+apagarMSGs();
  window.localStorage.setItem("IDAppLomactech", false);
 window.localStorage.setItem("NomeAppLomactech", false);
 window.location = "#login";
+$("#login_login").val('');
+$("#senha_login").val('');
+ 
 
 }
 $(function(){
@@ -267,8 +296,36 @@ $("input:password").blur(function(){
 	
 	
 	});
+	$("input:password").blur(function(){
+			
+			var cla = $(this).attr('name');
+			if(cla != 'acesso-senha'){
+			cla = cla+'Erro';
+			cla2 = "."+cla;
+			$(cla2).html('');
+			var tamanho = $(this).val().length;
+			if(tamanho < 6){
+				$(this).after( "<p class='"+cla+"' style='color:red'>A senha deve ter mais de 6 caracteres</p>" );
+				$(this).val('');
+				exit;
+			}
+			
+			var tb = VerificarNumeros($(this).val());
+			
+			
+			if(isNaN(VerificarNumeros($(this).val())) || (tb >= 0 && tb == $(this).val()) ){
+				$(this).after( "<p class='"+cla+"' style='color:red'>É necessario ter letras e numeros</p>" );
+				$(this).val('');
+				exit;
+			}
+			
+			$(cla2).html('');
+			}
+		
+		
+		});
 	$('#cpf_form_dados').blur(function(){
-	
+					
 				$('#msgCPFMeus').css("color","#2ECC40");
 			  $('#msgCPFMeus').html("Verificando CPF");   
 			  var sala = $.post( URLBASE+"querys/query_verificar_cpf_morador.php",{cpf:$(this).val(), id:idmorador()}, 
@@ -283,6 +340,12 @@ $("input:password").blur(function(){
 				  $('#msgCPFMeus').html("");
 				}
 			  });   
+			  var cpf = $(this).val();
+			  if(!validarCPF(cpf)){
+				 $('#msgCPFMeus').css("color","#FF4136");
+				 $('#msgCPFMeus').html("CPF Invalido");
+				 $("#cpf_form_dados").val('');     
+			  }
 	
 	});
 	$("#classificacao_form_dados").change(function(){     
@@ -331,14 +394,89 @@ $("input:password").blur(function(){
         }
       });   
     });
-
-	$('input').click(function(){
-		$('html,body').animate({scrollTop: $(this).offset().top },'slow');	
-	});
 	
-	$('input').focus(function(){
-		$('html,body').animate({scrollTop: $(this).offset().top },'slow');	
+	$('#cpf_form_familia').blur(function(){
+					
+				$('#msgCPFMeus').css("color","#2ECC40");
+			  $('#msgCPFMeus').html("Verificando CPF");   
+			  var sala = $.post( URLBASE+"querys/query_verificar_cpf_morador.php",{cpf:$(this).val(), id:$("#id_familia").val()}, 
+			  function() {        })  
+			  .always(function(data) {  
+
+				if(data == 1){
+				  $('#msgCPFFamilia').css("color","#FF4136");
+				  $('#msgCPFFamilia').html("CPF (<b>"+$("#cpf_form_familia").val()+"</b>) Já Cadastrado no sistema");
+				  $("#cpf_form_familia").val('');          
+				}else{
+				  $('#msgCPFFamilia').html("");
+				}
+			  });   
+			  var cpf = $(this).val();
+			  if(!validarCPF(cpf)){
+				 $('#msgCPFFamilia').css("color","#FF4136");
+				 $('#msgCPFFamilia').html("CPF Invalido");
+				 $("#cpf_form_familia").val('');     
+			  }
+	
 	});
+
+	
+	$("#email_form_familia").blur(function(){  
+    
+      $('#msgEmailFamilia').css("color","#2ECC40");
+      $('#msgEmailFamilia').html("Verificando Email");   
+      var sala = $.post( URLBASE+"querys/query_verificar_email_morador.php",{email:$(this).val(),id:$("#id_familia").val()}, 
+      function() {        })  
+      .always(function(data) {  
+
+        if(data == 1){
+          $('#msgEmailFamilia').css("color","#FF4136");
+          $('#msgEmailFamilia').html("E-mail (<b>"+$("#email_form_familia").val()+"</b>) Já Cadastrado no sistema");
+          $("#email_form_familia").val('');          
+        }else{
+          $('#msgEmailFamilia').html("");
+        }
+      });   
+    }); 
+	
+	$("#celular_form_familia").blur(function(){  
+    
+      $('#msgCelularFamilia').css("color","#2ECC40");
+      $('#msgCelularFamilia').html("Verificando CPF");   
+      var sala = $.post( URLBASE+"querys/query_verificar_celular_morador.php",{celular:$(this).val(), id:$("#id_familia").val()}, 
+      function() {        })  
+      .always(function(data) {  
+
+        if(data == 1){
+          $('#msgCelularFamilia').css("color","#FF4136");
+          $('#msgCelularFamilia').html("Celular (<b>"+$("#celular_form_familia").val()+"</b>) Já Cadastrado no sistema");
+          $("#celular_form_familia").val('');          
+        }else{
+          $('#msgCelularFamilia').html("");
+        }
+      });   
+    });
+
+	
+	/*
+	$('input').focus(function(){
+		$('html,body').animate({scrollTop: 0 },'slow');
+		$(this).css('position','absolute');
+		$(this).css('top','15px');
+		$(this).css('width','70%');
+		$(this).css('z-index','99999');
+		$(".preca12").css("display","block");
+	}
+	);
+	$('input').blur(function(){
+		$(this).css('position','');
+		$(this).css('top','');
+		$(this).css('width','');
+		$(this).css('z-index','99999');
+		$(".preca12").css("display","none");
+	}
+	);
+	*/
 
 
 	var validar = idmorador();
@@ -365,6 +503,7 @@ $("input:password").blur(function(){
 	
 
 	$('#formulario_login').submit(function(){
+	tirarFocu();
 	$('.errologin').css("display",'block');
 							$('.errologin p').html('Aguarde...');
 		$.post(URLBASE+'logar.php', $( this ).serialize(), function(data) {
@@ -430,6 +569,7 @@ function abrirCoollapsible(a){
 	
 /*--------------------------------------------------DOCUMENTOS------------------------------------------------*/
 function documentos(){
+apagarMSGs();
 	var lista = '';
 	carregar('ativar');
 	$.post(URLBASE+'documentos_informes.php', {acao:'retornarTodos', id:idmorador()}, function(data) {
@@ -444,16 +584,11 @@ function documentos(){
 						}
 						
 						
-						lista += ' <li   onclick="abrirCoollapsible(this);" data-theme="'+classe+'" style="padding-left:5px; margin:5px 20px; min-height:0" data-role="collapsible" data-theme="'+classe+'" data-iconpos="right" data-inset="false">';
-						lista +=	'<a href="#"><h2>'+data[x].titulo;
+						lista += ' <li   data-theme="'+classe+'" style="padding-left:5px; margin:5px 20px; min-height:0" data-role="collapsible" data-theme="'+classe+'" data-iconpos="right" data-inset="false">';
+						lista +=	'<a href="'+URLARQUIVOS+data[x].doc+'"><h2>'+data[x].titulo;
 						lista +=	'<img src="img/btn/doc_pequeno.png" align="right" style="margin: 0px 0px;">';
 						lista +=	'</h2></a>';
-						lista +=	'<form style="display:none" >';
-						lista += ' 	<h1 style="color:#FFF; text-shadow: none;text-align:center;font-size:20px;">'+data[x].titulo+'</h1>';
-						lista += '	<h3 style="text-shadow: none; color: #FFF;background-color: #85b200;width: 100%;">PUBLICADO EM :'+data[x].data_cadastro+'</h3><br>';
-						lista += ' 	<h3 style="text-shadow: none; color: #FFF;background-color: #85b200;width: 100%;">DOCUMENTO</h3>';
-						lista += '  <a href="'+URLARQUIVOS+data[x].doc+'" id="btn-list-detalhe" style="margin: 5px;" class="ui-btn ui-corner-all">Baixar e Exibir</a>';	
-						lista += ' </form>';
+						
 						lista += ' </li>';
 						
 					

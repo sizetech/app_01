@@ -82,6 +82,7 @@ function carregar(a){
 }
 
 function Animal(ID){
+apagarMSGs();
 $.post(URLBASE+'meu_animais.php', {acao:'retornar', id:ID()}, function(data) {
 					$.each( data, function( ) {
 						
@@ -91,6 +92,7 @@ $.post(URLBASE+'meu_animais.php', {acao:'retornar', id:ID()}, function(data) {
 
 }
 function meusanimais(){
+apagarMSGs();
 carregar('ativar');
 	var lista = '';
 	var resposta = '';
@@ -131,7 +133,7 @@ carregar('ativar');
 			
 	//fim
 function excluirAnimal(ID){
-
+apagarMSGs();
 var ex = confirm("Deseja Excluir?");
 if(ex == true){
 	carregar('ativar');
@@ -168,7 +170,7 @@ $(function(){
 });
 
 function chamarAnimal(ID){
-	
+	apagarMSGs();
 					carregar('ativar');
 						$("#nome_animal_form_animal").val('');
 						$("#cor_form_animal").val('');
@@ -231,7 +233,7 @@ function chamarAnimal(ID){
 
 
 function editar_animal(){
-	
+	apagarMSGs();
 	var options = { 
 		success:function(data) { 
 			$.each( data, function( ) {

@@ -78,6 +78,7 @@ function carregar(a){
 	
 }
 function meusveiculos(){
+apagarMSGs();
 carregar('ativar');
 	var lista = '';
 	$.post(URLBASE+'meus_veiculos.php', {acao:'retornarTodos', id:idmorador()}, function(data) {
@@ -116,7 +117,7 @@ carregar('ativar');
 
 
 function editar_meus_veiculos(ID){
-	
+	apagarMSGs();
 					carregar('ativar');
 						$("#marca_form_meus_veiculos").val('');
 						$("#modelo_form_meus_veiculos").val('');
@@ -174,6 +175,7 @@ function editar_meus_veiculos(ID){
 	}
 		
 function novoVeiculo(){
+apagarMSGs();
 	$('#id_form_meus_veiculos').val(idmorador());
 	$('#acao_form_meus_veiculos').val('novo');
 	var resposta = '';
@@ -221,7 +223,7 @@ if(ex == true){
 
 
 function registrarVeiculos(){
-
+apagarMSGs();
 	var options = { 
 		success:    function(data) { 
 			$.each( data, function( ) {
@@ -252,4 +254,10 @@ function registrarVeiculos(){
 	
 	return false;
 }
+function novoForum(){
+	$('#topico_form_forum').val('');
+	$('#mensagem_form_forum').val('');
+	$('#id_forum_novo').val(idmorador());
 
+
+}

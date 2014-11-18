@@ -29,6 +29,12 @@
 <div id="mascara"></div>
 </div>
 
+<div class="preca12" style="display:none">
+<div class="window">
+
+</div>
+<div id="mascara"></div>
+</div>
 		<div id="home" class="login" data-role="page">
 			
 			<div data-role="content" >
@@ -51,14 +57,14 @@
 			</div>
 		</a>		
 			<div data-role="content">
-			<div class="msgsucesso_meus_eventos" style="display:none">
+			<div id="MSGs" class="msgsucesso_meus_eventos" style="display:none">
 				<div data-role="header">
 					<p style="text-align:center;"> </p>
 				</div>
 			</div>		
-				<div class="buscar">			
-				 
-				</div>
+				<p>Pesquisar por categoria</p>
+				<select id="categorias_classificados" onChange="pesquisaClassificados();">
+				</select>
 				<div class="buscar">
 					<ul data-role="listview" id="listaeventos" data-filter="true" data-filter-placeholder=" Buscar..." >	
 					
@@ -95,9 +101,9 @@
 				<div data-role="navbar" >
 					<ul >
 
-						<li style="min-height: 75px;"><a style="min-height: 75px;" href="#Painelmenu" class=""><img src="img/btn/menu.png"> MENU</a></li>
-						<li style="min-height: 75px;"><a style="min-height: 75px;" class="ui-btn-c"><img  src="img/btn/icone-ajuda.png">PÂNICO</a></li>
-						<li style="min-height: 75px;"><a style="min-height: 75px;" href="#" onClick="sair()" class=""><img src="img/btn/icone-sair.png"> SAIR</a></li>
+						<li style="max-height: 75px;"><a style="max-height: 75px;" href="#Painelmenu" class=""><img src="img/btn/menu.png"> MENU</a></li>
+						<li style="max-height: 75px;"><a style="max-height: 75px;" class="ui-btn-c"><img  src="img/btn/icone-ajuda.png">PÂNICO</a></li>
+						<li style="max-height: 75px;"><a style="max-height: 75px;" href="#" onClick="sair()" class=""><img src="img/btn/icone-sair.png"> SAIR</a></li>
 					</ul>
 				</div>
 				</div>
@@ -108,33 +114,21 @@
 			<a href="#painel" style="text-decoration:none;">
 				<div data-role="header" data-theme="a">
 			
-					<p class="txthead" align="left"><img src="img/btn/correspondencia.png" style="margin: 0px 20px -4px -5px;">CORRESPONDENCIAS<img src="img/icone1.png" align="right"></p>
+					<p class="txthead" align="left"><img src="img/btn/correspondencia.png" style="margin: 0px 20px -4px -5px;">CORRESPONDENCIAS</p>
 						</div>
 					</a>
 				<div data-role="content">
 					
-					<div class="ui-grid-b-claro">
-						<div class="ui-bar ui-bar-b-claro" >
-						
-						
-						</div>
-					</div>
 					
+					<a href="#correspondencias" onClick="chamarCorrespondenciaRetiradas();" id="btn-list-detalhe" style="margin: 5px;" class="ui-btn ui-corner-all">CORRESPONDÊNCIAS JÁ RETIRADAS</a>
 					<div class="buscar">
 					<ul data-role="listview" id="listacorrespondencias"  data-filter="true" data-filter-placeholder=" Buscar...">
 					
-						<li style="padding-left:0; min-height:0" data-role="collapsible" data-theme="d" data-iconpos="right" data-inset="false">	
-							<h2 style="color: #FFF;text-shadow: none;">MINHAS CORRESPONDENCIAS<img src="img/btn/correspondencia.png" align="right" style="margin: 0px 0px;"> <a href="#" id="btn-list-detalhe" style="margin-left: 0px;" class="ui-btn ui-corner-all">A RETIRAR</a></h2> 
-							<h1 style="color:#FFF; text-shadow: none;text-align:center;font-size:20px;">DETALHES DA CORRESPONDENCIA</h1>					
-							<h3 style="text-shadow: none; color: #FFF;background-color: #85b200;width: 100%;">FOTO DA CORRESPONDENCIA</h3><br>
-							<center><img src=""></center>
-						</li>
+					
 					</ul>
 </div>					
 				</div>
-					<div class="ui-bar ui-bar-c" style="height:45px;" >
-					
-				</div>
+				
 		
 					
 					<div data-role="panel" id="Painelmenu" data-position="left" data-display="overlay" data-theme="a">
@@ -166,9 +160,9 @@
 				<div data-role="navbar" >
 					<ul >
 
-						<li style="min-height: 75px;"><a style="min-height: 75px;" href="#Painelmenu" class=""><img src="img/btn/menu.png"> MENU</a></li>
-						<li style="min-height: 75px;"><a style="min-height: 75px;" class="ui-btn-c"><img  src="img/btn/icone-ajuda.png">PÂNICO</a></li>
-						<li style="min-height: 75px;"><a style="min-height: 75px;" href="#" onClick="sair()" class=""><img src="img/btn/icone-sair.png"> SAIR</a></li>
+						<li style="max-height: 75px;"><a style="max-height: 75px;" href="#Painelmenu" class=""><img src="img/btn/menu.png"> MENU</a></li>
+						<li style="max-height: 75px;"><a style="max-height: 75px;" class="ui-btn-c"><img  src="img/btn/icone-ajuda.png">PÂNICO</a></li>
+						<li style="max-height: 75px;"><a style="max-height: 75px;" href="#" onClick="sair()" class=""><img src="img/btn/icone-sair.png"> SAIR</a></li>
 					</ul>
 				</div>
 				</div>
@@ -219,9 +213,9 @@
 				<div data-role="navbar" >
 					<ul >
 
-						<li style="min-height: 75px;"><a style="min-height: 75px;" href="#Painelmenu" class=""><img src="img/btn/menu.png"> MENU</a></li>
-						<li style="min-height: 75px;"><a style="min-height: 75px;" class="ui-btn-c"><img  src="img/btn/icone-ajuda.png">PÂNICO</a></li>
-						<li style="min-height: 75px;"><a style="min-height: 75px;" href="#" onClick="sair()" class=""><img src="img/btn/icone-sair.png"> SAIR</a></li>
+						<li style="max-height: 75px;"><a style="max-height: 75px;" href="#Painelmenu" class=""><img src="img/btn/menu.png"> MENU</a></li>
+						<li style="max-height: 75px;"><a style="max-height: 75px;" class="ui-btn-c"><img  src="img/btn/icone-ajuda.png">PÂNICO</a></li>
+						<li style="max-height: 75px;"><a style="max-height: 75px;" href="#" onClick="sair()" class=""><img src="img/btn/icone-sair.png"> SAIR</a></li>
 					</ul>
 				</div>
 				</div>
@@ -254,9 +248,7 @@
 						</ul>
 						</div>
 					</div>
-					<div class="ui-bar ui-bar-c" style="height:45px;" >
 					
-				</div>
 	
 					<div data-role="panel" id="Painelmenu" data-position="left" data-display="overlay" data-theme="a">
 
@@ -287,9 +279,9 @@
 				<div data-role="navbar" >
 					<ul >
 
-						<li style="min-height: 75px;"><a style="min-height: 75px;" href="#Painelmenu" class=""><img src="img/btn/menu.png"> MENU</a></li>
-						<li style="min-height: 75px;"><a style="min-height: 75px;" class="ui-btn-c"><img  src="img/btn/icone-ajuda.png">PÂNICO</a></li>
-						<li style="min-height: 75px;"><a style="min-height: 75px;" href="#" onClick="sair()" class=""><img src="img/btn/icone-sair.png"> SAIR</a></li>
+						<li style="max-height: 75px;"><a style="max-height: 75px;" href="#Painelmenu" class=""><img src="img/btn/menu.png"> MENU</a></li>
+						<li style="max-height: 75px;"><a style="max-height: 75px;" class="ui-btn-c"><img  src="img/btn/icone-ajuda.png">PÂNICO</a></li>
+						<li style="max-height: 75px;"><a style="max-height: 75px;" href="#" onClick="sair()" class=""><img src="img/btn/icone-sair.png"> SAIR</a></li>
 					</ul>
 				</div>
 				</div>
@@ -340,7 +332,7 @@
 			</div>
 		</a>		
 			<div data-role="content">
-			<div class="msgsucesso_meus_eventos" style="display:none">
+			<div id="MSGs" class="msgsucesso_meus_eventos" style="display:none">
 				<div data-role="header">
 					<p style="text-align:center;"> </p>
 				</div>
@@ -385,9 +377,9 @@
 				<div data-role="navbar" >
 					<ul >
 
-						<li style="min-height: 75px;"><a style="min-height: 75px;" href="#Painelmenu" class=""><img src="img/btn/menu.png"> MENU</a></li>
-						<li style="min-height: 75px;"><a style="min-height: 75px;" class="ui-btn-c"><img  src="img/btn/icone-ajuda.png">PÂNICO</a></li>
-						<li style="min-height: 75px;"><a style="min-height: 75px;" href="#" onClick="sair()" class=""><img src="img/btn/icone-sair.png"> SAIR</a></li>
+						<li style="max-height: 75px;"><a style="max-height: 75px;" href="#Painelmenu" class=""><img src="img/btn/menu.png"> MENU</a></li>
+						<li style="max-height: 75px;"><a style="max-height: 75px;" class="ui-btn-c"><img  src="img/btn/icone-ajuda.png">PÂNICO</a></li>
+						<li style="max-height: 75px;"><a style="max-height: 75px;" href="#" onClick="sair()" class=""><img src="img/btn/icone-sair.png"> SAIR</a></li>
 					</ul>
 				</div>
 				</div>
@@ -468,9 +460,9 @@
 				<div data-role="navbar" >
 					<ul >
 
-						<li style="min-height: 75px;"><a style="min-height: 75px;" href="#Painelmenu" class=""><img src="img/btn/menu.png"> MENU</a></li>
-						<li style="min-height: 75px;"><a style="min-height: 75px;" class="ui-btn-c"><img  src="img/btn/icone-ajuda.png">PÂNICO</a></li>
-						<li style="min-height: 75px;"><a style="min-height: 75px;" href="#" onClick="sair()" class=""><img src="img/btn/icone-sair.png"> SAIR</a></li>
+						<li style="max-height: 75px;"><a style="max-height: 75px;" href="#Painelmenu" class=""><img src="img/btn/menu.png"> MENU</a></li>
+						<li style="max-height: 75px;"><a style="max-height: 75px;" class="ui-btn-c"><img  src="img/btn/icone-ajuda.png">PÂNICO</a></li>
+						<li style="max-height: 75px;"><a style="max-height: 75px;" href="#" onClick="sair()" class=""><img src="img/btn/icone-sair.png"> SAIR</a></li>
 					</ul>
 				</div>
 				</div>
@@ -485,7 +477,7 @@
 		
 			</div>
 						</a>
-				<form action="http://serve.iflexdigital.com.br/lomatech/app/minha_familia.php" name="dados" id="formulario_familia" method="post" autocomplete="off" enctype="multipart/form-data"> 
+				<form action="http://lomatech.com.br/app/minha_familia.php" name="dados" id="formulario_familia" method="post" autocomplete="off" enctype="multipart/form-data"> 
 					<center style="padding: 20px  50px 0px;">
 						<img src="" id="foto_form_familia">
 						<label for="foto" class="letra">FOTO</label>
@@ -510,21 +502,24 @@
 							
 							<label for="email" class="letra">EMAIL:</label>
 							<input type="text" name="email" value="" id="email_form_familia" placeholder="EMAIL">
+							<div id="msgEmailFamilia"></div>
 							
 							<label for="text-basic"  class="letra">RG:</label>
 							<input type="text" name="rg" class="rg" id="rg_form_familia"  value="" placeholder="RG">
 							
 							<label for="cpf"  class="letra">CPF:</label>
 							<input type="text" name="cpf" class="cpf" id="cpf_form_familia" value="" placeholder="CPF">
+							<div id="msgCPFFamilia"></div>
 							
 							<label for="telefone"  class="letra">TELEFONE:</label>
 							<input type="text" class="telefone" name="telefone" id="telefone_form_familia"  value="" placeholder="TELEFONE">
 						
 							<label for="celular"  class="letra">CELULAR PRINCIPAL:</label>
 							<input type="text" name="celular"  class="celular" value="" id="celular_form_familia" placeholder="CELULAR PRINCIPAL">
+							<div id="msgCelularFamilia"></div>
 							
-							<label for="classificacao" obg="Classificação"  class="letra">CLASSIFICAÇÃO:</label>
-							<input type="text" name="tipo" id="classificacao_form_familia" value="" placeholder="CLASSIFICAÇÃO">
+							<label for="classificacao"  class="letra">CLASSIFICAÇÃO:</label>
+							<input type="text" name="tipo" obg="Classificação"  id="classificacao_form_familia" value="" placeholder="CLASSIFICAÇÃO">
 							
 							
 							
@@ -574,9 +569,9 @@
 				<div data-role="navbar" >
 					<ul >
 
-						<li style="min-height: 75px;"><a style="min-height: 75px;" href="#Painelmenu" class=""><img src="img/btn/menu.png"> MENU</a></li>
-						<li style="min-height: 75px;"><a style="min-height: 75px;" class="ui-btn-c"><img  src="img/btn/icone-ajuda.png">PÂNICO</a></li>
-						<li style="min-height: 75px;"><a style="min-height: 75px;" href="#" onClick="sair()" class=""><img src="img/btn/icone-sair.png"> SAIR</a></li>
+						<li style="max-height: 75px;"><a style="max-height: 75px;" href="#Painelmenu" class=""><img src="img/btn/menu.png"> MENU</a></li>
+						<li style="max-height: 75px;"><a style="max-height: 75px;" class="ui-btn-c"><img  src="img/btn/icone-ajuda.png">PÂNICO</a></li>
+						<li style="max-height: 75px;"><a style="max-height: 75px;" href="#" onClick="sair()" class=""><img src="img/btn/icone-sair.png"> SAIR</a></li>
 					</ul>
 				</div>
 				</div>
@@ -592,7 +587,7 @@
 						<p class="txtconvidado" align="left"><img src="img/btn/lista_convidados_pequena.png" style="margin: 0px 20px -4px -5px;"> CADASTRO LISTA DE CONVIDADOS <img src="img/icone1.png" align="right"></p>
 					</div>
 					</a>
-					<form action="http://serve.iflexdigital.com.br/lomatech/app/lista_convidados.php" name="lista_convidados" id="formulario_lista_convidados" method="post" autocomplete="off" enctype="multipart/form-data"> 
+					<form action="http://lomatech.com.br/app/lista_convidados.php" name="lista_convidados" id="formulario_lista_convidados" method="post" autocomplete="off" enctype="multipart/form-data"> 
 					
 					<center style="padding: 20px  50px 0px;">
 						<label for="text-basic" class="letra">NOME DA LISTA </label>
@@ -652,9 +647,9 @@
 				<div data-role="navbar" >
 					<ul >
 
-						<li style="min-height: 75px;"><a style="min-height: 75px;" href="#Painelmenu" class=""><img src="img/btn/menu.png"> MENU</a></li>
-						<li style="min-height: 75px;"><a style="min-height: 75px;" class="ui-btn-c"><img  src="img/btn/icone-ajuda.png">PÂNICO</a></li>
-						<li style="min-height: 75px;"><a style="min-height: 75px;" href="#" onClick="sair()" class=""><img src="img/btn/icone-sair.png"> SAIR</a></li>
+						<li style="max-height: 75px;"><a style="max-height: 75px;" href="#Painelmenu" class=""><img src="img/btn/menu.png"> MENU</a></li>
+						<li style="max-height: 75px;"><a style="max-height: 75px;" class="ui-btn-c"><img  src="img/btn/icone-ajuda.png">PÂNICO</a></li>
+						<li style="max-height: 75px;"><a style="max-height: 75px;" href="#" onClick="sair()" class=""><img src="img/btn/icone-sair.png"> SAIR</a></li>
 					</ul>
 				</div>
 				</div>
@@ -675,7 +670,7 @@
 						
 			</div>
 			</a>
-				<form action="http://serve.iflexdigital.com.br/lomatech/app/meu_animais.php" name="meus_animais" id="formulario_meus_animais" method="post" autocomplete="off" enctype="multipart/form-data"> 
+				<form action="http://lomatech.com.br/app/meu_animais.php" name="meus_animais" id="formulario_meus_animais" method="post" autocomplete="off" enctype="multipart/form-data"> 
 					<center style="padding: 20px  50px 0px;">
 						<label for="nome_animal" class="letra">NOME DO ANIMAL</label>
 							<input type="text" obg="Nome" name="nome_animal" id="nome_animal_form_animal" value="" placeholder="Nome Completo">
@@ -739,9 +734,9 @@
 				<div data-role="navbar" >
 					<ul >
 
-						<li style="min-height: 75px;"><a style="min-height: 75px;" href="#Painelmenu" class=""><img src="img/btn/menu.png"> MENU</a></li>
-						<li style="min-height: 75px;"><a style="min-height: 75px;" class="ui-btn-c"><img  src="img/btn/icone-ajuda.png">PÂNICO</a></li>
-						<li style="min-height: 75px;"><a style="min-height: 75px;" href="#" onClick="sair()" class=""><img src="img/btn/icone-sair.png"> SAIR</a></li>
+						<li style="max-height: 75px;"><a style="max-height: 75px;" href="#Painelmenu" class=""><img src="img/btn/menu.png"> MENU</a></li>
+						<li style="max-height: 75px;"><a style="max-height: 75px;" class="ui-btn-c"><img  src="img/btn/icone-ajuda.png">PÂNICO</a></li>
+						<li style="max-height: 75px;"><a style="max-height: 75px;" href="#" onClick="sair()" class=""><img src="img/btn/icone-sair.png"> SAIR</a></li>
 					</ul>
 				</div>
 				</div>
@@ -756,7 +751,7 @@
 			
 			</div>
 					</a>
-				<form action="http://serve.iflexdigital.com.br/lomatech/app/meus_dados.php" name="dados" id="formulario_meus_dados" method="post" autocomplete="off" enctype="multipart/form-data"> 
+				<form action="http://lomatech.com.br/app/meus_dados.php" name="dados" id="formulario_meus_dados" method="post" autocomplete="off" enctype="multipart/form-data"> 
 					<center style="padding: 20px  50px 0px;">
 					
 						<label for="foto" class="letra">FOTO</label>
@@ -862,9 +857,9 @@
 				<div data-role="navbar" >
 					<ul >
 
-						<li style="min-height: 75px;"><a style="min-height: 75px;" href="#Painelmenu" class=""><img src="img/btn/menu.png"> MENU</a></li>
-						<li style="min-height: 75px;"><a style="min-height: 75px;" class="ui-btn-c"><img  src="img/btn/icone-ajuda.png">PÂNICO</a></li>
-						<li style="min-height: 75px;"><a style="min-height: 75px;" href="#" onClick="sair()" class=""><img src="img/btn/icone-sair.png"> SAIR</a></li>
+						<li style="max-height: 75px;"><a style="max-height: 75px;" href="#Painelmenu" class=""><img src="img/btn/menu.png"> MENU</a></li>
+						<li style="max-height: 75px;"><a style="max-height: 75px;" class="ui-btn-c"><img  src="img/btn/icone-ajuda.png">PÂNICO</a></li>
+						<li style="max-height: 75px;"><a style="max-height: 75px;" href="#" onClick="sair()" class=""><img src="img/btn/icone-sair.png"> SAIR</a></li>
 					</ul>
 				</div>
 				</div>
@@ -879,7 +874,7 @@
 				
 				</div>
 				</a>
-				<form action="http://serve.iflexdigital.com.br/lomatech/app/meus_veiculos.php" name="meus_veiculos" id="formulario_meus_veiculos" method="post" autocomplete="off" enctype="multipart/form-data"> 
+				<form action="http://lomatech.com.br/app/meus_veiculos.php" name="meus_veiculos" id="formulario_meus_veiculos" method="post" autocomplete="off" enctype="multipart/form-data"> 
 					<center style="padding: 20px  50px 0px;">
 		
 							<label for="select-choice-1" class="select letra">MARCA</label>
@@ -946,9 +941,9 @@
 				<div data-role="navbar" >
 					<ul >
 
-						<li style="min-height: 75px;"><a style="min-height: 75px;" href="#Painelmenu" class=""><img src="img/btn/menu.png"> MENU</a></li>
-						<li style="min-height: 75px;"><a style="min-height: 75px;" class="ui-btn-c"><img  src="img/btn/icone-ajuda.png">PÂNICO</a></li>
-						<li style="min-height: 75px;"><a style="min-height: 75px;" href="#" onClick="sair()" class=""><img src="img/btn/icone-sair.png"> SAIR</a></li>
+						<li style="max-height: 75px;"><a style="max-height: 75px;" href="#Painelmenu" class=""><img src="img/btn/menu.png"> MENU</a></li>
+						<li style="max-height: 75px;"><a style="max-height: 75px;" class="ui-btn-c"><img  src="img/btn/icone-ajuda.png">PÂNICO</a></li>
+						<li style="max-height: 75px;"><a style="max-height: 75px;" href="#" onClick="sair()" class=""><img src="img/btn/icone-sair.png"> SAIR</a></li>
 					</ul>
 				</div>
 				</div>
@@ -963,7 +958,7 @@
 			
 				</div>
 				</a>
-				<form action="http://serve.iflexdigital.com.br/lomatech/app/ocorrencias.php" name="ocorrencias" id="ocoorenciaDeFormulario" method="post" autocomplete="off" enctype="multipart/form-data"> 
+				<form action="http://lomatech.com.br/app/ocorrencias.php" name="ocorrencias" id="ocoorenciaDeFormulario" method="post" autocomplete="off" enctype="multipart/form-data"> 
 					<center style="padding: 20px  50px 0px;">
 					<label for="file-1" class="letra">ESCOLHA UMA FOTO PARA a OCORRENCIA</label>
 								  <input type="button" value="Capturar Imagem" onClick="capturarImagemOcorrencia()"> <br/>
@@ -978,14 +973,12 @@
 							<label for="select-choice-1"  class="select letra">LOCAL DA OCORRENCIA</label>
 							<select name="local" obg="Local" id="local_form_ocorrencias">
 								
-								
 							</select>
 							<label for="datetime-3"  class="letra">DATA e HORA:</label>
 							<input type="datetime-local" obg="Data e Hora" data-clear-btn="false" name="data_ocorrencia" id="data_ocorrencia_form_ocorrencias" value="">
 							
 							<label for="text-basic"  class="letra">DESCRIÇÃO:</label>
 							<input type="text" name="descricao" bg="Descrição"  id="descricao_form_ocorrencias" value="" placeholder="DESCRIÇÃO">
-							<textarea></textarea>
 							<input type="hidden" name="id" id="id_form_ocorrencias" value="">
 							<input type="hidden" name="acao" value="novo">
 						<a href="#"  onClick="registrarOcorrencia();" id="btn-medio" style="width: 70%;" class="ui-btn ui-corner-all">CADASTRAR<br> OCORRENCIA</a>
@@ -1024,9 +1017,9 @@
 				<div data-role="navbar" >
 					<ul >
 
-						<li style="min-height: 75px;"><a style="min-height: 75px;" href="#Painelmenu" class=""><img src="img/btn/menu.png"> MENU</a></li>
-						<li style="min-height: 75px;"><a style="min-height: 75px;" class="ui-btn-c"><img  src="img/btn/icone-ajuda.png">PÂNICO</a></li>
-						<li style="min-height: 75px;"><a style="min-height: 75px;" href="#" onClick="sair()" class=""><img src="img/btn/icone-sair.png"> SAIR</a></li>
+						<li style="max-height: 75px;"><a style="max-height: 75px;" href="#Painelmenu" class=""><img src="img/btn/menu.png"> MENU</a></li>
+						<li style="max-height: 75px;"><a style="max-height: 75px;" class="ui-btn-c"><img  src="img/btn/icone-ajuda.png">PÂNICO</a></li>
+						<li style="max-height: 75px;"><a style="max-height: 75px;" href="#" onClick="sair()" class=""><img src="img/btn/icone-sair.png"> SAIR</a></li>
 					</ul>
 				</div>
 				</div>
@@ -1041,7 +1034,7 @@
 				<p class="txt2" align="left"><img src="img/btn/reservas.png" style="margin: 0px 20px -4px -5px;"> CADASTRO RESERVA <img src="img/icone1.png" align="right"></p>
 				</div>
 				</a>
-				<form action="http://serve.iflexdigital.com.br/lomatech/app/reservas.php" name="reservas" id="formulario_reservas" method="post" autocomplete="off" enctype="multipart/form-data"> 
+				<form action="http://lomatech.com.br/app/reservas.php" name="reservas" id="formulario_reservas" method="post" autocomplete="off" enctype="multipart/form-data"> 
 					<center style="padding: 20px  50px 0px;">
 						
 							
@@ -1052,10 +1045,9 @@
 							
 							<label for="date" class="letra">DATA:</label>
 								<input type="date" name="data" obg="Data" id="data_form_reservas" value="">
-							<form>
+								
 								<label for="time-1" class="letra">HORA DE INICIO</label>
 								<input type="time" data-clear-btn="false" obg="Hora Inicio" name="hora_inicial" id="hora_inicio_form_reservas" value="">
-							</form>
 								<label for="time-1" class="letra">HORA DE TERMINIO</label>
 								<select name="hora_termino" obg="Hora Fim" id="hora_fim_form_reservas">
 									<option value=''>-- Selecione um Horario de inicio -- </option>
@@ -1097,9 +1089,9 @@
 				<div data-role="navbar" >
 					<ul >
 
-						<li style="min-height: 75px;"><a style="min-height: 75px;" href="#Painelmenu" class=""><img src="img/btn/menu.png"> MENU</a></li>
-						<li style="min-height: 75px;"><a style="min-height: 75px;" class="ui-btn-c"><img  src="img/btn/icone-ajuda.png">PÂNICO</a></li>
-						<li style="min-height: 75px;"><a style="min-height: 75px;" href="#" onClick="sair()" class=""><img src="img/btn/icone-sair.png"> SAIR</a></li>
+						<li style="max-height: 75px;"><a style="max-height: 75px;" href="#Painelmenu" class=""><img src="img/btn/menu.png"> MENU</a></li>
+						<li style="max-height: 75px;"><a style="max-height: 75px;" class="ui-btn-c"><img  src="img/btn/icone-ajuda.png">PÂNICO</a></li>
+						<li style="max-height: 75px;"><a style="max-height: 75px;" href="#" onClick="sair()" class=""><img src="img/btn/icone-sair.png"> SAIR</a></li>
 					</ul>
 				</div>
 				</div>
@@ -1113,14 +1105,12 @@
 			</div>
 		</a>		
 			<div data-role="content">
-			<div class="msgsucesso_meus_eventos" style="display:none">
+			<div id="MSGs" class="msgsucesso_forum" style="display:none">
 				<div data-role="header">
 					<p style="text-align:center;"> </p>
 				</div>
 			</div>		
-				<div class="buscar">			
-				 
-				</div>
+				<a href="#form_forum" onClick="novoForum();" id="btn-list-detalhe" style="margin: 5px;" class="ui-btn ui-corner-all">ADICIONAR TOPICO</a>
 				<div class="buscar">
 					<ul data-role="listview" id="listaforum" data-filter="true" data-filter-placeholder=" Buscar..." >	
 					
@@ -1157,14 +1147,43 @@
 				<div data-role="navbar" >
 					<ul >
 
-						<li style="min-height: 75px;"><a style="min-height: 75px;" href="#Painelmenu" class=""><img src="img/btn/menu.png"> MENU</a></li>
-						<li style="min-height: 75px;"><a style="min-height: 75px;" class="ui-btn-c"><img  src="img/btn/icone-ajuda.png">PÂNICO</a></li>
-						<li style="min-height: 75px;"><a style="min-height: 75px;" href="#" onClick="sair()" class=""><img src="img/btn/icone-sair.png"> SAIR</a></li>
+						<li style="max-height: 75px;"><a style="max-height: 75px;" href="#Painelmenu" class=""><img src="img/btn/menu.png"> MENU</a></li>
+						<li style="max-height: 75px;"><a style="max-height: 75px;" class="ui-btn-c"><img  src="img/btn/icone-ajuda.png">PÂNICO</a></li>
+						<li style="max-height: 75px;"><a style="max-height: 75px;" href="#" onClick="sair()" class=""><img src="img/btn/icone-sair.png"> SAIR</a></li>
 					</ul>
 				</div>
 				</div>
 			</div>
 	</div>
+	
+	
+	<div id="form_forum" class="login" data-role="page">
+			<a href="#painel" style="text-decoration:none;">
+					<div data-role="header" data-theme="a">
+						<p class="txthead" align="left"><img src="img/btn/forum.png" style="margin: 0px 20px -4px -5px;">FORUM<img src="img/icone1.png" align="right"></p>
+					</div>
+				</a>
+			<div data-role="content" >
+				<div style="margin-top:70px"></div>
+				<center><img src="img/lomatech.png"></center>
+				<form id="form_adicionar_forum" action="http://lomatech.com.br/app/forum.php" method="POST" class="login">
+				
+						<label for="date" class="letra">TOPICO:</label>
+						<input type="text" name="topico" obg="Topico" id="topico_form_forum" value="">
+						
+						<label for="date" class="letra">MENSAGEM:</label>
+						<input type="text" name="mensagem" obg="Mensagem" id="mensagem_form_forum" value="">
+				
+					<a href="#" id="btn-medio" onClick="registrarForum()" class="ui-btn ui-corner-all">SALVAR<br></a>
+					<input type="hidden" name="acao" value='novo'>
+					<input type="hidden" name="id" value='' id="id_forum_novo">
+				</form>
+				</div>
+				
+					
+			
+			</div>
+	
 			
 		<div id="lista_convidados" class="login" data-role="page">
 				<a href="#painel" style="text-decoration:none;">
@@ -1173,13 +1192,13 @@
 					</div>
 					</a>
 					<div data-role="content">
-					<div class="msgsucesso_meus_convidados" style="display:none">
+					<div id="MSGs" class="msgsucesso_meus_convidados" style="display:none">
 						<div data-role="header">
 							<p style="text-align:center;"> </p>
 						</div>
 					  </div>
 					
-					  <div class="msgerro_meus_convidados" style="display:none">
+					  <div id="MSGs" class="msgerro_meus_convidados" style="display:none">
 						<div data-role="header" data-theme="c" >							
 							<p style="text-align:center;"> </p>
 						</div>
@@ -1193,36 +1212,7 @@
 					<div class="buscar">
 					<ul data-role="listview" id="listarconvidados"  data-filter="true" data-filter-placeholder=" Buscar...">
 					
-						<li style="padding-left:0; min-height:0" data-role="collapsible" data-theme="d" data-iconpos="right" data-inset="false">	
-							<h2 style="color: #FFF;text-shadow: none;"> Apresentação de tipografia do aplicativo <img src="img/btn/lista_convidados_pequena.png" align="right" style="margin: 0px 0px;">
-							<form>
-								  <fieldset data-role="controlgroup" data-type="horizontal">
-								    <a href="#" id="btn-list-detalhe" style=" margin: 0px 18px 0px -20px;" class="ui-btn ui-corner-all">ANDAMENTO</a>
-									<a href="#" id="btn-list-detalhe" class="ui-btn ui-corner-all">DETALHES</a>
-									<a href="#" id="btn-list" style="width: 40%;background-color:#820d12; " class="ui-btn ui-corner-all">CANCELAR</a>	
-								  </fieldset>
-								</form>		
-								
-							</h2> 
-							<h1 style="color:#FFF; text-shadow: none;text-align:center;font-size:20px;">Apresentação de tipografia do aplicativo</h1>
-							<img id="" src="">
-							<h3 style="text-shadow: none; color: #FFF;background-color: #85b200;width: 100%;">PUBLICADO EM :31/10/2014</h3><br>
-							<h3 style="text-shadow: none; color: #FFF;background-color: #85b200;width: 100%;">DATA DA VISITA E LOCAL</h3>
-							<h4 style="text-shadow: none; color: #FFF;">Data e hora de Inicio:18/10/2014 ás 00:00:00</h4>
-							<h4 style="text-shadow: none; color: #FFF;">Data e hora de Terminio:18/10/2014 ás 00:00:00</h4>
 							
-							<h3 style="text-shadow: none; color: #FFF;background-color: #85b200;width: 100%;">LISTA DE CONVIDADOS</h3>
-							<h4 style="text-shadow: none; color: #FFF;">Convidados</h4>
-							<input type="text" disabled name="nome" id="nome" value="" placeholder="">
-							<h4 style="text-shadow: none; color: #FFF;">Telefone</h4>
-							<input type="text" disabled class="telefone" name="telefone" id="telefone" value="">
-							<form>
-								  <fieldset data-role="controlgroup" data-type="horizontal">
-									<a href="#" id="btn-list-detalhe" class="ui-btn ui-corner-all">EDITAR</a>
-									<a href="#" id="btn-list" style="width: 40%;background-color:#820d12;border-color: #820d12; " class="ui-btn ui-corner-all">EXCLUIR</a>	
-								  </fieldset>
-								</form>		
-						</li>
 					</ul>	
 </div>					
 					</div>
@@ -1258,9 +1248,9 @@
 				<div data-role="navbar" >
 					<ul >
 
-						<li style="min-height: 75px;"><a style="min-height: 75px;" href="#Painelmenu" class=""><img src="img/btn/menu.png"> MENU</a></li>
-						<li style="min-height: 75px;"><a style="min-height: 75px;" class="ui-btn-c"><img  src="img/btn/icone-ajuda.png">PÂNICO</a></li>
-						<li style="min-height: 75px;"><a style="min-height: 75px;" href="#" onClick="sair()" class=""><img src="img/btn/icone-sair.png"> SAIR</a></li>
+						<li style="max-height: 75px;"><a style="max-height: 75px;" href="#Painelmenu" class=""><img src="img/btn/menu.png"> MENU</a></li>
+						<li style="max-height: 75px;"><a style="max-height: 75px;" class="ui-btn-c"><img  src="img/btn/icone-ajuda.png">PÂNICO</a></li>
+						<li style="max-height: 75px;"><a style="max-height: 75px;" href="#" onClick="sair()" class=""><img src="img/btn/icone-sair.png"> SAIR</a></li>
 					</ul>
 				</div>
 				</div>
@@ -1276,7 +1266,7 @@
 				<div style="margin-top:70px"></div>
 				<center><img src="img/lomatech.png"></center>
 				<form id="formulario_login" class="login">
-					<center><input type="text" class="campo_form" name="login" placeholder="Seu e-mail">
+					<center><input type="text" class="campo_form" id="login_login" name="login" placeholder="Seu e-mail">
 					<input type="password" name="senha" id="senha_login" placeholder="Digite sua senha"></center>
 					<center><button type="submit" class="btn-enviar ui-shadow ui-btn  ui-btn-inline ">Entrar</button> <a href="#esqueci_senha" class="btn-enviar ui-shadow ui-btn  ui-btn-inline ">Esqueci Senha</a></center>
 					<input type="hidden" id="emailoginFacebook" value="">
@@ -1352,9 +1342,9 @@
 				<div data-role="navbar" >
 					<ul >
 
-						<li style="min-height: 75px;"><a style="min-height: 75px;" href="#Painelmenu" class=""><img src="img/btn/menu.png"> MENU</a></li>
-						<li style="min-height: 75px;"><a style="min-height: 75px;" class="ui-btn-c"><img  src="img/btn/icone-ajuda.png">PÂNICO</a></li>
-						<li style="min-height: 75px;"><a style="min-height: 75px;" href="#" onClick="sair()" class=""><img src="img/btn/icone-sair.png"> SAIR</a></li>
+						<li style="max-height: 75px;"><a style="max-height: 75px;" href="#Painelmenu" class=""><img src="img/btn/menu.png"> MENU</a></li>
+						<li style="max-height: 75px;"><a style="max-height: 75px;" class="ui-btn-c"><img  src="img/btn/icone-ajuda.png">PÂNICO</a></li>
+						<li style="max-height: 75px;"><a style="max-height: 75px;" href="#" onClick="sair()" class=""><img src="img/btn/icone-sair.png"> SAIR</a></li>
 					</ul>
 				</div>
 				</div>
@@ -1374,13 +1364,13 @@
 			</div>
 				</a>
 					<div data-role="content" >
-					 <div class="msgsucesso_meus_animais" style="display:none">
+					 <div id="MSGs" class="msgsucesso_meus_animais" style="display:none">
 						<div data-role="header">
 							<p style="text-align:center;"> </p>
 						</div>
 					  </div>
 					
-					  <div class="msgerro_meus_animais" style="display:none">
+					  <div id="MSGs" class="msgerro_meus_animais" style="display:none">
 						<div data-role="header" data-theme="c" >							
 							<p style="text-align:center;"> </p>
 						</div>
@@ -1429,9 +1419,9 @@
 				<div data-role="navbar" >
 					<ul >
 
-						<li style="min-height: 75px;"><a style="min-height: 75px;" href="#Painelmenu" class=""><img src="img/btn/menu.png"> MENU</a></li>
-						<li style="min-height: 75px;"><a style="min-height: 75px;" class="ui-btn-c"><img  src="img/btn/icone-ajuda.png">PÂNICO</a></li>
-						<li style="min-height: 75px;"><a style="min-height: 75px;" href="#" onClick="sair()" class=""><img src="img/btn/icone-sair.png"> SAIR</a></li>
+						<li style="max-height: 75px;"><a style="max-height: 75px;" href="#Painelmenu" class=""><img src="img/btn/menu.png"> MENU</a></li>
+						<li style="max-height: 75px;"><a style="max-height: 75px;" class="ui-btn-c"><img  src="img/btn/icone-ajuda.png">PÂNICO</a></li>
+						<li style="max-height: 75px;"><a style="max-height: 75px;" href="#" onClick="sair()" class=""><img src="img/btn/icone-sair.png"> SAIR</a></li>
 					</ul>
 				</div>
 				</div>
@@ -1448,13 +1438,13 @@
 				
 				</div>
 				</a>
-					  <div class="msgsucesso_meus_animais" style="display:none">
+					  <div id="MSGs" class="msgsucesso_meus_animais" style="display:none">
 						<div data-role="header">
 							<p style="text-align:center;"> </p>
 						</div>
 					  </div>
 					
-					  <div class="msgerro_meus_animais" style="display:none">
+					  <div id="MSGs" class="msgerro_meus_animais" style="display:none">
 						<div data-role="header" data-theme="c" >							
 							<p style="text-align:center;"> </p>
 						</div>
@@ -1545,9 +1535,9 @@
 				<div data-role="navbar" >
 					<ul >
 
-						<li style="min-height: 75px;"><a style="min-height: 75px;" href="#Painelmenu" class=""><img src="img/btn/menu.png"> MENU</a></li>
-						<li style="min-height: 75px;"><a style="min-height: 75px;" class="ui-btn-c"><img  src="img/btn/icone-ajuda.png">PÂNICO</a></li>
-						<li style="min-height: 75px;"><a style="min-height: 75px;" href="#" onClick="sair()" class=""><img src="img/btn/icone-sair.png"> SAIR</a></li>
+						<li style="max-height: 75px;"><a style="max-height: 75px;" href="#Painelmenu" class=""><img src="img/btn/menu.png"> MENU</a></li>
+						<li style="max-height: 75px;"><a style="max-height: 75px;" class="ui-btn-c"><img  src="img/btn/icone-ajuda.png">PÂNICO</a></li>
+						<li style="max-height: 75px;"><a style="max-height: 75px;" href="#" onClick="sair()" class=""><img src="img/btn/icone-sair.png"> SAIR</a></li>
 					</ul>
 				</div>
 				</div>
@@ -1563,13 +1553,13 @@
 				</div>
 				</a>
 				<div data-role="content">
-					<div class="msgsucesso_meus_veiculos" style="display:none">
+					<div id="MSGs" class="msgsucesso_meus_veiculos" style="display:none">
 						<div data-role="header">
 							<p style="text-align:center;"> </p>
 						</div>
 					  </div>
 					
-					  <div class="msgerro_meus_veiculos" style="display:none">
+					  <div id="MSGs" class="msgerro_meus_veiculos" style="display:none">
 						<div data-role="header" data-theme="c" >							
 							<p style="text-align:center;"> </p>
 						</div>
@@ -1635,9 +1625,9 @@
 				<div data-role="navbar" >
 					<ul >
 
-						<li style="min-height: 75px;"><a style="min-height: 75px;" href="#Painelmenu" class=""><img src="img/btn/menu.png"> MENU</a></li>
-						<li style="min-height: 75px;"><a style="min-height: 75px;" class="ui-btn-c"><img  src="img/btn/icone-ajuda.png">PÂNICO</a></li>
-						<li style="min-height: 75px;"><a style="min-height: 75px;" href="#" onClick="sair()" class=""><img src="img/btn/icone-sair.png"> SAIR</a></li>
+						<li style="max-height: 75px;"><a style="max-height: 75px;" href="#Painelmenu" class=""><img src="img/btn/menu.png"> MENU</a></li>
+						<li style="max-height: 75px;"><a style="max-height: 75px;" class="ui-btn-c"><img  src="img/btn/icone-ajuda.png">PÂNICO</a></li>
+						<li style="max-height: 75px;"><a style="max-height: 75px;" href="#" onClick="sair()" class=""><img src="img/btn/icone-sair.png"> SAIR</a></li>
 					</ul>
 				</div>
 				</div>
@@ -1656,7 +1646,7 @@
 				<p class="txt2" align="left"><img src="img/icones/icone-visto.png" style="margin: 0px 20px -4px -5px;"> MINHA FAMILIA <img src="img/icone1.png" align="right"></p>
 				</div>
 				</a>
-					  <div class="msgsucesso_minha_familia" style="display:none">
+					  <div id="MSGs" class="msgsucesso_minha_familia" style="display:none">
 						<div data-role="header">
 							<p style="text-align:center;"> </p>
 						</div>
@@ -1710,9 +1700,9 @@
 				<div data-role="navbar" >
 					<ul >
 
-						<li style="min-height: 75px;"><a style="min-height: 75px;" href="#Painelmenu" class=""><img src="img/btn/menu.png"> MENU</a></li>
-						<li style="min-height: 75px;"><a style="min-height: 75px;" class="ui-btn-c"><img  src="img/btn/icone-ajuda.png">PÂNICO</a></li>
-						<li style="min-height: 75px;"><a style="min-height: 75px;" href="#" onClick="sair()" class=""><img src="img/btn/icone-sair.png"> SAIR</a></li>
+						<li style="max-height: 75px;"><a style="max-height: 75px;" href="#Painelmenu" class=""><img src="img/btn/menu.png"> MENU</a></li>
+						<li style="max-height: 75px;"><a style="max-height: 75px;" class="ui-btn-c"><img  src="img/btn/icone-ajuda.png">PÂNICO</a></li>
+						<li style="max-height: 75px;"><a style="max-height: 75px;" href="#" onClick="sair()" class=""><img src="img/btn/icone-sair.png"> SAIR</a></li>
 					</ul>
 				</div>
 				</div>
@@ -1728,13 +1718,13 @@
 					</a>
 					<div data-role="content">
 					
-					 <div class="msgsucesso_minhas_ocorrencias" style="display:none">
+					 <div id="MSGs" class="msgsucesso_minhas_ocorrencias" style="display:none">
 						<div data-role="header">
 							<p style="text-align:center;"> </p>
 						</div>
 					  </div>
 					
-					  <div class="msgerro_minhas_ocorrencias" style="display:none">
+					  <div id="MSGs" class="msgerro_minhas_ocorrencias" style="display:none">
 						<div data-role="header" data-theme="c" >							
 							<p style="text-align:center;"> </p>
 						</div>
@@ -1749,28 +1739,7 @@
 					<div class="buscar">
 					<ul data-role="listview" id="listaocorrencias" style="margin:0px;" data-filter="true" data-filter-placeholder=" Buscar...">
 					
-						<li style="padding-left:0; min-height:0" data-role="collapsible" data-theme="d" data-iconpos="right" data-inset="false"  >	
-							<h2 style="color: #FFF;text-shadow: none;"> Apresentação de tipografia do aplicativo <img src="img/btn/ocorrencias_pequeno.png" align="right" style="margin: 0px 0px;">
-							<form>
-								  <fieldset data-role="controlgroup" data-type="horizontal">
-								    <a href="#" id="btn-list-detalhe" style=" margin: 0px 18px 0px -20px;" class="ui-btn ui-corner-all">Em aberto</a>
-									<a href="#" id="btn-list-detalhe"  class="ui-btn ui-corner-all">Detalhes</a>
-									<a href="#" id="btn-list" style="background-color:#820d12; " class="ui-btn ui-corner-all">Cancelar</a>	
-								  </fieldset>
-								</form>		
-								
-							</h2> 
-							<h1 style="color:#FFF; text-shadow: none;text-align:center;font-size:20px;">Apresentação de tipografia do aplicativo</h1>
-							<img id="" src="">
-							<h3 style="text-shadow: none; color: #FFF;background-color: #85b200;width: 100%;">PUBLICADO EM :31/10/2014</h3><br>
-							<h3 style="text-shadow: none; color: #FFF;background-color: #85b200;width: 100%;">DATA DA OCORRENCIA E LOCAL</h3>
-							<h4 style="text-shadow: none; color: #FFF;">Data: 18/10/2014 ás 00:00:00</h4>
-							
-							<h4 style="text-shadow: none; color: #FFF;">Local: Financeiro</h4>
-					
-							<h3 style="text-shadow: none; color: #FFF;background-color: #85b200;width: 100%;">DESCRIÇÃO DA OCORRENCIA</h3>
-							<h4 style="text-shadow: none; color: #FFF;">Descrição aqui</h4>	
-						</li>
+						
 					</ul>	
 					</div>
 					</div>
@@ -1803,9 +1772,9 @@
 				<div data-role="navbar" >
 					<ul >
 
-						<li style="min-height: 75px;"><a style="min-height: 75px;" href="#Painelmenu" class=""><img src="img/btn/menu.png"> MENU</a></li>
-						<li style="min-height: 75px;"><a style="min-height: 75px;" class="ui-btn-c"><img  src="img/btn/icone-ajuda.png">PÂNICO</a></li>
-						<li style="min-height: 75px;"><a style="min-height: 75px;" href="#" onClick="sair()" class=""><img src="img/btn/icone-sair.png"> SAIR</a></li>
+						<li style="max-height: 75px;"><a style="max-height: 75px;" href="#Painelmenu" class=""><img src="img/btn/menu.png"> MENU</a></li>
+						<li style="max-height: 75px;"><a style="max-height: 75px;" class="ui-btn-c"><img  src="img/btn/icone-ajuda.png">PÂNICO</a></li>
+						<li style="max-height: 75px;"><a style="max-height: 75px;" href="#" onClick="sair()" class=""><img src="img/btn/icone-sair.png"> SAIR</a></li>
 					</ul>
 				</div>
 				</div>
@@ -1816,29 +1785,7 @@
 		</div>
 		<div id="painel" class="login" data-role="page">
 		
-		<div data-role="panel" id="Painelmenu" data-position="left" data-display="overlay" data-theme="a">
-
-				<h2 class="tltmenu">NAVEGA&Ccedil;&Atilde;O R&Aacute;PIDA</h2>
-				<a href="#meus_dados" class="ui-btn btn-menu" onClick="meusdados();"><img src="img/btn/meus-dados-m.png"><br>MEUS DADOS</a>
-				<a href="#meus_animais" class="ui-btn btn-menu" onClick="meusanimais();"><img src="img/btn/animais.png"><br>MEUS ANIMAIS</a>
-				<a href="#documentos_informes" onClick="documentos();" class="ui-btn btn-menu"><img src="img/btn/doc_pequeno.png"><br>DOCUMENTOS/INFORMES</a>
-				<a href="#reservas" onClick="reservas();" class=" ui-btn btn-menu"><img src="img/btn/reservas.png"><br>RESERVAS</a>
-				<a href="#eventos" onClick="eventos();" class=" ui-btn btn-menu"><img src="img/btn/eventos.png"><br>MEUS EVENTOS</a>
-				<a href="#minha_familia" onClick="chamarFamilia();" class=" ui-btn btn-menu"><img src="img/btn/minha-familia.png"><br>MINHA FAMÍLIA</a>
-				<a href="#ocorrencias" onClick="chamarOcorrencias();" class=" ui-btn btn-menu"><img src="img/btn/ocorrencias.png"><br>OCORRÊNCIAS</a>
-				<a href="#meus_veiculos" onClick="meusveiculos();" class=" ui-btn btn-menu"><img src="img/btn/veiculo-pequeno.png"><br>MEUS VEICULOS</a>
-				<a href="#lista_convidados" onClick="chamarListaConvidados();" class="ui-btn btn-menu"><img src="img/btn/lista_convidados_pequena.png"><br>LISTA CONVIDADOS</a>
-				<a href="#correspondencias" onClick="chamarCorrespondencia;" class="ui-btn btn-menu"><img src="img/btn/correspondencia.png"><br>CORRESPONDÊNCIAS</a>
-				<a href="#classificados" onClick="classificados;" class=" ui-btn btn-menu"><img src="img/btn/classificados.png"><br>CLASSIFICADOS</a>
-				<a href="#" class="ui-btn btn-menu"><br>ABRIR PORTA</a>
-				<a href="#" class=" ui-btn btn-menu"><img src="img/btn/alertas.png"><br>NOTIFICAÇÕES</a>
-				<a href="#log_usuario" onClick="logusuario();" class=" ui-btn btn-menu"><img src="img/btn/minha-casa.png"><br>LOG DO USUARIO</a>
-				<a href="#" class=" ui-btn btn-menu"><img src="img/btn/forum.png"><br>FORUMS</a>	
-				<a href="#" onClick="sair()" class=" ui-btn btn-menu ui-btn-c"><br>SAIR</a>					
-				<a href="#" class=" ui-btn btn-menu ui-btn-c"><img src="img/btn/panico.png"><br>ACIONAR PÂNICO</a>
-        
-
-		</div><!-- /leftpanel3 -->
+	
 			
 		<div data-role="header" data-theme="a">
 				
@@ -1876,14 +1823,47 @@
 					<div class="ui-block-a"><a href="#log_usuario" onClick="logusuario();"  class="ui-shadow ui-btn ui-btn-b btn-home"><img style="max-height: 34px;" src="img/btn/visitas.png"><br>LOG DO USUARIO</a></div>
 					<div class="ui-block-b"><a href="#forum"  onClick="foruns();" class="ui-shadow ui-btn ui-btn-b btn-home"><img style="max-height: 34px;" src="img/btn/forum.png"><br>FORUM</a></div>				
 				</div>
-					<a href="#" class="ui-shadow ui-btn ui-btn-c btn-home"><img src="img/btn/panico.png"><br>ACIONAR PÂNICO</a>
-	
+				<div data-role="panel" id="Painelmenu" data-position="left" data-display="overlay" data-theme="a">
+
+				<h2 class="tltmenu">NAVEGA&Ccedil;&Atilde;O R&Aacute;PIDA</h2>
+				<a href="#meus_dados" class="ui-btn btn-menu" onClick="meusdados();"><img src="img/btn/meus-dados-m.png"><br>MEUS DADOS</a>
+				<a href="#meus_animais" class="ui-btn btn-menu" onClick="meusanimais();"><img src="img/btn/animais.png"><br>MEUS ANIMAIS</a>
+				<a href="#documentos_informes" onClick="documentos();" class="ui-btn btn-menu"><img src="img/btn/doc_pequeno.png"><br>DOCUMENTOS/INFORMES</a>
+				<a href="#reservas" onClick="reservas();" class=" ui-btn btn-menu"><img src="img/btn/reservas.png"><br>RESERVAS</a>
+				<a href="#eventos" onClick="eventos();" class=" ui-btn btn-menu"><img src="img/btn/eventos.png"><br>MEUS EVENTOS</a>
+				<a href="#minha_familia" onClick="chamarFamilia();" class=" ui-btn btn-menu"><img src="img/btn/minha-familia.png"><br>MINHA FAMÍLIA</a>
+				<a href="#ocorrencias" onClick="chamarOcorrencias();" class=" ui-btn btn-menu"><img src="img/btn/ocorrencias.png"><br>OCORRÊNCIAS</a>
+				<a href="#meus_veiculos" onClick="meusveiculos();" class=" ui-btn btn-menu"><img src="img/btn/veiculo-pequeno.png"><br>MEUS VEICULOS</a>
+				<a href="#lista_convidados" onClick="chamarListaConvidados();" class="ui-btn btn-menu"><img src="img/btn/lista_convidados_pequena.png"><br>LISTA CONVIDADOS</a>
+				<a href="#correspondencias" onClick="chamarCorrespondencia;" class="ui-btn btn-menu"><img src="img/btn/correspondencia.png"><br>CORRESPONDÊNCIAS</a>
+				<a href="#classificados" onClick="classificados;" class=" ui-btn btn-menu"><img src="img/btn/classificados.png"><br>CLASSIFICADOS</a>
+				<a href="#" class="ui-btn btn-menu"><br>ABRIR PORTA</a>
+				<a href="#" class=" ui-btn btn-menu"><img src="img/btn/alertas.png"><br>NOTIFICAÇÕES</a>
+				<a href="#log_usuario" onClick="logusuario();" class=" ui-btn btn-menu"><img src="img/btn/minha-casa.png"><br>LOG DO USUARIO</a>
+				<a href="#" class=" ui-btn btn-menu"><img src="img/btn/forum.png"><br>FORUMS</a>	
+				<a href="#" onClick="sair()" class=" ui-btn btn-menu ui-btn-c"><br>SAIR</a>					
+				<a href="#" class=" ui-btn btn-menu ui-btn-c"><img src="img/btn/panico.png"><br>ACIONAR PÂNICO</a>
+        
+
+		</div><!-- /leftpanel3 -->
+
+<div class="menu-rodape">
+					<div data-role="footer" data-position="fixed" data-id="vs_footer" data-theme="a">
+				<div data-role="navbar" >
+					<ul >
+
+						<li style="max-height: 75px;"><a style="max-height: 75px;" href="#Painelmenu" class=""><img src="img/btn/menu.png"> MENU</a></li>
+						<li style="max-height: 75px;"><a style="max-height: 75px;" class="ui-btn-c"><img  src="img/btn/icone-ajuda.png">PÂNICO</a></li>
+						<li style="max-height: 75px;"><a style="max-height: 75px;" href="#" onClick="sair()" class=""><img src="img/btn/icone-sair.png"> SAIR</a></li>
+					</ul>
+				</div>
+				</div>
+			</div>
 		</div>
 		
 		
 		
 			
-	<body >
 		<div id="reservas" class="login" data-role="page">
 				<a href="#painel" style="text-decoration:none;">
 				<div data-role="header" data-theme="a">
@@ -1892,13 +1872,13 @@
 						</div>
 						</a>
 						<div data-role="content">
-					 <div class="msgsucesso_meus_reservas" style="display:none">
+					 <div id="MSGs" class="msgsucesso_meus_reservas" style="display:none">
 						<div data-role="header">
 							<p style="text-align:center;"> </p>
 						</div>
 					  </div>
 					
-					  <div class="msgerro_meus_reservas" style="display:none">
+					  <div id="MSGs" class="msgerro_meus_reservas" style="display:none">
 						<div data-role="header" data-theme="c" >							
 							<p style="text-align:center;"> </p>
 						</div>
@@ -1949,9 +1929,9 @@
 				<div data-role="navbar" >
 					<ul >
 
-						<li style="min-height: 75px;"><a style="min-height: 75px;" href="#Painelmenu" class=""><img src="img/btn/menu.png"> MENU</a></li>
-						<li style="min-height: 75px;"><a style="min-height: 75px;" class="ui-btn-c"><img  src="img/btn/icone-ajuda.png">PÂNICO</a></li>
-						<li style="min-height: 75px;"><a style="min-height: 75px;" href="#" onClick="sair()" class=""><img src="img/btn/icone-sair.png"> SAIR</a></li>
+						<li style="max-height: 75px;"><a style="max-height: 75px;" href="#Painelmenu" class=""><img src="img/btn/menu.png"> MENU</a></li>
+						<li style="max-height: 75px;"><a style="max-height: 75px;" class="ui-btn-c"><img  src="img/btn/icone-ajuda.png">PÂNICO</a></li>
+						<li style="max-height: 75px;"><a style="max-height: 75px;" href="#" onClick="sair()" class=""><img src="img/btn/icone-sair.png"> SAIR</a></li>
 					</ul>
 				</div>
 				</div>

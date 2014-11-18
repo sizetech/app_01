@@ -54,6 +54,7 @@
 
 
 function chamarOcorrencias(){
+apagarMSGs();
 	var lista = '';
 	carregar('ativar');
 	$.post(URLBASE+'ocorrencias.php', {acao:'retornarTodos', id:idmorador()}, function(data) {
@@ -102,6 +103,7 @@ function chamarOcorrencias(){
 
 
 function CancelarOcorrencia(id){
+apagarMSGs();
 var ex = confirm("Deseja Cancelar?");
 if(ex == true){
 	$.post(URLBASE+'ocorrencias.php', {id:id, acao:'excluir'}, function(data) {
@@ -123,6 +125,13 @@ if(ex == true){
 	}
 };
 function novaOcorrencia(){
+apagarMSGs();
+
+$('#descricao_form_ocorrencias').val('');
+$('#data_ocorrencia_form_ocorrencias').val('');
+$('#local_form_ocorrencias').val('');
+$('#titulo_ocorrencia_form_ocorrencias').val('');
+
 	$('#id_form_ocorrencias').val(idmorador());
 	var resposta = '';
 	resposta += "<option value=''>-- Selecione um Local --</option>";
@@ -139,7 +148,7 @@ function novaOcorrencia(){
 
 
 function registrarOcorrencia(){
-
+apagarMSGs();
 	var options = { 
 		success:    function(data) { 
 			$.each( data, function( ) {

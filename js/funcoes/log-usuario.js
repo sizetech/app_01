@@ -1,4 +1,5 @@
 function logusuario(){
+apagarMSGs();
 carregar('ativar');
 	var lista = '';
 	$.post(URLBASE+'log_usuario.php', {acao:'retornarTodos', id:idmorador()}, function(data) {
@@ -49,7 +50,7 @@ carregar('ativar');
 								}
 
 						lista += ' <li onclick="abrirCoollapsible(this);" data-theme="'+classe+'" style="padding-left:5px; margin:5px 20px; min-height:0" data-role="collapsible" data-theme="'+classe+'" data-iconpos="right" data-inset="false">';
-						lista +=	'<center><a href="#"style="text-decoration: none;color:#FFF;margin: 0px 5px;"><h2 style="text-shadow: none;  color: #FFF;background-color: #85b200;width: 100%;">'+acao+''+tabela+'</h2></center><h3 style="text-shadow: none;color:#FFF;background-color: #85b200;width: 100%;">Publicado em :'+data[x].data_cadastro+'<img src="img/btn/visitas.png" align="right" style="margin: -18px 0px;"></h3></a>';
+						lista +=	'<center><a href="#"style="text-decoration: none;color:#FFF;margin: 0px 5px;"><h2 style="text-shadow: none;  color: #FFF;background-color: #85b200;width: 100%;">'+acao+''+tabela+'</h2></center><h3 style="text-shadow: none;color:#FFF;background-color: #85b200;width: 100%;">Publicado em :'+data[x].data_cadastro+'</h3></a>';
 					
 						lista += ' </li>';
 						

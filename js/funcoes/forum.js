@@ -2,6 +2,7 @@
 
 
 function foruns(){
+apagarMSGs();
 carregar('ativar');
 	var lista = '';
 	$.post(URLBASE+'forum.php', {acao:'retornarTodos', id:idmorador()}, function(data) {
@@ -21,6 +22,38 @@ carregar('ativar');
 						
 
 }
+
+
+function registrarForum(){
+apagarMSGs();
+	var options = { 
+		success:    function(data) { 
+			$.each( data, function( ) {
+					
+						foruns();
+											
+						if(data.status){
+							$('.msgsucesso_forum p').html(data.mensagem);
+							$('.msgsucesso_forum').css('display','block');
+						}else{
+							
+						}
+						carregar('desativar');
+						window.location = "#forum";
+					
+					}); 
+		} 
+	}; 
+	
+	if(validarFormularios('form_adicionar_forum') == true){
+		carregar('ativar');
+		$('#form_adicionar_forum').ajaxSubmit(options);
+	}
+	
+	
+	return false;
+}
+
 
 function detalheTopico(id){
 	var lista = '';

@@ -72,6 +72,7 @@ function editarPessoa (d){
 
 
 function chamarListaConvidados(){
+apagarMSGs();
 	var lista = '';
 	carregar('ativar');
 	$.post(URLBASE+'lista_convidados.php', {acao:'retornarTodos', id:idmorador()}, function(data) {
@@ -107,6 +108,7 @@ function chamarListaConvidados(){
 }
 
 function CancelarLista(id){
+apagarMSGs();
 var ex = confirm("Deseja Cancelar?");
 if(ex == true){
 	$.post(URLBASE+'lista_convidados.php', {id:id, acao:'excluir'}, function(data) {
@@ -128,6 +130,7 @@ if(ex == true){
 	}
 };
 function novaLista(){
+apagarMSGs();
 	$('#id_form_lista_convidados').val(idmorador());
 	$('#acao_form_lista_convidados').val('novo');
 	$('#nome_form_lista_convidados').val('');
@@ -153,6 +156,7 @@ function novaLista(){
 }
 
 function editarLista(id){
+apagarMSGs();
 	novaLista();
 	$('#id_form_lista_convidados').val(id);
 	$('#acao_form_lista_convidados').val('editar');
@@ -179,7 +183,7 @@ function editarLista(id){
 
 function registrarListaConvidados(){
 
-	
+	apagarMSGs();
 	var options = { 
 		success:    function(data) { 
 			$.each( data, function( ) {

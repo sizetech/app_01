@@ -1,6 +1,6 @@
 
-const URLBASE = "http://lomatech.com.br/";
-//const URLBASE = "http://sizetech.com.br/app_lanchonete/";
+//const URLBASE = "http://sizetech/lanchonete/";
+const URLBASE = "http://sizetech.com.br/app_lanchonete/";
 
 function testee(i){
 	$(".produtos").html(i);
