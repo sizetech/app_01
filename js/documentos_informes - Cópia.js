@@ -1,8 +1,5 @@
 
-function idmorador(){
-	return($.cookie('IDAppLomactech'));
 
-}
 function documentos_informes(){
 	var lista = '';
 	$.post(URLBASE+'documentos_informes.php', {acao:'retornarTodos', id_morador:idmorador()}, function(data) {

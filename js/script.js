@@ -64,7 +64,6 @@ apagarMSGs();
 
 
  function capturarImagem(){
-	$('#validar_form_dados').val(1);
       navigator.camera.getPicture(uploadPhoto, function(message) {
 			$('#validar_form_dados').val(0);
 		},{
@@ -77,7 +76,6 @@ apagarMSGs();
             );
             }
  function PegarImagem(){
-	$('#validar_form_dados').val(1);
       navigator.camera.getPicture(uploadPhoto, function(message) {
 			$('#validar_form_dados').val(0);
 		},{
@@ -91,7 +89,7 @@ apagarMSGs();
             }
  function uploadPhoto(imageURI) {
 			$('#htmlImagem').attr('src',imageURI);
-			$('#validar_form_dados').val(1);
+			$carregar('ativar');
             var options = new FileUploadOptions();
             options.fileKey="file";
             options.fileName=imageURI.substr(imageURI.lastIndexOf('/')+1);
@@ -103,17 +101,17 @@ apagarMSGs();
             options.chunkedMode = false;
  
             var ft = new FileTransfer();
-            ft.upload(imageURI, "http://serve.iflexdigital.com.br/lomatech/app/upload.php", win, fail, options);
+            ft.upload(imageURI, "http://lomatech.com.br/app/upload.php", win, fail, options);
         }
  
         function win(r) {
 			$("#arquivoMeusDados").val(r.response);
-            $('#validar_form_dados').val(0);
+           carregar('desativar');
         }
  
         function fail(error) {
 			$('#htmlImagem').attr('src','');
-           $('#validar_form_dados').val(0);
+           carregar('desativar');
         }
 	
 function idmorador(){
@@ -481,7 +479,8 @@ $("input:password").blur(function(){
 
 	var validar = idmorador();
 	$('#nomeMorador').html(window.localStorage.getItem("NomeAppLomactech"));
-	if(!validar){
+	var validar2 =  $('#id_do_morador').val();
+	if(validar == ''){
 		window.location = "#login";
 	}else{
 			
@@ -511,10 +510,11 @@ $("input:password").blur(function(){
 						if(data.retorno){
 							 window.localStorage.setItem("IDAppLomactech", data.id);
 							  window.localStorage.setItem("NomeAppLomactech", data.nome);
+							  $('#id_do_morador').val(data.id);
+							  
 							  $('#nomeMorador').html(data.nome);
-							//$.cookie('IDAppLomactech', data.id, { expires: 360 });
 							$('.errologin').css("display",'none');
-							window.location = "#painel";						
+							location.reload();						
 						}else{
 							$('.errologin').css("display",'block');
 							$('.errologin p').html(data.mensagem);
@@ -585,7 +585,7 @@ apagarMSGs();
 						
 						
 						lista += ' <li   data-theme="'+classe+'" style="padding-left:5px; margin:5px 20px; min-height:0" data-role="collapsible" data-theme="'+classe+'" data-iconpos="right" data-inset="false">';
-						lista +=	'<a href="'+URLARQUIVOS+data[x].doc+'"><h2>'+data[x].titulo;
+						lista +=	'<a href="'+URLARQUIVOS+data[x].doc+'" target="_blank"><h2>'+data[x].titulo;
 						lista +=	'<img src="img/btn/doc_pequeno.png" align="right" style="margin: 0px 0px;">';
 						lista +=	'</h2></a>';
 						
@@ -675,9 +675,10 @@ apagarMSGs();
 									if(data.retorno){
 										 window.localStorage.setItem("IDAppLomactech", data.id);
 										  window.localStorage.setItem("NomeAppLomactech", data.nome);
+										   $('#id_do_morador').val(data.id);
 										  $('#nomeMorador').html(data.nome);
 										  $('.errologin').css("display",'none');
-										window.location = "#painel";						
+										location.reload();						
 									}else{
 										$('.errologin').css("display",'block');
 										$('.errologin p').html(data.mensagem);

@@ -1,6 +1,5 @@
 
  function capturarImagemAnimal(){
-	$('#validar_form_animal').val(1);
       navigator.camera.getPicture(uploadPhotoAnimal, function(message) {
 			$('#validar_form_animal').val(0);
 		},{
@@ -13,7 +12,6 @@
             );
             }
  function PegarImagemAnimal(){
-	$('#validar_form_animal').val(1);
       navigator.camera.getPicture(uploadPhotoAnimal, function(message) {
 			$('#validar_form_animal').val(0);
 		},{
@@ -27,7 +25,7 @@
             }
  function uploadPhotoAnimal(imageURI) {
 			$('#foto_animal_editar').attr('src',imageURI);
-			$('#validar_form_animal').val(1);
+			carregar('ativar');
             var options = new FileUploadOptions();
             options.fileKey="file";
             options.fileName=imageURI.substr(imageURI.lastIndexOf('/')+1);
@@ -39,17 +37,17 @@
             options.chunkedMode = false;
  
             var ft = new FileTransfer();
-            ft.upload(imageURI, "http://serve.iflexdigital.com.br/lomatech/app/uploadAnimal.php", winAnimal, failAnimal, options);
+            ft.upload(imageURI, "http://lomatech.com.br/app/uploadAnimal.php", winAnimal, failAnimal, options);
         }
  
         function winAnimal(r) {
 			$("#arquivoMeusAnimais").val(r.response);
-            $('#validar_form_animal').val(0);
+            carregar('desativar');
         }
  
         function failAnimal(error) {
 			$('#foto_animal_editar').attr('src','');
-           $('#validar_form_animal').val(0);
+			carregar('ativar');
         }
 
 
@@ -182,7 +180,7 @@ function chamarAnimal(ID){
 						$("#raca_form_animal-button span").html('');
 	
 	
-		var resposta = '';
+		var resposta = "<option value=''>-- Selecione um animal --</option>";
 	$.post(URLBASE+'querys/animais.php', {}, function(data) {
 				var x = 0;
 					$.each( data, function( ) {
@@ -276,7 +274,7 @@ carregar('ativar');
 						$("#foto_animal_editar").attr("src",'');
 						$("#tipo_form_animal-button span").html('');
 						$("#raca_form_animal-button span").html('');
-	var resposta = '';
+	var resposta = '<option value="">-- Selecione um animal --</option>';
 	$.post(URLBASE+'querys/animais.php', {}, function(data) {
 				var x = 0;
 					$.each( data, function( ) {

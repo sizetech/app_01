@@ -12,7 +12,6 @@ $(function(){
 });
 
  function capturarImagemVeiculo(){
-	$('#validar_form_veiculo').val(1);
       navigator.camera.getPicture(uploadPhotoVeiculo, function(message) {
 			$('#validar_form_veiculo').val(0);
 		},{
@@ -25,7 +24,6 @@ $(function(){
             );
             }
  function PegarImagemVeiculo(){
-	$('#validar_form_veiculo').val(1);
       navigator.camera.getPicture(uploadPhotoVeiculo, function(message) {
 			$('#validar_form_veiculo').val(0);
 		},{
@@ -39,7 +37,7 @@ $(function(){
             }
  function uploadPhotoVeiculo(imageURI) {
 			$('#banner_veiculo_editar').attr('src',imageURI);
-			$('#validar_form_veiculo').val(1);
+			carregar('ativar');
             var options = new FileUploadOptions();
             options.fileKey="file";
             options.fileName=imageURI.substr(imageURI.lastIndexOf('/')+1);
@@ -51,17 +49,17 @@ $(function(){
             options.chunkedMode = false;
  
             var ft = new FileTransfer();
-            ft.upload(imageURI, "http://serve.iflexdigital.com.br/lomatech/app/uploadVeiculo.php", winAnimal, failAnimal, options);
+            ft.upload(imageURI, "http://lomatech.com.br/app/uploadVeiculo.php", winAnimal, failAnimal, options);
         }
  
         function winAnimal(r) {
 			$("#arquivoMeusVeiculos").val(r.response);
-            $('#validar_form_veiculo').val(0);
+            carregar('desativar');
         }
  
         function failAnimal(error) {
 			$('#foto_animal_editar').attr('src','');
-           $('#validar_form_veiculo').val(0);
+          carregar('desativar');
         }
 
 function carregar(a){

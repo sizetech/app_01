@@ -1,6 +1,5 @@
 
  function capturarImagemOcorrencia(){
-	$('#validar_form_Ocorrencia').val(1);
       navigator.camera.getPicture(uploadPhotoOcorrencia, function(message) {
 			$('#validar_form_Ocorrencia').val(0);
 		},{
@@ -13,7 +12,6 @@
             );
             }
  function PegarImagemOcorrencia(){
-	$('#validar_form_Ocorrencia').val(1);
       navigator.camera.getPicture(uploadPhotoOcorrencia, function(message) {
 			$('#validar_form_Ocorrencia').val(0);
 		},{
@@ -27,7 +25,7 @@
             }
  function uploadPhotoOcorrencia(imageURI) {
 			$('#banner_Ocorrencia_editar').attr('src',imageURI);
-			$('#validar_form_Ocorrencia').val(1);
+			carregar('ativar');
             var options = new FileUploadOptions();
             options.fileKey="file";
             options.fileName=imageURI.substr(imageURI.lastIndexOf('/')+1);
@@ -39,17 +37,17 @@
             options.chunkedMode = false;
  
             var ft = new FileTransfer();
-            ft.upload(imageURI, "http://serve.iflexdigital.com.br/lomatech/app/uploadOcorrencia.php", winAnimal, failAnimal, options);
+            ft.upload(imageURI, "http://lomatech.com.br/app/uploadOcorrencia.php", winAnimal, failAnimal, options);
         }
  
         function winAnimal(r) {
 			$("#arquivoMeusOcorrencias").val(r.response);
-            $('#validar_form_Ocorrencia').val(0);
+            carregar('desativar');
         }
  
         function failAnimal(error) {
 			$('#foto_animal_editar').attr('src','');
-           $('#validar_form_Ocorrencia').val(0);
+           carregar('desativar');
         }
 
 

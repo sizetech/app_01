@@ -1,5 +1,4 @@
 function capturarImagemFamilia(){
-	$('#validar_form_Familia').val(1);
       navigator.camera.getPicture(uploadPhotoFamilia, function(message) {
 			$('#validar_form_Familia').val(0);
 		},{
@@ -12,7 +11,6 @@ function capturarImagemFamilia(){
             );
             }
  function PegarImagemFamilia(){
-	$('#validar_form_Familia').val(1);
       navigator.camera.getPicture(uploadPhotoFamilia, function(message) {
 			$('#validar_form_Familia').val(0);
 		},{
@@ -26,7 +24,7 @@ function capturarImagemFamilia(){
             }
  function uploadPhotoFamilia(imageURI) {
 			$('#foto_Familia_editar').attr('src',imageURI);
-			$('#validar_form_Familia').val(1);
+			carregar('ativar');
             var options = new FileUploadOptions();
             options.fileKey="file";
             options.fileName=imageURI.substr(imageURI.lastIndexOf('/')+1);
@@ -38,17 +36,17 @@ function capturarImagemFamilia(){
             options.chunkedMode = false;
  
             var ft = new FileTransfer();
-            ft.upload(imageURI, "http://serve.iflexdigital.com.br/lomatech/app/upload.php", winFamilia, failFamilia, options);
+            ft.upload(imageURI, "http://lomatech.com.br/appupload.php", winFamilia, failFamilia, options);
         }
  
         function winFamilia(r) {
 			$("#arquivoFamilia").val(r.response);
-            $('#validar_form_Familia').val(0);
+            carregar('desativar');
         }
  
         function failFamilia(error) {
 			$('#foto_Familia_editar').attr('src','');
-           $('#validar_form_Familia').val(0);
+           carregar('desativar');
         }
 
 

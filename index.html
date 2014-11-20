@@ -17,6 +17,7 @@
 		
 	</head>
 	<body onload="onLoad()">
+	<input type="hidden" id="id_do_morador" value="">
 	<div class="preca" style="display:none">
 <div class="window">
 <div class="container">
@@ -72,7 +73,7 @@
 					</div>
 			</div>					
 				
-			<div data-role="panel" id="Painelmenu" data-position="left" data-display="overlay" data-theme="a">
+			<div data-role="panel" data-position="left" data-display="overlay" data-theme="a" id="menu-pai">
 
 				<h2 class="tltmenu">NAVEGA&Ccedil;&Atilde;O R&Aacute;PIDA</h2>
 				<a href="#meus_dados" class="ui-btn btn-menu" onClick="meusdados();"><img src="img/btn/meus-dados-m.png"><br>MEUS DADOS</a>
@@ -86,7 +87,7 @@
 				<a href="#lista_convidados" onClick="chamarListaConvidados();" class="ui-btn btn-menu"><img src="img/btn/lista_convidados_pequena.png"><br>LISTA CONVIDADOS</a>
 				<a href="#correspondencias" onClick="chamarCorrespondencia;" class="ui-btn btn-menu"><img src="img/btn/correspondencia.png"><br>CORRESPONDÊNCIAS</a>
 				<a href="#classificados" onClick="classificados;" class=" ui-btn btn-menu"><img src="img/btn/classificados.png"><br>CLASSIFICADOS</a>
-				<a href="#" class="ui-btn btn-menu"><br>ABRIR PORTA</a>
+				<a href="#abrir_o_portao" class="ui-btn btn-menu"><br>ABRIR PORTA</a>
 				<a href="#" class=" ui-btn btn-menu"><img src="img/btn/alertas.png"><br>NOTIFICAÇÕES</a>
 				<a href="#log_usuario" onClick="logusuario();" class=" ui-btn btn-menu"><img src="img/btn/minha-casa.png"><br>LOG DO USUARIO</a>
 				<a href="#" class=" ui-btn btn-menu"><img src="img/btn/forum.png"><br>FORUMS</a>	
@@ -101,9 +102,9 @@
 				<div data-role="navbar" >
 					<ul >
 
-						<li style="max-height: 75px;"><a style="max-height: 75px;" href="#Painelmenu" class=""><img src="img/btn/menu.png"> MENU</a></li>
-						<li style="max-height: 75px;"><a style="max-height: 75px;" class="ui-btn-c"><img  src="img/btn/icone-ajuda.png">PÂNICO</a></li>
-						<li style="max-height: 75px;"><a style="max-height: 75px;" href="#" onClick="sair()" class=""><img src="img/btn/icone-sair.png"> SAIR</a></li>
+						<li style="max-height: 75px; min-height:75px"><a style="max-height: 75px; min-height:75px" href="#menu-pai" class=""><img src="img/btn/menu.png"> MENU</a></li>
+						<li style="max-height: 75px; min-height:75px"><a style="max-height: 75px; min-height:75px" class="ui-btn-c"><img  src="img/btn/icone-ajuda.png">PÂNICO</a></li>
+						<li style="max-height: 75px; min-height:75px"><a style="max-height: 75px; min-height:75px" href="#" onClick="sair()" class=""><img src="img/btn/icone-sair.png"> SAIR</a></li>
 					</ul>
 				</div>
 				</div>
@@ -131,7 +132,7 @@
 				
 		
 					
-					<div data-role="panel" id="Painelmenu" data-position="left" data-display="overlay" data-theme="a">
+					<div data-role="panel" data-position="left" data-display="overlay" data-theme="a" id="menu-pai">
 
 				<h2 class="tltmenu">NAVEGA&Ccedil;&Atilde;O R&Aacute;PIDA</h2>
 				<a href="#meus_dados" class="ui-btn btn-menu" onClick="meusdados();"><img src="img/btn/meus-dados-m.png"><br>MEUS DADOS</a>
@@ -145,7 +146,7 @@
 				<a href="#lista_convidados" onClick="chamarListaConvidados();" class="ui-btn btn-menu"><img src="img/btn/lista_convidados_pequena.png"><br>LISTA CONVIDADOS</a>
 				<a href="#correspondencias" onClick="chamarCorrespondencia;" class="ui-btn btn-menu"><img src="img/btn/correspondencia.png"><br>CORRESPONDÊNCIAS</a>
 				<a href="#classificados" onClick="classificados;" class=" ui-btn btn-menu"><img src="img/btn/classificados.png"><br>CLASSIFICADOS</a>
-				<a href="#" class="ui-btn btn-menu"><br>ABRIR PORTA</a>
+				<a href="#abrir_o_portao" class="ui-btn btn-menu"><br>ABRIR PORTA</a>
 				<a href="#" class=" ui-btn btn-menu"><img src="img/btn/alertas.png"><br>NOTIFICAÇÕES</a>
 				<a href="#log_usuario" onClick="logusuario();" class=" ui-btn btn-menu"><img src="img/btn/minha-casa.png"><br>LOG DO USUARIO</a>
 				<a href="#" class=" ui-btn btn-menu"><img src="img/btn/forum.png"><br>FORUMS</a>	
@@ -160,9 +161,9 @@
 				<div data-role="navbar" >
 					<ul >
 
-						<li style="max-height: 75px;"><a style="max-height: 75px;" href="#Painelmenu" class=""><img src="img/btn/menu.png"> MENU</a></li>
-						<li style="max-height: 75px;"><a style="max-height: 75px;" class="ui-btn-c"><img  src="img/btn/icone-ajuda.png">PÂNICO</a></li>
-						<li style="max-height: 75px;"><a style="max-height: 75px;" href="#" onClick="sair()" class=""><img src="img/btn/icone-sair.png"> SAIR</a></li>
+						<li style="max-height: 75px; min-height:75px"><a style="max-height: 75px; min-height:75px" href="#menu-pai" class=""><img src="img/btn/menu.png"> MENU</a></li>
+						<li style="max-height: 75px; min-height:75px"><a style="max-height: 75px; min-height:75px" class="ui-btn-c"><img  src="img/btn/icone-ajuda.png">PÂNICO</a></li>
+						<li style="max-height: 75px; min-height:75px"><a style="max-height: 75px; min-height:75px" href="#" onClick="sair()" class=""><img src="img/btn/icone-sair.png"> SAIR</a></li>
 					</ul>
 				</div>
 				</div>
@@ -184,7 +185,7 @@
 			
 			</div>					
 				
-			<div data-role="panel" id="Painelmenu" data-position="left" data-display="overlay" data-theme="a">
+			<div data-role="panel" data-position="left" data-display="overlay" data-theme="a" id="menu-pai">
 
 				<h2 class="tltmenu">NAVEGA&Ccedil;&Atilde;O R&Aacute;PIDA</h2>
 				<a href="#meus_dados" class="ui-btn btn-menu" onClick="meusdados();"><img src="img/btn/meus-dados-m.png"><br>MEUS DADOS</a>
@@ -198,7 +199,7 @@
 				<a href="#lista_convidados" onClick="chamarListaConvidados();" class="ui-btn btn-menu"><img src="img/btn/lista_convidados_pequena.png"><br>LISTA CONVIDADOS</a>
 				<a href="#correspondencias" onClick="chamarCorrespondencia;" class="ui-btn btn-menu"><img src="img/btn/correspondencia.png"><br>CORRESPONDÊNCIAS</a>
 				<a href="#classificados" onClick="classificados;" class=" ui-btn btn-menu"><img src="img/btn/classificados.png"><br>CLASSIFICADOS</a>
-				<a href="#" class="ui-btn btn-menu"><br>ABRIR PORTA</a>
+				<a href="#abrir_o_portao" class="ui-btn btn-menu"><br>ABRIR PORTA</a>
 				<a href="#" class=" ui-btn btn-menu"><img src="img/btn/alertas.png"><br>NOTIFICAÇÕES</a>
 				<a href="#log_usuario" onClick="logusuario();" class=" ui-btn btn-menu"><img src="img/btn/minha-casa.png"><br>LOG DO USUARIO</a>
 				<a href="#" class=" ui-btn btn-menu"><img src="img/btn/forum.png"><br>FORUMS</a>	
@@ -213,9 +214,9 @@
 				<div data-role="navbar" >
 					<ul >
 
-						<li style="max-height: 75px;"><a style="max-height: 75px;" href="#Painelmenu" class=""><img src="img/btn/menu.png"> MENU</a></li>
-						<li style="max-height: 75px;"><a style="max-height: 75px;" class="ui-btn-c"><img  src="img/btn/icone-ajuda.png">PÂNICO</a></li>
-						<li style="max-height: 75px;"><a style="max-height: 75px;" href="#" onClick="sair()" class=""><img src="img/btn/icone-sair.png"> SAIR</a></li>
+						<li style="max-height: 75px; min-height:75px"><a style="max-height: 75px; min-height:75px" href="#menu-pai" class=""><img src="img/btn/menu.png"> MENU</a></li>
+						<li style="max-height: 75px; min-height:75px"><a style="max-height: 75px; min-height:75px" class="ui-btn-c"><img  src="img/btn/icone-ajuda.png">PÂNICO</a></li>
+						<li style="max-height: 75px; min-height:75px"><a style="max-height: 75px; min-height:75px" href="#" onClick="sair()" class=""><img src="img/btn/icone-sair.png"> SAIR</a></li>
 					</ul>
 				</div>
 				</div>
@@ -250,7 +251,7 @@
 					</div>
 					
 	
-					<div data-role="panel" id="Painelmenu" data-position="left" data-display="overlay" data-theme="a">
+					<div data-role="panel" data-position="left" data-display="overlay" data-theme="a" id="menu-pai">
 
 				<h2 class="tltmenu">NAVEGA&Ccedil;&Atilde;O R&Aacute;PIDA</h2>
 				<a href="#meus_dados" class="ui-btn btn-menu" onClick="meusdados();"><img src="img/btn/meus-dados-m.png"><br>MEUS DADOS</a>
@@ -264,7 +265,7 @@
 				<a href="#lista_convidados" onClick="chamarListaConvidados();" class="ui-btn btn-menu"><img src="img/btn/lista_convidados_pequena.png"><br>LISTA CONVIDADOS</a>
 				<a href="#correspondencias" onClick="chamarCorrespondencia;" class="ui-btn btn-menu"><img src="img/btn/correspondencia.png"><br>CORRESPONDÊNCIAS</a>
 				<a href="#classificados" onClick="classificados;" class=" ui-btn btn-menu"><img src="img/btn/classificados.png"><br>CLASSIFICADOS</a>
-				<a href="#" class="ui-btn btn-menu"><br>ABRIR PORTA</a>
+				<a href="#abrir_o_portao" class="ui-btn btn-menu"><br>ABRIR PORTA</a>
 				<a href="#" class=" ui-btn btn-menu"><img src="img/btn/alertas.png"><br>NOTIFICAÇÕES</a>
 				<a href="#log_usuario" onClick="logusuario();" class=" ui-btn btn-menu"><img src="img/btn/minha-casa.png"><br>LOG DO USUARIO</a>
 				<a href="#" class=" ui-btn btn-menu"><img src="img/btn/forum.png"><br>FORUMS</a>	
@@ -279,9 +280,77 @@
 				<div data-role="navbar" >
 					<ul >
 
-						<li style="max-height: 75px;"><a style="max-height: 75px;" href="#Painelmenu" class=""><img src="img/btn/menu.png"> MENU</a></li>
-						<li style="max-height: 75px;"><a style="max-height: 75px;" class="ui-btn-c"><img  src="img/btn/icone-ajuda.png">PÂNICO</a></li>
-						<li style="max-height: 75px;"><a style="max-height: 75px;" href="#" onClick="sair()" class=""><img src="img/btn/icone-sair.png"> SAIR</a></li>
+						<li style="max-height: 75px; min-height:75px"><a style="max-height: 75px; min-height:75px" href="#menu-pai" class=""><img src="img/btn/menu.png"> MENU</a></li>
+						<li style="max-height: 75px; min-height:75px"><a style="max-height: 75px; min-height:75px" class="ui-btn-c"><img  src="img/btn/icone-ajuda.png">PÂNICO</a></li>
+						<li style="max-height: 75px; min-height:75px"><a style="max-height: 75px; min-height:75px" href="#" onClick="sair()" class=""><img src="img/btn/icone-sair.png"> SAIR</a></li>
+					</ul>
+				</div>
+				</div>
+			</div>
+		</div>
+		
+		
+		<div id="abrir_o_portao" class="login" data-role="page">
+				<a href="#painel" style="text-decoration:none;">
+					<div data-role="header" data-theme="a"> 	
+					<p class="txthead" style="font-size: 15px;" align="left"><img src="img/icones/icone-visto.png" style="margin: 0px 20px -4px -5px;">ABRIR PORTÃO<img src="img/icone1.png" align="right"></p>
+				
+				</div>
+				</a>
+				
+				<div data-role="content">
+					 <div id="MSGs" class="msgsucesso_portao" style="display:none">
+						<div data-role="header">
+							<p style="text-align:center;"> </p>
+						</div>
+					  </div>
+					
+					  <div id="MSGs" class="msgerro_portao" style="display:none">
+						<div data-role="header" data-theme="c" >							
+							<p style="text-align:center;"> </p>
+						</div>
+					  </div>
+					<div class="buscar">
+						<ul data-role="listview" id="listaportao"  data-filter="true" data-filter-placeholder=" Buscar...">
+						
+								
+						</ul>
+						</div>
+					</div>
+					
+	
+					<div data-role="panel" data-position="left" data-display="overlay" data-theme="a" id="menu-pai">
+
+				<h2 class="tltmenu">NAVEGA&Ccedil;&Atilde;O R&Aacute;PIDA</h2>
+				<a href="#meus_dados" class="ui-btn btn-menu" onClick="meusdados();"><img src="img/btn/meus-dados-m.png"><br>MEUS DADOS</a>
+				<a href="#meus_animais" class="ui-btn btn-menu" onClick="meusanimais();"><img src="img/btn/animais.png"><br>MEUS ANIMAIS</a>
+				<a href="#documentos_informes" onClick="documentos();" class="ui-btn btn-menu"><img src="img/btn/doc_pequeno.png"><br>DOCUMENTOS/INFORMES</a>
+				<a href="#reservas" onClick="reservas();" class=" ui-btn btn-menu"><img src="img/btn/reservas.png"><br>RESERVAS</a>
+				<a href="#eventos" onClick="eventos();" class=" ui-btn btn-menu"><img src="img/btn/eventos.png"><br>MEUS EVENTOS</a>
+				<a href="#minha_familia" onClick="chamarFamilia();" class=" ui-btn btn-menu"><img src="img/btn/minha-familia.png"><br>MINHA FAMÍLIA</a>
+				<a href="#ocorrencias" onClick="chamarOcorrencias();" class=" ui-btn btn-menu"><img src="img/btn/ocorrencias.png"><br>OCORRÊNCIAS</a>
+				<a href="#meus_veiculos" onClick="meusveiculos();" class=" ui-btn btn-menu"><img src="img/btn/veiculo-pequeno.png"><br>MEUS VEICULOS</a>
+				<a href="#lista_convidados" onClick="chamarListaConvidados();" class="ui-btn btn-menu"><img src="img/btn/lista_convidados_pequena.png"><br>LISTA CONVIDADOS</a>
+				<a href="#correspondencias" onClick="chamarCorrespondencia;" class="ui-btn btn-menu"><img src="img/btn/correspondencia.png"><br>CORRESPONDÊNCIAS</a>
+				<a href="#classificados" onClick="classificados;" class=" ui-btn btn-menu"><img src="img/btn/classificados.png"><br>CLASSIFICADOS</a>
+				<a href="#abrir_o_portao" class="ui-btn btn-menu"><br>ABRIR PORTA</a>
+				<a href="#" class=" ui-btn btn-menu"><img src="img/btn/alertas.png"><br>NOTIFICAÇÕES</a>
+				<a href="#log_usuario" onClick="logusuario();" class=" ui-btn btn-menu"><img src="img/btn/minha-casa.png"><br>LOG DO USUARIO</a>
+				<a href="#" class=" ui-btn btn-menu"><img src="img/btn/forum.png"><br>FORUMS</a>	
+				<a href="#" onClick="sair()" class=" ui-btn btn-menu ui-btn-c"><br>SAIR</a>					
+				<a href="#" class=" ui-btn btn-menu ui-btn-c"><img src="img/btn/panico.png"><br>ACIONAR PÂNICO</a>
+        
+
+		</div><!-- /leftpanel3 -->
+
+<div class="menu-rodape">
+					<div data-role="footer" data-position="fixed" data-id="vs_footer" data-theme="a">
+				<div data-role="navbar" >
+					<ul >
+
+						<li style="max-height: 75px; min-height:75px"><a style="max-height: 75px; min-height:75px" href="#menu-pai" class=""><img src="img/btn/menu.png"> MENU</a></li>
+						<li style="max-height: 75px; min-height:75px"><a style="max-height: 75px; min-height:75px" class="ui-btn-c"><img  src="img/btn/icone-ajuda.png">PÂNICO</a></li>
+						<li style="max-height: 75px; min-height:75px"><a style="max-height: 75px; min-height:75px" href="#" onClick="sair()" class=""><img src="img/btn/icone-sair.png"> SAIR</a></li>
 					</ul>
 				</div>
 				</div>
@@ -346,9 +415,8 @@
 					</ul>
 					</div>
 			</div>					
-				<div class="ui-bar ui-bar-c" style="height:45px;" >
-				</div>
-			<div data-role="panel" id="Painelmenu" data-position="left" data-display="overlay" data-theme="a">
+				
+			<div data-role="panel" data-position="left" data-display="overlay" data-theme="a" id="menu-pai">
 
 				<h2 class="tltmenu">NAVEGA&Ccedil;&Atilde;O R&Aacute;PIDA</h2>
 				<a href="#meus_dados" class="ui-btn btn-menu" onClick="meusdados();"><img src="img/btn/meus-dados-m.png"><br>MEUS DADOS</a>
@@ -362,7 +430,7 @@
 				<a href="#lista_convidados" onClick="chamarListaConvidados();" class="ui-btn btn-menu"><img src="img/btn/lista_convidados_pequena.png"><br>LISTA CONVIDADOS</a>
 				<a href="#correspondencias" onClick="chamarCorrespondencia;" class="ui-btn btn-menu"><img src="img/btn/correspondencia.png"><br>CORRESPONDÊNCIAS</a>
 				<a href="#classificados" onClick="classificados;" class=" ui-btn btn-menu"><img src="img/btn/classificados.png"><br>CLASSIFICADOS</a>
-				<a href="#" class="ui-btn btn-menu"><br>ABRIR PORTA</a>
+				<a href="#abrir_o_portao" class="ui-btn btn-menu"><br>ABRIR PORTA</a>
 				<a href="#" class=" ui-btn btn-menu"><img src="img/btn/alertas.png"><br>NOTIFICAÇÕES</a>
 				<a href="#log_usuario" onClick="logusuario();" class=" ui-btn btn-menu"><img src="img/btn/minha-casa.png"><br>LOG DO USUARIO</a>
 				<a href="#" class=" ui-btn btn-menu"><img src="img/btn/forum.png"><br>FORUMS</a>	
@@ -377,9 +445,9 @@
 				<div data-role="navbar" >
 					<ul >
 
-						<li style="max-height: 75px;"><a style="max-height: 75px;" href="#Painelmenu" class=""><img src="img/btn/menu.png"> MENU</a></li>
-						<li style="max-height: 75px;"><a style="max-height: 75px;" class="ui-btn-c"><img  src="img/btn/icone-ajuda.png">PÂNICO</a></li>
-						<li style="max-height: 75px;"><a style="max-height: 75px;" href="#" onClick="sair()" class=""><img src="img/btn/icone-sair.png"> SAIR</a></li>
+						<li style="max-height: 75px; min-height:75px"><a style="max-height: 75px; min-height:75px" href="#menu-pai" class=""><img src="img/btn/menu.png"> MENU</a></li>
+						<li style="max-height: 75px; min-height:75px"><a style="max-height: 75px; min-height:75px" class="ui-btn-c"><img  src="img/btn/icone-ajuda.png">PÂNICO</a></li>
+						<li style="max-height: 75px; min-height:75px"><a style="max-height: 75px; min-height:75px" href="#" onClick="sair()" class=""><img src="img/btn/icone-sair.png"> SAIR</a></li>
 					</ul>
 				</div>
 				</div>
@@ -431,7 +499,7 @@
 					</center>
 				
 		
-					<div data-role="panel" id="Painelmenu" data-position="left" data-display="overlay" data-theme="a">
+					<div data-role="panel" data-position="left" data-display="overlay" data-theme="a" id="menu-pai">
 
 				<h2 class="tltmenu">NAVEGA&Ccedil;&Atilde;O R&Aacute;PIDA</h2>
 				<a href="#meus_dados" class="ui-btn btn-menu" onClick="meusdados();"><img src="img/btn/meus-dados-m.png"><br>MEUS DADOS</a>
@@ -445,7 +513,7 @@
 				<a href="#lista_convidados" onClick="chamarListaConvidados();" class="ui-btn btn-menu"><img src="img/btn/lista_convidados_pequena.png"><br>LISTA CONVIDADOS</a>
 				<a href="#correspondencias" onClick="chamarCorrespondencia;" class="ui-btn btn-menu"><img src="img/btn/correspondencia.png"><br>CORRESPONDÊNCIAS</a>
 				<a href="#classificados" onClick="classificados;" class=" ui-btn btn-menu"><img src="img/btn/classificados.png"><br>CLASSIFICADOS</a>
-				<a href="#" class="ui-btn btn-menu"><br>ABRIR PORTA</a>
+				<a href="#abrir_o_portao" class="ui-btn btn-menu"><br>ABRIR PORTA</a>
 				<a href="#" class=" ui-btn btn-menu"><img src="img/btn/alertas.png"><br>NOTIFICAÇÕES</a>
 				<a href="#log_usuario" onClick="logusuario();" class=" ui-btn btn-menu"><img src="img/btn/minha-casa.png"><br>LOG DO USUARIO</a>
 				<a href="#" class=" ui-btn btn-menu"><img src="img/btn/forum.png"><br>FORUMS</a>	
@@ -460,9 +528,9 @@
 				<div data-role="navbar" >
 					<ul >
 
-						<li style="max-height: 75px;"><a style="max-height: 75px;" href="#Painelmenu" class=""><img src="img/btn/menu.png"> MENU</a></li>
-						<li style="max-height: 75px;"><a style="max-height: 75px;" class="ui-btn-c"><img  src="img/btn/icone-ajuda.png">PÂNICO</a></li>
-						<li style="max-height: 75px;"><a style="max-height: 75px;" href="#" onClick="sair()" class=""><img src="img/btn/icone-sair.png"> SAIR</a></li>
+						<li style="max-height: 75px; min-height:75px"><a style="max-height: 75px; min-height:75px" href="#menu-pai" class=""><img src="img/btn/menu.png"> MENU</a></li>
+						<li style="max-height: 75px; min-height:75px"><a style="max-height: 75px; min-height:75px" class="ui-btn-c"><img  src="img/btn/icone-ajuda.png">PÂNICO</a></li>
+						<li style="max-height: 75px; min-height:75px"><a style="max-height: 75px; min-height:75px" href="#" onClick="sair()" class=""><img src="img/btn/icone-sair.png"> SAIR</a></li>
 					</ul>
 				</div>
 				</div>
@@ -537,10 +605,9 @@
 						
 						</form>
 					</center>
-					<div class="ui-bar ui-bar-c" style="height:45px;" >
-					</div>
+					
 		
-					<div data-role="panel" id="Painelmenu" data-position="left" data-display="overlay" data-theme="a">
+					<div data-role="panel" data-position="left" data-display="overlay" data-theme="a" id="menu-pai">
 
 				<h2 class="tltmenu">NAVEGA&Ccedil;&Atilde;O R&Aacute;PIDA</h2>
 				<a href="#meus_dados" class="ui-btn btn-menu" onClick="meusdados();"><img src="img/btn/meus-dados-m.png"><br>MEUS DADOS</a>
@@ -554,7 +621,7 @@
 				<a href="#lista_convidados" onClick="chamarListaConvidados();" class="ui-btn btn-menu"><img src="img/btn/lista_convidados_pequena.png"><br>LISTA CONVIDADOS</a>
 				<a href="#correspondencias" onClick="chamarCorrespondencia;" class="ui-btn btn-menu"><img src="img/btn/correspondencia.png"><br>CORRESPONDÊNCIAS</a>
 				<a href="#classificados" onClick="classificados;" class=" ui-btn btn-menu"><img src="img/btn/classificados.png"><br>CLASSIFICADOS</a>
-				<a href="#" class="ui-btn btn-menu"><br>ABRIR PORTA</a>
+				<a href="#abrir_o_portao" class="ui-btn btn-menu"><br>ABRIR PORTA</a>
 				<a href="#" class=" ui-btn btn-menu"><img src="img/btn/alertas.png"><br>NOTIFICAÇÕES</a>
 				<a href="#log_usuario" onClick="logusuario();" class=" ui-btn btn-menu"><img src="img/btn/minha-casa.png"><br>LOG DO USUARIO</a>
 				<a href="#" class=" ui-btn btn-menu"><img src="img/btn/forum.png"><br>FORUMS</a>	
@@ -569,9 +636,9 @@
 				<div data-role="navbar" >
 					<ul >
 
-						<li style="max-height: 75px;"><a style="max-height: 75px;" href="#Painelmenu" class=""><img src="img/btn/menu.png"> MENU</a></li>
-						<li style="max-height: 75px;"><a style="max-height: 75px;" class="ui-btn-c"><img  src="img/btn/icone-ajuda.png">PÂNICO</a></li>
-						<li style="max-height: 75px;"><a style="max-height: 75px;" href="#" onClick="sair()" class=""><img src="img/btn/icone-sair.png"> SAIR</a></li>
+						<li style="max-height: 75px; min-height:75px"><a style="max-height: 75px; min-height:75px" href="#menu-pai" class=""><img src="img/btn/menu.png"> MENU</a></li>
+						<li style="max-height: 75px; min-height:75px"><a style="max-height: 75px; min-height:75px" class="ui-btn-c"><img  src="img/btn/icone-ajuda.png">PÂNICO</a></li>
+						<li style="max-height: 75px; min-height:75px"><a style="max-height: 75px; min-height:75px" href="#" onClick="sair()" class=""><img src="img/btn/icone-sair.png"> SAIR</a></li>
 					</ul>
 				</div>
 				</div>
@@ -615,10 +682,9 @@
 						</form>
 						
 					</center>
-					<div class="ui-bar ui-bar-c" style="height:45px;" >
-					</div>
+				
 		
-					<div data-role="panel" id="Painelmenu" data-position="left" data-display="overlay" data-theme="a">
+					<div data-role="panel" data-position="left" data-display="overlay" data-theme="a" id="menu-pai">
 
 				<h2 class="tltmenu">NAVEGA&Ccedil;&Atilde;O R&Aacute;PIDA</h2>
 				<a href="#meus_dados" class="ui-btn btn-menu" onClick="meusdados();"><img src="img/btn/meus-dados-m.png"><br>MEUS DADOS</a>
@@ -632,7 +698,7 @@
 				<a href="#lista_convidados" onClick="chamarListaConvidados();" class="ui-btn btn-menu"><img src="img/btn/lista_convidados_pequena.png"><br>LISTA CONVIDADOS</a>
 				<a href="#correspondencias" onClick="chamarCorrespondencia;" class="ui-btn btn-menu"><img src="img/btn/correspondencia.png"><br>CORRESPONDÊNCIAS</a>
 				<a href="#classificados" onClick="classificados;" class=" ui-btn btn-menu"><img src="img/btn/classificados.png"><br>CLASSIFICADOS</a>
-				<a href="#" class="ui-btn btn-menu"><br>ABRIR PORTA</a>
+				<a href="#abrir_o_portao" class="ui-btn btn-menu"><br>ABRIR PORTA</a>
 				<a href="#" class=" ui-btn btn-menu"><img src="img/btn/alertas.png"><br>NOTIFICAÇÕES</a>
 				<a href="#log_usuario" onClick="logusuario();" class=" ui-btn btn-menu"><img src="img/btn/minha-casa.png"><br>LOG DO USUARIO</a>
 				<a href="#" class=" ui-btn btn-menu"><img src="img/btn/forum.png"><br>FORUMS</a>	
@@ -647,9 +713,9 @@
 				<div data-role="navbar" >
 					<ul >
 
-						<li style="max-height: 75px;"><a style="max-height: 75px;" href="#Painelmenu" class=""><img src="img/btn/menu.png"> MENU</a></li>
-						<li style="max-height: 75px;"><a style="max-height: 75px;" class="ui-btn-c"><img  src="img/btn/icone-ajuda.png">PÂNICO</a></li>
-						<li style="max-height: 75px;"><a style="max-height: 75px;" href="#" onClick="sair()" class=""><img src="img/btn/icone-sair.png"> SAIR</a></li>
+						<li style="max-height: 75px; min-height:75px"><a style="max-height: 75px; min-height:75px" href="#menu-pai" class=""><img src="img/btn/menu.png"> MENU</a></li>
+						<li style="max-height: 75px; min-height:75px"><a style="max-height: 75px; min-height:75px" class="ui-btn-c"><img  src="img/btn/icone-ajuda.png">PÂNICO</a></li>
+						<li style="max-height: 75px; min-height:75px"><a style="max-height: 75px; min-height:75px" href="#" onClick="sair()" class=""><img src="img/btn/icone-sair.png"> SAIR</a></li>
 					</ul>
 				</div>
 				</div>
@@ -705,7 +771,7 @@
 					</center>
 					
 		
-					<div data-role="panel" id="Painelmenu" data-position="left" data-display="overlay" data-theme="a">
+					<div data-role="panel" data-position="left" data-display="overlay" data-theme="a" id="menu-pai">
 
 				<h2 class="tltmenu">NAVEGA&Ccedil;&Atilde;O R&Aacute;PIDA</h2>
 				<a href="#meus_dados" class="ui-btn btn-menu" onClick="meusdados();"><img src="img/btn/meus-dados-m.png"><br>MEUS DADOS</a>
@@ -719,7 +785,7 @@
 				<a href="#lista_convidados" onClick="chamarListaConvidados();" class="ui-btn btn-menu"><img src="img/btn/lista_convidados_pequena.png"><br>LISTA CONVIDADOS</a>
 				<a href="#correspondencias" onClick="chamarCorrespondencia;" class="ui-btn btn-menu"><img src="img/btn/correspondencia.png"><br>CORRESPONDÊNCIAS</a>
 				<a href="#classificados" onClick="classificados;" class=" ui-btn btn-menu"><img src="img/btn/classificados.png"><br>CLASSIFICADOS</a>
-				<a href="#" class="ui-btn btn-menu"><br>ABRIR PORTA</a>
+				<a href="#abrir_o_portao" class="ui-btn btn-menu"><br>ABRIR PORTA</a>
 				<a href="#" class=" ui-btn btn-menu"><img src="img/btn/alertas.png"><br>NOTIFICAÇÕES</a>
 				<a href="#log_usuario" onClick="logusuario();" class="ui-btn btn-menu"><img src="img/btn/minha-casa.png"><br>LOG DO USUARIO</a>				
 				<a href="#" class=" ui-btn btn-menu"><img src="img/btn/forum.png"><br>FORUMS</a>		
@@ -734,9 +800,9 @@
 				<div data-role="navbar" >
 					<ul >
 
-						<li style="max-height: 75px;"><a style="max-height: 75px;" href="#Painelmenu" class=""><img src="img/btn/menu.png"> MENU</a></li>
-						<li style="max-height: 75px;"><a style="max-height: 75px;" class="ui-btn-c"><img  src="img/btn/icone-ajuda.png">PÂNICO</a></li>
-						<li style="max-height: 75px;"><a style="max-height: 75px;" href="#" onClick="sair()" class=""><img src="img/btn/icone-sair.png"> SAIR</a></li>
+						<li style="max-height: 75px; min-height:75px"><a style="max-height: 75px; min-height:75px" href="#menu-pai" class=""><img src="img/btn/menu.png"> MENU</a></li>
+						<li style="max-height: 75px; min-height:75px"><a style="max-height: 75px; min-height:75px" class="ui-btn-c"><img  src="img/btn/icone-ajuda.png">PÂNICO</a></li>
+						<li style="max-height: 75px; min-height:75px"><a style="max-height: 75px; min-height:75px" href="#" onClick="sair()" class=""><img src="img/btn/icone-sair.png"> SAIR</a></li>
 					</ul>
 				</div>
 				</div>
@@ -825,10 +891,9 @@
 						
 						</form>
 					</center>
-					<div class="ui-bar ui-bar-c" style="height:45px;" >
-					</div>
+					
 		
-					<div data-role="panel" id="Painelmenu" data-position="left" data-display="overlay" data-theme="a">
+					<div data-role="panel" data-position="left" data-display="overlay" data-theme="a" id="menu-pai">
 
 				<h2 class="tltmenu">NAVEGA&Ccedil;&Atilde;O R&Aacute;PIDA</h2>
 				<a href="#meus_dados" class="ui-btn btn-menu" onClick="meusdados();"><img src="img/btn/meus-dados-m.png"><br>MEUS DADOS</a>
@@ -842,7 +907,7 @@
 				<a href="#lista_convidados" onClick="chamarListaConvidados();" class="ui-btn btn-menu"><img src="img/btn/lista_convidados_pequena.png"><br>LISTA CONVIDADOS</a>
 				<a href="#correspondencias" onClick="chamarCorrespondencia;" class="ui-btn btn-menu"><img src="img/btn/correspondencia.png"><br>CORRESPONDÊNCIAS</a>
 				<a href="#classificados" onClick="classificados;" class=" ui-btn btn-menu"><img src="img/btn/classificados.png"><br>CLASSIFICADOS</a>
-				<a href="#" class="ui-btn btn-menu"><br>ABRIR PORTA</a>
+				<a href="#abrir_o_portao" class="ui-btn btn-menu"><br>ABRIR PORTA</a>
 				<a href="#" class=" ui-btn btn-menu"><img src="img/btn/alertas.png"><br>NOTIFICAÇÕES</a>
 				<a href="#log_usuario" onClick="logusuario();" class=" ui-btn btn-menu"><img src="img/btn/minha-casa.png"><br>LOG DO USUARIO</a>
 				<a href="#" class=" ui-btn btn-menu"><img src="img/btn/forum.png"><br>FORUMS</a>	
@@ -857,9 +922,9 @@
 				<div data-role="navbar" >
 					<ul >
 
-						<li style="max-height: 75px;"><a style="max-height: 75px;" href="#Painelmenu" class=""><img src="img/btn/menu.png"> MENU</a></li>
-						<li style="max-height: 75px;"><a style="max-height: 75px;" class="ui-btn-c"><img  src="img/btn/icone-ajuda.png">PÂNICO</a></li>
-						<li style="max-height: 75px;"><a style="max-height: 75px;" href="#" onClick="sair()" class=""><img src="img/btn/icone-sair.png"> SAIR</a></li>
+						<li style="max-height: 75px; min-height:75px"><a style="max-height: 75px; min-height:75px" href="#menu-pai" class=""><img src="img/btn/menu.png"> MENU</a></li>
+						<li style="max-height: 75px; min-height:75px"><a style="max-height: 75px; min-height:75px" class="ui-btn-c"><img  src="img/btn/icone-ajuda.png">PÂNICO</a></li>
+						<li style="max-height: 75px; min-height:75px"><a style="max-height: 75px; min-height:75px" href="#" onClick="sair()" class=""><img src="img/btn/icone-sair.png"> SAIR</a></li>
 					</ul>
 				</div>
 				</div>
@@ -912,7 +977,7 @@
 					</center>
 					
 		
-					<div data-role="panel" id="Painelmenu" data-position="left" data-display="overlay" data-theme="a">
+					<div data-role="panel" data-position="left" data-display="overlay" data-theme="a" id="menu-pai">
 
 				<h2 class="tltmenu">NAVEGA&Ccedil;&Atilde;O R&Aacute;PIDA</h2>
 				<a href="#meus_dados" class="ui-btn btn-menu" onClick="meusdados();"><img src="img/btn/meus-dados-m.png"><br>MEUS DADOS</a>
@@ -926,7 +991,7 @@
 				<a href="#lista_convidados" onClick="chamarListaConvidados();" class="ui-btn btn-menu"><img src="img/btn/lista_convidados_pequena.png"><br>LISTA CONVIDADOS</a>
 				<a href="#correspondencias" onClick="chamarCorrespondencia;" class="ui-btn btn-menu"><img src="img/btn/correspondencia.png"><br>CORRESPONDÊNCIAS</a>
 				<a href="#classificados" onClick="classificados;" class=" ui-btn btn-menu"><img src="img/btn/classificados.png"><br>CLASSIFICADOS</a>
-				<a href="#" class="ui-btn btn-menu"><br>ABRIR PORTA</a>
+				<a href="#abrir_o_portao" class="ui-btn btn-menu"><br>ABRIR PORTA</a>
 				<a href="#" class=" ui-btn btn-menu"><img src="img/btn/alertas.png"><br>NOTIFICAÇÕES</a>
 				<a href="#log_usuario" onClick="logusuario();" class=" ui-btn btn-menu"><img src="img/btn/minha-casa.png"><br>LOG DO USUARIO</a>
 				<a href="#" class=" ui-btn btn-menu"><img src="img/btn/forum.png"><br>FORUMS</a>	
@@ -941,9 +1006,9 @@
 				<div data-role="navbar" >
 					<ul >
 
-						<li style="max-height: 75px;"><a style="max-height: 75px;" href="#Painelmenu" class=""><img src="img/btn/menu.png"> MENU</a></li>
-						<li style="max-height: 75px;"><a style="max-height: 75px;" class="ui-btn-c"><img  src="img/btn/icone-ajuda.png">PÂNICO</a></li>
-						<li style="max-height: 75px;"><a style="max-height: 75px;" href="#" onClick="sair()" class=""><img src="img/btn/icone-sair.png"> SAIR</a></li>
+						<li style="max-height: 75px; min-height:75px"><a style="max-height: 75px; min-height:75px" href="#menu-pai" class=""><img src="img/btn/menu.png"> MENU</a></li>
+						<li style="max-height: 75px; min-height:75px"><a style="max-height: 75px; min-height:75px" class="ui-btn-c"><img  src="img/btn/icone-ajuda.png">PÂNICO</a></li>
+						<li style="max-height: 75px; min-height:75px"><a style="max-height: 75px; min-height:75px" href="#" onClick="sair()" class=""><img src="img/btn/icone-sair.png"> SAIR</a></li>
 					</ul>
 				</div>
 				</div>
@@ -988,7 +1053,7 @@
 					</center>
 
 					
-					<div data-role="panel" id="Painelmenu" data-position="left" data-display="overlay" data-theme="a">
+					<div data-role="panel" data-position="left" data-display="overlay" data-theme="a" id="menu-pai">
 
 				<h2 class="tltmenu">NAVEGA&Ccedil;&Atilde;O R&Aacute;PIDA</h2>
 				<a href="#meus_dados" class="ui-btn btn-menu" onClick="meusdados();"><img src="img/btn/meus-dados-m.png"><br>MEUS DADOS</a>
@@ -1002,7 +1067,7 @@
 				<a href="#lista_convidados" onClick="chamarListaConvidados();" class="ui-btn btn-menu"><img src="img/btn/lista_convidados_pequena.png"><br>LISTA CONVIDADOS</a>
 				<a href="#correspondencias" onClick="chamarCorrespondencia;" class="ui-btn btn-menu"><img src="img/btn/correspondencia.png"><br>CORRESPONDÊNCIAS</a>
 				<a href="#classificados" onClick="classificados;" class=" ui-btn btn-menu"><img src="img/btn/classificados.png"><br>CLASSIFICADOS</a>
-				<a href="#" class="ui-btn btn-menu"><br>ABRIR PORTA</a>
+				<a href="#abrir_o_portao" class="ui-btn btn-menu"><br>ABRIR PORTA</a>
 				<a href="#" class=" ui-btn btn-menu"><img src="img/btn/alertas.png"><br>NOTIFICAÇÕES</a>
 				<a href="#log_usuario" onClick="logusuario();" class=" ui-btn btn-menu"><img src="img/btn/minha-casa.png"><br>LOG DO USUARIO</a>
 				<a href="#" class=" ui-btn btn-menu"><img src="img/btn/forum.png"><br>FORUMS</a>	
@@ -1017,9 +1082,9 @@
 				<div data-role="navbar" >
 					<ul >
 
-						<li style="max-height: 75px;"><a style="max-height: 75px;" href="#Painelmenu" class=""><img src="img/btn/menu.png"> MENU</a></li>
-						<li style="max-height: 75px;"><a style="max-height: 75px;" class="ui-btn-c"><img  src="img/btn/icone-ajuda.png">PÂNICO</a></li>
-						<li style="max-height: 75px;"><a style="max-height: 75px;" href="#" onClick="sair()" class=""><img src="img/btn/icone-sair.png"> SAIR</a></li>
+						<li style="max-height: 75px; min-height:75px"><a style="max-height: 75px; min-height:75px" href="#menu-pai" class=""><img src="img/btn/menu.png"> MENU</a></li>
+						<li style="max-height: 75px; min-height:75px"><a style="max-height: 75px; min-height:75px" class="ui-btn-c"><img  src="img/btn/icone-ajuda.png">PÂNICO</a></li>
+						<li style="max-height: 75px; min-height:75px"><a style="max-height: 75px; min-height:75px" href="#" onClick="sair()" class=""><img src="img/btn/icone-sair.png"> SAIR</a></li>
 					</ul>
 				</div>
 				</div>
@@ -1060,7 +1125,7 @@
 						
 					</center>
 					
-					<div data-role="panel" id="Painelmenu" data-position="left" data-display="overlay" data-theme="a">
+					<div data-role="panel" data-position="left" data-display="overlay" data-theme="a" id="menu-pai">
 
 				<h2 class="tltmenu">NAVEGA&Ccedil;&Atilde;O R&Aacute;PIDA</h2>
 				<a href="#meus_dados" class="ui-btn btn-menu" onClick="meusdados();"><img src="img/btn/meus-dados-m.png"><br>MEUS DADOS</a>
@@ -1074,7 +1139,7 @@
 				<a href="#lista_convidados" onClick="chamarListaConvidados();" class="ui-btn btn-menu"><img src="img/btn/lista_convidados_pequena.png"><br>LISTA CONVIDADOS</a>
 				<a href="#correspondencias" onClick="chamarCorrespondencia;" class="ui-btn btn-menu"><img src="img/btn/correspondencia.png"><br>CORRESPONDÊNCIAS</a>
 				<a href="#classificados" onClick="classificados;" class=" ui-btn btn-menu"><img src="img/btn/classificados.png"><br>CLASSIFICADOS</a>
-				<a href="#" class="ui-btn btn-menu"><br>ABRIR PORTA</a>
+				<a href="#abrir_o_portao" class="ui-btn btn-menu"><br>ABRIR PORTA</a>
 				<a href="#" class=" ui-btn btn-menu"><img src="img/btn/alertas.png"><br>NOTIFICAÇÕES</a>
 				<a href="#log_usuario" onClick="logusuario();" class=" ui-btn btn-menu"><img src="img/btn/minha-casa.png"><br>LOG DO USUARIO</a>
 				<a href="#" class=" ui-btn btn-menu"><img src="img/btn/forum.png"><br>FORUMS</a>	
@@ -1089,9 +1154,9 @@
 				<div data-role="navbar" >
 					<ul >
 
-						<li style="max-height: 75px;"><a style="max-height: 75px;" href="#Painelmenu" class=""><img src="img/btn/menu.png"> MENU</a></li>
-						<li style="max-height: 75px;"><a style="max-height: 75px;" class="ui-btn-c"><img  src="img/btn/icone-ajuda.png">PÂNICO</a></li>
-						<li style="max-height: 75px;"><a style="max-height: 75px;" href="#" onClick="sair()" class=""><img src="img/btn/icone-sair.png"> SAIR</a></li>
+						<li style="max-height: 75px; min-height:75px"><a style="max-height: 75px; min-height:75px" href="#menu-pai" class=""><img src="img/btn/menu.png"> MENU</a></li>
+						<li style="max-height: 75px; min-height:75px"><a style="max-height: 75px; min-height:75px" class="ui-btn-c"><img  src="img/btn/icone-ajuda.png">PÂNICO</a></li>
+						<li style="max-height: 75px; min-height:75px"><a style="max-height: 75px; min-height:75px" href="#" onClick="sair()" class=""><img src="img/btn/icone-sair.png"> SAIR</a></li>
 					</ul>
 				</div>
 				</div>
@@ -1118,7 +1183,7 @@
 					</div>
 			</div>					
 				
-			<div data-role="panel" id="Painelmenu" data-position="left" data-display="overlay" data-theme="a">
+			<div data-role="panel" data-position="left" data-display="overlay" data-theme="a" id="menu-pai">
 
 				<h2 class="tltmenu">NAVEGA&Ccedil;&Atilde;O R&Aacute;PIDA</h2>
 				<a href="#meus_dados" class="ui-btn btn-menu" onClick="meusdados();"><img src="img/btn/meus-dados-m.png"><br>MEUS DADOS</a>
@@ -1132,7 +1197,7 @@
 				<a href="#lista_convidados" onClick="chamarListaConvidados();" class="ui-btn btn-menu"><img src="img/btn/lista_convidados_pequena.png"><br>LISTA CONVIDADOS</a>
 				<a href="#correspondencias" onClick="chamarCorrespondencia;" class="ui-btn btn-menu"><img src="img/btn/correspondencia.png"><br>CORRESPONDÊNCIAS</a>
 				<a href="#classificados" onClick="classificados;" class=" ui-btn btn-menu"><img src="img/btn/classificados.png"><br>CLASSIFICADOS</a>
-				<a href="#" class="ui-btn btn-menu"><br>ABRIR PORTA</a>
+				<a href="#abrir_o_portao" class="ui-btn btn-menu"><br>ABRIR PORTA</a>
 				<a href="#" class=" ui-btn btn-menu"><img src="img/btn/alertas.png"><br>NOTIFICAÇÕES</a>
 				<a href="#log_usuario" onClick="logusuario();" class=" ui-btn btn-menu"><img src="img/btn/minha-casa.png"><br>LOG DO USUARIO</a>
 				<a href="#" class=" ui-btn btn-menu"><img src="img/btn/forum.png"><br>FORUMS</a>	
@@ -1147,9 +1212,9 @@
 				<div data-role="navbar" >
 					<ul >
 
-						<li style="max-height: 75px;"><a style="max-height: 75px;" href="#Painelmenu" class=""><img src="img/btn/menu.png"> MENU</a></li>
-						<li style="max-height: 75px;"><a style="max-height: 75px;" class="ui-btn-c"><img  src="img/btn/icone-ajuda.png">PÂNICO</a></li>
-						<li style="max-height: 75px;"><a style="max-height: 75px;" href="#" onClick="sair()" class=""><img src="img/btn/icone-sair.png"> SAIR</a></li>
+						<li style="max-height: 75px; min-height:75px"><a style="max-height: 75px; min-height:75px" href="#menu-pai" class=""><img src="img/btn/menu.png"> MENU</a></li>
+						<li style="max-height: 75px; min-height:75px"><a style="max-height: 75px; min-height:75px" class="ui-btn-c"><img  src="img/btn/icone-ajuda.png">PÂNICO</a></li>
+						<li style="max-height: 75px; min-height:75px"><a style="max-height: 75px; min-height:75px" href="#" onClick="sair()" class=""><img src="img/btn/icone-sair.png"> SAIR</a></li>
 					</ul>
 				</div>
 				</div>
@@ -1219,7 +1284,7 @@
 					
 		
 					
-					<div data-role="panel" id="Painelmenu" data-position="left" data-display="overlay" data-theme="a">
+					<div data-role="panel" data-position="left" data-display="overlay" data-theme="a" id="menu-pai">
 
 				<h2 class="tltmenu">NAVEGA&Ccedil;&Atilde;O R&Aacute;PIDA</h2>
 				<a href="#meus_dados" class="ui-btn btn-menu" onClick="meusdados();"><img src="img/btn/meus-dados-m.png"><br>MEUS DADOS</a>
@@ -1233,7 +1298,7 @@
 				<a href="#lista_convidados" onClick="chamarListaConvidados();" class="ui-btn btn-menu"><img src="img/btn/lista_convidados_pequena.png"><br>LISTA CONVIDADOS</a>
 				<a href="#correspondencias" onClick="chamarCorrespondencia;" class="ui-btn btn-menu"><img src="img/btn/correspondencia.png"><br>CORRESPONDÊNCIAS</a>
 				<a href="#classificados" onClick="classificados;" class=" ui-btn btn-menu"><img src="img/btn/classificados.png"><br>CLASSIFICADOS</a>
-				<a href="#" class="ui-btn btn-menu"><br>ABRIR PORTA</a>
+				<a href="#abrir_o_portao" class="ui-btn btn-menu"><br>ABRIR PORTA</a>
 				<a href="#" class=" ui-btn btn-menu"><img src="img/btn/alertas.png"><br>NOTIFICAÇÕES</a>
 				<a href="#log_usuario" onClick="logusuario();" class=" ui-btn btn-menu"><img src="img/btn/minha-casa.png"><br>LOG DO USUARIO</a>
 				<a href="#" class=" ui-btn btn-menu"><img src="img/btn/forum.png"><br>FORUMS</a>	
@@ -1248,9 +1313,9 @@
 				<div data-role="navbar" >
 					<ul >
 
-						<li style="max-height: 75px;"><a style="max-height: 75px;" href="#Painelmenu" class=""><img src="img/btn/menu.png"> MENU</a></li>
-						<li style="max-height: 75px;"><a style="max-height: 75px;" class="ui-btn-c"><img  src="img/btn/icone-ajuda.png">PÂNICO</a></li>
-						<li style="max-height: 75px;"><a style="max-height: 75px;" href="#" onClick="sair()" class=""><img src="img/btn/icone-sair.png"> SAIR</a></li>
+						<li style="max-height: 75px; min-height:75px"><a style="max-height: 75px; min-height:75px" href="#menu-pai" class=""><img src="img/btn/menu.png"> MENU</a></li>
+						<li style="max-height: 75px; min-height:75px"><a style="max-height: 75px; min-height:75px" class="ui-btn-c"><img  src="img/btn/icone-ajuda.png">PÂNICO</a></li>
+						<li style="max-height: 75px; min-height:75px"><a style="max-height: 75px; min-height:75px" href="#" onClick="sair()" class=""><img src="img/btn/icone-sair.png"> SAIR</a></li>
 					</ul>
 				</div>
 				</div>
@@ -1313,7 +1378,7 @@
 					</div>
 	</div>					
 					
-					<div data-role="panel" id="Painelmenu" data-position="left" data-display="overlay" data-theme="a">
+					<div data-role="panel" data-position="left" data-display="overlay" data-theme="a" id="menu-pai">
 
 				<h2 class="tltmenu">NAVEGA&Ccedil;&Atilde;O R&Aacute;PIDA</h2>
 				<a href="#meus_dados" class="ui-btn btn-menu" onClick="meusdados();"><img src="img/btn/meus-dados-m.png"><br>MEUS DADOS</a>
@@ -1327,7 +1392,7 @@
 				<a href="#lista_convidados" onClick="chamarListaConvidados();" class="ui-btn btn-menu"><img src="img/btn/lista_convidados_pequena.png"><br>LISTA CONVIDADOS</a>
 				<a href="#correspondencias" onClick="chamarCorrespondencia;" class="ui-btn btn-menu"><img src="img/btn/correspondencia.png"><br>CORRESPONDÊNCIAS</a>
 				<a href="#classificados" onClick="classificados;" class=" ui-btn btn-menu"><img src="img/btn/classificados.png"><br>CLASSIFICADOS</a>
-				<a href="#" class="ui-btn btn-menu"><br>ABRIR PORTA</a>
+				<a href="#abrir_o_portao" class="ui-btn btn-menu"><br>ABRIR PORTA</a>
 				<a href="#" class=" ui-btn btn-menu"><img src="img/btn/alertas.png"><br>NOTIFICAÇÕES</a>
 				<a href="#log_usuario" onClick="logusuario();" class=" ui-btn btn-menu"><img src="img/btn/minha-casa.png"><br>LOG DO USUARIO</a>
 				<a href="#" class=" ui-btn btn-menu"><img src="img/btn/forum.png"><br>FORUMS</a>	
@@ -1342,9 +1407,9 @@
 				<div data-role="navbar" >
 					<ul >
 
-						<li style="max-height: 75px;"><a style="max-height: 75px;" href="#Painelmenu" class=""><img src="img/btn/menu.png"> MENU</a></li>
-						<li style="max-height: 75px;"><a style="max-height: 75px;" class="ui-btn-c"><img  src="img/btn/icone-ajuda.png">PÂNICO</a></li>
-						<li style="max-height: 75px;"><a style="max-height: 75px;" href="#" onClick="sair()" class=""><img src="img/btn/icone-sair.png"> SAIR</a></li>
+						<li style="max-height: 75px; min-height:75px"><a style="max-height: 75px; min-height:75px" href="#menu-pai" class=""><img src="img/btn/menu.png"> MENU</a></li>
+						<li style="max-height: 75px; min-height:75px"><a style="max-height: 75px; min-height:75px" class="ui-btn-c"><img  src="img/btn/icone-ajuda.png">PÂNICO</a></li>
+						<li style="max-height: 75px; min-height:75px"><a style="max-height: 75px; min-height:75px" href="#" onClick="sair()" class=""><img src="img/btn/icone-sair.png"> SAIR</a></li>
 					</ul>
 				</div>
 				</div>
@@ -1390,7 +1455,7 @@
 				</div>
 
 				
-					<div data-role="panel" id="Painelmenu" data-position="left" data-display="overlay" data-theme="a">
+					<div data-role="panel" data-position="left" data-display="overlay" data-theme="a" id="menu-pai">
 
 				<h2 class="tltmenu">NAVEGA&Ccedil;&Atilde;O R&Aacute;PIDA</h2>
 				<a href="#meus_dados" class="ui-btn btn-menu" onClick="meusdados();"><img src="img/btn/meus-dados-m.png"><br>MEUS DADOS</a>
@@ -1404,7 +1469,7 @@
 				<a href="#lista_convidados" onClick="chamarListaConvidados();" class="ui-btn btn-menu"><img src="img/btn/lista_convidados_pequena.png"><br>LISTA CONVIDADOS</a>
 				<a href="#correspondencias" onClick="chamarCorrespondencia;" class="ui-btn btn-menu"><img src="img/btn/correspondencia.png"><br>CORRESPONDÊNCIAS</a>
 				<a href="#classificados" onClick="classificados;" class=" ui-btn btn-menu"><img src="img/btn/classificados.png"><br>CLASSIFICADOS</a>
-				<a href="#" class="ui-btn btn-menu"><br>ABRIR PORTA</a>
+				<a href="#abrir_o_portao" class="ui-btn btn-menu"><br>ABRIR PORTA</a>
 				<a href="#" class=" ui-btn btn-menu"><img src="img/btn/alertas.png"><br>NOTIFICAÇÕES</a>
 				<a href="#log_usuario" onClick="logusuario();" class=" ui-btn btn-menu"><img src="img/btn/minha-casa.png"><br>LOG DO USUARIO</a>
 				<a href="#" class=" ui-btn btn-menu"><img src="img/btn/forum.png"><br>FORUMS</a>	
@@ -1419,9 +1484,9 @@
 				<div data-role="navbar" >
 					<ul >
 
-						<li style="max-height: 75px;"><a style="max-height: 75px;" href="#Painelmenu" class=""><img src="img/btn/menu.png"> MENU</a></li>
-						<li style="max-height: 75px;"><a style="max-height: 75px;" class="ui-btn-c"><img  src="img/btn/icone-ajuda.png">PÂNICO</a></li>
-						<li style="max-height: 75px;"><a style="max-height: 75px;" href="#" onClick="sair()" class=""><img src="img/btn/icone-sair.png"> SAIR</a></li>
+						<li style="max-height: 75px; min-height:75px"><a style="max-height: 75px; min-height:75px" href="#menu-pai" class=""><img src="img/btn/menu.png"> MENU</a></li>
+						<li style="max-height: 75px; min-height:75px"><a style="max-height: 75px; min-height:75px" class="ui-btn-c"><img  src="img/btn/icone-ajuda.png">PÂNICO</a></li>
+						<li style="max-height: 75px; min-height:75px"><a style="max-height: 75px; min-height:75px" href="#" onClick="sair()" class=""><img src="img/btn/icone-sair.png"> SAIR</a></li>
 					</ul>
 				</div>
 				</div>
@@ -1506,7 +1571,7 @@
 						
 					</center>
 					
-					<div data-role="panel" id="Painelmenu" data-position="left" data-display="overlay" data-theme="a">
+					<div data-role="panel" data-position="left" data-display="overlay" data-theme="a" id="menu-pai">
 
 				<h2 class="tltmenu">NAVEGA&Ccedil;&Atilde;O R&Aacute;PIDA</h2>
 				<a href="#meus_dados" class="ui-btn btn-menu" onClick="meusdados();"><img src="img/btn/meus-dados-m.png"><br>MEUS DADOS</a>
@@ -1520,7 +1585,7 @@
 				<a href="#lista_convidados" onClick="chamarListaConvidados();" class="ui-btn btn-menu"><img src="img/btn/lista_convidados_pequena.png"><br>LISTA CONVIDADOS</a>
 				<a href="#correspondencias" onClick="chamarCorrespondencia;" class="ui-btn btn-menu"><img src="img/btn/correspondencia.png"><br>CORRESPONDÊNCIAS</a>
 				<a href="#classificados" onClick="classificados;" class=" ui-btn btn-menu"><img src="img/btn/classificados.png"><br>CLASSIFICADOS</a>
-				<a href="#" class="ui-btn btn-menu"><br>ABRIR PORTA</a>
+				<a href="#abrir_o_portao" class="ui-btn btn-menu"><br>ABRIR PORTA</a>
 				<a href="#" class=" ui-btn btn-menu"><img src="img/btn/alertas.png"><br>NOTIFICAÇÕES</a>
 				<a href="#log_usuario" onClick="logusuario();" class=" ui-btn btn-menu"><img src="img/btn/minha-casa.png"><br>LOG DO USUARIO</a>
 				<a href="#" class=" ui-btn btn-menu"><img src="img/btn/forum.png"><br>FORUMS</a>	
@@ -1535,9 +1600,9 @@
 				<div data-role="navbar" >
 					<ul >
 
-						<li style="max-height: 75px;"><a style="max-height: 75px;" href="#Painelmenu" class=""><img src="img/btn/menu.png"> MENU</a></li>
-						<li style="max-height: 75px;"><a style="max-height: 75px;" class="ui-btn-c"><img  src="img/btn/icone-ajuda.png">PÂNICO</a></li>
-						<li style="max-height: 75px;"><a style="max-height: 75px;" href="#" onClick="sair()" class=""><img src="img/btn/icone-sair.png"> SAIR</a></li>
+						<li style="max-height: 75px; min-height:75px"><a style="max-height: 75px; min-height:75px" href="#menu-pai" class=""><img src="img/btn/menu.png"> MENU</a></li>
+						<li style="max-height: 75px; min-height:75px"><a style="max-height: 75px; min-height:75px" class="ui-btn-c"><img  src="img/btn/icone-ajuda.png">PÂNICO</a></li>
+						<li style="max-height: 75px; min-height:75px"><a style="max-height: 75px; min-height:75px" href="#" onClick="sair()" class=""><img src="img/btn/icone-sair.png"> SAIR</a></li>
 					</ul>
 				</div>
 				</div>
@@ -1596,7 +1661,7 @@
 							</li>
 						</ul>					
 				</div>
-				<div data-role="panel" id="Painelmenu" data-position="left" data-display="overlay" data-theme="a">
+				<div data-role="panel" data-position="left" data-display="overlay" data-theme="a" id="menu-pai">
 
 				<h2 class="tltmenu">NAVEGA&Ccedil;&Atilde;O R&Aacute;PIDA</h2>
 				<a href="#meus_dados" class="ui-btn btn-menu" onClick="meusdados();"><img src="img/btn/meus-dados-m.png"><br>MEUS DADOS</a>
@@ -1610,7 +1675,7 @@
 				<a href="#lista_convidados" onClick="chamarListaConvidados();" class="ui-btn btn-menu"><img src="img/btn/lista_convidados_pequena.png"><br>LISTA CONVIDADOS</a>
 				<a href="#correspondencias" onClick="chamarCorrespondencia;" class="ui-btn btn-menu"><img src="img/btn/correspondencia.png"><br>CORRESPONDÊNCIAS</a>
 				<a href="#classificados" onClick="classificados;" class=" ui-btn btn-menu"><img src="img/btn/classificados.png"><br>CLASSIFICADOS</a>
-				<a href="#" class="ui-btn btn-menu"><br>ABRIR PORTA</a>
+				<a href="#abrir_o_portao" class="ui-btn btn-menu"><br>ABRIR PORTA</a>
 				<a href="#" class=" ui-btn btn-menu"><img src="img/btn/alertas.png"><br>NOTIFICAÇÕES</a>
 				<a href="#log_usuario" onClick="logusuario();" class=" ui-btn btn-menu"><img src="img/btn/minha-casa.png"><br>LOG DO USUARIO</a>
 				<a href="#" class=" ui-btn btn-menu"><img src="img/btn/forum.png"><br>FORUMS</a>	
@@ -1625,9 +1690,9 @@
 				<div data-role="navbar" >
 					<ul >
 
-						<li style="max-height: 75px;"><a style="max-height: 75px;" href="#Painelmenu" class=""><img src="img/btn/menu.png"> MENU</a></li>
-						<li style="max-height: 75px;"><a style="max-height: 75px;" class="ui-btn-c"><img  src="img/btn/icone-ajuda.png">PÂNICO</a></li>
-						<li style="max-height: 75px;"><a style="max-height: 75px;" href="#" onClick="sair()" class=""><img src="img/btn/icone-sair.png"> SAIR</a></li>
+						<li style="max-height: 75px; min-height:75px"><a style="max-height: 75px; min-height:75px" href="#menu-pai" class=""><img src="img/btn/menu.png"> MENU</a></li>
+						<li style="max-height: 75px; min-height:75px"><a style="max-height: 75px; min-height:75px" class="ui-btn-c"><img  src="img/btn/icone-ajuda.png">PÂNICO</a></li>
+						<li style="max-height: 75px; min-height:75px"><a style="max-height: 75px; min-height:75px" href="#" onClick="sair()" class=""><img src="img/btn/icone-sair.png"> SAIR</a></li>
 					</ul>
 				</div>
 				</div>
@@ -1671,7 +1736,7 @@
 				 
 				</ul>
 		
-					<div data-role="panel" id="Painelmenu" data-position="left" data-display="overlay" data-theme="a">
+					<div data-role="panel" data-position="left" data-display="overlay" data-theme="a" id="menu-pai">
 
 				<h2 class="tltmenu">NAVEGA&Ccedil;&Atilde;O R&Aacute;PIDA</h2>
 				<a href="#meus_dados" class="ui-btn btn-menu" onClick="meusdados();"><img src="img/btn/meus-dados-m.png"><br>MEUS DADOS</a>
@@ -1685,7 +1750,7 @@
 				<a href="#lista_convidados" onClick="chamarListaConvidados();" class="ui-btn btn-menu"><img src="img/btn/lista_convidados_pequena.png"><br>LISTA CONVIDADOS</a>
 				<a href="#correspondencias" onClick="chamarCorrespondencia;" class="ui-btn btn-menu"><img src="img/btn/correspondencia.png"><br>CORRESPONDÊNCIAS</a>
 				<a href="#classificados" onClick="classificados;" class=" ui-btn btn-menu"><img src="img/btn/classificados.png"><br>CLASSIFICADOS</a>
-				<a href="#" class="ui-btn btn-menu"><br>ABRIR PORTA</a>
+				<a href="#abrir_o_portao" class="ui-btn btn-menu"><br>ABRIR PORTA</a>
 				<a href="#" class=" ui-btn btn-menu"><img src="img/btn/alertas.png"><br>NOTIFICAÇÕES</a>
 				<a href="#log_usuario" onClick="logusuario();" class=" ui-btn btn-menu"><img src="img/btn/minha-casa.png"><br>LOG DO USUARIO</a>
 				<a href="#" class=" ui-btn btn-menu"><img src="img/btn/forum.png"><br>FORUMS</a>	
@@ -1700,9 +1765,9 @@
 				<div data-role="navbar" >
 					<ul >
 
-						<li style="max-height: 75px;"><a style="max-height: 75px;" href="#Painelmenu" class=""><img src="img/btn/menu.png"> MENU</a></li>
-						<li style="max-height: 75px;"><a style="max-height: 75px;" class="ui-btn-c"><img  src="img/btn/icone-ajuda.png">PÂNICO</a></li>
-						<li style="max-height: 75px;"><a style="max-height: 75px;" href="#" onClick="sair()" class=""><img src="img/btn/icone-sair.png"> SAIR</a></li>
+						<li style="max-height: 75px; min-height:75px"><a style="max-height: 75px; min-height:75px" href="#menu-pai" class=""><img src="img/btn/menu.png"> MENU</a></li>
+						<li style="max-height: 75px; min-height:75px"><a style="max-height: 75px; min-height:75px" class="ui-btn-c"><img  src="img/btn/icone-ajuda.png">PÂNICO</a></li>
+						<li style="max-height: 75px; min-height:75px"><a style="max-height: 75px; min-height:75px" href="#" onClick="sair()" class=""><img src="img/btn/icone-sair.png"> SAIR</a></li>
 					</ul>
 				</div>
 				</div>
@@ -1743,7 +1808,7 @@
 					</ul>	
 					</div>
 					</div>
-				<div data-role="panel" id="Painelmenu" data-position="left" data-display="overlay" data-theme="a">
+				<div data-role="panel" data-position="left" data-display="overlay" data-theme="a" id="menu-pai">
 
 				<h2 class="tltmenu">NAVEGA&Ccedil;&Atilde;O R&Aacute;PIDA</h2>
 				<a href="#meus_dados" class="ui-btn btn-menu" onClick="meusdados();"><img src="img/btn/meus-dados-m.png"><br>MEUS DADOS</a>
@@ -1757,7 +1822,7 @@
 				<a href="#lista_convidados" onClick="chamarListaConvidados();" class="ui-btn btn-menu"><img src="img/btn/lista_convidados_pequena.png"><br>LISTA CONVIDADOS</a>
 				<a href="#correspondencias" onClick="chamarCorrespondencia;" class="ui-btn btn-menu"><img src="img/btn/correspondencia.png"><br>CORRESPONDÊNCIAS</a>
 				<a href="#classificados" onClick="classificados;" class=" ui-btn btn-menu"><img src="img/btn/classificados.png"><br>CLASSIFICADOS</a>
-				<a href="#" class="ui-btn btn-menu"><br>ABRIR PORTA</a>
+				<a href="#abrir_o_portao" class="ui-btn btn-menu"><br>ABRIR PORTA</a>
 				<a href="#" class=" ui-btn btn-menu"><img src="img/btn/alertas.png"><br>NOTIFICAÇÕES</a>
 				<a href="#log_usuario" onClick="logusuario();" class=" ui-btn btn-menu"><img src="img/btn/minha-casa.png"><br>LOG DO USUARIO</a>
 				<a href="#" class=" ui-btn btn-menu"><img src="img/btn/forum.png"><br>FORUMS</a>	
@@ -1772,9 +1837,9 @@
 				<div data-role="navbar" >
 					<ul >
 
-						<li style="max-height: 75px;"><a style="max-height: 75px;" href="#Painelmenu" class=""><img src="img/btn/menu.png"> MENU</a></li>
-						<li style="max-height: 75px;"><a style="max-height: 75px;" class="ui-btn-c"><img  src="img/btn/icone-ajuda.png">PÂNICO</a></li>
-						<li style="max-height: 75px;"><a style="max-height: 75px;" href="#" onClick="sair()" class=""><img src="img/btn/icone-sair.png"> SAIR</a></li>
+						<li style="max-height: 75px; min-height:75px"><a style="max-height: 75px; min-height:75px" href="#menu-pai" class=""><img src="img/btn/menu.png"> MENU</a></li>
+						<li style="max-height: 75px; min-height:75px"><a style="max-height: 75px; min-height:75px" class="ui-btn-c"><img  src="img/btn/icone-ajuda.png">PÂNICO</a></li>
+						<li style="max-height: 75px; min-height:75px"><a style="max-height: 75px; min-height:75px" href="#" onClick="sair()" class=""><img src="img/btn/icone-sair.png"> SAIR</a></li>
 					</ul>
 				</div>
 				</div>
@@ -1794,7 +1859,7 @@
 				<div style="margin-top:10px"></div>
 				<div class="ui-grid-a">
 					<div class="ui-block-a"><a href="#meus_dados" onClick="meusdados();" class="ui-shadow ui-btn ui-btn-b btn-home"><img style="max-height: 34px;" src="img/btn/meus-dados-m.png"><br>MEUS DADOS</a></div>
-					<div class="ui-block-b"><a href="#" class="ui-shadow ui-btn ui-btn-b btn-home"><img style="max-height: 34px;" src="img/btn/porta.png"><br>ABRIR PORTA</a></div>
+					<div class="ui-block-b"><a href="#abrir_o_portao" onClick="listarPortas();" class="ui-shadow ui-btn ui-btn-b btn-home"><img style="max-height: 34px;" src="img/btn/porta.png"><br>ABRIR PORTA</a></div>
 				</div>
 				<div class="ui-grid-a">
 					<div class="ui-block-a"><a href="#meus_animais" onClick="meusanimais();" class="ui-shadow ui-btn ui-btn-b btn-home"><img style="max-height: 34px;" src="img/btn/animais-retina.png"><br>MEUS ANIMAIS</a></div>
@@ -1823,7 +1888,7 @@
 					<div class="ui-block-a"><a href="#log_usuario" onClick="logusuario();"  class="ui-shadow ui-btn ui-btn-b btn-home"><img style="max-height: 34px;" src="img/btn/visitas.png"><br>LOG DO USUARIO</a></div>
 					<div class="ui-block-b"><a href="#forum"  onClick="foruns();" class="ui-shadow ui-btn ui-btn-b btn-home"><img style="max-height: 34px;" src="img/btn/forum.png"><br>FORUM</a></div>				
 				</div>
-				<div data-role="panel" id="Painelmenu" data-position="left" data-display="overlay" data-theme="a">
+				<div data-role="panel" data-position="left" data-display="overlay" data-theme="a" id="menu-pai">
 
 				<h2 class="tltmenu">NAVEGA&Ccedil;&Atilde;O R&Aacute;PIDA</h2>
 				<a href="#meus_dados" class="ui-btn btn-menu" onClick="meusdados();"><img src="img/btn/meus-dados-m.png"><br>MEUS DADOS</a>
@@ -1837,7 +1902,7 @@
 				<a href="#lista_convidados" onClick="chamarListaConvidados();" class="ui-btn btn-menu"><img src="img/btn/lista_convidados_pequena.png"><br>LISTA CONVIDADOS</a>
 				<a href="#correspondencias" onClick="chamarCorrespondencia;" class="ui-btn btn-menu"><img src="img/btn/correspondencia.png"><br>CORRESPONDÊNCIAS</a>
 				<a href="#classificados" onClick="classificados;" class=" ui-btn btn-menu"><img src="img/btn/classificados.png"><br>CLASSIFICADOS</a>
-				<a href="#" class="ui-btn btn-menu"><br>ABRIR PORTA</a>
+				<a href="#abrir_o_portao" class="ui-btn btn-menu"><br>ABRIR PORTA</a>
 				<a href="#" class=" ui-btn btn-menu"><img src="img/btn/alertas.png"><br>NOTIFICAÇÕES</a>
 				<a href="#log_usuario" onClick="logusuario();" class=" ui-btn btn-menu"><img src="img/btn/minha-casa.png"><br>LOG DO USUARIO</a>
 				<a href="#" class=" ui-btn btn-menu"><img src="img/btn/forum.png"><br>FORUMS</a>	
@@ -1852,9 +1917,9 @@
 				<div data-role="navbar" >
 					<ul >
 
-						<li style="max-height: 75px;"><a style="max-height: 75px;" href="#Painelmenu" class=""><img src="img/btn/menu.png"> MENU</a></li>
-						<li style="max-height: 75px;"><a style="max-height: 75px;" class="ui-btn-c"><img  src="img/btn/icone-ajuda.png">PÂNICO</a></li>
-						<li style="max-height: 75px;"><a style="max-height: 75px;" href="#" onClick="sair()" class=""><img src="img/btn/icone-sair.png"> SAIR</a></li>
+						<li style="max-height: 75px; min-height:75px"><a style="max-height: 75px; min-height:75px" href="#menu-pai" class=""><img src="img/btn/menu.png"> MENU</a></li>
+						<li style="max-height: 75px; min-height:75px"><a style="max-height: 75px; min-height:75px" class="ui-btn-c"><img  src="img/btn/icone-ajuda.png">PÂNICO</a></li>
+						<li style="max-height: 75px; min-height:75px"><a style="max-height: 75px; min-height:75px" href="#" onClick="sair()" class=""><img src="img/btn/icone-sair.png"> SAIR</a></li>
 					</ul>
 				</div>
 				</div>
@@ -1900,7 +1965,7 @@
 				</div>
 				
 					
-					<div data-role="panel" id="Painelmenu" data-position="left" data-display="overlay" data-theme="a">
+					<div data-role="panel" data-position="left" data-display="overlay" data-theme="a" id="menu-pai">
 
 				<h2 class="tltmenu">NAVEGA&Ccedil;&Atilde;O R&Aacute;PIDA</h2>
 				<a href="#meus_dados" class="ui-btn btn-menu" onClick="meusdados();"><img src="img/btn/meus-dados-m.png"><br>MEUS DADOS</a>
@@ -1914,7 +1979,7 @@
 				<a href="#lista_convidados" onClick="chamarListaConvidados();" class="ui-btn btn-menu"><img src="img/btn/lista_convidados_pequena.png"><br>LISTA CONVIDADOS</a>
 				<a href="#correspondencias" onClick="chamarCorrespondencia;" class="ui-btn btn-menu"><img src="img/btn/correspondencia.png"><br>CORRESPONDÊNCIAS</a>
 				<a href="#classificados" onClick="classificados;" class=" ui-btn btn-menu"><img src="img/btn/classificados.png"><br>CLASSIFICADOS</a>
-				<a href="#" class="ui-btn btn-menu"><br>ABRIR PORTA</a>
+				<a href="#abrir_o_portao" class="ui-btn btn-menu"><br>ABRIR PORTA</a>
 				<a href="#" class=" ui-btn btn-menu"><img src="img/btn/alertas.png"><br>NOTIFICAÇÕES</a>
 				<a href="#log_usuario" onClick="logusuario();" class=" ui-btn btn-menu"><img src="img/btn/minha-casa.png"><br>LOG DO USUARIO</a>
 				<a href="#" class=" ui-btn btn-menu"><img src="img/btn/forum.png"><br>FORUMS</a>	
@@ -1929,9 +1994,9 @@
 				<div data-role="navbar" >
 					<ul >
 
-						<li style="max-height: 75px;"><a style="max-height: 75px;" href="#Painelmenu" class=""><img src="img/btn/menu.png"> MENU</a></li>
-						<li style="max-height: 75px;"><a style="max-height: 75px;" class="ui-btn-c"><img  src="img/btn/icone-ajuda.png">PÂNICO</a></li>
-						<li style="max-height: 75px;"><a style="max-height: 75px;" href="#" onClick="sair()" class=""><img src="img/btn/icone-sair.png"> SAIR</a></li>
+						<li style="max-height: 75px; min-height:75px"><a style="max-height: 75px; min-height:75px" href="#menu-pai" class=""><img src="img/btn/menu.png"> MENU</a></li>
+						<li style="max-height: 75px; min-height:75px"><a style="max-height: 75px; min-height:75px" class="ui-btn-c"><img  src="img/btn/icone-ajuda.png">PÂNICO</a></li>
+						<li style="max-height: 75px; min-height:75px"><a style="max-height: 75px; min-height:75px" href="#" onClick="sair()" class=""><img src="img/btn/icone-sair.png"> SAIR</a></li>
 					</ul>
 				</div>
 				</div>
@@ -1956,5 +2021,6 @@
 <script src="js/funcoes/correspondencias.js"></script>
 <script src="js/funcoes/classificados.js"></script>
 <script src="js/funcoes/forum.js"></script>
+<script src="js/funcoes/abrir_porta.js"></script>
 	</body>
 </html>
