@@ -36,7 +36,7 @@ function capturarImagemFamilia(){
             options.chunkedMode = false;
  
             var ft = new FileTransfer();
-            ft.upload(imageURI, "http://lomatech.com.br/appupload.php", winFamilia, failFamilia, options);
+            ft.upload(imageURI, "http://lomatech.com.br/app/upload.php", winFamilia, failFamilia, options);
         }
  
         function winFamilia(r) {

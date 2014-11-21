@@ -126,6 +126,7 @@ function editar_meus_veiculos(ID){
 						$("#banner_veiculo_editar").attr("src",'');
 						$('#id_form_meus_veiculos').val(ID);
 	$('#acao_form_meus_veiculos').val('editar');
+	$('#arquivoMeusVeiculos').val('');
 	
 	
 		var resposta = '';
@@ -176,6 +177,14 @@ function novoVeiculo(){
 apagarMSGs();
 	$('#id_form_meus_veiculos').val(idmorador());
 	$('#acao_form_meus_veiculos').val('novo');
+	$('#arquivoMeusVeiculos').val('');
+	$("#marca_form_meus_veiculos").val('');
+						$("#modelo_form_meus_veiculos").val('');
+						$("#placa_form_meus_veiculos").val('');
+						$("#cor_form_meus_veiculos").val('');
+						$("#id_form_meus_veiculos").val('');
+						$("#acao_form_meus_veiculos").val('');
+						$("#banner_veiculo_editar").attr("src",'');
 	var resposta = '';
 	resposta += "<option value=''>-- Selecione a Marca --</option>";
 	
@@ -242,11 +251,9 @@ apagarMSGs();
 		} 
 	}; 
 	
-	if($('#validar_form_veiculo').val() == 0 && validarFormularios('formulario_meus_veiculos') == true){
+	if(validarFormularios('formulario_meus_veiculos') == true){
 		carregar('ativar');
 		$('#formulario_meus_veiculos').ajaxSubmit(options);
-	}else{
-		alert('Fazendo Upload da Imagem');
 	}
 	
 	

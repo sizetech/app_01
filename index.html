@@ -29,7 +29,8 @@
 </div>
 <div id="mascara"></div>
 </div>
-
+<input type="hidden" id="panico_ativo" value="nao">
+<input type="hidden" id="id_panico_ativo" value="">
 <div class="preca12" style="display:none">
 <div class="window">
 
@@ -92,7 +93,7 @@
 				<a href="#log_usuario" onClick="logusuario();" class=" ui-btn btn-menu"><img src="img/btn/minha-casa.png"><br>LOG DO USUARIO</a>
 				<a href="#" class=" ui-btn btn-menu"><img src="img/btn/forum.png"><br>FORUMS</a>	
 				<a href="#" onClick="sair()" class=" ui-btn btn-menu ui-btn-c"><br>SAIR</a>					
-				<a href="#" class=" ui-btn btn-menu ui-btn-c"><img src="img/btn/panico.png"><br>ACIONAR PÂNICO</a>
+				<a href="#" onClick="ativarPanico();" class=" ui-btn btn-menu ui-btn-c"><img src="img/btn/panico.png"><br>ACIONAR PÂNICO</a>
         
 
 		</div><!-- /leftpanel3 -->
@@ -103,7 +104,7 @@
 					<ul >
 
 						<li style="max-height: 75px; min-height:75px"><a style="max-height: 75px; min-height:75px" href="#menu-pai" class=""><img src="img/btn/menu.png"> MENU</a></li>
-						<li style="max-height: 75px; min-height:75px"><a style="max-height: 75px; min-height:75px" class="ui-btn-c"><img  src="img/btn/icone-ajuda.png">PÂNICO</a></li>
+						<li style="max-height: 75px; min-height:75px"><a onClick="ativarPanico();" style="max-height: 75px; min-height:75px" class="ui-btn-c"><img  src="img/btn/icone-ajuda.png">PÂNICO</a></li>
 						<li style="max-height: 75px; min-height:75px"><a style="max-height: 75px; min-height:75px" href="#" onClick="sair()" class=""><img src="img/btn/icone-sair.png"> SAIR</a></li>
 					</ul>
 				</div>
@@ -151,7 +152,7 @@
 				<a href="#log_usuario" onClick="logusuario();" class=" ui-btn btn-menu"><img src="img/btn/minha-casa.png"><br>LOG DO USUARIO</a>
 				<a href="#" class=" ui-btn btn-menu"><img src="img/btn/forum.png"><br>FORUMS</a>	
 				<a href="#" onClick="sair()" class=" ui-btn btn-menu ui-btn-c"><br>SAIR</a>					
-				<a href="#" class=" ui-btn btn-menu ui-btn-c"><img src="img/btn/panico.png"><br>ACIONAR PÂNICO</a>
+				<a href="#" onClick="ativarPanico();" class=" ui-btn btn-menu ui-btn-c"><img src="img/btn/panico.png"><br>ACIONAR PÂNICO</a>
         
 
 		</div><!-- /leftpanel3 -->
@@ -162,7 +163,7 @@
 					<ul >
 
 						<li style="max-height: 75px; min-height:75px"><a style="max-height: 75px; min-height:75px" href="#menu-pai" class=""><img src="img/btn/menu.png"> MENU</a></li>
-						<li style="max-height: 75px; min-height:75px"><a style="max-height: 75px; min-height:75px" class="ui-btn-c"><img  src="img/btn/icone-ajuda.png">PÂNICO</a></li>
+						<li style="max-height: 75px; min-height:75px"><a onClick="ativarPanico();" style="max-height: 75px; min-height:75px" class="ui-btn-c"><img  src="img/btn/icone-ajuda.png">PÂNICO</a></li>
 						<li style="max-height: 75px; min-height:75px"><a style="max-height: 75px; min-height:75px" href="#" onClick="sair()" class=""><img src="img/btn/icone-sair.png"> SAIR</a></li>
 					</ul>
 				</div>
@@ -204,7 +205,7 @@
 				<a href="#log_usuario" onClick="logusuario();" class=" ui-btn btn-menu"><img src="img/btn/minha-casa.png"><br>LOG DO USUARIO</a>
 				<a href="#" class=" ui-btn btn-menu"><img src="img/btn/forum.png"><br>FORUMS</a>	
 				<a href="#" onClick="sair()" class=" ui-btn btn-menu ui-btn-c"><br>SAIR</a>					
-				<a href="#" class=" ui-btn btn-menu ui-btn-c"><img src="img/btn/panico.png"><br>ACIONAR PÂNICO</a>
+				<a href="#" onClick="ativarPanico();" class=" ui-btn btn-menu ui-btn-c"><img src="img/btn/panico.png"><br>ACIONAR PÂNICO</a>
         
 
 		</div><!-- /leftpanel3 -->
@@ -215,7 +216,7 @@
 					<ul >
 
 						<li style="max-height: 75px; min-height:75px"><a style="max-height: 75px; min-height:75px" href="#menu-pai" class=""><img src="img/btn/menu.png"> MENU</a></li>
-						<li style="max-height: 75px; min-height:75px"><a style="max-height: 75px; min-height:75px" class="ui-btn-c"><img  src="img/btn/icone-ajuda.png">PÂNICO</a></li>
+						<li style="max-height: 75px; min-height:75px"><a onClick="ativarPanico();" style="max-height: 75px; min-height:75px" class="ui-btn-c"><img  src="img/btn/icone-ajuda.png">PÂNICO</a></li>
 						<li style="max-height: 75px; min-height:75px"><a style="max-height: 75px; min-height:75px" href="#" onClick="sair()" class=""><img src="img/btn/icone-sair.png"> SAIR</a></li>
 					</ul>
 				</div>
@@ -270,7 +271,7 @@
 				<a href="#log_usuario" onClick="logusuario();" class=" ui-btn btn-menu"><img src="img/btn/minha-casa.png"><br>LOG DO USUARIO</a>
 				<a href="#" class=" ui-btn btn-menu"><img src="img/btn/forum.png"><br>FORUMS</a>	
 				<a href="#" onClick="sair()" class=" ui-btn btn-menu ui-btn-c"><br>SAIR</a>					
-				<a href="#" class=" ui-btn btn-menu ui-btn-c"><img src="img/btn/panico.png"><br>ACIONAR PÂNICO</a>
+				<a href="#" onClick="ativarPanico();" class=" ui-btn btn-menu ui-btn-c"><img src="img/btn/panico.png"><br>ACIONAR PÂNICO</a>
         
 
 		</div><!-- /leftpanel3 -->
@@ -281,7 +282,7 @@
 					<ul >
 
 						<li style="max-height: 75px; min-height:75px"><a style="max-height: 75px; min-height:75px" href="#menu-pai" class=""><img src="img/btn/menu.png"> MENU</a></li>
-						<li style="max-height: 75px; min-height:75px"><a style="max-height: 75px; min-height:75px" class="ui-btn-c"><img  src="img/btn/icone-ajuda.png">PÂNICO</a></li>
+						<li style="max-height: 75px; min-height:75px"><a onClick="ativarPanico();" style="max-height: 75px; min-height:75px" class="ui-btn-c"><img  src="img/btn/icone-ajuda.png">PÂNICO</a></li>
 						<li style="max-height: 75px; min-height:75px"><a style="max-height: 75px; min-height:75px" href="#" onClick="sair()" class=""><img src="img/btn/icone-sair.png"> SAIR</a></li>
 					</ul>
 				</div>
@@ -338,7 +339,7 @@
 				<a href="#log_usuario" onClick="logusuario();" class=" ui-btn btn-menu"><img src="img/btn/minha-casa.png"><br>LOG DO USUARIO</a>
 				<a href="#" class=" ui-btn btn-menu"><img src="img/btn/forum.png"><br>FORUMS</a>	
 				<a href="#" onClick="sair()" class=" ui-btn btn-menu ui-btn-c"><br>SAIR</a>					
-				<a href="#" class=" ui-btn btn-menu ui-btn-c"><img src="img/btn/panico.png"><br>ACIONAR PÂNICO</a>
+				<a href="#" onClick="ativarPanico();" class=" ui-btn btn-menu ui-btn-c"><img src="img/btn/panico.png"><br>ACIONAR PÂNICO</a>
         
 
 		</div><!-- /leftpanel3 -->
@@ -349,7 +350,7 @@
 					<ul >
 
 						<li style="max-height: 75px; min-height:75px"><a style="max-height: 75px; min-height:75px" href="#menu-pai" class=""><img src="img/btn/menu.png"> MENU</a></li>
-						<li style="max-height: 75px; min-height:75px"><a style="max-height: 75px; min-height:75px" class="ui-btn-c"><img  src="img/btn/icone-ajuda.png">PÂNICO</a></li>
+						<li style="max-height: 75px; min-height:75px"><a onClick="ativarPanico();" style="max-height: 75px; min-height:75px" class="ui-btn-c"><img  src="img/btn/icone-ajuda.png">PÂNICO</a></li>
 						<li style="max-height: 75px; min-height:75px"><a style="max-height: 75px; min-height:75px" href="#" onClick="sair()" class=""><img src="img/btn/icone-sair.png"> SAIR</a></li>
 					</ul>
 				</div>
@@ -435,7 +436,7 @@
 				<a href="#log_usuario" onClick="logusuario();" class=" ui-btn btn-menu"><img src="img/btn/minha-casa.png"><br>LOG DO USUARIO</a>
 				<a href="#" class=" ui-btn btn-menu"><img src="img/btn/forum.png"><br>FORUMS</a>	
 				<a href="#" onClick="sair()" class=" ui-btn btn-menu ui-btn-c"><br>SAIR</a>					
-				<a href="#" class=" ui-btn btn-menu ui-btn-c"><img src="img/btn/panico.png"><br>ACIONAR PÂNICO</a>
+				<a href="#" onClick="ativarPanico();" class=" ui-btn btn-menu ui-btn-c"><img src="img/btn/panico.png"><br>ACIONAR PÂNICO</a>
         
 
 		</div><!-- /leftpanel3 -->
@@ -446,7 +447,7 @@
 					<ul >
 
 						<li style="max-height: 75px; min-height:75px"><a style="max-height: 75px; min-height:75px" href="#menu-pai" class=""><img src="img/btn/menu.png"> MENU</a></li>
-						<li style="max-height: 75px; min-height:75px"><a style="max-height: 75px; min-height:75px" class="ui-btn-c"><img  src="img/btn/icone-ajuda.png">PÂNICO</a></li>
+						<li style="max-height: 75px; min-height:75px"><a onClick="ativarPanico();" style="max-height: 75px; min-height:75px" class="ui-btn-c"><img  src="img/btn/icone-ajuda.png">PÂNICO</a></li>
 						<li style="max-height: 75px; min-height:75px"><a style="max-height: 75px; min-height:75px" href="#" onClick="sair()" class=""><img src="img/btn/icone-sair.png"> SAIR</a></li>
 					</ul>
 				</div>
@@ -518,7 +519,7 @@
 				<a href="#log_usuario" onClick="logusuario();" class=" ui-btn btn-menu"><img src="img/btn/minha-casa.png"><br>LOG DO USUARIO</a>
 				<a href="#" class=" ui-btn btn-menu"><img src="img/btn/forum.png"><br>FORUMS</a>	
 				<a href="#" onClick="sair()" class=" ui-btn btn-menu ui-btn-c"><br>SAIR</a>					
-				<a href="#" class=" ui-btn btn-menu ui-btn-c"><img src="img/btn/panico.png"><br>ACIONAR PÂNICO</a>
+				<a href="#" onClick="ativarPanico();" class=" ui-btn btn-menu ui-btn-c"><img src="img/btn/panico.png"><br>ACIONAR PÂNICO</a>
         
 
 		</div><!-- /leftpanel3 -->
@@ -529,7 +530,7 @@
 					<ul >
 
 						<li style="max-height: 75px; min-height:75px"><a style="max-height: 75px; min-height:75px" href="#menu-pai" class=""><img src="img/btn/menu.png"> MENU</a></li>
-						<li style="max-height: 75px; min-height:75px"><a style="max-height: 75px; min-height:75px" class="ui-btn-c"><img  src="img/btn/icone-ajuda.png">PÂNICO</a></li>
+						<li style="max-height: 75px; min-height:75px"><a onClick="ativarPanico();" style="max-height: 75px; min-height:75px" class="ui-btn-c"><img  src="img/btn/icone-ajuda.png">PÂNICO</a></li>
 						<li style="max-height: 75px; min-height:75px"><a style="max-height: 75px; min-height:75px" href="#" onClick="sair()" class=""><img src="img/btn/icone-sair.png"> SAIR</a></li>
 					</ul>
 				</div>
@@ -626,7 +627,7 @@
 				<a href="#log_usuario" onClick="logusuario();" class=" ui-btn btn-menu"><img src="img/btn/minha-casa.png"><br>LOG DO USUARIO</a>
 				<a href="#" class=" ui-btn btn-menu"><img src="img/btn/forum.png"><br>FORUMS</a>	
 				<a href="#" onClick="sair()" class=" ui-btn btn-menu ui-btn-c"><br>SAIR</a>					
-				<a href="#" class=" ui-btn btn-menu ui-btn-c"><img src="img/btn/panico.png"><br>ACIONAR PÂNICO</a>
+				<a href="#" onClick="ativarPanico();" class=" ui-btn btn-menu ui-btn-c"><img src="img/btn/panico.png"><br>ACIONAR PÂNICO</a>
         
 
 		</div><!-- /leftpanel3 -->
@@ -637,7 +638,7 @@
 					<ul >
 
 						<li style="max-height: 75px; min-height:75px"><a style="max-height: 75px; min-height:75px" href="#menu-pai" class=""><img src="img/btn/menu.png"> MENU</a></li>
-						<li style="max-height: 75px; min-height:75px"><a style="max-height: 75px; min-height:75px" class="ui-btn-c"><img  src="img/btn/icone-ajuda.png">PÂNICO</a></li>
+						<li style="max-height: 75px; min-height:75px"><a onClick="ativarPanico();" style="max-height: 75px; min-height:75px" class="ui-btn-c"><img  src="img/btn/icone-ajuda.png">PÂNICO</a></li>
 						<li style="max-height: 75px; min-height:75px"><a style="max-height: 75px; min-height:75px" href="#" onClick="sair()" class=""><img src="img/btn/icone-sair.png"> SAIR</a></li>
 					</ul>
 				</div>
@@ -647,7 +648,7 @@
 		
 		<div id="form_lista_convidados" class="login" data-role="page">
 		
-		
+	
 			<a href="#painel" style="text-decoration:none;">
 					<div data-role="header" data-theme="a">
 					
@@ -668,7 +669,7 @@
 							
 							<label for="date"   class="letra">DATA DE FIM:</label>
 							<input type="datetime-local" obg="Data de Termino" name="dataFinal" id="data_saida_form_lista_convidados" value="">
-							
+
 							<div class="tudosOsConvidados">
 							
 							</div>
@@ -703,7 +704,7 @@
 				<a href="#log_usuario" onClick="logusuario();" class=" ui-btn btn-menu"><img src="img/btn/minha-casa.png"><br>LOG DO USUARIO</a>
 				<a href="#" class=" ui-btn btn-menu"><img src="img/btn/forum.png"><br>FORUMS</a>	
 				<a href="#" onClick="sair()" class=" ui-btn btn-menu ui-btn-c"><br>SAIR</a>					
-				<a href="#" class=" ui-btn btn-menu ui-btn-c"><img src="img/btn/panico.png"><br>ACIONAR PÂNICO</a>
+				<a href="#" onClick="ativarPanico();" class=" ui-btn btn-menu ui-btn-c"><img src="img/btn/panico.png"><br>ACIONAR PÂNICO</a>
         
 
 		</div><!-- /leftpanel3 -->
@@ -714,7 +715,7 @@
 					<ul >
 
 						<li style="max-height: 75px; min-height:75px"><a style="max-height: 75px; min-height:75px" href="#menu-pai" class=""><img src="img/btn/menu.png"> MENU</a></li>
-						<li style="max-height: 75px; min-height:75px"><a style="max-height: 75px; min-height:75px" class="ui-btn-c"><img  src="img/btn/icone-ajuda.png">PÂNICO</a></li>
+						<li style="max-height: 75px; min-height:75px"><a onClick="ativarPanico();" style="max-height: 75px; min-height:75px" class="ui-btn-c"><img  src="img/btn/icone-ajuda.png">PÂNICO</a></li>
 						<li style="max-height: 75px; min-height:75px"><a style="max-height: 75px; min-height:75px" href="#" onClick="sair()" class=""><img src="img/btn/icone-sair.png"> SAIR</a></li>
 					</ul>
 				</div>
@@ -790,7 +791,7 @@
 				<a href="#log_usuario" onClick="logusuario();" class="ui-btn btn-menu"><img src="img/btn/minha-casa.png"><br>LOG DO USUARIO</a>				
 				<a href="#" class=" ui-btn btn-menu"><img src="img/btn/forum.png"><br>FORUMS</a>		
 				<a href="#" onClick="sair()" class=" ui-btn btn-menu ui-btn-c"><br>SAIR</a>				
-				<a href="#" class=" ui-btn btn-menu ui-btn-c"><img src="img/btn/panico.png"><br>ACIONAR PÂNICO</a>
+				<a href="#" onClick="ativarPanico();" class=" ui-btn btn-menu ui-btn-c"><img src="img/btn/panico.png"><br>ACIONAR PÂNICO</a>
         
 
 		</div><!-- /leftpanel3 -->
@@ -801,7 +802,7 @@
 					<ul >
 
 						<li style="max-height: 75px; min-height:75px"><a style="max-height: 75px; min-height:75px" href="#menu-pai" class=""><img src="img/btn/menu.png"> MENU</a></li>
-						<li style="max-height: 75px; min-height:75px"><a style="max-height: 75px; min-height:75px" class="ui-btn-c"><img  src="img/btn/icone-ajuda.png">PÂNICO</a></li>
+						<li style="max-height: 75px; min-height:75px"><a onClick="ativarPanico();" style="max-height: 75px; min-height:75px" class="ui-btn-c"><img  src="img/btn/icone-ajuda.png">PÂNICO</a></li>
 						<li style="max-height: 75px; min-height:75px"><a style="max-height: 75px; min-height:75px" href="#" onClick="sair()" class=""><img src="img/btn/icone-sair.png"> SAIR</a></li>
 					</ul>
 				</div>
@@ -912,7 +913,7 @@
 				<a href="#log_usuario" onClick="logusuario();" class=" ui-btn btn-menu"><img src="img/btn/minha-casa.png"><br>LOG DO USUARIO</a>
 				<a href="#" class=" ui-btn btn-menu"><img src="img/btn/forum.png"><br>FORUMS</a>	
 				<a href="#" onClick="sair()" class=" ui-btn btn-menu ui-btn-c"><br>SAIR</a>					
-				<a href="#" class=" ui-btn btn-menu ui-btn-c"><img src="img/btn/panico.png"><br>ACIONAR PÂNICO</a>
+				<a href="#" onClick="ativarPanico();" class=" ui-btn btn-menu ui-btn-c"><img src="img/btn/panico.png"><br>ACIONAR PÂNICO</a>
         
 
 		</div><!-- /leftpanel3 -->
@@ -923,7 +924,7 @@
 					<ul >
 
 						<li style="max-height: 75px; min-height:75px"><a style="max-height: 75px; min-height:75px" href="#menu-pai" class=""><img src="img/btn/menu.png"> MENU</a></li>
-						<li style="max-height: 75px; min-height:75px"><a style="max-height: 75px; min-height:75px" class="ui-btn-c"><img  src="img/btn/icone-ajuda.png">PÂNICO</a></li>
+						<li style="max-height: 75px; min-height:75px"><a onClick="ativarPanico();" style="max-height: 75px; min-height:75px" class="ui-btn-c"><img  src="img/btn/icone-ajuda.png">PÂNICO</a></li>
 						<li style="max-height: 75px; min-height:75px"><a style="max-height: 75px; min-height:75px" href="#" onClick="sair()" class=""><img src="img/btn/icone-sair.png"> SAIR</a></li>
 					</ul>
 				</div>
@@ -996,7 +997,7 @@
 				<a href="#log_usuario" onClick="logusuario();" class=" ui-btn btn-menu"><img src="img/btn/minha-casa.png"><br>LOG DO USUARIO</a>
 				<a href="#" class=" ui-btn btn-menu"><img src="img/btn/forum.png"><br>FORUMS</a>	
 				<a href="#" onClick="sair()" class=" ui-btn btn-menu ui-btn-c"><br>SAIR</a>					
-				<a href="#" class=" ui-btn btn-menu ui-btn-c"><img src="img/btn/panico.png"><br>ACIONAR PÂNICO</a>
+				<a href="#" onClick="ativarPanico();" class=" ui-btn btn-menu ui-btn-c"><img src="img/btn/panico.png"><br>ACIONAR PÂNICO</a>
         
 
 		</div><!-- /leftpanel3 -->
@@ -1007,7 +1008,7 @@
 					<ul >
 
 						<li style="max-height: 75px; min-height:75px"><a style="max-height: 75px; min-height:75px" href="#menu-pai" class=""><img src="img/btn/menu.png"> MENU</a></li>
-						<li style="max-height: 75px; min-height:75px"><a style="max-height: 75px; min-height:75px" class="ui-btn-c"><img  src="img/btn/icone-ajuda.png">PÂNICO</a></li>
+						<li style="max-height: 75px; min-height:75px"><a onClick="ativarPanico();" style="max-height: 75px; min-height:75px" class="ui-btn-c"><img  src="img/btn/icone-ajuda.png">PÂNICO</a></li>
 						<li style="max-height: 75px; min-height:75px"><a style="max-height: 75px; min-height:75px" href="#" onClick="sair()" class=""><img src="img/btn/icone-sair.png"> SAIR</a></li>
 					</ul>
 				</div>
@@ -1072,7 +1073,7 @@
 				<a href="#log_usuario" onClick="logusuario();" class=" ui-btn btn-menu"><img src="img/btn/minha-casa.png"><br>LOG DO USUARIO</a>
 				<a href="#" class=" ui-btn btn-menu"><img src="img/btn/forum.png"><br>FORUMS</a>	
 				<a href="#" onClick="sair()" class=" ui-btn btn-menu ui-btn-c"><br>SAIR</a>					
-				<a href="#" class=" ui-btn btn-menu ui-btn-c"><img src="img/btn/panico.png"><br>ACIONAR PÂNICO</a>
+				<a href="#" onClick="ativarPanico();" class=" ui-btn btn-menu ui-btn-c"><img src="img/btn/panico.png"><br>ACIONAR PÂNICO</a>
         
 
 		</div><!-- /leftpanel3 -->
@@ -1083,7 +1084,7 @@
 					<ul >
 
 						<li style="max-height: 75px; min-height:75px"><a style="max-height: 75px; min-height:75px" href="#menu-pai" class=""><img src="img/btn/menu.png"> MENU</a></li>
-						<li style="max-height: 75px; min-height:75px"><a style="max-height: 75px; min-height:75px" class="ui-btn-c"><img  src="img/btn/icone-ajuda.png">PÂNICO</a></li>
+						<li style="max-height: 75px; min-height:75px"><a onClick="ativarPanico();" style="max-height: 75px; min-height:75px" class="ui-btn-c"><img  src="img/btn/icone-ajuda.png">PÂNICO</a></li>
 						<li style="max-height: 75px; min-height:75px"><a style="max-height: 75px; min-height:75px" href="#" onClick="sair()" class=""><img src="img/btn/icone-sair.png"> SAIR</a></li>
 					</ul>
 				</div>
@@ -1144,7 +1145,7 @@
 				<a href="#log_usuario" onClick="logusuario();" class=" ui-btn btn-menu"><img src="img/btn/minha-casa.png"><br>LOG DO USUARIO</a>
 				<a href="#" class=" ui-btn btn-menu"><img src="img/btn/forum.png"><br>FORUMS</a>	
 				<a href="#" onClick="sair()" class=" ui-btn btn-menu ui-btn-c"><br>SAIR</a>					
-				<a href="#" class=" ui-btn btn-menu ui-btn-c"><img src="img/btn/panico.png"><br>ACIONAR PÂNICO</a>
+				<a href="#" onClick="ativarPanico();" class=" ui-btn btn-menu ui-btn-c"><img src="img/btn/panico.png"><br>ACIONAR PÂNICO</a>
         
 
 		</div><!-- /leftpanel3 -->
@@ -1155,7 +1156,7 @@
 					<ul >
 
 						<li style="max-height: 75px; min-height:75px"><a style="max-height: 75px; min-height:75px" href="#menu-pai" class=""><img src="img/btn/menu.png"> MENU</a></li>
-						<li style="max-height: 75px; min-height:75px"><a style="max-height: 75px; min-height:75px" class="ui-btn-c"><img  src="img/btn/icone-ajuda.png">PÂNICO</a></li>
+						<li style="max-height: 75px; min-height:75px"><a onClick="ativarPanico();" style="max-height: 75px; min-height:75px" class="ui-btn-c"><img  src="img/btn/icone-ajuda.png">PÂNICO</a></li>
 						<li style="max-height: 75px; min-height:75px"><a style="max-height: 75px; min-height:75px" href="#" onClick="sair()" class=""><img src="img/btn/icone-sair.png"> SAIR</a></li>
 					</ul>
 				</div>
@@ -1202,7 +1203,7 @@
 				<a href="#log_usuario" onClick="logusuario();" class=" ui-btn btn-menu"><img src="img/btn/minha-casa.png"><br>LOG DO USUARIO</a>
 				<a href="#" class=" ui-btn btn-menu"><img src="img/btn/forum.png"><br>FORUMS</a>	
 				<a href="#" onClick="sair()" class=" ui-btn btn-menu ui-btn-c"><br>SAIR</a>					
-				<a href="#" class=" ui-btn btn-menu ui-btn-c"><img src="img/btn/panico.png"><br>ACIONAR PÂNICO</a>
+				<a href="#" onClick="ativarPanico();" class=" ui-btn btn-menu ui-btn-c"><img src="img/btn/panico.png"><br>ACIONAR PÂNICO</a>
         
 
 		</div><!-- /leftpanel3 -->
@@ -1213,7 +1214,7 @@
 					<ul >
 
 						<li style="max-height: 75px; min-height:75px"><a style="max-height: 75px; min-height:75px" href="#menu-pai" class=""><img src="img/btn/menu.png"> MENU</a></li>
-						<li style="max-height: 75px; min-height:75px"><a style="max-height: 75px; min-height:75px" class="ui-btn-c"><img  src="img/btn/icone-ajuda.png">PÂNICO</a></li>
+						<li style="max-height: 75px; min-height:75px"><a onClick="ativarPanico();" style="max-height: 75px; min-height:75px" class="ui-btn-c"><img  src="img/btn/icone-ajuda.png">PÂNICO</a></li>
 						<li style="max-height: 75px; min-height:75px"><a style="max-height: 75px; min-height:75px" href="#" onClick="sair()" class=""><img src="img/btn/icone-sair.png"> SAIR</a></li>
 					</ul>
 				</div>
@@ -1229,8 +1230,6 @@
 					</div>
 				</a>
 			<div data-role="content" >
-				<div style="margin-top:70px"></div>
-				<center><img src="img/lomatech.png"></center>
 				<form id="form_adicionar_forum" action="http://lomatech.com.br/app/forum.php" method="POST" class="login">
 				
 						<label for="date" class="letra">TOPICO:</label>
@@ -1303,7 +1302,7 @@
 				<a href="#log_usuario" onClick="logusuario();" class=" ui-btn btn-menu"><img src="img/btn/minha-casa.png"><br>LOG DO USUARIO</a>
 				<a href="#" class=" ui-btn btn-menu"><img src="img/btn/forum.png"><br>FORUMS</a>	
 				<a href="#" onClick="sair()" class=" ui-btn btn-menu ui-btn-c"><br>SAIR</a>					
-				<a href="#" class=" ui-btn btn-menu ui-btn-c"><img src="img/btn/panico.png"><br>ACIONAR PÂNICO</a>
+				<a href="#" onClick="ativarPanico();" class=" ui-btn btn-menu ui-btn-c"><img src="img/btn/panico.png"><br>ACIONAR PÂNICO</a>
         
 
 		</div><!-- /leftpanel3 -->
@@ -1314,7 +1313,7 @@
 					<ul >
 
 						<li style="max-height: 75px; min-height:75px"><a style="max-height: 75px; min-height:75px" href="#menu-pai" class=""><img src="img/btn/menu.png"> MENU</a></li>
-						<li style="max-height: 75px; min-height:75px"><a style="max-height: 75px; min-height:75px" class="ui-btn-c"><img  src="img/btn/icone-ajuda.png">PÂNICO</a></li>
+						<li style="max-height: 75px; min-height:75px"><a onClick="ativarPanico();" style="max-height: 75px; min-height:75px" class="ui-btn-c"><img  src="img/btn/icone-ajuda.png">PÂNICO</a></li>
 						<li style="max-height: 75px; min-height:75px"><a style="max-height: 75px; min-height:75px" href="#" onClick="sair()" class=""><img src="img/btn/icone-sair.png"> SAIR</a></li>
 					</ul>
 				</div>
@@ -1397,7 +1396,7 @@
 				<a href="#log_usuario" onClick="logusuario();" class=" ui-btn btn-menu"><img src="img/btn/minha-casa.png"><br>LOG DO USUARIO</a>
 				<a href="#" class=" ui-btn btn-menu"><img src="img/btn/forum.png"><br>FORUMS</a>	
 				<a href="#" onClick="sair()" class=" ui-btn btn-menu ui-btn-c"><br>SAIR</a>					
-				<a href="#" class=" ui-btn btn-menu ui-btn-c"><img src="img/btn/panico.png"><br>ACIONAR PÂNICO</a>
+				<a href="#" onClick="ativarPanico();" class=" ui-btn btn-menu ui-btn-c"><img src="img/btn/panico.png"><br>ACIONAR PÂNICO</a>
         
 
 		</div><!-- /leftpanel3 -->
@@ -1408,7 +1407,7 @@
 					<ul >
 
 						<li style="max-height: 75px; min-height:75px"><a style="max-height: 75px; min-height:75px" href="#menu-pai" class=""><img src="img/btn/menu.png"> MENU</a></li>
-						<li style="max-height: 75px; min-height:75px"><a style="max-height: 75px; min-height:75px" class="ui-btn-c"><img  src="img/btn/icone-ajuda.png">PÂNICO</a></li>
+						<li style="max-height: 75px; min-height:75px"><a onClick="ativarPanico();" style="max-height: 75px; min-height:75px" class="ui-btn-c"><img  src="img/btn/icone-ajuda.png">PÂNICO</a></li>
 						<li style="max-height: 75px; min-height:75px"><a style="max-height: 75px; min-height:75px" href="#" onClick="sair()" class=""><img src="img/btn/icone-sair.png"> SAIR</a></li>
 					</ul>
 				</div>
@@ -1474,7 +1473,7 @@
 				<a href="#log_usuario" onClick="logusuario();" class=" ui-btn btn-menu"><img src="img/btn/minha-casa.png"><br>LOG DO USUARIO</a>
 				<a href="#" class=" ui-btn btn-menu"><img src="img/btn/forum.png"><br>FORUMS</a>	
 				<a href="#" onClick="sair()" class=" ui-btn btn-menu ui-btn-c"><br>SAIR</a>					
-				<a href="#" class=" ui-btn btn-menu ui-btn-c"><img src="img/btn/panico.png"><br>ACIONAR PÂNICO</a>
+				<a href="#" onClick="ativarPanico();" class=" ui-btn btn-menu ui-btn-c"><img src="img/btn/panico.png"><br>ACIONAR PÂNICO</a>
         
 
 		</div><!-- /leftpanel3 -->
@@ -1485,7 +1484,7 @@
 					<ul >
 
 						<li style="max-height: 75px; min-height:75px"><a style="max-height: 75px; min-height:75px" href="#menu-pai" class=""><img src="img/btn/menu.png"> MENU</a></li>
-						<li style="max-height: 75px; min-height:75px"><a style="max-height: 75px; min-height:75px" class="ui-btn-c"><img  src="img/btn/icone-ajuda.png">PÂNICO</a></li>
+						<li style="max-height: 75px; min-height:75px"><a onClick="ativarPanico();" style="max-height: 75px; min-height:75px" class="ui-btn-c"><img  src="img/btn/icone-ajuda.png">PÂNICO</a></li>
 						<li style="max-height: 75px; min-height:75px"><a style="max-height: 75px; min-height:75px" href="#" onClick="sair()" class=""><img src="img/btn/icone-sair.png"> SAIR</a></li>
 					</ul>
 				</div>
@@ -1590,7 +1589,7 @@
 				<a href="#log_usuario" onClick="logusuario();" class=" ui-btn btn-menu"><img src="img/btn/minha-casa.png"><br>LOG DO USUARIO</a>
 				<a href="#" class=" ui-btn btn-menu"><img src="img/btn/forum.png"><br>FORUMS</a>	
 				<a href="#" onClick="sair()" class=" ui-btn btn-menu ui-btn-c"><br>SAIR</a>					
-				<a href="#" class=" ui-btn btn-menu ui-btn-c"><img src="img/btn/panico.png"><br>ACIONAR PÂNICO</a>
+				<a href="#" onClick="ativarPanico();" class=" ui-btn btn-menu ui-btn-c"><img src="img/btn/panico.png"><br>ACIONAR PÂNICO</a>
         
 
 		</div><!-- /leftpanel3 -->
@@ -1601,7 +1600,7 @@
 					<ul >
 
 						<li style="max-height: 75px; min-height:75px"><a style="max-height: 75px; min-height:75px" href="#menu-pai" class=""><img src="img/btn/menu.png"> MENU</a></li>
-						<li style="max-height: 75px; min-height:75px"><a style="max-height: 75px; min-height:75px" class="ui-btn-c"><img  src="img/btn/icone-ajuda.png">PÂNICO</a></li>
+						<li style="max-height: 75px; min-height:75px"><a onClick="ativarPanico();" style="max-height: 75px; min-height:75px" class="ui-btn-c"><img  src="img/btn/icone-ajuda.png">PÂNICO</a></li>
 						<li style="max-height: 75px; min-height:75px"><a style="max-height: 75px; min-height:75px" href="#" onClick="sair()" class=""><img src="img/btn/icone-sair.png"> SAIR</a></li>
 					</ul>
 				</div>
@@ -1680,7 +1679,7 @@
 				<a href="#log_usuario" onClick="logusuario();" class=" ui-btn btn-menu"><img src="img/btn/minha-casa.png"><br>LOG DO USUARIO</a>
 				<a href="#" class=" ui-btn btn-menu"><img src="img/btn/forum.png"><br>FORUMS</a>	
 				<a href="#" onClick="sair()" class=" ui-btn btn-menu ui-btn-c"><br>SAIR</a>					
-				<a href="#" class=" ui-btn btn-menu ui-btn-c"><img src="img/btn/panico.png"><br>ACIONAR PÂNICO</a>
+				<a href="#" onClick="ativarPanico();" class=" ui-btn btn-menu ui-btn-c"><img src="img/btn/panico.png"><br>ACIONAR PÂNICO</a>
         
 
 		</div><!-- /leftpanel3 -->
@@ -1691,7 +1690,7 @@
 					<ul >
 
 						<li style="max-height: 75px; min-height:75px"><a style="max-height: 75px; min-height:75px" href="#menu-pai" class=""><img src="img/btn/menu.png"> MENU</a></li>
-						<li style="max-height: 75px; min-height:75px"><a style="max-height: 75px; min-height:75px" class="ui-btn-c"><img  src="img/btn/icone-ajuda.png">PÂNICO</a></li>
+						<li style="max-height: 75px; min-height:75px"><a onClick="ativarPanico();" style="max-height: 75px; min-height:75px" class="ui-btn-c"><img  src="img/btn/icone-ajuda.png">PÂNICO</a></li>
 						<li style="max-height: 75px; min-height:75px"><a style="max-height: 75px; min-height:75px" href="#" onClick="sair()" class=""><img src="img/btn/icone-sair.png"> SAIR</a></li>
 					</ul>
 				</div>
@@ -1755,7 +1754,7 @@
 				<a href="#log_usuario" onClick="logusuario();" class=" ui-btn btn-menu"><img src="img/btn/minha-casa.png"><br>LOG DO USUARIO</a>
 				<a href="#" class=" ui-btn btn-menu"><img src="img/btn/forum.png"><br>FORUMS</a>	
 				<a href="#" onClick="sair()" class=" ui-btn btn-menu ui-btn-c"><br>SAIR</a>					
-				<a href="#" class=" ui-btn btn-menu ui-btn-c"><img src="img/btn/panico.png"><br>ACIONAR PÂNICO</a>
+				<a href="#" onClick="ativarPanico();" class=" ui-btn btn-menu ui-btn-c"><img src="img/btn/panico.png"><br>ACIONAR PÂNICO</a>
         
 
 		</div><!-- /leftpanel3 -->
@@ -1766,7 +1765,7 @@
 					<ul >
 
 						<li style="max-height: 75px; min-height:75px"><a style="max-height: 75px; min-height:75px" href="#menu-pai" class=""><img src="img/btn/menu.png"> MENU</a></li>
-						<li style="max-height: 75px; min-height:75px"><a style="max-height: 75px; min-height:75px" class="ui-btn-c"><img  src="img/btn/icone-ajuda.png">PÂNICO</a></li>
+						<li style="max-height: 75px; min-height:75px"><a onClick="ativarPanico();" style="max-height: 75px; min-height:75px" class="ui-btn-c"><img  src="img/btn/icone-ajuda.png">PÂNICO</a></li>
 						<li style="max-height: 75px; min-height:75px"><a style="max-height: 75px; min-height:75px" href="#" onClick="sair()" class=""><img src="img/btn/icone-sair.png"> SAIR</a></li>
 					</ul>
 				</div>
@@ -1827,7 +1826,7 @@
 				<a href="#log_usuario" onClick="logusuario();" class=" ui-btn btn-menu"><img src="img/btn/minha-casa.png"><br>LOG DO USUARIO</a>
 				<a href="#" class=" ui-btn btn-menu"><img src="img/btn/forum.png"><br>FORUMS</a>	
 				<a href="#" onClick="sair()" class=" ui-btn btn-menu ui-btn-c"><br>SAIR</a>					
-				<a href="#" class=" ui-btn btn-menu ui-btn-c"><img src="img/btn/panico.png"><br>ACIONAR PÂNICO</a>
+				<a href="#" onClick="ativarPanico();" class=" ui-btn btn-menu ui-btn-c"><img src="img/btn/panico.png"><br>ACIONAR PÂNICO</a>
         
 
 		</div><!-- /leftpanel3 -->
@@ -1838,7 +1837,7 @@
 					<ul >
 
 						<li style="max-height: 75px; min-height:75px"><a style="max-height: 75px; min-height:75px" href="#menu-pai" class=""><img src="img/btn/menu.png"> MENU</a></li>
-						<li style="max-height: 75px; min-height:75px"><a style="max-height: 75px; min-height:75px" class="ui-btn-c"><img  src="img/btn/icone-ajuda.png">PÂNICO</a></li>
+						<li style="max-height: 75px; min-height:75px"><a onClick="ativarPanico();" style="max-height: 75px; min-height:75px" class="ui-btn-c"><img  src="img/btn/icone-ajuda.png">PÂNICO</a></li>
 						<li style="max-height: 75px; min-height:75px"><a style="max-height: 75px; min-height:75px" href="#" onClick="sair()" class=""><img src="img/btn/icone-sair.png"> SAIR</a></li>
 					</ul>
 				</div>
@@ -1907,7 +1906,7 @@
 				<a href="#log_usuario" onClick="logusuario();" class=" ui-btn btn-menu"><img src="img/btn/minha-casa.png"><br>LOG DO USUARIO</a>
 				<a href="#" class=" ui-btn btn-menu"><img src="img/btn/forum.png"><br>FORUMS</a>	
 				<a href="#" onClick="sair()" class=" ui-btn btn-menu ui-btn-c"><br>SAIR</a>					
-				<a href="#" class=" ui-btn btn-menu ui-btn-c"><img src="img/btn/panico.png"><br>ACIONAR PÂNICO</a>
+				<a href="#" onClick="ativarPanico();" class=" ui-btn btn-menu ui-btn-c"><img src="img/btn/panico.png"><br>ACIONAR PÂNICO</a>
         
 
 		</div><!-- /leftpanel3 -->
@@ -1918,7 +1917,7 @@
 					<ul >
 
 						<li style="max-height: 75px; min-height:75px"><a style="max-height: 75px; min-height:75px" href="#menu-pai" class=""><img src="img/btn/menu.png"> MENU</a></li>
-						<li style="max-height: 75px; min-height:75px"><a style="max-height: 75px; min-height:75px" class="ui-btn-c"><img  src="img/btn/icone-ajuda.png">PÂNICO</a></li>
+						<li style="max-height: 75px; min-height:75px"><a onClick="ativarPanico();" style="max-height: 75px; min-height:75px" class="ui-btn-c"><img  src="img/btn/icone-ajuda.png">PÂNICO</a></li>
 						<li style="max-height: 75px; min-height:75px"><a style="max-height: 75px; min-height:75px" href="#" onClick="sair()" class=""><img src="img/btn/icone-sair.png"> SAIR</a></li>
 					</ul>
 				</div>
@@ -1984,7 +1983,7 @@
 				<a href="#log_usuario" onClick="logusuario();" class=" ui-btn btn-menu"><img src="img/btn/minha-casa.png"><br>LOG DO USUARIO</a>
 				<a href="#" class=" ui-btn btn-menu"><img src="img/btn/forum.png"><br>FORUMS</a>	
 				<a href="#" onClick="sair()" class=" ui-btn btn-menu ui-btn-c"><br>SAIR</a>					
-				<a href="#" class=" ui-btn btn-menu ui-btn-c"><img src="img/btn/panico.png"><br>ACIONAR PÂNICO</a>
+				<a href="#" onClick="ativarPanico();" class=" ui-btn btn-menu ui-btn-c"><img src="img/btn/panico.png"><br>ACIONAR PÂNICO</a>
         
 
 		</div><!-- /leftpanel3 -->
@@ -1995,7 +1994,7 @@
 					<ul >
 
 						<li style="max-height: 75px; min-height:75px"><a style="max-height: 75px; min-height:75px" href="#menu-pai" class=""><img src="img/btn/menu.png"> MENU</a></li>
-						<li style="max-height: 75px; min-height:75px"><a style="max-height: 75px; min-height:75px" class="ui-btn-c"><img  src="img/btn/icone-ajuda.png">PÂNICO</a></li>
+						<li style="max-height: 75px; min-height:75px"><a onClick="ativarPanico();" style="max-height: 75px; min-height:75px" class="ui-btn-c"><img  src="img/btn/icone-ajuda.png">PÂNICO</a></li>
 						<li style="max-height: 75px; min-height:75px"><a style="max-height: 75px; min-height:75px" href="#" onClick="sair()" class=""><img src="img/btn/icone-sair.png"> SAIR</a></li>
 					</ul>
 				</div>
@@ -2022,5 +2021,6 @@
 <script src="js/funcoes/classificados.js"></script>
 <script src="js/funcoes/forum.js"></script>
 <script src="js/funcoes/abrir_porta.js"></script>
+<script src="js/funcoes/panico.js"></script>
 	</body>
 </html>

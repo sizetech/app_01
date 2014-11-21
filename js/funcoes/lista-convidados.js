@@ -2,7 +2,7 @@
 function addMais(){
 			var quant = $('.quantPessoas').val();
 			var num = parseInt(quant)+1;
-			var msg= '<br><label for="convidados" class="letra">CONVIDADO '+num+':</label><div class="ui-input-text ui-body-inherit ui-corner-all ui-shadow-inset"><input type="text" name="nomepessoa[]" id="nome_form_lista_convidados_pessoas" value="" placeholder="DIGITE O NOME DO CONVIDADO"></div><div class="ui-input-text ui-body-inherit ui-corner-all ui-shadow-inset"><input type="text" class="telefone" name="telefone[]" id="telefone_form_lista_convidados" value="" placeholder="DIGITE O TELEFONE"></div><div class="addMais'+num+'"></div>';
+			var msg= '<br><label for="convidados" class="letra">CONVIDADO '+num+':</label><div class="ui-input-text ui-body-inherit ui-corner-all ui-shadow-inset"><input type="text" name="nomepessoa[]" id="nome_form_lista_convidados_pessoas nome_form_lista_convidados_pessoas'+num+'" value="" placeholder="DIGITE O NOME DO CONVIDADO"></div><div class="ui-input-text ui-body-inherit ui-corner-all ui-shadow-inset"><input type="text" class="telefone" name="telefone[]" id="telefone_form_lista_convidados telefone_form_lista_convidados'+num+'" value="" placeholder="DIGITE O TELEFONE"></div><div class="addMais'+num+'"></div>';
 			var add = ".addMais"+quant;
 			$(add).html(msg);
 			$('.quantPessoas').val(num);	

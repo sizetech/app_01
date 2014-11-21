@@ -4,7 +4,7 @@
 <widget xmlns     = "http://www.w3.org/ns/widgets"
         xmlns:gap = "http://phonegap.com/ns/1.0"
         id        = "com.sizetech.lomatech"
-        version   = "1.0.2">
+        version   = "1.0.3">
 
     <name>Lomatech Beta</name>
 
@@ -76,6 +76,7 @@
 	<gap:plugin name="org.apache.cordova.file"  />
 	<gap:plugin name="org.apache.cordova.file-transfer"  />
 	<gap:plugin name="org.apache.cordova.inappbrowser"  />
+	<gap:plugin name="org.apache.cordova.geolocation"  />
 
         <access />           
         <access origin="*" /> 

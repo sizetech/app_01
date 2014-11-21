@@ -28,31 +28,7 @@ $(function(){
 			}
     });
 
-     $("#hora_inicio_form_reservas").blur(function() {
-			if($(this).val() != ''){
-					$('#hora_fim_form_reservas').html("<option value=''> -- Carregando -- </option>");			
-					var sala = $.post(URLBASE+"querys/query_verificar_hora.php", {
-						data: $("#data_form_reservas").val(),   dependencia: $("#dependencia_form_reservas").val(), hora:$(this).val()
-					}, function() {}).always(function(data) {
-						if(data == 1){
-								var sala2 = $.post(URLBASE+"querys/query_criar_hora.php", {
-									data: $("#data_form_reservas").val(),   dependencia: $("#dependencia_form_reservas").val(), hora:$('#hora_inicio_form_reservas').val()
-								}, function() {}).always(function(data) {
-									$('#hora_fim_form_reservas').html(data);
-									
-								});
-						
-						}else{
-							alert('Este Horário não esta disponível');
-							$("#hora_inicio_form_reservas").val('');	
-							$('#hora_fim_form_reservas').html("<option value=''> -- Coloque uma hora inicial -- </option>");							
-						}
-						
-							
-					});
-		
-			}
-    });
+    
 
 })
 
@@ -123,6 +99,10 @@ if(ex == true){
 
 function novaReserva(){
 apagarMSGs();
+$('#hora_inicio_form_reservas').val('');
+$('#hora_fim_form_reservas').val('');
+$('#data_form_reservas').val('');
+  
 	$('#id_form_reserva').val(idmorador());
 	var resposta = '';
 	resposta += "<option value=''>-- Selecione uma Depêndencia --</option>";
