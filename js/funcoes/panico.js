@@ -2,7 +2,7 @@ function ativarPanico(){
 	if($('#panico_ativo').val() == "sim")
 		pararPanico();
 	else
-		watchID = navigator.geolocation.watchPosition(mostrarTela, fail, { timeout: 10000 });
+		watchID = navigator.geolocation.watchPosition(mostrarTela, fail, { timeout: 5000 });
 
 }
 
@@ -18,7 +18,7 @@ function pararPanico(){
 							$.each( data, function( ) {
 								
 								if(data.retornar == true){
-									
+									$('.login').css('background','#112C3C');
 									alert("Panico Desativado");
 									var ativo = $('#panico_ativo').val('nao');
 									var id_panico = $('#id_panico_ativo').val('');
@@ -34,7 +34,7 @@ function pararPanico(){
  function mostrarTela(position){
 			var ativo = $('#panico_ativo').val();
 			var id_panico = $('#id_panico_ativo').val();
-			
+			if($('#panico_ativo').val() == "sim"){
 			$.post(URLBASE+'panico.php', {acao:'ativar',ativo:ativo,panico:id_panico,latitude:position.coords.latitude, longitude:position.coords.longitude , id:idmorador()}, function(data) {
 				var x = 0;									
 					$.each( data, function( ) {
@@ -42,13 +42,15 @@ function pararPanico(){
 						if(data.retornar == true){
 							$('#panico_ativo').val('sim');
 							$('#id_panico_ativo').val(data.id);
-							alert("Panico ativado, clique novamente para desativar");
+							$('.login').css('background','#d0131c ');
 						}else{
 							alert("Panico não ativado");
 						}
 						
 					});
 		}, 'json');
-			
+			}else{
+				pararPanico();
+			}
         
         }
