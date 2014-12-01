@@ -1,22 +1,23 @@
 
-$(function(){
-
-	$("#hora_inicio_form_reservas").keypress(function() {
-			var valor = $(this).val();
-			if($(this).val() != '' && valor.length == 5){
+function verificarHorario(){
+carregar('ativar');
+			var valor = $("#hora_inicio_form_reservas").val();
+			if($("#hora_inicio_form_reservas").val() != '' && valor.length == 5){
 					$('#hora_fim_form_reservas').html("<option value=''> -- Carregando -- </option>");			
 					var sala = $.post(URLBASE+"querys/query_verificar_hora.php", {
-						data: $("#data_form_reservas").val(),   dependencia: $("#dependencia_form_reservas").val(), hora:$(this).val()
+						data: $("#data_form_reservas").val(),   dependencia: $("#dependencia_form_reservas").val(), hora:$("#hora_inicio_form_reservas").val()
 					}, function() {}).always(function(data) {
 						if(data == 1){
 								var sala2 = $.post(URLBASE+"querys/query_criar_hora.php", {
 									data: $("#data_form_reservas").val(),   dependencia: $("#dependencia_form_reservas").val(), hora:$('#hora_inicio_form_reservas').val()
 								}, function() {}).always(function(data) {
+									carregar('desativar');
 									$('#hora_fim_form_reservas').html(data);
 									
 								});
 						
 						}else{
+							carregar('desativar');
 							alert('Este Horário não esta disponível');
 							$("#hora_inicio_form_reservas").val('');	
 							$('#hora_fim_form_reservas').html("<option value=''> -- Coloque uma hora inicial -- </option>");							
@@ -26,11 +27,7 @@ $(function(){
 					});
 		
 			}
-    });
-
-    
-
-})
+    }
 
 
 function minhasreservas(){
@@ -54,7 +51,7 @@ carregar('ativar');
 						lista +=	' <h3 style="color:#fff;font-size: 15px;text-shadow: none;"><b>Horário:</b> '+data[x].horario_inicio+' às '+data[x].horario_fim+' </h3>';
 						lista +=	' <h3 style="color:#fff;font-size: 15px;text-shadow: none;"><b>Local:</b> '+data[x].dependencia+' </h3>';
 						lista +=	' <fieldset data-role="controlgroup" data-type="horizontal" class="ui-controlgroup ui-controlgroup-horizontal ui-corner-all"><div class="ui-controlgroup-controls ">';
-						lista +=	'<a href="#" onClick="CancelarReserva('+data[x].ID+');" style="background-color:#820d12;border-color:#820d12;"  id="btn-list" class="ui-btn ui-corner-all ui-last-child" >Cancelar</a>	';
+						lista +=	'<a href="#" onClick="CancelarReserva('+data[x].ID+');" style="background-color:#820d12;border-color:#820d12;"  id="btn-list" class="ui-btn ui-corner-all ui-last-child" >Excluir</a>	';
 						lista +=	'</div></fieldset>';
 						lista +=	'</div>';
 						lista += 	'</form>';

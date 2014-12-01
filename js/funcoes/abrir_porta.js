@@ -9,10 +9,9 @@ carregar('ativar');
 					$.each( data, function( ) {
 						
 						
-
 						lista += ' <li onclick="abrirPortao('+data[x].ID+');" style="padding-left:5px; min-height:0; margin:5px 20px;" data-role="collapsible" data-theme="d" data-iconpos="right" data-inset="false">';
-						lista +=	' <a href="#"><h2>'+data[x].nome;
-						lista +=  '</h2></li>';
+						lista +=	' <a href="#">'+data[x].nome;
+						lista +=  '</a></li>';
 
 					
 					

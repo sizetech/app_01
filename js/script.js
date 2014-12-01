@@ -89,7 +89,7 @@ apagarMSGs();
             }
  function uploadPhoto(imageURI) {
 			$('#htmlImagem').attr('src',imageURI);
-			$carregar('ativar');
+			carregar('ativar');
             var options = new FileUploadOptions();
             options.fileKey="file";
             options.fileName=imageURI.substr(imageURI.lastIndexOf('/')+1);
@@ -148,6 +148,7 @@ function meusdados(){
 					$.each( data, function( ) {
 						$('#id_morador_form_meus_dados').val(idmorador());
 						
+						$('#htmlImagem').attr('src','');
 						$('#nome_meus_dados').val(data.nome);
 						$('#nome_form_dados').val(data.nome);
 						
@@ -234,6 +235,10 @@ apagarMSGs();
 						}
 						carregar('desativar');
 						window.location = "#meus_dados";
+						$('#htmlImagem').attr('src','');
+						$('#senha_form_dados').val('','');
+						$('#senha2_form_dados').val('','');
+						 
 					
 					}); 
 				
@@ -242,6 +247,9 @@ apagarMSGs();
 	$('#cpf_form_dados').blur();
 	$("#email_form_dados").blur();
 	$("#celular_form_dados").blur();
+	$("#senha_form_dados").blur();
+	$("#senha2_form_dados").blur();
+	
 	if($('#validar_form_dados').val() == 0 && validarFormularios('formulario_meus_dados') == true ){
 		carregar('ativar');
 		$('#formulario_meus_dados').ajaxSubmit(options);
@@ -264,6 +272,11 @@ $("#login_login").val('');
 $("#senha_login").val('');
  
 
+}
+function VerificarNumeros(string) 
+{
+    var numsStr = string.replace(/[^0-9]/g,'');
+    return parseInt(numsStr);
 }
 $(function(){
 $("input:password").blur(function(){
@@ -294,34 +307,7 @@ $("input:password").blur(function(){
 	
 	
 	});
-	$("input:password").blur(function(){
-			
-			var cla = $(this).attr('name');
-			if(cla != 'acesso-senha'){
-			cla = cla+'Erro';
-			cla2 = "."+cla;
-			$(cla2).html('');
-			var tamanho = $(this).val().length;
-			if(tamanho < 6){
-				$(this).after( "<p class='"+cla+"' style='color:red'>A senha deve ter mais de 6 caracteres</p>" );
-				$(this).val('');
-				exit;
-			}
-			
-			var tb = VerificarNumeros($(this).val());
-			
-			
-			if(isNaN(VerificarNumeros($(this).val())) || (tb >= 0 && tb == $(this).val()) ){
-				$(this).after( "<p class='"+cla+"' style='color:red'>É necessario ter letras e numeros</p>" );
-				$(this).val('');
-				exit;
-			}
-			
-			$(cla2).html('');
-			}
-		
-		
-		});
+	
 	$('#cpf_form_dados').blur(function(){
 					
 				$('#msgCPFMeus').css("color","#2ECC40");
@@ -333,7 +319,8 @@ $("input:password").blur(function(){
 				if(data == 1){
 				  $('#msgCPFMeus').css("color","#FF4136");
 				  $('#msgCPFMeus').html("CPF (<b>"+$("#cpf_form_dados").val()+"</b>) Já Cadastrado no sistema");
-				  $("#cpf_form_dados").val('');          
+				  $("#cpf_form_dados").val('');       
+					$("#cpf_form_dados").focus(); 				  
 				}else{
 				  $('#msgCPFMeus').html("");
 				}
@@ -368,7 +355,8 @@ $("input:password").blur(function(){
         if(data == 1){
           $('#msgEmailMeus').css("color","#FF4136");
           $('#msgEmailMeus').html("E-mail (<b>"+$("#email_form_dados").val()+"</b>) Já Cadastrado no sistema");
-          $("#email_form_dados").val('');          
+          $("#email_form_dados").val('');     
+			$("#email_form_dados").focus();   		  
         }else{
           $('#msgEmailMeus').html("");
         }
@@ -386,7 +374,8 @@ $("input:password").blur(function(){
         if(data == 1){
           $('#msgCelularMeus').css("color","#FF4136");
           $('#msgCelularMeus').html("Celular (<b>"+$("#celular_form_dados").val()+"</b>) Já Cadastrado no sistema");
-          $("#celular_form_dados").val('');          
+          $("#celular_form_dados").val('');     
+		  $("#celular_form_dados").focus();
         }else{
           $('#msgCelularMeus').html("");
         }
@@ -568,6 +557,14 @@ function abrirCoollapsible(a){
 
 	
 /*--------------------------------------------------DOCUMENTOS------------------------------------------------*/
+
+function baixarDocumento(url){
+
+
+var uri = encodeURI(url);
+window.open(uri, "_system");
+}
+
 function documentos(){
 apagarMSGs();
 	var lista = '';
@@ -585,11 +582,12 @@ apagarMSGs();
 						
 						
 						lista += ' <li   data-theme="'+classe+'" style="padding-left:5px; margin:5px 20px; min-height:0" data-role="collapsible" data-theme="'+classe+'" data-iconpos="right" data-inset="false">';
-						lista +=	'<a href="'+URLARQUIVOS+data[x].doc+'" target="_blank"><h2>'+data[x].titulo;
+						lista +=	'<a onClick="baixarDocumento(\''+URLARQUIVOS+data[x].doc+'\');" href="#"><h2>'+data[x].titulo;
 						lista +=	'<img src="img/btn/doc_pequeno.png" align="right" style="margin: 0px 0px;">';
 						lista +=	'</h2></a>';
 						
 						lista += ' </li>';
+						
 						
 					
 					

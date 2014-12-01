@@ -2,11 +2,21 @@
 function addMais(){
 			var quant = $('.quantPessoas').val();
 			var num = parseInt(quant)+1;
-			var msg= '<br><label for="convidados" class="letra">CONVIDADO '+num+':</label><div class="ui-input-text ui-body-inherit ui-corner-all ui-shadow-inset"><input type="text" name="nomepessoa[]" id="nome_form_lista_convidados_pessoas nome_form_lista_convidados_pessoas'+num+'" value="" placeholder="DIGITE O NOME DO CONVIDADO"></div><div class="ui-input-text ui-body-inherit ui-corner-all ui-shadow-inset"><input type="text" class="telefone" name="telefone[]" id="telefone_form_lista_convidados telefone_form_lista_convidados'+num+'" value="" placeholder="DIGITE O TELEFONE"></div><div class="addMais'+num+'"></div>';
+			var msg= '<br><label for="convidados" class="letra">CONVIDADO '+num+':</label><div class="ui-input-text ui-body-inherit ui-corner-all ui-shadow-inset"><input type="text" name="nomepessoa[]" id="nome_form_lista_convidados_pessoas nome_form_lista_convidados_pessoas'+num+'" value="" placeholder="DIGITE O NOME DO CONVIDADO"></div><div class="ui-input-text ui-body-inherit ui-corner-all ui-shadow-inset"><input type="text" class="telefone" name="telefone[]" id="telefone_form_lista_convidados'+num+'" value="" placeholder="DIGITE O TELEFONE"></div><div class="addMais'+num+'"></div>';
 			var add = ".addMais"+quant;
 			$(add).html(msg);
 			$('.quantPessoas').val(num);	
-		
+			var masc = '#telefone_form_lista_convidados'+num;
+			var SPMaskBehavior = function (val) {
+						  return val.replace(/\D/g, '').length === 11 ? '(00) 000 000 000' : '(00) 000 000 009';
+						},
+						spOptions = {
+						  onKeyPress: function(val, e, field, options) {
+							  field.mask(SPMaskBehavior.apply({}, arguments), options);
+							}
+						};
+
+						$(masc).mask(SPMaskBehavior, spOptions);
 					
 		
 		
@@ -69,16 +79,92 @@ function editarPessoa (d){
 
 
 
+/*
+function listarRegistros(){
+
+	alert(1);
+  var fields       = ["id","displayName", "name", "phoneNumbers"];
+  var options      = new ContactFindOptions();
+  options.filter   = "";
+  options.multiple = true;
+
+  navigator.contacts.find(fields, MostrarLista, onError, options);
+  alert(2);
+}
+
+function onError(contactError) {
+  alert('Erro' + contactError.code);
+}
+function MostrarLista(ContatosArray){
+
+  var lista = '';
+alert(ContatosArray.length);
+  for (var i = 0; i < ContatosArray.length; i++) {
+		
+		if(ContatosArray[i].phoneNumbers[0].value){
+	   lista += '<li><a href="#"> '+ ContatosArray[i].name.familyName+'('+ContatosArray[i].phoneNumbers[0].value+')</a></li>';
+		}
+  }
+	alert(1);
+	alert(lista);
+ $('#listaTelefonica').html(lista);
+					$('#listaTelefonica').listview("refresh");
+
+}
+
+
+
+
+
+
+function listarRegistros(){
+   var options = new ContactFindOptions();
+   options.filter="";
+   options.filter="";
+   options.multiple=true;
+   var fields = ["*"];  //"*" will return all contact fields
+   navigator.contacts.find(fields, onSuccessContato, onErrorContato, options);
+}
+
+// display the address information for all contacts
+function onSuccessContato(contacts) {
+	alert(1);
+  //console.log(JSON.stringify(contacts))
+   var li = '';
+   $.each(contacts, function(key, value) {
+        if(value.name){
+            $.each(value.name, function(key, value) {
+               if(key == 'formatted'){
+                   name = value;
+               }                      
+            });
+        }
+        if(value.phoneNumbers){
+            $.each(value.phoneNumbers, function(key, value) {
+                phone = value.value;
+            });
+        }     
+        li += '<li><a href="#">'+name+' '+phone+'</a></li>';
+   }); 
+
+   $("#contact").html(li);  
+}
+
+function onErrorContato(contactError) {
+   alert('onError!');
+}
+*/
 
 
 function chamarListaConvidados(){
 apagarMSGs();
 	var lista = '';
-	carregar('ativar');
+	
+	carregar('desativar');
 	$.post(URLBASE+'lista_convidados.php', {acao:'retornarTodos', id:idmorador()}, function(data) {
 				var x = 0;
 					$.each( data, function( ) {
-						
+						carregar('ativar');
 						lista += ' <li onclick="abrirCoollapsible(this);" style="padding-left:5px; min-height:0; margin:5px 20px;" data-role="collapsible" data-theme="d" data-iconpos="right" data-inset="false">';
 						lista += '		<a href="" class="link"><h2> '+data[x].nome+' <img src="img/btn/lista_convidados_pequena.png" align="right" style="margin: 0px 0px;"> ';
 						lista += ' </h2> </a>';
@@ -90,10 +176,8 @@ apagarMSGs();
 						lista += ' 	<h3 style="text-shadow: none; color: #FFF;">Data e hora de Inicio:'+data[x].data_entrada+' ás '+data[x].hora_entrada+'</h3>';
 						lista += '	<h3 style="text-shadow: none; color: #FFF;">Data e hora de Terminio:'+data[x].data_saida+' ás '+data[x].hora_saida+'</h3>';
 						lista += '	<h3 style="text-shadow: none; color: #FFF;background-color: #85b200;width: 100%;">LISTA DE CONVIDADOS</h3>	';
-						lista +=	' <fieldset data-role="controlgroup" data-type="horizontal" class="ui-controlgroup ui-controlgroup-horizontal ui-corner-all"><div class="ui-controlgroup-controls ">';
-						lista += 	'   <a href="#form_lista_convidados" onClick="editarLista('+data[x].ID+')" id="btn-list-detalhe" style=" margin: 0px 18px 0px -20px;" class="ui-btn ui-corner-all">DETALHES</a>';
+						lista += 	'   <a href="#form_lista_convidados" onClick="editarLista('+data[x].ID+')" style="margin: 0; margin-top: 10px;" id="btn-list-detalhe" class="ui-btn ui-corner-all">DETALHES</a>';
 						lista += 	' 	<a href="#" onClick="CancelarLista('+data[x].ID+');" id="btn-list" style="background-color:#820d12;border-color:#820d12; " class="ui-btn ui-corner-all">CANCELAR</a>';
-						lista += ' </div></fieldset> ';		
 						lista += ' </form>';
 						lista +=  '</li>';
 						
@@ -131,6 +215,7 @@ if(ex == true){
 };
 function novaLista(){
 apagarMSGs();
+//listarRegistros();
 	$('#id_form_lista_convidados').val(idmorador());
 	$('#acao_form_lista_convidados').val('novo');
 	$('#nome_form_lista_convidados').val('');
@@ -162,15 +247,9 @@ apagarMSGs();
 	$('#acao_form_lista_convidados').val('editar');
 	$.post(URLBASE+'lista_convidados.php', {acao:'retornar', id:id}, function(data) {			
 		$('#nome_form_lista_convidados').val(data.nome);
-			$('#nome_form_lista_convidados').attr('disabled','true');
 		$('#palavra_form_lista_convidados').val(data.palavra);
-			$('#palavra_form_lista_convidados').attr('disabled','true');
-		$('#data_entrada_form_lista_convidados').attr('type','text');
-			$('#data_entrada_form_lista_convidados').val(data.data_entrada+' '+data.hora_entrada);
-				$('#data_entrada_form_lista_convidados').attr('disabled','true');
-		$('#data_saida_form_lista_convidados').attr('type','text');
-			$('#data_saida_form_lista_convidados').val(data.data_saida+' '+data.hora_saida);
-				$('#data_saida_form_lista_convidados').attr('disabled','true');
+			$('#data_entrada_form_lista_convidados').val(data.data_entrada+'T'+data.hora_entrada);
+			$('#data_saida_form_lista_convidados').val(data.data_saida+'T'+data.hora_saida);
 		
 		$.post(URLBASE+'querys/listar_convidados.php', { id:data.ID}, function(data) { 
 					$('.tudosOsConvidados').html(data+'<div class="addMais1"></div>');

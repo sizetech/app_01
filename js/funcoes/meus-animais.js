@@ -47,7 +47,7 @@
  
         function failAnimal(error) {
 			$('#foto_animal_editar').attr('src','');
-			carregar('ativar');
+			carregar('desativar');
         }
 
 

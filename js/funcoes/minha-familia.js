@@ -126,7 +126,7 @@ apagarMSGs();
 	$("#id_familia").val(idmorador());
 	$("#foto_form_familia").attr("src",'');
 	$('#cpf_form_familia').mask("999.999.999-99");
-	$('#telefone_form_familia').val(data.telefone);
+	$('#telefone_form_familia').val('');
 		var SPMaskBehavior = function (val) {
 		 return val.replace(/\D/g, '').length === 11 ? '(00) 000 000 000' : '(00) 000 000 009';
 		},
@@ -135,7 +135,8 @@ apagarMSGs();
 			 field.mask(SPMaskBehavior.apply({}, arguments), options);
 		}
 		};
-	$('#celular_form_familia').val(data.telefone);
+		$('#telefone_form_familia').mask(SPMaskBehavior, spOptions);
+	$('#celular_form_familia').val('');
 		var SPMaskBehavior = function (val) {
 		 return val.replace(/\D/g, '').length === 11 ? '(00) 000 000 000' : '(00) 000 000 009';
 		},
@@ -144,6 +145,7 @@ apagarMSGs();
 			 field.mask(SPMaskBehavior.apply({}, arguments), options);
 		}
 		};
+		$('#celular_form_familia').mask(SPMaskBehavior, spOptions);
 }
 
 function editarFamilia(id){
@@ -159,6 +161,8 @@ apagarMSGs();
 					if(x == 0){
 						$("#nome_form_familia").val(data.nome);
 						$("#sexo_form_familia").val(data.sexo);
+						var tipo =  $("#sexo_form_familia option:selected").text();
+						$("#sexo_form_familia-button span").html(tipo);
 						$("#data_nascimento_form_familia").val(data.data_nascimento);
 						$("#email_form_familia").val(data.email);
 						$("#rg_form_familia").val(data.rg);
@@ -169,23 +173,9 @@ apagarMSGs();
 						$("#foto_form_familia").attr("src",data.banner);
 						$('#cpf_form_familia').mask("999.999.999-99");
 	$('#telefone_form_familia').val(data.telefone);
-		var SPMaskBehavior = function (val) {
-		 return val.replace(/\D/g, '').length === 11 ? '(00) 000 000 000' : '(00) 000 000 009';
-		},
-		spOptions = {
-			 onKeyPress: function(val, e, field, options) {
-			 field.mask(SPMaskBehavior.apply({}, arguments), options);
-		}
-		};
+		
 	$('#celular_form_familia').val(data.telefone);
-		var SPMaskBehavior = function (val) {
-		 return val.replace(/\D/g, '').length === 11 ? '(00) 000 000 000' : '(00) 000 000 009';
-		},
-		spOptions = {
-			 onKeyPress: function(val, e, field, options) {
-			 field.mask(SPMaskBehavior.apply({}, arguments), options);
-		}
-		};
+		
 					}	carregar('desativar');
 					
 					})

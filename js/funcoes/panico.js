@@ -1,13 +1,27 @@
+
 function ativarPanico(){
-	if($('#panico_ativo').val() == "sim")
+	if($('#panico_ativo').val() == "sim"){
+		
+		
 		pararPanico();
-	else
+	}else{
+		
+		
+		
+		
+
+		
+		
+		$('#panico_ativo').val('sim');
 		watchID = navigator.geolocation.watchPosition(mostrarTela, fail, { timeout: 5000 });
+	}
 
 }
 
 function pararPanico(){
   if(watchID){
+				$('a').filter('#botoesAlerta').css('background-color','#950e14');
+				$('a').filter('#botoesAlerta').css('border-color','#950e14');
                 navigator.geolocation.clearWatch(watchID);
                 watchID=null;
 				var ativo = $('#panico_ativo').val();

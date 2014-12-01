@@ -24,7 +24,6 @@ carregar('ativar');
 
 						lista += ' <li onclick="abrirCoollapsible(this);" style="padding-left:5px; min-height:0; margin:5px 20px;" data-role="collapsible" data-theme="d" data-iconpos="right" data-inset="false">';
 						lista +=	' <a href="#"><h2> CHEGOU EM: '+data[x].data_cadastro;
-						lista +=	' <img src="img/btn/correspondencia.png" align="right" style="margin: 0px 0px;">';
 						lista +=	' </h2></a>';
 						lista +=	' <form style="display:none">';	
 						lista +=	' <div class="ui-collapsible-content ui-body-inherit" aria-hidden="false">	';
@@ -53,8 +52,16 @@ carregar('ativar');
 function chamarCorrespondenciaRetiradas(){
 apagarMSGs();
 carregar('ativar');
+var acao = $('#acao_correespondencia').val();
+if(acao == 'retornar'){
+	$('#link_correspondencia').html('VER CORRESPONDÊNCIAS NÃO RETIRADAS'); 
+	$('#acao_correespondencia').val('retornarTodos');
+}else{
+	$('#link_correspondencia').html('VER CORRESPONDÊNCIAS JÁ RETIRADAS'); 
+	$('#acao_correespondencia').val('retornar');
+}
 	var lista = '';
-	$.post(URLBASE+'correspondencias.php', {acao:'retornar', id:idmorador()}, function(data) {
+	$.post(URLBASE+'correspondencias.php', {acao:acao, id:idmorador()}, function(data) {
 				var x = 0;
 				var y = 1;
 				var situacao = '';
@@ -76,7 +83,6 @@ carregar('ativar');
 
 						lista += ' <li onclick="abrirCoollapsible(this);" style="padding-left:5px; min-height:0; margin:5px 20px;" data-role="collapsible" data-theme="d" data-iconpos="right" data-inset="false">';
 						lista +=	' <a href="#"><h2> CHEGOU EM: '+data[x].data_cadastro;
-						lista +=	' <img src="img/btn/correspondencia.png" align="right" style="margin: 0px 0px;">';
 						lista +=	' </h2></a>';
 						lista +=	' <form style="display:none">';	
 						lista +=	' <div class="ui-collapsible-content ui-body-inherit" aria-hidden="false">	';

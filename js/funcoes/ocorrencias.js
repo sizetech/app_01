@@ -37,16 +37,16 @@
             options.chunkedMode = false;
  
             var ft = new FileTransfer();
-            ft.upload(imageURI, "http://lomatech.com.br/app/uploadOcorrencia.php", winAnimal, failAnimal, options);
+            ft.upload(imageURI, "http://lomatech.com.br/app/uploadOcorrencia.php", winOcorrencia, failOcorrencia, options);
         }
  
-        function winAnimal(r) {
+        function winOcorrencia(r) {
 			$("#arquivoMeusOcorrencias").val(r.response);
             carregar('desativar');
         }
  
-        function failAnimal(error) {
-			$('#foto_animal_editar').attr('src','');
+        function failOcorrencia(error) {
+			$('#banner_Ocorrencia_editar').attr('src','');
            carregar('desativar');
         }
 
@@ -76,7 +76,7 @@ apagarMSGs();
 							lista +=	'<center><img src="'+data[x].foto+'"></center>	';
 						lista +=    ' <h3 style="text-shadow: none; color: #FFF;background-color: #85b200;width: 100%;"><b>PUBLICADO EM </b>:'+data[x].data_cadastro+'</h3><br>';
 						lista +=	' <h3 style="text-shadow: none; color: #FFF;background-color: #85b200;width: 100%;"><b>DATA DA OCORRENCIA E LOCAL </b></h3>';
-						lista +=    ' <h3 style="text-shadow: none; color: #FFF;">Data: '+data[x].data_ocorrencia+' ás 00:00:00</h3> '; 
+						lista +=    ' <h3 style="text-shadow: none; color: #FFF;">Data: '+data[x].data_ocorrencia+' ás '+data[x].hora_ocorrencia+'</h3> '; 
 						lista +=	' <h3 style="text-shadow: none; color: #FFF;">Local:'+data[x].local+'</h3>';
 						lista +=    ' <h3 style="text-shadow: none; color: #FFF;background-color: #85b200;width: 100%;">DESCRIÇÃO DA OCORRENCIA</h3>';
 						lista += 	' <h3 style="text-shadow: none; color: #FFF;">'+data[x].descricao+'</h3>';

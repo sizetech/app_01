@@ -49,16 +49,16 @@ $(function(){
             options.chunkedMode = false;
  
             var ft = new FileTransfer();
-            ft.upload(imageURI, "http://lomatech.com.br/app/uploadVeiculo.php", winAnimal, failAnimal, options);
+            ft.upload(imageURI, "http://lomatech.com.br/app/uploadVeiculo.php", winVeiculos, failVeiculos, options);
         }
  
-        function winAnimal(r) {
+        function winVeiculos(r) {
 			$("#arquivoMeusVeiculos").val(r.response);
             carregar('desativar');
         }
  
-        function failAnimal(error) {
-			$('#foto_animal_editar').attr('src','');
+        function failVeiculos(error) {
+			$('#banner_veiculo_editar').attr('src','');
           carregar('desativar');
         }
 
@@ -81,6 +81,7 @@ carregar('ativar');
 	var lista = '';
 	$.post(URLBASE+'meus_veiculos.php', {acao:'retornarTodos', id:idmorador()}, function(data) {
 				var x = 0;
+				carregar('desativar');
 					$.each( data, function( ) {
 						
 			
@@ -97,8 +98,8 @@ carregar('ativar');
 						lista +=	' <h3 style="text-shadow: none; color: #FFF;">COR:'+data[x].cor+'</h3>';					
 						lista += 	' <h3 style="text-shadow: none; color: #FFF;">DATA CADASTRO:'+data[x].data_cadastro+'</h3>';
 						lista +=	' <fieldset data-role="controlgroup" data-type="horizontal" class="ui-controlgroup ui-controlgroup-horizontal ui-corner-all">';		
-						lista += 	'   <a href="#form_meus_veiculos" onClick="editar_meus_veiculos('+data[x].ID+');" id="btn-list-detalhe" style=" margin: 0px 18px 0px -20px;" class="ui-btn ui-corner-all">EDITAR CADASTRO</a>';
-						lista += 	' 	<a href="#"onClick="excluirVeiculo('+data[x].ID+');" id="btn-list" style="background-color:#820d12;border-color:#820d12; " class="ui-btn ui-corner-all">EXCLUIR</a>';
+						lista += 	'   <a href="#form_meus_veiculos" onClick="editar_meus_veiculos('+data[x].ID+');" id="btn-list"  style="background-color:#1D4963;border-color:#1D4963; " class="ui-btn ui-corner-all">EDITAR CADASTRO</a>';
+						lista += 	' 	<a href="#" onClick="excluirVeiculo('+data[x].ID+');" id="btn-list" style="background-color:#820d12;border-color:#820d12; " class="ui-btn ui-corner-all">EXCLUIR</a>';
 						lista +=	'</fieldset>';
 						lista +=	'</div>';
 						lista +=	'</form>';
@@ -160,10 +161,12 @@ function editar_meus_veiculos(ID){
 								})			 
 								.always(function(data) {	
 									$('#modelo_form_meus_veiculos').html(data);		
-									var raca2 =  $("#modelo_form_meus_veiculos option:selected").text();
-									$("#modelo_form_meus_veiculos-button span").html(raca2);									
+									$("#modelo_form_meus_veiculos").val(modelo);	
+							var raca2 =  $("#modelo_form_meus_veiculos option:selected").text();
+									$("#modelo_form_meus_veiculos-button span").html(raca2);
 								});
-								
+							
+							
 							carregar('desativar');	
 						}
 						x++;
@@ -182,8 +185,6 @@ apagarMSGs();
 						$("#modelo_form_meus_veiculos").val('');
 						$("#placa_form_meus_veiculos").val('');
 						$("#cor_form_meus_veiculos").val('');
-						$("#id_form_meus_veiculos").val('');
-						$("#acao_form_meus_veiculos").val('');
 						$("#banner_veiculo_editar").attr("src",'');
 	var resposta = '';
 	resposta += "<option value=''>-- Selecione a Marca --</option>";
@@ -217,7 +218,7 @@ if(ex == true){
 							$('.msgerro_meus_veiculos  p').html(data.mensagem)
 							$('.msgerro_meus_veiculos ').css('display','block');
 						}
-						carregar('desatuvar');
+						carregar('desativar');
 						window.location = "#meus_veiculos";
 					})
 	})
@@ -250,10 +251,10 @@ apagarMSGs();
 					}); 
 		} 
 	}; 
-	
-	if(validarFormularios('formulario_meus_veiculos') == true){
+	if(validarFormularios('formularioVeiculos') == true){
+		
 		carregar('ativar');
-		$('#formulario_meus_veiculos').ajaxSubmit(options);
+		$('#formularioVeiculos').ajaxSubmit(options);
 	}
 	
 	
