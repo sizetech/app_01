@@ -664,18 +664,7 @@
 		
 		<div id="form_lista_convidados" class="login" data-role="page">
 		
-	<div data-role="popup" id="popupLogin" data-theme="a" class="ui-corner-all">
-    <form>
-        <div style="padding:10px 20px;">
-            <h3 style="color:#fff">Lista Telefonica</h3>
-            <div class="buscar">
-					<ul data-role="listview" id="listaTelefonica" data-filter="true" data-filter-placeholder=" Buscar..." >	
-					
-					</ul>
-					</div>
-        </div>
-    </form>
-</div>
+	
 			<a href="#painel" style="text-decoration:none;">
 					<div data-role="header" data-theme="a">
 					
@@ -685,8 +674,25 @@
 					<form action="http://lomatech.com.br/app/lista_convidados.php" name="lista_convidados" id="formulario_lista_convidados" method="post" autocomplete="off" enctype="multipart/form-data"> 
 					
 					<center style="padding: 20px  50px 0px;">
+
 						
+						<div data-role="popup" id="contatosListas" data-theme="a" class="ui-corner-all">
+						    <form>
+						        <div style="padding:10px 20px;">
+						            <h3 style="color:#fff">Lista Telefonica</h3>
+						            <div class="buscar">
+											<ul data-role="listview" id="lista_de_telefonia" data-filter="true" data-filter-placeholder=" Buscar..." >	
+												<li><a href="#"><h2>Aguarde Carregando Contatos</h2></a></li>
+											</ul>
+											</div>
+						        </div>
+						    </form>
+						</div>
+						<ul data-role="listview" class="lista_telefonica2" data-filter="true" data-filter-placeholder=" Buscar..." >	
+											
+											</ul>
 						
+						<input type="hidden" class="valordoinputlista" value=''>
 						<label for="text-basic" class="letra">NOME DA LISTA </label>
 							<input type="text" obg="Nome da Lista" name="nome" id="nome_form_lista_convidados" value="" placeholder=" DIGITE UM NOME PARA LISTA">
 							
@@ -752,8 +758,12 @@
 			</div>
 					<div class="convidadeEditar" style="display:none";>
 							<label for="convidados"  class="letra">CONVIDADO 1:</label>
-							<input type="text" name="nomepessoa[]" id="nome_form_lista_convidados_pessoas" value="" placeholder="DIGITE O NOME DO CONVIDADO">							
-							<input type="text" class="telefone" name="telefone[]" id="telefone_form_lista_convidados" value="" placeholder="DIGITE O TELEFONE">
+							<input type="text" name="nomepessoa[]" id="nome_form_lista_convidados_pessoas1"  value="" placeholder="DIGITE O NOME DO CONVIDADO">							
+							<input type="text" class="telefone" name="telefone[]" id="telefone_form_lista_convidados1" value="" placeholder="DIGITE O TELEFONE">
+							
+							<a href="#contatosListas" onClick="chamarListaTelefonica(1);" data-rel="popup" data-position-to="window" class="ui-btn" data-transition="pop">Puxar da Lista de Contatos</a>
+
+							
 							<div class="addMais1"></div>
 					</div>
 		</div>

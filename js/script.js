@@ -615,6 +615,7 @@ apagarMSGs();
         // Register the event listener
         document.addEventListener("backbutton", onBackKeyDown, false);
 		document.addEventListener("menubutton", onMenuKeyDown, false);
+		listarRegistros();
     }
 
     // Handle the back button
@@ -694,4 +695,56 @@ apagarMSGs();
 			});
 			
     }
-	
+// INicio da lista
+
+function listarRegistros(){
+              var fields       = ["id","displayName", "name", "phoneNumbers"];
+              var options      = new ContactFindOptions();
+              options.filter   = "";
+              options.multiple = true;
+
+              navigator.contacts.find(fields, MostrarLista, onError, options);
+
+            }
+
+            function MostrarLista(ContatosArray){
+				
+				var lista = '';
+              for (var i = 0; i < ContatosArray.length; i++) {
+                  if(ContatosArray[i].phoneNumbers != null && ContatosArray[i].name != null ) {
+						
+						nome = ContatosArray[i].name.givenName;
+						id = ContatosArray[i].id;
+						lista = lista + ' <li style="padding-left:5px; min-height:0; margin:5px 20px;" data-role="collapsible" data-theme="d" data-iconpos="right" data-inset="false">';
+						lista = lista + ' <a href="#" onClick="colocarNaLista(\''+ nome +'\',\''+ ContatosArray[i].phoneNumbers[0].value + '\');" class="link"><h2>' + nome + '('+ ContatosArray[i].phoneNumbers[0].value + ')</h2></a>';
+						lista = lista + '</li>';
+					}
+
+              }
+
+             $('#lista_de_telefonia').html(lista);
+			$('#lista_de_telefonia').listview("refresh");
+
+            }
+
+            function onError(contactError) {
+                alert('Erro' + contactError.code);
+            }
+			
+			function colocarNaLista(nome,numero){
+				campo = $('.valordoinputlista').val();
+				var tel = '#telefone_form_lista_convidados'+campo;
+				var nome2 = '#nome_form_lista_convidados_pessoas'+campo;
+				$(tel).val(numero);
+				$(nome2).val(nome);
+				$('.valordoinputlista').val('');		
+				$( "#contatosListas" ).popup( "close" );
+			}
+			
+			function chamarListaTelefonica(num){
+				$('.valordoinputlista').val(num);
+				$( "#contatosListas" ).popup( "open");
+			}
+			
+			
+	// fim da lista
