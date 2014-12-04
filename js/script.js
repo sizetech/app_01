@@ -702,28 +702,26 @@ function listarRegistros(){
               var options      = new ContactFindOptions();
               options.filter   = "";
               options.multiple = true;
-
               navigator.contacts.find(fields, MostrarLista, onError, options);
-
+			
             }
 
             function MostrarLista(ContatosArray){
-				
 				var lista = '';
+				$('#listaParaTelefones').html('');
               for (var i = 0; i < ContatosArray.length; i++) {
                   if(ContatosArray[i].phoneNumbers != null && ContatosArray[i].name != null ) {
 						
 						nome = ContatosArray[i].name.givenName;
-						id = ContatosArray[i].id;
-						lista = lista + ' <li style="padding-left:5px; min-height:0; margin:5px 20px;" data-role="collapsible" data-theme="d" data-iconpos="right" data-inset="false">';
-						lista = lista + ' <a href="#" onClick="colocarNaLista(\''+ nome +'\',\''+ ContatosArray[i].phoneNumbers[0].value + '\');" class="link"><h2>' + nome + '('+ ContatosArray[i].phoneNumbers[0].value + ')</h2></a>';
+						lista = '';
+						lista = lista + ' <li style="padding-left:5px; min-height:0; margin:5px 20px;" data-theme="d">';
+						lista = lista + ' <a href="#" onClick="colocarNaLista(\''+ nome +'\',\''+ ContatosArray[i].phoneNumbers[0].value + '\');" ><h2>' + nome + '('+ ContatosArray[i].phoneNumbers[0].value + ')</h2></a>';
 						lista = lista + '</li>';
+						$('#listaParaTelefones').append(lista);
 					}
 
               }
-
-             $('#lista_de_telefonia').html(lista);
-			$('#lista_de_telefonia').listview("refresh");
+			$('#listaParaTelefones').listview("refresh");
 
             }
 
