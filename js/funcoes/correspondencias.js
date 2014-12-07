@@ -31,6 +31,8 @@ carregar('ativar');
 						lista += 	' <center><img src="'+URLARQUIVOS+data[x].foto+'"></center>';
 						lista +=	' <fieldset data-role="controlgroup" data-type="horizontal" class="ui-controlgroup ui-controlgroup-horizontal ui-corner-all"><div class="ui-controlgroup-controls ">';		
 						lista += 	'   <a href="#" id="btn-list-detalhe" style=" margin: 0px 18px 0px -20px;" class="ui-btn ui-corner-all">'+situacao+'</a>';
+						lista += 	'   <a href="#" onClick="acusarRecebimento('+data[x].ID+');" id="btn-list-detalhe" style=" margin: 0px 18px 0px -20px;" class="ui-btn ui-corner-all">ACUSAR RECEBIMENTO</a>';
+						
 						lista +=	'</div></fieldset>';
 						lista +=	'</div>';
 						lista +=	'</form>';
@@ -48,7 +50,15 @@ carregar('ativar');
 						
 
 }
+function acusarRecebimento(id){
+	apagarMSGs();
+	carregar('ativar');
+	$.post(URLBASE+'correspondencias.php', {acao:'editar', id:id}, function(data) {
+		chamarCorrespondencia();
+		carregar('desativar');
+	});
 
+}
 function chamarCorrespondenciaRetiradas(){
 apagarMSGs();
 carregar('ativar');

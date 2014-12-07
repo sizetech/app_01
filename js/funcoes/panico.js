@@ -11,9 +11,13 @@ function ativarPanico(){
 		
 
 		
-		
-		$('#panico_ativo').val('sim');
-		watchID = navigator.geolocation.watchPosition(mostrarTela, fail, { timeout: 5000 });
+		var ex = confirm("Deseja Iniciar Pânico?");
+		if(ex == true){
+			$('#panico_ativo').val('sim');
+			watchID = navigator.geolocation.watchPosition(mostrarTela, fail, { timeout: 5000 });
+		}else{
+			$('.login').css('background','#112C3C');
+		}
 	}
 
 }

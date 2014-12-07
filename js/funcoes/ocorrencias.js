@@ -82,7 +82,9 @@ apagarMSGs();
 						lista += 	' <h3 style="text-shadow: none; color: #FFF;">'+data[x].descricao+'</h3>';
 						lista +=	' <fieldset data-role="controlgroup" data-type="horizontal" class="ui-controlgroup ui-controlgroup-horizontal ui-corner-all"><div class="ui-controlgroup-controls ">';		
 						lista += 	'   <a href="#" id="btn-list-detalhe" style=" margin: 0px 18px 0px -20px;" class="ui-btn ui-corner-all">'+situacao+'</a>';
-						lista += 	' 	<a href="#" onClick="CancelarOcorrencia('+data[x].ID+');" id="btn-list" style="background-color:#820d12;border-color:#820d12; " class="ui-btn ui-corner-all">Cancelar</a>';
+						if(data[x].cadastraste)						
+							lista += 	' 	<a href="#" onClick="CancelarOcorrencia('+data[x].ID+');" id="btn-list" style="background-color:#820d12;border-color:#820d12; " class="ui-btn ui-corner-all">Cancelar</a>';
+						
 						lista +=	'</div></fieldset>';
 						lista +=	'</div>';
 						lista +=	'</form>';
