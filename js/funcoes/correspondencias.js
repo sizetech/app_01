@@ -30,8 +30,10 @@ carregar('ativar');
 						lista +=    ' <h3 style="text-shadow: none; color: #FFF;background-color: #85b200;width: 100%;">FOTO DA CORRESPONDENCIA</h3>';
 						lista += 	' <center><img src="'+URLARQUIVOS+data[x].foto+'"></center>';
 						lista +=	' <fieldset data-role="controlgroup" data-type="horizontal" class="ui-controlgroup ui-controlgroup-horizontal ui-corner-all"><div class="ui-controlgroup-controls ">';		
+						
 						lista += 	'   <a href="#" id="btn-list-detalhe" style=" margin: 0px 18px 0px -20px;" class="ui-btn ui-corner-all">'+situacao+'</a>';
-						lista += 	'   <a href="#" onClick="acusarRecebimento('+data[x].ID+');" id="btn-list-detalhe" style=" margin: 0px 18px 0px -20px;" class="ui-btn ui-corner-all">ACUSAR RECEBIMENTO</a>';
+						if(data[x].status != 'Na Portaria')
+							lista += 	'   <a href="#" onClick="acusarRecebimento('+data[x].ID+');" id="btn-list-detalhe" style=" margin: 0px 18px 0px -20px;" class="ui-btn ui-corner-all">CONFIRMAR RECEBIMENTO</a>';
 						
 						lista +=	'</div></fieldset>';
 						lista +=	'</div>';
