@@ -4,9 +4,9 @@
 <widget xmlns     = "http://www.w3.org/ns/widgets"
         xmlns:gap = "http://phonegap.com/ns/1.0"
         id        = "com.sizetech.lomatech"
-        version   = "2.0.6">
+        version   = "2.0.7">
 
-    <name>Lomatech</name>
+    <name>iCondominio</name>
 
     <description>
        Aplicativo dos condominios Lomatech.
