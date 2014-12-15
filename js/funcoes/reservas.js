@@ -72,7 +72,9 @@ carregar('ativar');
 
 function CancelarReserva(id){
 apagarMSGs();
-var ex = confirm("Deseja Cancelar?");
+navigator.notification.confirm(
+    'Deseja Cancelar?', // message
+     function(ex){
 if(ex == true){
 	$.post(URLBASE+'reservas.php', {id:id, acao:'excluir'}, function(data) {
 				var x = 0;
@@ -91,6 +93,10 @@ if(ex == true){
 					})
 	});
 }
+},            // callback to invoke with index of button pressed
+    'iCondominio',           // title
+    ['Sim','Não']     // buttonLabels
+);
 
 }
 

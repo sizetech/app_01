@@ -202,7 +202,9 @@ apagarMSGs();
 
 }
 	function excluirVeiculo(ID){
-	var ex = confirm("Deseja Excluir?");
+navigator.notification.confirm(
+    'Deseja Excluir?', // message
+     function(ex){
 if(ex == true){
 	carregar('ativar');
 	$.post(URLBASE+'meus_veiculos.php', {id:ID, acao:'excluir'}, function(data) {
@@ -223,6 +225,10 @@ if(ex == true){
 					})
 	})
 }
+ },            // callback to invoke with index of button pressed
+    'iCondominio',           // title
+    ['Sim','Não']     // buttonLabels
+);
 }
 			
 	

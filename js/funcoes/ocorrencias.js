@@ -104,7 +104,9 @@ apagarMSGs();
 
 function CancelarOcorrencia(id){
 apagarMSGs();
-var ex = confirm("Deseja Cancelar?");
+navigator.notification.confirm(
+    'Deseja Cancelar?', // message
+     function(ex){
 if(ex == true){
 	$.post(URLBASE+'ocorrencias.php', {id:id, acao:'excluir'}, function(data) {
 				var x = 0;
@@ -123,6 +125,10 @@ if(ex == true){
 					})
 	})
 	}
+},            // callback to invoke with index of button pressed
+    'iCondominio',           // title
+    ['Sim','Não']     // buttonLabels
+);
 };
 function novaOcorrencia(){
 apagarMSGs();

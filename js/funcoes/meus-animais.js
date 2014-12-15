@@ -132,7 +132,9 @@ carregar('ativar');
 	//fim
 function excluirAnimal(ID){
 apagarMSGs();
-var ex = confirm("Deseja Excluir?");
+navigator.notification.confirm(
+    'Deseja Excluir?', // message
+     function(ex){
 if(ex == true){
 	carregar('ativar');
 	$.post(URLBASE+'meu_animais.php', {id:ID, acao:'excluir'}, function(data) {
@@ -153,6 +155,10 @@ if(ex == true){
 					})
 	})
 }
+},            // callback to invoke with index of button pressed
+    'iCondominio',           // title
+    ['Sim','Não']     // buttonLabels
+);
 }
 $(function(){
 

@@ -191,27 +191,38 @@ apagarMSGs();
 
 }
 
+
+
 function CancelarLista(id){
 apagarMSGs();
-var ex = confirm("Deseja Cancelar?");
-if(ex == true){
-	$.post(URLBASE+'lista_convidados.php', {id:id, acao:'excluir'}, function(data) {
-				var x = 0;
-					$.each( data, function( ) {
-						
-						chamarListaConvidados();
-											
-						if(data.status){
-							$('.msgsucesso_meus_convidados p').html(data.mensagem);
-							$('.msgsucesso_meus_convidados').css('display','block');
-						}else{
-							$('.msgerro_meus_convidados p').html(data.mensagem)
-							$('.msgerro_meus_convidados').css('display','block');
-						}
-						window.location = "#lista_convidados";
-					})
-	})
-	}
+
+
+navigator.notification.confirm(
+    'Deseja Cancelar?', // message
+     function(ex){
+		if(ex == true){
+			$.post(URLBASE+'lista_convidados.php', {id:id, acao:'excluir'}, function(data) {
+						var x = 0;
+							$.each( data, function( ) {
+								
+								chamarListaConvidados();
+													
+								if(data.status){
+									$('.msgsucesso_meus_convidados p').html(data.mensagem);
+									$('.msgsucesso_meus_convidados').css('display','block');
+								}else{
+									$('.msgerro_meus_convidados p').html(data.mensagem)
+									$('.msgerro_meus_convidados').css('display','block');
+								}
+								window.location = "#lista_convidados";
+							})
+			})
+			}
+	 },            // callback to invoke with index of button pressed
+    'iCondominio',           // title
+    ['Sim','Não']     // buttonLabels
+);
+
 };
 function novaLista(){
 apagarMSGs();
