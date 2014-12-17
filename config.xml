@@ -4,7 +4,7 @@
 <widget xmlns     = "http://www.w3.org/ns/widgets"
         xmlns:gap = "http://phonegap.com/ns/1.0"
         id        = "com.sizetech.lomatech"
-        version   = "2.0.8">
+        version   = "2.0.10">
 
     <name>iCondominio</name>
 
@@ -83,6 +83,11 @@
     <gap:splash src="res/screen/ios/screen-iphone-portrait-2x.png" gap:platform="ios"     width="640" height="960" />
     <gap:splash src="res/screen/ios/screen-ipad-portrait.png"      gap:platform="ios"     width="768" height="1024" />
     <gap:splash src="res/screen/ios/screen-ipad-landscape.png"     gap:platform="ios"     width="1024" height="768" />
+	
+    <gap:splash src="res/screen/ios/screen-iphone-portrait-6.png"     gap:platform="ios"     width="750" height="1334" />
+    <gap:splash src="res/screen/ios/screen-iphone-landscape-6.png"     gap:platform="ios"     width="1334" height="750" />
+    <gap:splash src="res/screen/ios/screen-iphone-portrait-6plus.png"     gap:platform="ios"     width="1242" height="2208" />
+    <gap:splash src="res/screen/ios/screen-iphone-landscape-6plus.png"     gap:platform="ios"     width="2208" height="1242" />
     <gap:splash src="res/screen/windows-phone/screen-portrait.jpg" gap:platform="winphone" />
    
    <!-- Cordova Plugin -->

@@ -2,8 +2,20 @@
 function ativarPanico(){
 	if($('#panico_ativo').val() == "sim"){
 		
+		navigator.notification.confirm(
+    'Deseja Para Pânico?', // message
+     function(ex){
 		
-		pararPanico();
+		if(ex == true){
+			pararPanico();
+		}
+	 },            // callback to invoke with index of button pressed
+    'iCondominio',           // title
+    ['Sim','Não']     // buttonLabels
+);
+
+
+		
 	}else{
 		
 		

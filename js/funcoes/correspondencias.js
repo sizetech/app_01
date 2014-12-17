@@ -32,7 +32,7 @@ carregar('ativar');
 						lista +=	' <fieldset data-role="controlgroup" data-type="horizontal" class="ui-controlgroup ui-controlgroup-horizontal ui-corner-all"><div class="ui-controlgroup-controls ">';		
 						
 						lista += 	'   <a href="#" id="btn-list-detalhe" style=" margin: 0px 18px 0px -20px;" class="ui-btn ui-corner-all">'+situacao+'</a>';
-						if(data[x].status == 'Pegou')
+						if(data[x].status == 'Pegou' && data[x].pode == 'sim')
 							lista += 	'   <a href="#" onClick="acusarRecebimento('+data[x].ID+');" id="btn-list-detalhe"  class="ui-btn ui-corner-all">CONFIRMAR RECEBIMENTO</a>';
 						
 						lista +=	'</div></fieldset>';
