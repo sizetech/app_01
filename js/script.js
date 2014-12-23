@@ -714,10 +714,12 @@ function listarRegistros(){
 						
 						nome = ContatosArray[i].name.givenName;
 						lista = '';
-						lista = lista + ' <li style="padding-left:5px; min-height:0; margin:5px 20px;" data-theme="d">';
-						lista = lista + ' <a href="#" onClick="colocarNaLista(\''+ nome +'\',\''+ ContatosArray[i].phoneNumbers[0].value + '\');" ><h2>' + nome + '('+ ContatosArray[i].phoneNumbers[0].value + ')</h2></a>';
-						lista = lista + '</li>';
-						$('#listaParaTelefones').append(lista);
+						for( var m = 0 m < ContatosArray[i].phoneNumbers){						
+							lista = lista + ' <li style="padding-left:5px; min-height:0; margin:5px 20px;" data-theme="d">';
+							lista = lista + ' <a href="#" onClick="colocarNaLista(\''+ nome +'\',\''+ ContatosArray[i].phoneNumbers[m].value + '\');" ><h2>' + nome + '('+ ContatosArray[i].phoneNumbers[m].value + ')</h2></a>';
+							lista = lista + '</li>';
+							$('#listaParaTelefones').append(lista);
+						}
 					}
 
               }
