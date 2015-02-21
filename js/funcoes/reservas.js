@@ -150,3 +150,12 @@ apagarMSGs();
 	
 	return false;
 }
+
+function atualizarPrecoTotal() {
+	var indexOption = $(this)[0].selectedIndex;
+	$.post(URLBASE+"querys/query_reservaDependencias_calcularValor.php", {
+		tempo: indexOption, dependencia: $("#dependencia_form_reservas").val()
+	}, function() {}).always(function(data) {
+		$('input[name=preco_total]').val(data);
+	});
+};

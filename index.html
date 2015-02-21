@@ -756,8 +756,27 @@
 			</div>
 					<div class="convidadeEditar" style="display:none";>
 							<label for="convidados"  class="letra">CONVIDADO 1:</label>
-							<input type="text" name="nomepessoa[]" id="nome_form_lista_convidados_pessoas1"  value="" placeholder="DIGITE O NOME DO CONVIDADO">							
-							<input type="text" class="telefone" name="telefone[]" id="telefone_form_lista_convidados1" value="" placeholder="DIGITE O TELEFONE">
+							<input type="text" name="nomepessoa[]" id="nome_form_lista_convidados_pessoas1"  value="" placeholder="DIGITE O NOME DO CONVIDADO">
+							<script>
+								var SPMaskBehavior = function (val) {
+									return val.replace(/\D/g, '').length === 11 ? '(00) 00000-0000' : '(00) 0000-00009';
+								},
+								spOptions = {
+									onKeyPress: function(val, e, field, options) {
+										field.mask(SPMaskBehavior.apply({}, arguments), options);
+									}
+								};
+
+								$('.celphones9digits').mask(SPMaskBehavior, spOptions);
+								$('.celphones9digits').on('blur', function() {
+									digitoVerificador = $(this).val().substr(5, 1);
+									if(digitoVerificador < 6 || $(this).val().length < 14) {
+										alert('Este não é um número válido');
+										$(this).val('');
+									}
+								});
+							</script>
+							<input type="text" class="telefone celphones9digits" name="telefone[]" id="telefone_form_lista_convidados1" value="" placeholder="DIGITE O TELEFONE">
 							
 							<a href="#contatosListas" onClick="chamarListaTelefonica(1);" data-rel="popup" data-position-to="window" class="ui-btn" data-transition="pop">Puxar da Lista de Contatos</a>
 
@@ -1154,9 +1173,11 @@
 								<input type="button" value="Verificar Disponibilidade do horario" onClick="verificarHorario()"> <br/>
 								
 								<label for="time-1" class="letra">HORA DE TERMINIO</label>
-								<select name="hora_termino" obg="Hora de Terminio" id="hora_fim_form_reservas">
+								<select name="hora_termino" obg="Hora de Terminio" id="hora_fim_form_reservas" onChange="atualizarPrecoTotal()">
 									<option value=''>-- Selecione um Horario de inicio -- </option>
 								</select>
+								<input type="hidden" data-clear-btn="false" name="preco_total" id="preco_total" value="">
+								<input type="text" data-clear-btn="false" name="preco_total" id="preco_total" value="" disabled="disabled">
 							<input type="hidden" name="acao" value="novo">
 							<input type="hidden" name="id" id="id_form_reserva" value="">
 						<a href="#" onClick="registrarReserva();" id="btn-medio" class="ui-btn ui-corner-all">RESERVAR</a>

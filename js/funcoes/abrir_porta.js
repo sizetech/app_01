@@ -1,15 +1,40 @@
+var myPosition = [];
+myPosition['error'] = true;
+var watchID;
+
+
+
+function lerGPS() {
+	console.log("navigator.geolocation works well");
+	watchID = navigator.geolocation.watchPosition(setPosition, GPSError, { timeout: 5000, enableHighAccuracy: true, maximumAge: 90000 });
+}
+
+
+function setPosition(position) {
+	myPosition['latitude'] = position.coords.latitude;
+	myPosition['longitude'] = position.coords.longitude;
+	myPosition['error'] = false;
+	console.log(myPosition);
+}
+
+function GPSError(error) {
+	myPosition['error'] = error.code;
+}
+
 function listarPortas(){
+lerGPS();
 apagarMSGs();
 carregar('ativar');
 	var lista = '';
-	$.post(URLBASE+'abrir_portao.php', {acao:'retornarTodos', id:idmorador()}, function(data) {
+
+		$.post(URLBASE+'abrir_portao.php', {acao:'retornarTodos', id:idmorador()}, function(data) {
 				var x = 0;
 				var y = 1;
 				var situacao = '';
 					$.each( data, function( ) {
 						
 						
-						lista += ' <li onclick="abrirPortao('+data[x].ID+');" style="padding-left:5px; min-height:0; margin:5px 20px;" data-role="collapsible" data-theme="d" data-iconpos="right" data-inset="false">';
+						lista += ' <li onclick="abrirPortao('+data[x].ID+');" style="padding-left:5px; min-height:0; margin:5px 20px;" data-role="collapsible" data-theme="d" data-iconpos="right" data-inset="false" data-latitude="-18.121315">';
 						lista +=	' <a href="#">'+data[x].nome;
 						lista +=  '</a></li>';
 
@@ -22,15 +47,22 @@ carregar('ativar');
 					$('#listaportao').listview("refresh");
 					carregar('desativar');
 		}, 'json');
+		
+	
 						
 
 }
 
 function abrirPortao(id){
+	console.log(myPosition);
 	apagarMSGs();
-carregar('ativar');
+
 	var lista = '';
-	$.post(URLBASE+'abrir_portao.php', {acao:'acionar', id:idmorador(), id_portao:id}, function(data) {
+	if(myPosition['error'])
+		alert('O GPS deve estar ativo para utilizar esta função');
+	else {
+		carregar('ativar');
+		$.post(URLBASE+'abrir_portao.php', {acao:'acionar', id:idmorador(), id_portao:id, latitude:myPosition['latitude'], longitude:myPosition['longitude']}, function(data) {
 
 				var situacao = '';
 					$.each( data, function( ) {
@@ -50,6 +82,7 @@ carregar('ativar');
 					});
 					carregar('desativar');
 		}, 'json');
+	}
 }
 
 	
