@@ -676,15 +676,14 @@
 					<center style="padding: 20px  50px 0px;">
 
 						
-						<div data-role="popup" id="contatosListas" data-theme="a" class="ui-corner-all">
+						<div data-role="popup" id="contatosListas" data-theme="a" class="ui-corner-all" style="background-color:#eee">
 						    <form>
 						        <div style="padding:10px 20px;">
-						            <h3 style="color:#fff">Lista Telefonica</h3>
 						            <div class="buscar">
-											<ul data-role="listview" id="listaParaTelefones" data-filter="true" data-filter-placeholder=" Buscar..." >	
-												<li><a href="#"><h2>Aguarde Carregando Contatos</h2></a></li>
-											</ul>
-											</div>
+										<ul data-role="listview" id="listaParaTelefones" data-filter="true" data-filter-placeholder="Buscar..." >	
+											<!--<li><a href="#"><h2>Aguarde Carregando Contatos</h2></a></li>-->
+										</ul>
+									</div>
 						        </div>
 						    </form>
 						</div>
@@ -766,14 +765,16 @@
 										field.mask(SPMaskBehavior.apply({}, arguments), options);
 									}
 								};
-
 								$('.celphones9digits').mask(SPMaskBehavior, spOptions);
-								$('.celphones9digits').on('blur', function() {
-									digitoVerificador = $(this).val().substr(5, 1);
-									if(digitoVerificador < 6 || $(this).val().length < 14) {
-										alert('Este não é um número válido');
-										$(this).val('');
-									}
+								
+								$('.celphones9digits').on('change', function() {
+										var numero = $(this).val();
+										numero = numero.replace(/[^0-9]/g,"");
+										var digitoVerificador = numero.substr(2, 1);
+										if(digitoVerificador < 6 || $(this).val().length < 14) {
+											alert('Este não é um número válido');
+											$(this).val('');
+										}
 								});
 							</script>
 							<input type="text" class="telefone celphones9digits" name="telefone[]" id="telefone_form_lista_convidados1" value="" placeholder="DIGITE O TELEFONE">
@@ -2061,6 +2062,7 @@
 			</div>
 		</div>
 		<script src="phonegap.js"></script>
+		<script src="cordova.js"></script>
  <script type="text/javascript">
 
            
