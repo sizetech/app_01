@@ -152,7 +152,7 @@ apagarMSGs();
 }
 
 function atualizarPrecoTotal() {
-	var indexOption = $(this)[0].selectedIndex;
+	var indexOption = $('#hora_fim_form_reservas')[0].selectedIndex;
 	$.post(URLBASE+"querys/query_reservaDependencias_calcularValor.php", {
 		tempo: indexOption, dependencia: $("#dependencia_form_reservas").val()
 	}, function() {}).always(function(data) {
