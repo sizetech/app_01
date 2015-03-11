@@ -4,7 +4,7 @@
 <widget xmlns     = "http://www.w3.org/ns/widgets"
         xmlns:gap = "http://phonegap.com/ns/1.0"
         id        = "com.sizetech.lomatech"
-        version   = "1.0.0">
+        version   = "2.0.0">
 
     <name>CondoMovel</name>
 
@@ -96,7 +96,7 @@
  
     <gap:splash src="res/screen/windows-phone/screen-portrait.jpg" gap:platform="winphone" />
    
-    
+  
 
 	<gap:plugin name="org.apache.cordova.camera" />
 	<gap:plugin name="org.apache.cordova.contacts" />
@@ -107,7 +107,7 @@
 	<gap:plugin name="org.apache.cordova.geolocation"  />
 	<gap:plugin name="org.apache.cordova.dialogs"  />
 
-	<!--
+	 <!-- Cordova Plugin
 	<feature name="Camera">
 		<param name="android-package" value="org.apache.cordova.camera.CameraLauncher" />
 	</feature>
@@ -129,10 +129,11 @@
 	<feature name="Contacts">
 		<param name="android-package" value="org.apache.cordova.contacts.ContactManager" />
 	</feature>
+	 -->
         <access />           
         <access origin="*" /> 
 
-      -->
+     
     <!--
         <access origin="http://phonegap.com" />                    - allow any secure requests to http://phonegap.com/
         <access origin="http://phonegap.com" subdomains="true" />  - same as above, but including subdomains, such as http://build.phonegap.com/
