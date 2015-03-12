@@ -4,9 +4,9 @@
 <widget xmlns     = "http://www.w3.org/ns/widgets"
         xmlns:gap = "http://phonegap.com/ns/1.0"
         id        = "com.sizetech.lomatech"
-        version   = "2.0.0">
+        version   = "2.1.0">
 
-    <name>CondoMovel</name>
+    <name>iCondominio</name>
 
     <description>
        Aplicativo dos condominios Lomatech.
@@ -96,7 +96,7 @@
  
     <gap:splash src="res/screen/windows-phone/screen-portrait.jpg" gap:platform="winphone" />
    
-  
+   <!-- Cordova Plugin -->
 
 	<gap:plugin name="org.apache.cordova.camera" />
 	<gap:plugin name="org.apache.cordova.contacts" />
@@ -107,29 +107,6 @@
 	<gap:plugin name="org.apache.cordova.geolocation"  />
 	<gap:plugin name="org.apache.cordova.dialogs"  />
 
-	 <!-- Cordova Plugin
-	<feature name="Camera">
-		<param name="android-package" value="org.apache.cordova.camera.CameraLauncher" />
-	</feature>
-	<feature name="Device">
-		<param name="android-package" value="org.apache.cordova.device.Device" />
-	</feature>
-	<feature name="File">
-		<param name="android-package" value="org.apache.cordova.file.FileUtils" />
-	</feature>
-	<feature name="FileTransfer">
-		<param name="android-package" value="org.apache.cordova.filetransfer.FileTransfer" />
-	</feature>
-	<feature name="Geolocation">
-		<param name="android-package" value="org.apache.cordova.geolocation.GeoBroker" />
-	</feature>
-	<feature name="InAppBrowser">
-		<param name="android-package" value="org.apache.cordova.inappbrowser.InAppBrowser" />
-	</feature>
-	<feature name="Contacts">
-		<param name="android-package" value="org.apache.cordova.contacts.ContactManager" />
-	</feature>
-	 -->
         <access />           
         <access origin="*" /> 
 

@@ -1,7 +1,5 @@
 const URLBASE = "http://lomatech.com.br/app/";
 const URLARQUIVOS = "http://lomatech.com.br/";
-//const URLBASE = "http://mobile.dev/lomatech/Sistema/app/";
-//const URLARQUIVOS = "http://mobile.dev/lomatech/Sistema/";
 function tirarFocu(){
 
 		$(".preca12").css("display","none");
@@ -713,24 +711,15 @@ function listarRegistros(){
 				$('#listaParaTelefones').html('');
               for (var i = 0; i < ContatosArray.length; i++) {
                   if(ContatosArray[i].phoneNumbers != null && ContatosArray[i].name != null ) {
-						/*nome = ContatosArray[i].name.givenName;
-						lista = '';
-						lista = lista + ' <li style="padding-left:5px; min-height:0; margin:5px 20px;" data-theme="d">';
-						lista = lista + ' <a href="#" onClick="colocarNaLista(\''+ nome +'\',\''+ ContatosArray[i].phoneNumbers[0].value + '\');" ><h2>' + nome + '('+ ContatosArray[i].phoneNumbers[0].value + ')</h2></a>';
-						lista = lista + '</li>';
-						$('#listaParaTelefones').append(lista);*/
-						nome = ContatosArray[i].name.formatted;
-						lista = '';
-						lista = lista + ' <li style="padding-left:5px; min-height:0; margin:5px 20px;" data-theme="d">';
-						lista = lista + '<h2 style="color:#000">'+ nome + '</h2>';
-						//lista = lista + '<p><a href="#" onClick="colocarNaLista(\''+ nome +'\',\''+ ContatosArray[i].phoneNumbers[0].value + '\');" ><h2>'+ ContatosArray[i].phoneNumbers[0].value + '</h2></a></p>';
-						//lista = lista + '<p><a href="#" onClick="colocarNaLista(\''+ nome +'\',\''+ ContatosArray[i].phoneNumbers[1].value + '\');" ><h2>'+ ContatosArray[i].phoneNumbers[1].value + '</h2></a></p>';
 						
-						$.each(ContatosArray[i].phoneNumbers, function( index, valor ) {
-							lista = lista + '<a href="#" onClick="colocarNaLista(\''+ nome +'\',\''+ ContatosArray[i].phoneNumbers[index].value + '\');" class="ui-btn ui-btn-icon-right ui-icon-carat-r" style="float:none; color:#666; background-color:#eee; text-shadow:none">'+ ContatosArray[i].phoneNumbers[index].value + '</a>';
-						});
-						lista = lista + '</li>';
-						$('#listaParaTelefones').append(lista);
+						nome = ContatosArray[i].name.givenName;
+						lista = '';
+						for( var m = 0 ; m < ContatosArray[i].phoneNumbers.length; m++){						
+							lista = lista + ' <li style="padding-left:5px; min-height:0; margin:5px 20px;" data-theme="d">';
+							lista = lista + ' <a href="#" onClick="colocarNaLista(\''+ nome +'\',\''+ ContatosArray[i].phoneNumbers[m].value + '\');" ><h2>' + nome + '('+ ContatosArray[i].phoneNumbers[m].value + ')</h2></a>';
+							lista = lista + '</li>';
+							$('#listaParaTelefones').append(lista);
+						}
 					}
 
               }
@@ -750,10 +739,6 @@ function listarRegistros(){
 				$(nome2).val(nome);
 				$('.valordoinputlista').val('');		
 				$( "#contatosListas" ).popup( "close" );
-				$('.celphones9digits').mask(SPMaskBehavior, spOptions);
-				setTimeout(function() {
-					$('.celphones9digits').last().focus();
-				}, 1000);
 			}
 			
 			function chamarListaTelefonica(num){

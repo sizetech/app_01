@@ -178,9 +178,9 @@ apagarMSGs();
 						$("#classificacao_form_familia").val(data.tipo);
 						$("#foto_form_familia").attr("src",data.banner);
 						$('#cpf_form_familia').mask("999.999.999-99");
-						$('#telefone_form_familia').val(data.telefone);
-							
-						$('#celular_form_familia').val(data.celular);
+	$('#telefone_form_familia').val(data.telefone);
+		
+	$('#celular_form_familia').val(data.telefone);
 		
 					}	carregar('desativar');
 					

@@ -10,7 +10,7 @@ function ativarPanico(){
 			pararPanico();
 		}
 	 },            // callback to invoke with index of button pressed
-    'CondoMovel',           // title
+    'iCondominio',           // title
     ['Sim','Não']     // buttonLabels
 );
 
@@ -33,7 +33,7 @@ function ativarPanico(){
 			$('.login').css('background','#112C3C');
 		}
 	 },            // callback to invoke with index of button pressed
-    'CondoMovel',           // title
+    'iCondominio',           // title
     ['Sim','Não']     // buttonLabels
 );
 	}

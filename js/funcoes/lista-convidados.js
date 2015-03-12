@@ -1,13 +1,26 @@
+
 function addMais(){
 			var quant = $('.quantPessoas').val();
 			var num = parseInt(quant)+1;
-			var msg= '<br><label for="convidados" class="letra">CONVIDADO '+num+':</label><div class="ui-input-text ui-body-inherit ui-corner-all ui-shadow-inset"><input type="text" name="nomepessoa[]" id="nome_form_lista_convidados_pessoas'+num+'" value="" placeholder="DIGITE O NOME DO CONVIDADO"></div><div class="ui-input-text ui-body-inherit ui-corner-all ui-shadow-inset"><input type="text" class="celphones9digits" name="telefone[]" id="telefone_form_lista_convidados'+num+'" value="" placeholder="DIGITE O TELEFONE"></div><a href="#contatosListas" onClick="chamarListaTelefonica('+num+');" data-rel="popup" data-position-to="window" class="ui-btn" data-transition="pop">Puxar da Lista de Contatos</a><div class="addMais'+num+'"></div>';
+			var msg= '<br><label for="convidados" class="letra">CONVIDADO '+num+':</label><div class="ui-input-text ui-body-inherit ui-corner-all ui-shadow-inset"><input type="text" name="nomepessoa[]" id="nome_form_lista_convidados_pessoas'+num+'" value="" placeholder="DIGITE O NOME DO CONVIDADO"></div><div class="ui-input-text ui-body-inherit ui-corner-all ui-shadow-inset"><input type="text" class="telefone" name="telefone[]" id="telefone_form_lista_convidados'+num+'" value="" placeholder="DIGITE O TELEFONE"></div><a href="#contatosListas" onClick="chamarListaTelefonica('+num+');" data-rel="popup" data-position-to="window" class="ui-btn" data-transition="pop">Puxar da Lista de Contatos</a><div class="addMais'+num+'"></div>';
 			var add = ".addMais"+quant;
 			$(add).html(msg);
 			$('.quantPessoas').val(num);	
+			var masc = '#telefone_form_lista_convidados'+num;
+			var SPMaskBehavior = function (val) {
+						  return val.replace(/\D/g, '').length === 11 ? '(00) 000 000 000' : '(00) 000 000 009';
+						},
+						spOptions = {
+						  onKeyPress: function(val, e, field, options) {
+							  field.mask(SPMaskBehavior.apply({}, arguments), options);
+							}
+						};
 
+						$(masc).mask(SPMaskBehavior, spOptions);
+					
 		
-			return false;
+		
+		return false;
 		}
 function excluirPessoa(d){
 var id = $(d).attr('data-id');
@@ -33,7 +46,7 @@ function editarPessoa (d){
 				$(nome2).html("<input type='text' style='width:100%' value='"+nome+"' id='nomePessoa' class='campo_nome'>");
 				var tel2 = idd+" span";
 				var telefone = $(tel2).html();
-				$(tel2).html("<input type='text' style='width:100%' value='"+telefone+"' id='TelefonePessoa' class='campo_telefone'>");
+				$(tel2).html("<input type='text' style='width:100%' value='"+telefone+"' id='TelefonePessoa' class='campo_nome'>");
 				
 				
 				
